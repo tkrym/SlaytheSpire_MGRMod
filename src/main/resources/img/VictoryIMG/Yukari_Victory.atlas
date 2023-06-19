@@ -1,0 +1,13 @@
+
+Yukari_Victory.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+VictoryYukari
+  rotate: false
+  xy: 1, 1
+  size: 1920, 1200
+  orig: 1920, 1200
+  offset: 0, 0
+  index: -1

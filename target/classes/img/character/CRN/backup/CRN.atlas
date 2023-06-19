@@ -1,0 +1,125 @@
+
+CRN.png
+size: 1855,470
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+ズボン
+  rotate: false
+  xy: 614, 165
+  size: 275, 232
+  orig: 275, 232
+  offset: 0, 0
+  index: -1
+バッグ
+  rotate: false
+  xy: 891, 2
+  size: 196, 236
+  orig: 198, 238
+  offset: 1, 1
+  index: -1
+右手
+  rotate: false
+  xy: 1735, 118
+  size: 118, 171
+  orig: 257, 264
+  offset: 119, 42
+  index: -1
+右手指
+  rotate: true
+  xy: 816, 87
+  size: 76, 71
+  orig: 78, 73
+  offset: 1, 1
+  index: -1
+右手３
+  rotate: false
+  xy: 1735, 37
+  size: 82, 79
+  orig: 257, 264
+  offset: 23, 105
+  index: -1
+右肘
+  rotate: false
+  xy: 721, 68
+  size: 93, 95
+  orig: 257, 264
+  offset: 60, 40
+  index: -1
+右足
+  rotate: true
+  xy: 1504, 291
+  size: 177, 335
+  orig: 349, 419
+  offset: 72, 40
+  index: -1
+左手
+  rotate: true
+  xy: 229, 19
+  size: 157, 326
+  orig: 262, 372
+  offset: 50, 16
+  index: -1
+左足
+  rotate: false
+  xy: 2, 10
+  size: 225, 387
+  orig: 391, 460
+  offset: 100, 15
+  index: -1
+帽子
+  rotate: false
+  xy: 891, 240
+  size: 321, 228
+  orig: 323, 230
+  offset: 1, 1
+  index: -1
+後ろ髪
+  rotate: false
+  xy: 229, 178
+  size: 383, 219
+  orig: 383, 219
+  offset: 0, 0
+  index: -1
+淫夢之一太刀
+  rotate: false
+  xy: 2, 399
+  size: 870, 69
+  orig: 873, 76
+  offset: 1, 6
+  index: -1
+無線機
+  rotate: false
+  xy: 557, 25
+  size: 162, 138
+  orig: 164, 141
+  offset: 1, 1
+  index: -1
+耳当て
+  rotate: true
+  xy: 1504, 66
+  size: 223, 229
+  orig: 225, 231
+  offset: 1, 1
+  index: -1
+胴
+  rotate: true
+  xy: 1089, 3
+  size: 209, 262
+  orig: 209, 262
+  offset: 0, 0
+  index: -1
+裏生地
+  rotate: false
+  xy: 1353, 58
+  size: 147, 154
+  orig: 149, 156
+  offset: 1, 1
+  index: -1
+頭
+  rotate: false
+  xy: 1214, 214
+  size: 288, 254
+  orig: 290, 256
+  offset: 1, 1
+  index: -1
