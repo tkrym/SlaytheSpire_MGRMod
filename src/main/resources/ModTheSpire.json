@@ -1,0 +1,13 @@
+{
+  "modid": "MGRMod",
+  "name": "MGR",
+  "author_list": [
+    "MGRSK"
+  ],
+  "description": "Adds MGR as a new character.",
+  "dependencies": [
+    "basemod"
+  ],
+  "version": "0.0.0",
+  "sts_version": "06-23-2023"
+}
