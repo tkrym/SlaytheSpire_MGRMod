@@ -38,6 +38,7 @@
     </dependencies>
     <build>
         <finalName>MGRMod</finalName>
+        <directory>C:/Program Files (x86)/Steam/steamapps/common/SlayTheSpire/mods</directory>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

@@ -1,0 +1,241 @@
+{
+	"Support": {
+    "NAME": "呼叫",
+    "DESCRIPTIONS": [
+      "呼叫CRN的亲友 NL ",
+      "叠加到一定层数获得支援状态"
+    ]
+  },
+  	"RMASupport": {
+    "NAME": "rma支援",
+    "DESCRIPTIONS": [
+      "亲友rma的支援，每回合获得 [E] "
+    ]
+  },
+  	"MDCNSupport": {
+    "NAME": "mdcn支援",
+    "DESCRIPTIONS": [
+      "每回合对随机一名敌人施加 #b4 层 中毒 "
+    ]
+  },
+  	"QuestPower": {
+    "NAME": "探寻",
+    "DESCRIPTIONS": [
+      "每回合消耗 #b3 层 #y呼叫 ，选择一层随机亲友支援。"
+    ]
+  },
+  	"MultipleCallsPower": {
+    "NAME": "多次呼叫",
+    "DESCRIPTIONS": [
+      "每获得一次 #y呼叫 ，抽一张牌。"
+    ]
+  },
+    "DIYUSISupport": {
+    "NAME": "diyusi支援",
+    "DESCRIPTIONS": [
+      "亲友diyusi的支援，每回合额外抽 #b",
+	  " 张卡，获得 #b",
+	  " 点格挡"
+    ]
+  },
+    "SIYUDISupport": {
+    "NAME": "siyudi支援",
+    "DESCRIPTIONS": [
+      "亲友的妹妹siyudi的支援，每回合对随机敌人造成 #b8 点伤害"
+    ]
+  }, 
+    "ICGSupport": {
+    "NAME": "ICG支援",
+    "DESCRIPTIONS": [
+      "亲友的店长的亲友ICG的支援，每回合增加一点敏捷，将一张gaba物理加入手牌"
+    ]
+  }, 
+    "SIKSupport": {
+    "NAME": "SIK支援",
+    "DESCRIPTIONS": [
+      "亲友的朋友SIK的支援，斩击类伤害加 #b3 "
+    ]
+  }, 
+    "Burning": {
+    "NAME": "烧伤",
+    "DESCRIPTIONS": [
+      "受到的 斩击类 伤害提高 #b",
+	  " 点"
+    ]
+  },  
+    "WirelessCallingPower": {
+    "NAME": "无线呼叫",
+    "DESCRIPTIONS": [
+      "每回合 #y呼叫 数+"
+    ]
+  },  
+    "FuryCutterPower": {
+    "NAME": "连斩",
+    "DESCRIPTIONS": [
+      "你每打出一张 斩击类 卡，受到 #b",
+	  " 点伤害。"
+    ]
+  },  
+    "LightningPower": {
+    "NAME": "打雷",
+    "DESCRIPTIONS": [
+      "每回合对随机敌人造成 #b14 点伤害。"
+    ]
+  },  
+    "FirePower": {
+    "NAME": "炎上",
+    "DESCRIPTIONS": [
+      "每回合对所有敌人造成 #b6 点伤害，施加两层烧伤。"
+    ]
+  }, 
+    "XuliPower": {
+    "NAME": "蓄力",
+    "DESCRIPTIONS": [
+      "下一张 斩击类 牌伤害增加 #b8 点。"
+    ]
+  },  
+    "CorrosivityPower": {
+    "NAME": "放射性物质",
+    "DESCRIPTIONS": [
+      "每回合对随机敌人施加大量负面效果。"
+    ]
+  },  
+    "KNNSupport": {
+    "NAME": "KNN支援",
+    "DESCRIPTIONS": [
+      "当你要被杀死时，免除这次伤害并回复最大生命值的 #b10 %，失去这个支援。"
+    ]
+  },  
+    "BloodPower": {
+    "NAME": "流血",
+    "DESCRIPTIONS": [
+      "每回合损失层数生命，受到射击伤害时 #b50 %的几率增加一层。"
+    ]
+  },  
+    "SharpnessPower": {
+    "NAME": "锋利",
+    "DESCRIPTIONS": [
+      "所有斩击类伤害有 #b20 %的几率造成流血。"
+    ]
+  },
+    "KingdomOfWalkersPower": {
+    "NAME": "步行者天国",
+    "DESCRIPTIONS": [
+      "每回合获得 #b8 点格挡。"
+    ]
+  },  
+    "CyclingByBikePower": {
+    "NAME": "自行车骑行",
+    "DESCRIPTIONS": [
+      "每回合多抽两张牌。"
+    ]
+  },   
+    "MotorVehicleAttentionPower": {
+    "NAME": "机动车注意",
+    "DESCRIPTIONS": [
+      "阻止下次受到的生命值损伤。"
+    ]
+  }, 
+    "Komugiko": {
+    "NAME": "小麦粉的支援",
+    "DESCRIPTIONS": [
+      "每回合获得一层 缓冲 。"
+    ]
+  },  
+    "Cushion": {
+    "NAME": "缓冲",
+    "DESCRIPTIONS": [
+      "下一次受到的伤害减少 #b50 %。"
+    ]
+  },  
+    "HNSSupport": {
+    "NAME": "HNS支援",
+    "DESCRIPTIONS": [
+      "亲友的母亲HNS的支援，每回合获得 #b1 点力量，对所有敌人造成 #b10 点伤害。"
+    ]
+  },   
+    "BrakingArmorPower": {
+    "NAME": "制动装甲",
+    "DESCRIPTIONS": [
+      "每回合获得等同呼叫数的格挡。"
+    ]
+  },     
+    "QuickCallPower": {
+    "NAME": "失联",
+    "DESCRIPTIONS": [
+      "下 #b",
+	  " 回合失去 #r",
+      " 层呼叫。"
+    ]
+  },      
+    "CallPfGunfirePower": {
+    "NAME": "枪声呼叫",
+    "DESCRIPTIONS": [
+      "每打出两张射击类牌，获得 #b1 层呼叫。",
+	  "每打出两张射击类牌，获得 #b2 层呼叫。"
+    ]
+  },   
+    "AccurationPower": {
+    "NAME": "精准",
+    "DESCRIPTIONS": [
+      "射击类伤害提高 #b30% "
+    ]
+  },     
+    "SZPower": {
+    "NAME": "SZ支援",
+    "DESCRIPTIONS": [
+      "每回合将一张攻击牌加入手牌中，这张牌在本回合耗能变为 #b0 ."
+    ]
+  },     
+    "LianZhao": {
+    "NAME": "连招",
+    "DESCRIPTIONS": [
+      "斩击类伤害提高 #b",
+	  " %，打出非斩击类后消失"
+    ]
+  },      
+    "Precise": {
+    "NAME": "瞄准",
+    "DESCRIPTIONS": [
+      "射击类有 #b",
+	  " %，的几率暴击，造成3倍伤害。打出非射击类或暴击后消失"
+    ]
+  },       
+    "NoDIYUSI": {
+    "NAME": "支援禁止",
+    "DESCRIPTIONS": [
+      "无法获得 #rDIYUSI支援 "
+    ]
+  },       
+    "Inparty": {
+    "NAME": "车内银趴",
+    "DESCRIPTIONS": [
+      "损失 呼叫 数的生命 "
+    ]
+  },   
+    "MilkPower": {
+    "NAME": "牛乳",
+    "DESCRIPTIONS": [
+      "下一回合移除所有身上DEBUFF"
+    ]
+  }, 
+    "SeekPower": {
+    "NAME": "索敌",
+    "DESCRIPTIONS": [
+      "下一次射击类的伤害翻倍"
+    ]
+  },
+    "BeerBeerPower": {
+    "NAME": "啤酒！啤酒！",
+    "DESCRIPTIONS": [
+      "每获得一次格挡，追加获得3点格挡。"
+    ]
+  },
+    "WWWWWWWWWWWWWWW": {
+    "NAME": "WWWWWWWWWWW",
+    "DESCRIPTIONS": [
+      "WWWWWWWWWWW",
+      "WWWWWWWWWWW"
+    ]
+  }
+}
