@@ -3,6 +3,7 @@ package card;
 import basemod.abstracts.CustomCard;
 import basemod.helpers.BaseModCardTags;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -37,8 +38,8 @@ public class Strike_MGR extends CustomCard{
 
     public void upgrade() {
         if (!this.upgraded) {
-            upgradeName();
-            upgradeDamage(PLUS_DMG);
+            this.upgradeName();
+            this.upgradeDamage(PLUS_DMG);
         }
     }
 }

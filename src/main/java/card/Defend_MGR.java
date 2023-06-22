@@ -37,8 +37,8 @@ public class Defend_MGR extends CustomCard{
 
     public void upgrade() {
         if (!this.upgraded) {
-            upgradeName();
-            upgradeDamage(PLUS_BLOCK);
+            this.upgradeName();
+            this.upgradeDamage(PLUS_BLOCK);
         }
     }
 }

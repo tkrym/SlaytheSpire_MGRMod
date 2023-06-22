@@ -15,7 +15,7 @@ import org.apache.commons.lang3.ObjectUtils;
 
 public class TheFirst extends CustomRelic {
     public static final String ID = "TheFirst";
-    private static final String IMG = "img/relic"+ID+".png";
+    private static final String IMG = "img/relic/"+ID+".png";
     private static final String OUTLINE = "img/relic/outline/"+ID+".png";
     private static final int DMG=1,BLOCK=1;
 
@@ -26,7 +26,7 @@ public class TheFirst extends CustomRelic {
     public void onUseCard(AbstractCard card, UseCardAction action) {
         this.flash();
         this.addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
-        this.addToBot(new DamageRandomEnemyAction(new DamageInfo(null, DMG, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+        this.addToBot(new DamageRandomEnemyAction(new DamageInfo(null, DMG, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.NONE));
         this.addToBot(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, BLOCK));
     }
 
