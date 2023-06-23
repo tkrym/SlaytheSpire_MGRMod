@@ -5,6 +5,9 @@ import basemod.interfaces.*;
 import card.Defend_MGR;
 import card.SpBullet;
 import card.Strike_MGR;
+import card.TestAttack;
+import card.TestDefend;
+import card.TestPower;
 import character.MGR_character;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -60,10 +63,8 @@ public class MGR_subscriber implements RelicGetSubscriber, PostPowerApplySubscri
 
     @Override
     public void receiveEditCharacters() {
-        //添加角色到MOD中
         BaseMod.addCharacter(new MGR_character("MGR"), MY_CHARACTER_BUTTON, MARISA_PORTRAIT, ModClassEnum.MGR_CLASS);
     }
-    //初始化整个MOD,一定不能删
     public static void initialize() {
         new MGR_subscriber();
     }
@@ -137,22 +138,21 @@ public class MGR_subscriber implements RelicGetSubscriber, PostPowerApplySubscri
     }
 
     private void loadCardsToAdd() {
-        //将自定义的卡牌添加到这里
         this.cardsToAdd.clear();
         this.cardsToAdd.add(new Strike_MGR());
         this.cardsToAdd.add(new Defend_MGR());
         this.cardsToAdd.add(new SpBullet());
+        this.cardsToAdd.add(new TestAttack());
+        this.cardsToAdd.add(new TestDefend());
+        this.cardsToAdd.add(new TestPower());
     }
-    //添加一度
     @Override
     public void receiveEditRelics() {
-        //将自定义的遗物添加到这里
         BaseMod.addRelicToCustomPool(new TheFirst(),AbstractCardEnum.MGR_COLOR);
     }
 
     @Override
     public void receiveRelicGet(AbstractRelic relic) {
-        //移除遗物,这里移除了小屋子，太垃圾了。
 
         if (AbstractDungeon.player.name == "MGR") {
             AbstractDungeon.shopRelicPool.remove("TinyHouse");

@@ -21,6 +21,7 @@ public class SpBullet extends CustomCard{
     public static final String ID = "SpBullet";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+    public static final String[] EXTENDED_DESCRIPTION= cardStrings.EXTENDED_DESCRIPTION;
     public static final String IMG = "img/card/"+ID+".png";
     private static final int COST = 1;
     public SpBullet() {
@@ -32,10 +33,36 @@ public class SpBullet extends CustomCard{
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int DMG=(int)(m.currentHealth*((float)this.magicNumber/100.0)+0.5);
+        int DMG=calculateDMG(m);
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, DMG, this.damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
     }
 
+    private int calculateDMG(AbstractMonster m) {
+        return (int)Math.round(m.currentHealth*((float)this.magicNumber/100.0));
+    }
+
+    @Override
+    public void applyPowers() {
+        this.baseDamage = 0;
+        DMGdisplay(0);
+    }
+
+    private void DMGdisplay(int DMG) {
+        this.rawDescription=EXTENDED_DESCRIPTION[0]+DMG+EXTENDED_DESCRIPTION[1];
+        this.initializeDescription();
+    }
+
+    @Override
+    public void onMoveToDiscard() {
+        this.rawDescription = cardStrings.DESCRIPTION;
+        initializeDescription();
+    }
+
+    @Override
+    public void calculateCardDamage(AbstractMonster m) {
+        int DMG=(int)(m.currentHealth*((float)this.magicNumber/100.0)+0.5);
+        DMGdisplay(DMG);
+    }
     public AbstractCard makeCopy() { return new SpBullet(); }
 
     public void upgrade() {

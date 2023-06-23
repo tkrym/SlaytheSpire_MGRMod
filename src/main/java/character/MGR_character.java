@@ -6,8 +6,10 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.RandomXS128;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -19,6 +21,7 @@ import com.megacrit.cardcrawl.events.beyond.SpireHeart;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import path.ModClassEnum;
@@ -26,6 +29,8 @@ import path.AbstractCardEnum;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import com.megacrit.cardcrawl.actions.defect.ChannelAction;
+import com.megacrit.cardcrawl.core.Settings;
 
 public class MGR_character extends CustomPlayer {
     private static final int ENERGY_PER_TURN = 3;
@@ -38,8 +43,9 @@ public class MGR_character extends CustomPlayer {
     private static final float[] LAYER_SPEED = new float[] { -40.0F, -32.0F, 20.0F, -20.0F, 0.0F, -10.0F, -8.0F, 5.0F, -5.0F, 0.0F };
     private static final int STARTING_HP = 67;
     private static final int MAX_HP = 67;
-    private static final int STARTING_GOLD = 999;
-    private static final int HAND_SIZE = 0;
+    private static final int CARD_DRAW = 5;
+    private static final int STARTING_GOLD = 99;
+    private static final int HAND_SIZE = 4;
     private static final int ASCENSION_MAX_HP_LOSS = 7;
     public static final Color SILVER = CardHelper.getColor(255, 255, 255);
 
@@ -49,7 +55,7 @@ public class MGR_character extends CustomPlayer {
         this.dialogY = this.drawY + 220.0F * Settings.scale;
         initializeClass(MGR_STAND, MGR_SHOULDER_2, MGR_SHOULDER_1, MGR_CORPSE,
                 getLoadout(),
-                0.0F, 5.0F, 240.0F, 300.0F,
+                0.0F, 0.0F, 200.0F, 320.0F,
                 new EnergyManager(ENERGY_PER_TURN));
     }
 
@@ -59,6 +65,9 @@ public class MGR_character extends CustomPlayer {
         retVal.add("Strike_MGR");
         retVal.add("Defend_MGR");
         retVal.add("Defend_MGR");
+        retVal.add("TestAttack");
+        retVal.add("TestDefend");
+        retVal.add("TestPower");
         retVal.add("SpBullet");
         return retVal;
     }
@@ -80,7 +89,7 @@ public class MGR_character extends CustomPlayer {
         } else {
         }
 
-        return new CharSelectInfo(title, flavor, STARTING_HP, MAX_HP,HAND_SIZE , STARTING_GOLD, ASCENSION_MAX_HP_LOSS, this, getStartingRelics(), getStartingDeck(), false);
+        return new CharSelectInfo(title, flavor, STARTING_HP, MAX_HP,HAND_SIZE , STARTING_GOLD, CARD_DRAW, this, getStartingRelics(), getStartingDeck(), false);
     }
 
     public String getTitle(PlayerClass playerClass) {
@@ -148,6 +157,7 @@ public class MGR_character extends CustomPlayer {
 
     public void useCard(AbstractCard targetCard, AbstractMonster monster, int energyOnUse) {
         super.useCard(targetCard, monster, energyOnUse);
-        AbstractDungeon.player.gainGold(10);
+        if(Settings.isDebug) AbstractDungeon.actionManager.addToBottom(new TalkAction(true, "Use a card", 0.5f, 1.0f));
+        AbstractDungeon.actionManager.addToBottom(new ChannelAction(AbstractOrb.getRandomOrb(true)));
     }
 }

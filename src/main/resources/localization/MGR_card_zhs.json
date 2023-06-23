@@ -9,22 +9,23 @@
   },
   "SpBullet": {
     "NAME": "SpBullet",
-    "DESCRIPTION": "造成等同于目标当前生命 !M! %的伤害"
+    "DESCRIPTION": "造成等同于目标当前生命 !M! %的固定伤害",
+    "EXTENDED_DESCRIPTION": [
+      "造成等同于目标当前生命 !M! %(",
+      ")的固定伤害"
+    ]
   },
-  "WirelessInterference":{
-    "NAME":"无线干扰",
-    "DESCRIPTION": "给予敌人 !M! 层虚弱， NL !M! 层易伤 NL 叠加两层 呼叫 ",
-    "UPGRADE_DESCRIPTION": "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"
+  "TestAttack":{
+    "NAME":"TestAttack",
+    "DESCRIPTION": "击杀目标"
   },
-    "LegShot":{
-    "NAME":"牵制射击",
-    "DESCRIPTION": "射击类 NL 造成 !D! 点伤害， NL 如果敌人的意图不是纯攻击，施加一次易伤",
-    "UPGRADE_DESCRIPTION": "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"
+    "TestDefend":{
+    "NAME":"TestDefend",
+    "DESCRIPTION": "获得 999 点固定格挡。"
   },
-    "DIYUSINoSupport":{
-    "NAME":"diyusi的支援",
-    "DESCRIPTION": "叠加一层 diyusi支援",
-    "UPGRADE_DESCRIPTION": "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"
+    "TestPower":{
+    "NAME":"TestPower",
+    "DESCRIPTION": "获得 999 某状态。"
   },
     "SIYUDINoSupport":{
     "NAME":"siyudi的支援",
