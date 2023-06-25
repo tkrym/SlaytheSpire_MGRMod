@@ -22,6 +22,7 @@ import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
+import com.megacrit.cardcrawl.orbs.Frost;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import path.ModClassEnum;
@@ -47,7 +48,8 @@ public class MGR_character extends CustomPlayer {
     private static final int STARTING_GOLD = 99;
     private static final int HAND_SIZE = 4;
     private static final int ASCENSION_MAX_HP_LOSS = 7;
-    public static final Color SILVER = CardHelper.getColor(255, 255, 255);
+    public static final Color MyColor = CardHelper.getColor(255, 120, 0);
+//    public static final Color YuhColor = CardHelper.getColor(255, 200, 80);
 
     public MGR_character(String name) {
         super(name, ModClassEnum.MGR_CLASS, ORB_TEXTURES, ORB_VFX, LAYER_SPEED, (String)null, (String)null);
@@ -62,12 +64,9 @@ public class MGR_character extends CustomPlayer {
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList<>();
         retVal.add("Strike_MGR");
-        retVal.add("Strike_MGR");
-        retVal.add("Defend_MGR");
+        retVal.add("CoinflipStrike");
         retVal.add("Defend_MGR");
         retVal.add("TestAttack");
-        retVal.add("TestDefend");
-        retVal.add("TestPower");
         retVal.add("SpBullet");
         return retVal;
     }
@@ -127,11 +126,11 @@ public class MGR_character extends CustomPlayer {
 
     public AbstractCard.CardColor getCardColor() {return AbstractCardEnum.MGR_COLOR;}
 
-    public Color getCardRenderColor() {return SILVER;}
+    public Color getCardRenderColor() {return MyColor;}
 
     public AbstractCard getStartCardForEvent() {return null;}
 
-    public Color getCardTrailColor() {return SILVER;}
+    public Color getCardTrailColor() {return MyColor;}
 
     public int getAscensionMaxHPLoss() {return ASCENSION_MAX_HP_LOSS;}
 
@@ -147,7 +146,7 @@ public class MGR_character extends CustomPlayer {
 
     public String getSpireHeartText() {return SpireHeart.DESCRIPTIONS[10];}
 
-    public Color getSlashAttackColor() {return SILVER;}
+    public Color getSlashAttackColor() {return MyColor;}
 
     public AbstractGameAction.AttackEffect[] getSpireHeartSlashEffect() {return new AbstractGameAction.AttackEffect[0];}
 
@@ -158,6 +157,6 @@ public class MGR_character extends CustomPlayer {
     public void useCard(AbstractCard targetCard, AbstractMonster monster, int energyOnUse) {
         super.useCard(targetCard, monster, energyOnUse);
         if(Settings.isDebug) AbstractDungeon.actionManager.addToBottom(new TalkAction(true, "Use a card", 0.5f, 1.0f));
-        AbstractDungeon.actionManager.addToBottom(new ChannelAction(AbstractOrb.getRandomOrb(true)));
+        AbstractDungeon.actionManager.addToBottom(new ChannelAction(new Frost()));
     }
 }

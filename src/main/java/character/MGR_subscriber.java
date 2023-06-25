@@ -8,6 +8,7 @@ import card.Strike_MGR;
 import card.TestAttack;
 import card.TestDefend;
 import card.TestPower;
+import card.CoinflipStrike;
 import character.MGR_character;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -51,14 +52,14 @@ public class MGR_subscriber implements RelicGetSubscriber, PostPowerApplySubscri
     //选英雄界面的角色图标、选英雄时的背景图片
     private static final String MY_CHARACTER_BUTTON = "img/select/button.png";
     private static final String MARISA_PORTRAIT = "img/select/figure.png";
-    public static final Color SILVER = CardHelper.getColor(255, 255, 255);
+    public static final Color MyColor = CardHelper.getColor(255, 120, 0);
     private ArrayList<AbstractCard> cardsToAdd = new ArrayList<>();
     public static ArrayList<AbstractCard> recyclecards = new ArrayList<>();
 
     public MGR_subscriber() {
         //构造方法，初始化各种参数
         BaseMod.subscribe((ISubscriber)this);
-        BaseMod.addColor(AbstractCardEnum.MGR_COLOR, SILVER, SILVER, SILVER, SILVER, SILVER, SILVER, SILVER, ATTACK_CC, SKILL_CC, POWER_CC, ENERGY_ORB_CC, ATTACK_CC_PORTRAIT, SKILL_CC_PORTRAIT,POWER_CC_PORTRAIT, ENERGY_ORB_CC_PORTRAIT, CARD_ENERGY_ORB);
+        BaseMod.addColor(AbstractCardEnum.MGR_COLOR, MyColor, MyColor, MyColor, MyColor, MyColor, MyColor, MyColor, ATTACK_CC, SKILL_CC, POWER_CC, ENERGY_ORB_CC, ATTACK_CC_PORTRAIT, SKILL_CC_PORTRAIT,POWER_CC_PORTRAIT, ENERGY_ORB_CC_PORTRAIT, CARD_ENERGY_ORB);
     }
 
     @Override
@@ -145,6 +146,7 @@ public class MGR_subscriber implements RelicGetSubscriber, PostPowerApplySubscri
         this.cardsToAdd.add(new TestAttack());
         this.cardsToAdd.add(new TestDefend());
         this.cardsToAdd.add(new TestPower());
+        this.cardsToAdd.add(new CoinflipStrike());
     }
     @Override
     public void receiveEditRelics() {

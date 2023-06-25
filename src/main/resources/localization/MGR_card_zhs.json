@@ -27,10 +27,9 @@
     "NAME":"TestPower",
     "DESCRIPTION": "获得 999 某状态。"
   },
-    "SIYUDINoSupport":{
-    "NAME":"siyudi的支援",
-    "DESCRIPTION": "叠加一层 siyudi支援 ，获得1层 呼叫 ",
-    "UPGRADE_DESCRIPTION": "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"
+    "CoinflipStrike":{
+    "NAME":"掷币攻击",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 有一半概率打出一张基础伤害翻倍的复制。"
   },
     "Disintegration":{
     "NAME":"决裂",
