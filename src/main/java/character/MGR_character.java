@@ -23,6 +23,7 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.orbs.Frost;
+import com.megacrit.cardcrawl.orbs.Lightning;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import path.ModClassEnum;
@@ -63,11 +64,11 @@ public class MGR_character extends CustomPlayer {
 
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList<>();
-        retVal.add("Strike_MGR");
-        retVal.add("CoinflipStrike");
-        retVal.add("Defend_MGR");
-        retVal.add("TestAttack");
-        retVal.add("SpBullet");
+        retVal.add("MGR:Strike_MGR");
+        retVal.add("MGR:CoinflipStrike");
+        retVal.add("MGR:Defend_MGR");
+        retVal.add("MGR:TestAttack");
+        retVal.add("MGR:SpBullet");
         return retVal;
     }
 
@@ -157,6 +158,6 @@ public class MGR_character extends CustomPlayer {
     public void useCard(AbstractCard targetCard, AbstractMonster monster, int energyOnUse) {
         super.useCard(targetCard, monster, energyOnUse);
         if(Settings.isDebug) AbstractDungeon.actionManager.addToBottom(new TalkAction(true, "Use a card", 0.5f, 1.0f));
-        AbstractDungeon.actionManager.addToBottom(new ChannelAction(new Frost()));
+        AbstractDungeon.actionManager.addToBottom(new ChannelAction(new Lightning()));
     }
 }

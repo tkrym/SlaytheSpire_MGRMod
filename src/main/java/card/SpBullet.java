@@ -18,11 +18,11 @@ import com.megacrit.cardcrawl.vfx.combat.WeightyImpactEffect;
 import path.AbstractCardEnum;
 
 public class SpBullet extends CustomCard{
-    public static final String ID = "SpBullet";
+    public static final String ID = "MGR:SpBullet";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String[] EXTENDED_DESCRIPTION= cardStrings.EXTENDED_DESCRIPTION;
-    public static final String IMG = "img/card/"+ID+".png";
+    public static final String IMG = "img/card/"+ID.substring(4)+".png";
     private static final int COST = 1;
     public SpBullet() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.ATTACK,

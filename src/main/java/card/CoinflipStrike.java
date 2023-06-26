@@ -17,16 +17,16 @@ import com.megacrit.cardcrawl.vfx.combat.FlickCoinEffect;
 import path.AbstractCardEnum;
 
 public class CoinflipStrike extends CustomCard{
-    public static final String ID = "CoinflipStrike";
+    public static final String ID = "MGR:CoinflipStrike";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-    public static final String IMG = "img/card/"+ID+".png";
+    public static final String IMG = "img/card/"+ID.substring(4)+".png";
     private static final int COST = 1;
     private static final int DMG = 4;
     private static final int PLUS_DMG = 2;
     public CoinflipStrike() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.ATTACK,
-                AbstractCardEnum.MGR_COLOR, CardRarity.RARE, CardTarget.ENEMY);
+                AbstractCardEnum.MGR_COLOR, CardRarity.UNCOMMON, CardTarget.ENEMY);
         this.baseDamage = DMG;
     }
 

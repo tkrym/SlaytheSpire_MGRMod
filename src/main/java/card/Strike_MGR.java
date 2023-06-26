@@ -16,10 +16,10 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import path.AbstractCardEnum;
 
 public class Strike_MGR extends CustomCard{
-    public static final String ID = "Strike_MGR";
+    public static final String ID = "MGR:Strike_MGR";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-    public static final String IMG = "img/card/"+ID+".png";
+    public static final String IMG = "img/card/"+ID.substring(4)+".png";
     private static final int COST = 1;
     private static final int DMG = 6;
     private static final int PLUS_DMG = 3;

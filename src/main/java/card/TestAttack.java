@@ -14,10 +14,10 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import path.AbstractCardEnum;
 
 public class TestAttack extends CustomCard{
-    public static final String ID = "TestAttack";
+    public static final String ID = "MGR:TestAttack";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-    public static final String IMG = "img/card/"+ID+".png";
+    public static final String IMG = "img/card/"+ID.substring(4)+".png";
     private static final int COST = 1;
     public TestAttack() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.ATTACK,

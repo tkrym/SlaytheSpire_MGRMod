@@ -1,0 +1,101 @@
+{ 
+  "TheFirst": {
+    "NAME": "测试1",
+    "FLAVOR": "测试1文本",
+    "DESCRIPTIONS": [
+      "每使用一张牌，获得 #b1 点格挡。"
+    ]
+  },
+  "sakenomi": {
+    "NAME": "酒饮",
+    "FLAVOR": "可爱的生物，让人想知道身体内部是什么构造。可惜这个只是头部玩偶。",
+    "DESCRIPTIONS": [
+      "每杀死一个非爪牙敌人，恢复 #b1 点生命。"
+    ]
+  },
+  "erohon": {
+    "NAME": "大人的曲奇",
+    "FLAVOR": "看小黄本，延年益寿，振奋精神，强身健体（迫真）。",
+    "DESCRIPTIONS": [
+      "当使用非 射击类 或 斩击类 时，只有 #b50 %的几率失去 连招 或 精准 。"
+    ]
+  },
+  "Nico": {
+    "NAME": "Nico本社",
+    "FLAVOR": "易燃易爆物，请小心使用。",
+    "DESCRIPTIONS": [
+      "每场战斗开始时，对所有敌人造成 #b10 点伤害。"
+    ]
+  },
+  "tomare": {
+    "NAME": "停下",
+    "FLAVOR": "附件标识之一，无条件地阻止敌人行动。",
+    "DESCRIPTIONS": [
+      "每场战斗开始时，额外获得一回合。"
+    ]
+  },
+  "yueyao": {
+    "NAME": "月曜先辈",
+    "FLAVOR": "它转起来了，它倒着转起来了（被枪毙）。",
+    "DESCRIPTIONS": [
+      "无法获得 精准 ，但连招的获得量变为三倍。"
+    ]
+  },
+  "Juanru": {
+    "NAME": "小心卷入",
+    "FLAVOR": "危险标识之一，引起手卷入机械意外的发生。",
+    "DESCRIPTIONS": [
+      "每回合开始时，对随机敌人造成 #b3 点伤害，引起 #b2 层流血。"
+    ]
+  },
+  "Kururu": {
+    "NAME": "黑色高级车",
+    "FLAVOR": "也许是因为过于疲惫，不幸追尾了一辆黑色高级轿车……",
+    "DESCRIPTIONS": [
+      "每场战斗开始时，选择一个随机支援。"
+    ]
+  },
+  "Zailiaoya": {
+    "NAME": "移动材料屋",
+    "FLAVOR": "为了方便售货，大量生产的移动材料店。在这种地方，居然有一家材料屋。",
+    "DESCRIPTIONS": [
+      "每场战斗第二、三回合，多抽一张卡。"
+    ]
+  },
+  "CiXing": {
+    "NAME": "危险标识：强磁性",
+    "FLAVOR": "SIYUDI能力的具现化，大部分早已佚失，或许有一部分沉眠在高塔中。",
+    "DESCRIPTIONS": [
+      "有SIYUDI支援时，每回合获得 [E] 。"
+    ]
+  },
+  "Biim": {
+    "NAME": "Biim兄贵",
+    "FLAVOR": "会说话的种田馒头，很可爱。或许还存在着其他形态……？",
+    "DESCRIPTIONS": [
+      "每回合开始获得等同于状态数的格挡。"
+    ]
+  },
+  "Turioba": {
+    "NAME": "钓鱼大妈面具",
+    "FLAVOR": "据说喜爱钓鱼的人都会备有这副面具。因为受到了ZUN的承认而带有神奇力量。",
+    "DESCRIPTIONS": [
+      "每使用 #b1 费卡牌 #b5 次，抽一张牌。"
+    ]
+  },
+  "Radio": {
+    "NAME": "无线电",
+    "FLAVOR": "军方配备的无线电，但被CRN改造成了好友通话机。",
+    "DESCRIPTIONS": [
+      "每 #b3 ",
+      "个回合，获得 支援 。"
+    ]
+  },
+  "WWWWWWWWWWW": {
+    "NAME": "WWWWWWWWWWWWW",
+    "FLAVOR": "WWWWWWWWWWWWWWW",
+    "DESCRIPTIONS": [
+      "WWWWWWWWWWWWWWWWWWW"
+    ]
+  }
+}
