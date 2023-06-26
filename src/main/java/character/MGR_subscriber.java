@@ -36,7 +36,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 @SpireInitializer
-public class MGR_subscriber implements RelicGetSubscriber, PostPowerApplySubscriber, PostExhaustSubscriber, PostBattleSubscriber, PostDungeonInitializeSubscriber, EditCharactersSubscriber, PostInitializeSubscriber, EditRelicsSubscriber, EditCardsSubscriber, EditStringsSubscriber, OnCardUseSubscriber, EditKeywordsSubscriber, OnPowersModifiedSubscriber, PostDrawSubscriber, PostEnergyRechargeSubscriber {
+public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscriber,EditCardsSubscriber,EditStringsSubscriber,EditKeywordsSubscriber{
     private static final String MOD_BADGE = "img/UI/badge.png";
     private static final String ATTACK_CC = "img/512/MGR_attack_s.png";
     private static final String SKILL_CC = "img/512/MGR_skill_s.png";
@@ -47,9 +47,8 @@ public class MGR_subscriber implements RelicGetSubscriber, PostPowerApplySubscri
     private static final String POWER_CC_PORTRAIT = "img/1024/MGR_power.png";
     private static final String ENERGY_ORB_CC_PORTRAIT = "img/1024/MGR_orb.png";
     public static final String CARD_ENERGY_ORB = "img/UI/energyOrb.png";
-    //选英雄界面的角色图标、选英雄时的背景图片
     private static final String MY_CHARACTER_BUTTON = "img/select/button.png";
-    private static final String MARISA_PORTRAIT = "img/select/figure.png";
+    private static final String MY_CHARACTER_PORTRAIT = "img/select/figure.png";
     public static final Color MyColor = CardHelper.getColor(255, 120, 0);
     private ArrayList<AbstractCard> cardsToAdd = new ArrayList<>();
 
@@ -60,7 +59,7 @@ public class MGR_subscriber implements RelicGetSubscriber, PostPowerApplySubscri
 
     @Override
     public void receiveEditCharacters() {
-        BaseMod.addCharacter(new MGR_character("MGR"), MY_CHARACTER_BUTTON, MARISA_PORTRAIT, ModClassEnum.MGR_CLASS);
+        BaseMod.addCharacter(new MGR_character("MGR"), MY_CHARACTER_BUTTON, MY_CHARACTER_PORTRAIT, ModClassEnum.MGR_CLASS);
     }
     public static void initialize() {
         new MGR_subscriber();
@@ -75,26 +74,6 @@ public class MGR_subscriber implements RelicGetSubscriber, PostPowerApplySubscri
             BaseMod.addCard(card);
         }
     }
-
-    @Override
-    public void receivePostExhaust(AbstractCard c) {}
-
-    @Override
-    public void receivePostPowerApplySubscriber(AbstractPower pow, AbstractCreature target, AbstractCreature owner) {
-
-    }
-
-
-    @Override
-    public void receivePowersModified() {}
-
-
-    @Override
-    public void receivePostDungeonInitialize() {}
-
-
-    @Override
-    public void receivePostDraw(AbstractCard arg0) {}
 
     private static String loadJson(String jsonPath) {
         return Gdx.files.internal(jsonPath).readString(String.valueOf(StandardCharsets.UTF_8));
@@ -113,11 +92,11 @@ public class MGR_subscriber implements RelicGetSubscriber, PostPowerApplySubscri
             case ZHS: StringPath = "localization/zhs/"; break;
             default: StringPath = "localization/eng/";
         }
-        String  relic=StringPath+"MGR_relic",
-                card=StringPath+"MGR_card",
-                power=StringPath+"MGR_power",
-                potion=StringPath+"MGR_potion",
-                event=StringPath+"MGR_event";
+        String  relic=StringPath+"MGR_relic.json",
+                card=StringPath+"MGR_card.json",
+                power=StringPath+"MGR_power.json",
+                potion=StringPath+"MGR_potion.json",
+                event=StringPath+"MGR_event.json";
 
         String relicStrings = Gdx.files.internal(relic).readString(String.valueOf(StandardCharsets.UTF_8));
         BaseMod.loadCustomStrings(RelicStrings.class, relicStrings);
@@ -145,30 +124,6 @@ public class MGR_subscriber implements RelicGetSubscriber, PostPowerApplySubscri
     public void receiveEditRelics()
     {
         BaseMod.addRelicToCustomPool(new TheFirst(),AbstractCardEnum.MGR_COLOR);
-    }
-
-    @Override
-    public void receiveRelicGet(AbstractRelic relic) {
-
-    }
-
-    @Override
-    public void receiveCardUsed(AbstractCard abstractCard) {
-        AbstractDungeon.actionManager.addToBottom(new ChannelAction(new Dark()));
-    }
-
-    @Override
-    public void receivePostBattle(AbstractRoom r) {
-
-    }
-
-    @Override
-    public void receivePostInitialize() {
-
-    }
-
-    @Override
-    public void receivePostEnergyRecharge() {
     }
 
     class Keywords {

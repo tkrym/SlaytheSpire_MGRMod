@@ -33,6 +33,7 @@ import java.util.List;
 import java.util.Objects;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.core.Settings;
+import power.FortePower;
 
 public class MGR_character extends CustomPlayer {
     private static final int ENERGY_PER_TURN = 3;
@@ -74,7 +75,7 @@ public class MGR_character extends CustomPlayer {
 
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
-        retVal.add("TheFirst");
+        retVal.add("MGR:TheFirst");
         UnlockTracker.markRelicAsSeen("TheFirst");
         return retVal;
     }
@@ -157,7 +158,5 @@ public class MGR_character extends CustomPlayer {
 
     public void useCard(AbstractCard targetCard, AbstractMonster monster, int energyOnUse) {
         super.useCard(targetCard, monster, energyOnUse);
-        if(Settings.isDebug) AbstractDungeon.actionManager.addToBottom(new TalkAction(true, "Use a card", 0.5f, 1.0f));
-        AbstractDungeon.actionManager.addToBottom(new ChannelAction(new Lightning()));
     }
 }
