@@ -2,6 +2,7 @@ package character;
 
 
 import basemod.abstracts.CustomPlayer;
+import basemod.interfaces.OnStartBattleSubscriber;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.RandomXS128;
@@ -10,6 +11,8 @@ import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -29,13 +32,16 @@ import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import path.ModClassEnum;
 import path.AbstractCardEnum;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.core.Settings;
 import power.FortePower;
+import java.util.Iterator;
+import note.*;
 
-public class MGR_character extends CustomPlayer {
+public class MGR_character extends CustomPlayer implements OnStartBattleSubscriber {
     private static final int ENERGY_PER_TURN = 3;
     private static final String MGR_SHOULDER_2 = "img/character/shoulder2.png";
     private static final String MGR_SHOULDER_1 = "img/character/shoulder1.png";
@@ -159,4 +165,7 @@ public class MGR_character extends CustomPlayer {
     public void useCard(AbstractCard targetCard, AbstractMonster monster, int energyOnUse) {
         super.useCard(targetCard, monster, energyOnUse);
     }
+
+    public void receiveOnBattleStart(AbstractRoom var1){}
+
 }
