@@ -11,6 +11,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.math.MathUtils;
+import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -22,6 +23,7 @@ import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.vfx.BobEffect;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public abstract class AbstractOrb {
     public String name;
@@ -129,11 +131,11 @@ public abstract class AbstractOrb {
     }
 
     public void setSlot(int slotNum, int maxOrbs) {
-        if (AbstractDungeon.player.name == "MGR")
+        if (Objects.equals(AbstractDungeon.player.name, "MGR"))
         {
             this.tX = AbstractDungeon.player.drawX;
-            this.tY = 300.0F * Settings.scale + AbstractDungeon.player.drawY + AbstractDungeon.player.hb_h / 2.0F;
-            this.tX+=(float)(slotNum-(maxOrbs+1)/2)*100.0F*Settings.scale;
+            this.tY = 250.0F * Settings.scale + AbstractDungeon.player.drawY + AbstractDungeon.player.hb_h / 2.0F;
+            this.tX+=((float)slotNum-((float)maxOrbs-1)/2)*135.0F*Settings.scale;
             this.hb.move(this.tX, this.tY);
         }
         else
