@@ -129,10 +129,28 @@ public abstract class AbstractOrb {
     }
 
     public void setSlot(int slotNum, int maxOrbs) {
-        this.tX = AbstractDungeon.player.drawX;
-        this.tY = 160.0F * Settings.scale + AbstractDungeon.player.drawY + AbstractDungeon.player.hb_h / 2.0F;
-        this.tX+=(float)(slotNum-(maxOrbs+1)/2)*100.0F*Settings.scale;
-        this.hb.move(this.tX, this.tY);
+        if (AbstractDungeon.player.name == "MGR")
+        {
+            this.tX = AbstractDungeon.player.drawX;
+            this.tY = 300.0F * Settings.scale + AbstractDungeon.player.drawY + AbstractDungeon.player.hb_h / 2.0F;
+            this.tX+=(float)(slotNum-(maxOrbs+1)/2)*100.0F*Settings.scale;
+            this.hb.move(this.tX, this.tY);
+        }
+        else
+        {
+            float dist = 160.0F * Settings.scale + (float)maxOrbs * 10.0F * Settings.scale;
+            float angle = 100.0F + (float)maxOrbs * 12.0F;
+            float offsetAngle = angle / 2.0F;
+            angle *= (float)slotNum / ((float)maxOrbs - 1.0F);
+            angle += 90.0F - offsetAngle;
+            this.tX = dist * MathUtils.cosDeg(angle) + AbstractDungeon.player.drawX;
+            this.tY = dist * MathUtils.sinDeg(angle) + AbstractDungeon.player.drawY + AbstractDungeon.player.hb_h / 2.0F;
+            if (maxOrbs == 1) {
+                this.tX = AbstractDungeon.player.drawX;
+                this.tY = 160.0F * Settings.scale + AbstractDungeon.player.drawY + AbstractDungeon.player.hb_h / 2.0F;
+            }
+            this.hb.move(this.tX, this.tY);
+        }
     }
 
     public abstract void render(SpriteBatch var1);
