@@ -1,6 +1,7 @@
 package character;
 
 
+import action.EvokeAllNotesAction;
 import basemod.abstracts.CustomPlayer;
 import basemod.interfaces.OnStartBattleSubscriber;
 import com.badlogic.gdx.graphics.Color;
@@ -10,7 +11,11 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.actions.defect.AnimateOrbAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
+import com.megacrit.cardcrawl.actions.defect.EvokeOrbAction;
+import com.megacrit.cardcrawl.orbs.*;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -24,9 +29,6 @@ import com.megacrit.cardcrawl.events.beyond.SpireHeart;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.orbs.AbstractOrb;
-import com.megacrit.cardcrawl.orbs.Frost;
-import com.megacrit.cardcrawl.orbs.Lightning;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import path.ModClassEnum;
@@ -168,4 +170,73 @@ public class MGR_character extends CustomPlayer implements OnStartBattleSubscrib
 
     public void receiveOnBattleStart(AbstractRoom var1){}
 
+    @Override
+    public void channelOrb(AbstractOrb orbToSet) {
+        if (this.maxOrbs <= 0) {
+            AbstractDungeon.effectList.add(new ThoughtBubble(this.dialogX, this.dialogY, 3.0F, MSG[4], true));
+        } else
+        {
+            int index = -1;
+            for(int i=0;i<this.orbs.size();++i)
+            {
+                if (this.orbs.get(i) instanceof EmptyOrbSlot)
+                {
+                    index=i;
+                    break;
+                }
+            }
+            if (index!=-1)
+            {
+                (orbToSet).cX = (this.orbs.get(index)).cX;
+                (orbToSet).cY = (this.orbs.get(index)).cY;
+                this.orbs.set(index, orbToSet);
+                (this.orbs.get(index)).setSlot(index, this.maxOrbs);
+                (orbToSet).playChannelSFX();
+                for (AbstractPower p : this.powers) p.onChannel(orbToSet);
+                AbstractDungeon.actionManager.orbsChanneledThisCombat.add(orbToSet);
+                AbstractDungeon.actionManager.orbsChanneledThisTurn.add(orbToSet);
+                (orbToSet).applyFocus();
+                if(index==this.orbs.size()-1) AbstractDungeon.actionManager.addToTop(new EvokeAllNotesAction());
+            } else
+            {
+                AbstractDungeon.effectList.add(new ThoughtBubble(this.dialogX, this.dialogY, 3.0F, "This should not happen. Report this to the author.", true));
+                AbstractDungeon.actionManager.addToTop(new ChannelAction(orbToSet));
+                AbstractDungeon.actionManager.addToTop(new EvokeOrbAction(1));
+                AbstractDungeon.actionManager.addToTop(new AnimateOrbAction(1));
+            }
+        }
+    }
+
+    @Override
+    public void triggerEvokeAnimation(int slot) {
+        if (this.maxOrbs > 0) {
+            int index = -1;
+            for(int i=0;i<this.orbs.size();++i)
+                if (!(this.orbs.get(i) instanceof EmptyOrbSlot))
+                {
+                    index=i;
+                    break;
+                }
+            if(index!=-1) this.orbs.get(index).triggerEvokeAnimation();
+        }
+    }
+
+    @Override
+    public void evokeOrb()
+    {
+        if (!this.orbs.isEmpty())
+        {
+            int index = -1;
+            for(int i=0;i<this.orbs.size();++i)
+                if (!(this.orbs.get(i) instanceof EmptyOrbSlot))
+                {
+                    index=i;
+                    break;
+                }
+            if(index==-1) return;
+            (this.orbs.get(index)).onEvoke();
+            this.orbs.set(index, new EmptyOrbSlot());
+            this.orbs.get(index).setSlot(index,this.maxOrbs);
+        }
+    }
 }

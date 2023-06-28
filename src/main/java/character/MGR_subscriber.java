@@ -96,7 +96,8 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
                 card=StringPath+"MGR_card.json",
                 power=StringPath+"MGR_power.json",
                 potion=StringPath+"MGR_potion.json",
-                event=StringPath+"MGR_event.json";
+                event=StringPath+"MGR_event.json",
+                orb=StringPath+"MGR_orb.json";
 
         String relicStrings = Gdx.files.internal(relic).readString(String.valueOf(StandardCharsets.UTF_8));
         BaseMod.loadCustomStrings(RelicStrings.class, relicStrings);
@@ -108,6 +109,8 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         BaseMod.loadCustomStrings(PotionStrings.class, potionStrings);
         String eventStrings = Gdx.files.internal(event).readString(String.valueOf(StandardCharsets.UTF_8));
         BaseMod.loadCustomStrings(EventStrings.class, eventStrings);
+        String orbStrings = Gdx.files.internal(orb).readString(String.valueOf(StandardCharsets.UTF_8));
+        BaseMod.loadCustomStrings(OrbStrings.class, orbStrings);
     }
 
     private void loadCardsToAdd() {
