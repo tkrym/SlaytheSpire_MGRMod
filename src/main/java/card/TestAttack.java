@@ -17,6 +17,7 @@ public class TestAttack extends CustomCard{
     public static final String ID = "MGR:TestAttack";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+    public static final String EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION[0];
     public static final String IMG = "img/card/"+ID.substring(4)+".png";
     private static final int COST = 1;
     public TestAttack() {
@@ -27,6 +28,25 @@ public class TestAttack extends CustomCard{
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new InstantKillAction(m));
+    }
+
+    @Override
+    public void applyPowers() {
+        this.baseDamage = 0;
+        this.rawDescription=DESCRIPTION;
+        initializeDescription();
+    }
+
+    @Override
+    public void onMoveToDiscard() {
+        this.rawDescription = DESCRIPTION;
+        initializeDescription();
+    }
+
+    @Override
+    public void calculateCardDamage(AbstractMonster m) {
+        this.rawDescription = EXTENDED_DESCRIPTION;
+        initializeDescription();
     }
 
     public AbstractCard makeCopy() { return new TestAttack(); }

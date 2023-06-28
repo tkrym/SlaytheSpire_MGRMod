@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.math.MathUtils;
+import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -26,6 +27,7 @@ import power.FortePower;
 public abstract class AbstractNote extends AbstractOrb
 {
     public static final String POWER_ID=FortePower.POWER_ID;
+    public int forterate = 1;
     public AbstractNote() {
         this.c = Settings.CREAM_COLOR.cpy();
         this.shineColor = new Color(1.0F, 1.0F, 1.0F, 0.0F);
@@ -47,12 +49,12 @@ public abstract class AbstractNote extends AbstractOrb
     public void applyForte()
     {
         AbstractPower power = AbstractDungeon.player.getPower(POWER_ID);
-        if (power != null && !this.ID.equals("Plasma")) {
-            this.evokeAmount = Math.max(0, this.baseEvokeAmount + power.amount);
-        } else {
-            this.evokeAmount = this.baseEvokeAmount;
+        if (power!=null)
+        {
+            if(power.amount>0) this.evokeAmount = Math.max(0,this.baseEvokeAmount+Math.floorDiv(power.amount,this.forterate));
+            else this.evokeAmount = Math.max(0,this.baseEvokeAmount-Math.floorDiv(-power.amount,this.forterate));
         }
-        this.basePassiveAmount=this.passiveAmount=0;
+        else this.evokeAmount = this.baseEvokeAmount;
     }
 
     public static AbstractOrb getRandomNote() {

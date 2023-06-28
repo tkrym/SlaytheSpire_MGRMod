@@ -27,6 +27,9 @@ public class EmptyNoteSlot extends AbstractNote{
         this.channelAnimTimer = 0.5f;
     }
 
+    @Override
+    public void applyForte(){}
+
     public EmptyNoteSlot() {
         this.angle = MathUtils.random(360.0f);
         this.name = orbString.NAME;
@@ -52,7 +55,6 @@ public class EmptyNoteSlot extends AbstractNote{
         this.angle += Gdx.graphics.getDeltaTime() * 10.0f;
     }
 
-    @Override
     public void render(SpriteBatch sb) {
         sb.setColor(this.c);
         sb.draw(ImageMaster.ORB_SLOT_2, (this.cX - 48.0f) - (this.bobEffect.y / 8.0f), (this.cY - 48.0f) + (this.bobEffect.y / 8.0f), 48.0f, 48.0f, 96.0f, 96.0f, this.scale, this.scale, 0.0f, 0, 0, 96, 96, false, false);
@@ -61,12 +63,10 @@ public class EmptyNoteSlot extends AbstractNote{
         this.hb.render(sb);
     }
 
-    @Override
     public AbstractNote makeCopy() {
         return new EmptyNoteSlot();
     }
 
-    @Override
     public void playChannelSFX() {
     }
 }

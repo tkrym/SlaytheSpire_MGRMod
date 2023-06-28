@@ -1,5 +1,6 @@
 package card;
 
+import action.ApplyForteAction;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -26,7 +27,7 @@ public class TestPower extends CustomCard{
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new FortePower(p, this.magicNumber), this.magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new ApplyForteAction(this.baseMagicNumber));
     }
 
     public AbstractCard makeCopy() { return new TestPower(); }

@@ -21,7 +21,7 @@ public class Strike_MGR extends CustomCard{
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String IMG = "img/card/"+ID.substring(4)+".png";
     private static final int COST = 1;
-    private static final int DMG = 6;
+    private static final int DMG = 5;
     private static final int PLUS_DMG = 3;
     public Strike_MGR() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.ATTACK,

@@ -1,6 +1,10 @@
 package note;
 
+import com.megacrit.cardcrawl.actions.animations.TalkAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
+import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.ArtifactPower;
 import note.AbstractNote;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -42,14 +46,15 @@ public class AttackNote extends AbstractNote {
         this.name = orbString.NAME;
         this.baseEvokeAmount = 3;
         this.evokeAmount = this.baseEvokeAmount;
-        updateDescription();
         this.angle = MathUtils.random(360.0f);
         this.channelAnimTimer = 0.5f;
+        this.forterate=1;
+        updateDescription();
     }
 
     public void updateDescription() {
-        applyFocus();
-        this.description = orbString.DESCRIPTION[0] + this.passiveAmount + orbString.DESCRIPTION[1] + this.evokeAmount + orbString.DESCRIPTION[2];
+        applyForte();
+        this.description = orbString.DESCRIPTION[0]+this.evokeAmount+orbString.DESCRIPTION[1]+this.forterate+orbString.DESCRIPTION[2];
     }
 
     public void onEvoke()
@@ -66,6 +71,7 @@ public class AttackNote extends AbstractNote {
     @Override
     public void updateAnimation() {
         super.updateAnimation();
+        updateDescription();
         this.angle += Gdx.graphics.getDeltaTime() * 180.0f;
         this.vfxTimer -= Gdx.graphics.getDeltaTime();
         if (this.vfxTimer < 0.0f) {
@@ -77,7 +83,6 @@ public class AttackNote extends AbstractNote {
         }
     }
 
-    @Override
     public void render(SpriteBatch sb) {
         this.shineColor.a = this.c.a / 2.0f;
         sb.setColor(this.shineColor);
@@ -91,12 +96,10 @@ public class AttackNote extends AbstractNote {
         this.hb.render(sb);
     }
 
-    @Override
     public void playChannelSFX() {
         CardCrawlGame.sound.play("ORB_LIGHTNING_CHANNEL", 0.1f);
     }
 
-    @Override
     public AbstractNote makeCopy() {
         return new AttackNote();
     }

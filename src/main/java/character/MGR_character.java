@@ -62,6 +62,7 @@ public class MGR_character extends CustomPlayer implements OnStartBattleSubscrib
     private static final int ASCENSION_MAX_HP_LOSS = 7;
     public static final Color MyColor = CardHelper.getColor(255, 120, 0);
 //    public static final Color YuhColor = CardHelper.getColor(255, 200, 80);
+    public int counter=0;
 
     public MGR_character(String name) {
         super(name, ModClassEnum.MGR_CLASS, ORB_TEXTURES, ORB_VFX, LAYER_SPEED, (String)null, (String)null);

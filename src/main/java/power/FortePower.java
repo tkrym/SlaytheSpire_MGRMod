@@ -68,11 +68,11 @@ public class FortePower extends AbstractPower {
     @Override
     public void updateDescription() {
         if (this.amount > 0) {
-            this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[2];
+            this.description = DESCRIPTIONS[0];
             this.type = AbstractPower.PowerType.BUFF;
             return;
         }
-        this.description = DESCRIPTIONS[1] + (-this.amount) + DESCRIPTIONS[2];
+        this.description = DESCRIPTIONS[1];
         this.type = AbstractPower.PowerType.DEBUFF;
     }
 }

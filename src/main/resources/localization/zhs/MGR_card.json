@@ -17,7 +17,10 @@
   },
     "MGR:TestAttack":{
     "NAME":"TestAttack",
-    "DESCRIPTION": "击杀目标"
+    "DESCRIPTION": "击杀目标",
+    "EXTENDED_DESCRIPTION": [
+      "杀了它"
+    ]
   },
     "MGR:TestDefend":{
     "NAME":"TestDefend",
