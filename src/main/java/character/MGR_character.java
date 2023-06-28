@@ -1,7 +1,9 @@
 package character;
 
 
+import action.AnimateNoteAction;
 import action.EvokeAllNotesAction;
+import action.EvokeNoteAction;
 import basemod.abstracts.CustomPlayer;
 import basemod.interfaces.OnStartBattleSubscriber;
 import com.badlogic.gdx.graphics.Color;
@@ -178,13 +180,8 @@ public class MGR_character extends CustomPlayer implements OnStartBattleSubscrib
         {
             int index = -1;
             for(int i=0;i<this.orbs.size();++i)
-            {
-                if (this.orbs.get(i) instanceof EmptyOrbSlot)
-                {
-                    index=i;
-                    break;
-                }
-            }
+                if (this.orbs.get(i) instanceof EmptyNoteSlot)
+                    {index=i;break;}
             if (index!=-1)
             {
                 (orbToSet).cX = (this.orbs.get(index)).cX;
@@ -199,24 +196,24 @@ public class MGR_character extends CustomPlayer implements OnStartBattleSubscrib
                 if(index==this.orbs.size()-1) AbstractDungeon.actionManager.addToTop(new EvokeAllNotesAction());
             } else
             {
-                AbstractDungeon.effectList.add(new ThoughtBubble(this.dialogX, this.dialogY, 3.0F, "This should not happen. Report this to the author.", true));
+                AbstractDungeon.effectList.add(new ThoughtBubble(this.dialogX, this.dialogY, 5.0F, "This should not happen. Report this to the author.", true));
                 AbstractDungeon.actionManager.addToTop(new ChannelAction(orbToSet));
-                AbstractDungeon.actionManager.addToTop(new EvokeOrbAction(1));
-                AbstractDungeon.actionManager.addToTop(new AnimateOrbAction(1));
+                AbstractDungeon.actionManager.addToTop(new EvokeNoteAction(1));
+                AbstractDungeon.actionManager.addToTop(new AnimateNoteAction(1));
             }
         }
     }
 
     @Override
-    public void triggerEvokeAnimation(int slot) {
+    public void triggerEvokeAnimation(int slot) { triggerEvokeAnimation();}
+
+    public void triggerEvokeAnimation()
+    {
         if (this.maxOrbs > 0) {
             int index = -1;
             for(int i=0;i<this.orbs.size();++i)
-                if (!(this.orbs.get(i) instanceof EmptyOrbSlot))
-                {
-                    index=i;
-                    break;
-                }
+                if (!(this.orbs.get(i) instanceof EmptyNoteSlot))
+                    {index=i;break;}
             if(index!=-1) this.orbs.get(index).triggerEvokeAnimation();
         }
     }
@@ -228,15 +225,24 @@ public class MGR_character extends CustomPlayer implements OnStartBattleSubscrib
         {
             int index = -1;
             for(int i=0;i<this.orbs.size();++i)
-                if (!(this.orbs.get(i) instanceof EmptyOrbSlot))
-                {
-                    index=i;
-                    break;
-                }
+                if (!(this.orbs.get(i) instanceof EmptyNoteSlot))
+                    {index=i;break;}
             if(index==-1) return;
             (this.orbs.get(index)).onEvoke();
-            this.orbs.set(index, new EmptyOrbSlot());
+            this.orbs.set(index, new EmptyNoteSlot());
             this.orbs.get(index).setSlot(index,this.maxOrbs);
+        }
+    }
+
+    @Override
+    public void increaseMaxOrbSlots(int amount, boolean playSfx) {
+        if (this.maxOrbs == 10) {
+            AbstractDungeon.effectList.add(new ThoughtBubble(this.dialogX, this.dialogY, 3.0F, MSG[3], true));
+        } else {
+            if (playSfx) CardCrawlGame.sound.play("ORB_SLOT_GAIN", 0.1F);
+            this.maxOrbs += amount;
+            for(int i = 0; i < amount; ++i) this.orbs.add(new EmptyNoteSlot());
+            for(int i = 0; i < this.orbs.size(); ++i) (this.orbs.get(i)).setSlot(i, this.maxOrbs);
         }
     }
 }

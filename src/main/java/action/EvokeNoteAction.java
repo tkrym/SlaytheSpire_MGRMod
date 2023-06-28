@@ -8,11 +8,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 public class EvokeNoteAction extends AbstractGameAction {
     private int orbCount;
     public EvokeNoteAction(int amount) {
-        if (Settings.FAST_MODE) {
-            this.duration = Settings.ACTION_DUR_XFAST;
-        } else {
-            this.duration = Settings.ACTION_DUR_FAST;
-        }
         this.duration = this.startDuration;
         this.orbCount = amount;
         this.actionType = ActionType.DAMAGE;

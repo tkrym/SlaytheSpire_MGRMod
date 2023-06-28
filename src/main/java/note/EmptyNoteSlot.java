@@ -1,4 +1,4 @@
-package com.megacrit.cardcrawl.orbs;
+package note;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -7,22 +7,19 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.OrbStrings;
-
+import com.megacrit.cardcrawl.orbs.AbstractOrb;
+import com.megacrit.cardcrawl.orbs.EmptyOrbSlot;
+import note.AbstractNote;
 import java.util.Objects;
 
-public class EmptyOrbSlot extends AbstractOrb {
-    public static final String ORB_ID = "Empty";
+public class EmptyNoteSlot extends AbstractNote{
+    public static final String ORB_ID = "MGR:Empty";
     private static final OrbStrings orbString = CardCrawlGame.languagePack.getOrbString(ORB_ID);
     public static final String[] DESC = orbString.DESCRIPTION;
-    public static final String ORB_ID_MGR = "MGR:Empty";
-    private static final OrbStrings orbString_MGR = CardCrawlGame.languagePack.getOrbString(ORB_ID_MGR);
-    public static final String[] DESC_MGR = orbString_MGR.DESCRIPTION;
-
-    public EmptyOrbSlot(float x, float y) {
+    public EmptyNoteSlot(float x, float y) {
         this.angle = MathUtils.random(360.0f);
         this.ID = ORB_ID;
-        if (Objects.equals(AbstractDungeon.player.name, "MGR")) this.name = orbString_MGR.NAME;
-        else this.name = orbString.NAME;
+        this.name = orbString.NAME;
         this.evokeAmount = 0;
         this.cX = x;
         this.cY = y;
@@ -30,10 +27,9 @@ public class EmptyOrbSlot extends AbstractOrb {
         this.channelAnimTimer = 0.5f;
     }
 
-    public EmptyOrbSlot() {
+    public EmptyNoteSlot() {
         this.angle = MathUtils.random(360.0f);
-        if (Objects.equals(AbstractDungeon.player.name, "MGR")) this.name = orbString_MGR.NAME;
-        else this.name = orbString.NAME;
+        this.name = orbString.NAME;
         this.evokeAmount = 0;
         this.cX = AbstractDungeon.player.drawX + AbstractDungeon.player.hb_x;
         this.cY = AbstractDungeon.player.drawY + AbstractDungeon.player.hb_y + (AbstractDungeon.player.hb_h / 2.0f);
@@ -43,8 +39,7 @@ public class EmptyOrbSlot extends AbstractOrb {
     @Override
     public void updateDescription()
     {
-        if (Objects.equals(AbstractDungeon.player.name, "MGR")) this.description = DESC_MGR[0];
-        else this.description = DESC[0];
+        this.description = DESC[0];
     }
 
     @Override
@@ -67,12 +62,11 @@ public class EmptyOrbSlot extends AbstractOrb {
     }
 
     @Override
-    public AbstractOrb makeCopy() {
-        return new EmptyOrbSlot();
+    public AbstractNote makeCopy() {
+        return new EmptyNoteSlot();
     }
 
     @Override
     public void playChannelSFX() {
     }
 }
-

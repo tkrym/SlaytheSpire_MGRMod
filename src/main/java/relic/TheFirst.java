@@ -1,4 +1,5 @@
 package relic;
+import action.ChannelNoteAction;
 import basemod.abstracts.CustomRelic;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageRandomEnemyAction;
@@ -13,6 +14,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.orbs.Frost;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import note.AttackNote;
 import org.apache.commons.lang3.ObjectUtils;
 
 public class TheFirst extends CustomRelic {
@@ -28,7 +30,9 @@ public class TheFirst extends CustomRelic {
     public void onUseCard(AbstractCard card, UseCardAction action) {
         this.flash();
         this.addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
-          AbstractDungeon.actionManager.addToBottom(new ChannelAction(new Frost()));
+        AbstractDungeon.actionManager.addToBottom(new ChannelNoteAction(new AttackNote()));
+        AbstractDungeon.actionManager.addToBottom(new ChannelNoteAction(new AttackNote()));
+        AbstractDungeon.actionManager.addToBottom(new ChannelNoteAction(new AttackNote()));
 //        this.addToBot(new DamageRandomEnemyAction(new DamageInfo(null, DMG, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.NONE));
 //        this.addToBot(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, BLOCK));
     }

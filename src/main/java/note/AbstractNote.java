@@ -18,6 +18,9 @@ import com.megacrit.cardcrawl.orbs.*;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.vfx.BobEffect;
 import java.util.ArrayList;
+import java.util.Objects;
+
+import javassist.expr.Instanceof;
 import power.FortePower;
 
 public abstract class AbstractNote extends AbstractOrb
@@ -49,6 +52,7 @@ public abstract class AbstractNote extends AbstractOrb
         } else {
             this.evokeAmount = this.baseEvokeAmount;
         }
+        this.basePassiveAmount=this.passiveAmount=0;
     }
 
     public static AbstractOrb getRandomNote() {
@@ -63,6 +67,16 @@ public abstract class AbstractNote extends AbstractOrb
     @Override
     protected void renderText(SpriteBatch sb)
     {
-        FontHelper.renderFontCentered(sb, FontHelper.cardEnergyFont_L, Integer.toString(this.evokeAmount), this.cX + NUM_X_OFFSET, this.cY + this.bobEffect.y / 2.0F + NUM_Y_OFFSET, this.c, this.fontScale);
+        if(!(this instanceof EmptyNoteSlot))
+            FontHelper.renderFontCentered(sb, FontHelper.cardEnergyFont_L, Integer.toString(this.evokeAmount), this.cX + NUM_X_OFFSET, this.cY + this.bobEffect.y / 2.0F + NUM_Y_OFFSET, this.c, this.fontScale);
+    }
+
+    @Override
+    public void setSlot(int slotNum, int maxOrbs)
+    {
+        this.tX = AbstractDungeon.player.drawX;
+        this.tY = 250.0F * Settings.scale + AbstractDungeon.player.drawY + AbstractDungeon.player.hb_h / 2.0F;
+        this.tX+=((float)slotNum-((float)maxOrbs-1)/2)*135.0F*Settings.scale;
+        this.hb.move(this.tX, this.tY);
     }
 }
