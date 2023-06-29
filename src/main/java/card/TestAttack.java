@@ -22,7 +22,7 @@ public class TestAttack extends CustomCard{
     private static final int COST = 1;
     public TestAttack() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.ATTACK,
-                AbstractCardEnum.MGR_COLOR, CardRarity.COMMON, CardTarget.ENEMY);
+                AbstractCardEnum.MGR_COLOR, CardRarity.RARE, CardTarget.ENEMY);
         this.baseDamage = 0;
     }
 

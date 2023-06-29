@@ -2,13 +2,7 @@ package character;
 
 import basemod.BaseMod;
 import basemod.interfaces.*;
-import card.Defend_MGR;
-import card.SpBullet;
-import card.Strike_MGR;
-import card.TestAttack;
-import card.TestDefend;
-import card.TestPower;
-import card.CoinflipStrike;
+import card.*;
 import character.MGR_character;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -29,7 +23,7 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDrawPileEffect;
 import path.AbstractCardEnum;
 import path.ModClassEnum;
-import relic.TheFirst;
+import relic.*;
 
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -122,6 +116,9 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         this.cardsToAdd.add(new TestDefend());
         this.cardsToAdd.add(new TestPower());
         this.cardsToAdd.add(new CoinflipStrike());
+        this.cardsToAdd.add(new AttackTied());
+        this.cardsToAdd.add(new CrispEnding());
+        this.cardsToAdd.add(new GentleEnding());
     }
     @Override
     public void receiveEditRelics()

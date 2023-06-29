@@ -26,7 +26,7 @@ public class SpBullet extends CustomCard{
     private static final int COST = 1;
     public SpBullet() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.ATTACK,
-                AbstractCardEnum.MGR_COLOR, CardRarity.BASIC, CardTarget.ENEMY);
+                AbstractCardEnum.MGR_COLOR, CardRarity.RARE, CardTarget.ENEMY);
         this.baseDamage = 0;
         this.baseMagicNumber=40;
         this.magicNumber=this.baseMagicNumber;

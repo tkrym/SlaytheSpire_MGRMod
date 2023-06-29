@@ -32,7 +32,6 @@ public class Defend_MGR extends CustomCard{
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new FortePower(p, 3), 3));
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
     }
 
@@ -41,7 +40,7 @@ public class Defend_MGR extends CustomCard{
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeDamage(PLUS_BLOCK);
+            this.upgradeBlock(PLUS_BLOCK);
         }
     }
 }

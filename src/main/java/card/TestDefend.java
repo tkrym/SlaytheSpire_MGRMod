@@ -19,7 +19,7 @@ public class TestDefend extends CustomCard{
     private static final int COST = 1;
     public TestDefend() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.SKILL,
-                AbstractCardEnum.MGR_COLOR, CardRarity.UNCOMMON, CardTarget.SELF);
+                AbstractCardEnum.MGR_COLOR, CardRarity.RARE, CardTarget.SELF);
         this.baseBlock = 999;
     }
 

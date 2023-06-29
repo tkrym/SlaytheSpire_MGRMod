@@ -34,17 +34,18 @@
     "NAME":"掷币攻击",
     "DESCRIPTION": "造成 !D! 点伤害。 NL 有一半概率打出一张基础伤害翻倍的复制。"
   },
-    "Disintegration":{
-    "NAME":"决裂",
-    "DESCRIPTION": "射击类 NL 对一个敌人造成 !D! 点伤害， NL 若只有一个敌人，则造成1.5倍伤害"
+    "MGR:AttackTied":{
+    "NAME":"攻击连音",
+    "DESCRIPTION": "造成 !D! 点伤害，生成 !M! 个攻击音符。"
   },
-    "MoKu":{
-    "NAME":"MoKu",
-    "DESCRIPTION": "射击类 NL 造成 !D! 点伤害，获得一层 呼叫 "
+    "MGR:GentleEnding":{
+    "NAME":"舒缓尾音",
+    "DESCRIPTION": "获得 !B! 点格挡，生成1个防御音符。 NL 尾音：给予所有生物 !M! 层虚弱。",
+    "UPGRADE_DESCRIPTION": "获得 !B! 点格挡，生成1个防御音符。 NL 尾音：给予所有敌人 !M! 层虚弱。"
   },
-    "SwingingTraverse":{
-    "NAME":"扫射",
-    "DESCRIPTION": "射击类 NL 对所有敌人造成 !D! 点伤害2次."
+    "MGR:CrispEnding":{
+    "NAME":"轻快尾音",
+    "DESCRIPTION": "造成 !D! 点伤害，抽1张牌。 NL 尾音：打出一张复制。"
   },
     "Knifegame":{
     "NAME":"Knifegame",

@@ -2,6 +2,7 @@ package character;
 
 
 import action.AnimateNoteAction;
+import action.ChannelNoteAction;
 import action.EvokeAllNotesAction;
 import action.EvokeNoteAction;
 import basemod.abstracts.CustomPlayer;
@@ -54,8 +55,8 @@ public class MGR_character extends CustomPlayer implements OnStartBattleSubscrib
     private static final String[] ORB_TEXTURES = new String[] { "img/UI/EPanel/layer5.png", "img/UI/EPanel/layer4.png", "img/UI/EPanel/layer3.png", "img/UI/EPanel/layer2.png", "img/UI/EPanel/layer1.png", "img/UI/EPanel/layer0.png", "img/UI/EPanel/layer5d.png", "img/UI/EPanel/layer4d.png", "img/UI/EPanel/layer3d.png", "img/UI/EPanel/layer2d.png", "img/UI/EPanel/layer1d.png" };
     private static final String ORB_VFX = "img/UI/energyBlueVFX.png";
     private static final float[] LAYER_SPEED = new float[] { -40.0F, -32.0F, 20.0F, -20.0F, 0.0F, -10.0F, -8.0F, 5.0F, -5.0F, 0.0F };
-    private static final int STARTING_HP = 67;
-    private static final int MAX_HP = 67;
+    private static final int STARTING_HP = 66;
+    private static final int MAX_HP = 66;
     private static final int CARD_DRAW = 5;
     private static final int STARTING_GOLD = 99;
     private static final int HAND_SIZE = 4;
@@ -77,10 +78,11 @@ public class MGR_character extends CustomPlayer implements OnStartBattleSubscrib
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList<>();
         retVal.add("MGR:Strike_MGR");
-        retVal.add("MGR:CoinflipStrike");
+        retVal.add("MGR:Strike_MGR");
         retVal.add("MGR:Defend_MGR");
-        retVal.add("MGR:TestAttack");
-        retVal.add("MGR:SpBullet");
+        retVal.add("MGR:Defend_MGR");
+        retVal.add("MGR:AttackTied");
+        retVal.add("MGR:GentleEnding");
         return retVal;
     }
 
@@ -167,7 +169,22 @@ public class MGR_character extends CustomPlayer implements OnStartBattleSubscrib
 
     public void applyEndOfTurnTriggers() {super.applyEndOfTurnTriggers();}
 
+    @Override
     public void useCard(AbstractCard targetCard, AbstractMonster monster, int energyOnUse) {
+        if(!targetCard.dontTriggerOnUseCard)
+        {
+            AbstractNote note;
+            switch (targetCard.type)
+            {
+                case ATTACK:note=new AttackNote();break;
+                case SKILL:note=new DefendNote();break;
+                case POWER:note=new PowerNote();break;
+                case STATUS:note=new DrawNote();break;
+                case CURSE:note=new DebuffNote();break;
+                default:note=new EmptyNoteSlot();
+            }
+            AbstractDungeon.actionManager.addToBottom(new ChannelNoteAction(note));
+        }
         super.useCard(targetCard, monster, energyOnUse);
     }
 
@@ -175,7 +192,9 @@ public class MGR_character extends CustomPlayer implements OnStartBattleSubscrib
 
     @Override
     public void channelOrb(AbstractOrb orbToSet) {
-        if (this.maxOrbs <= 0) {
+        if(orbToSet instanceof EmptyOrbSlot || orbToSet instanceof EmptyNoteSlot)
+            return;
+        else if (this.maxOrbs <= 0) {
             AbstractDungeon.effectList.add(new ThoughtBubble(this.dialogX, this.dialogY, 3.0F, MSG[4], true));
         } else
         {
@@ -245,5 +264,22 @@ public class MGR_character extends CustomPlayer implements OnStartBattleSubscrib
             for(int i = 0; i < amount; ++i) this.orbs.add(new EmptyNoteSlot());
             for(int i = 0; i < this.orbs.size(); ++i) (this.orbs.get(i)).setSlot(i, this.maxOrbs);
         }
+    }
+
+    @Override
+    public int filledOrbCount() {
+        int orbCount = 0;
+        for (AbstractOrb o : this.orbs) {
+            if (!(o instanceof EmptyOrbSlot || o instanceof EmptyNoteSlot)) {
+                ++orbCount;
+            }
+        }
+        return orbCount;
+    }
+
+    public void Inccounter(int amount)
+    {
+        this.counter=Math.max(0,this.counter+amount);
+        AbstractDungeon.actionManager.addToTop(new TalkAction(true,"My counter is "+this.counter,3.0F,4.0F));
     }
 }

@@ -24,6 +24,7 @@ public class TestPower extends CustomCard{
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.POWER,
                 AbstractCardEnum.MGR_COLOR, CardRarity.RARE, CardTarget.SELF);
         this.baseMagicNumber = 999;
+        this.magicNumber=this.baseMagicNumber;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
