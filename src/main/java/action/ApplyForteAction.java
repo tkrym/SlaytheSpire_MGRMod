@@ -15,10 +15,8 @@ public class ApplyForteAction extends AbstractGameAction {
     }
 
     public void update() {
-        if (this.duration == this.startDuration) {
-            AbstractCreature p=AbstractDungeon.player;
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new FortePower(p, this.amount), this.amount));
-        }
-        this.tickDuration();
+        AbstractCreature p=AbstractDungeon.player;
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new FortePower(p, this.amount), this.amount));
+        this.isDone=true;
     }
 }

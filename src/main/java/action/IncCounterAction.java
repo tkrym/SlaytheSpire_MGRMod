@@ -15,13 +15,11 @@ public class IncCounterAction extends AbstractGameAction
     }
     public void update()
     {
-        if (this.duration == this.startDuration) {
-            if(AbstractDungeon.player instanceof MGR_character)
-            {
-                MGR_character p=(MGR_character)AbstractDungeon.player;
-                p.Inccounter(1);
-            }
+        if(AbstractDungeon.player instanceof MGR_character)
+        {
+            MGR_character p=(MGR_character)AbstractDungeon.player;
+            p.Inccounter(1);
         }
-        this.tickDuration();
+        this.isDone=true;
     }
 }

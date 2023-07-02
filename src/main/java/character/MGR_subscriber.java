@@ -91,7 +91,8 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
                 power=StringPath+"MGR_power.json",
                 potion=StringPath+"MGR_potion.json",
                 event=StringPath+"MGR_event.json",
-                orb=StringPath+"MGR_orb.json";
+                orb=StringPath+"MGR_orb.json",
+                ui=StringPath+"MGR_ui.json";
 
         String relicStrings = Gdx.files.internal(relic).readString(String.valueOf(StandardCharsets.UTF_8));
         BaseMod.loadCustomStrings(RelicStrings.class, relicStrings);
@@ -105,6 +106,8 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         BaseMod.loadCustomStrings(EventStrings.class, eventStrings);
         String orbStrings = Gdx.files.internal(orb).readString(String.valueOf(StandardCharsets.UTF_8));
         BaseMod.loadCustomStrings(OrbStrings.class, orbStrings);
+        String uiStrings = Gdx.files.internal(ui).readString(String.valueOf(StandardCharsets.UTF_8));
+        BaseMod.loadCustomStrings(UIStrings.class, uiStrings);
     }
 
     private void loadCardsToAdd() {
@@ -119,6 +122,8 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         this.cardsToAdd.add(new AttackTied());
         this.cardsToAdd.add(new CrispEnding());
         this.cardsToAdd.add(new GentleEnding());
+        this.cardsToAdd.add(new SpBullet1());
+        this.cardsToAdd.add(new SpBullet2());
     }
     @Override
     public void receiveEditRelics()

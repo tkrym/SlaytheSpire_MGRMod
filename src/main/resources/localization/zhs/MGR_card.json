@@ -47,12 +47,12 @@
     "NAME":"轻快尾音",
     "DESCRIPTION": "造成 !D! 点伤害，抽1张牌。 NL 尾音：打出一张复制。"
   },
-    "Knifegame":{
+    "MGR:SpBullet1":{
     "NAME":"Knifegame",
     "DESCRIPTION": "损失3点生命，叠加 !M! 层 siyudi支援",
     "UPGRADE_DESCRIPTION": "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"
   },
-    "Conversation":{
+    "MGR:SpBullet2":{
     "NAME":"会话",
     "DESCRIPTION": "只能在有 diyusi支援 的时候打出。获得 [E] [E] NL 消耗 .",
     "UPGRADE_DESCRIPTION": "只能在有 diyusi支援 的时候打出。获得 [E] [E] .",

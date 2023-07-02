@@ -2,6 +2,7 @@ package relic;
 import action.ChannelNoteAction;
 import basemod.abstracts.CustomRelic;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.DamageRandomEnemyAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
@@ -15,12 +16,13 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.orbs.Frost;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import hook.OnChordHook;
 import note.*;
 import org.apache.commons.lang3.ObjectUtils;
 
 import java.util.ArrayList;
 
-public class TheFirst extends CustomRelic {
+public class TheFirst extends CustomRelic implements OnChordHook {
     public static final String ID = "MGR:TheFirst";
     private static final String IMG = "img/relic/"+ID.substring(4)+".png";
     private static final String OUTLINE = "img/relic/outline/"+ID.substring(4)+".png";
@@ -53,5 +55,10 @@ public class TheFirst extends CustomRelic {
     }
 
     public String getUpdatedDescription() { return this.DESCRIPTIONS[0]; }
+
+    public void OnChord(ArrayList<AbstractNote> notes)
+    {
+        AbstractDungeon.actionManager.addToBottom(new TalkAction(true,notes.get(0).name,3.0F,3.0F));
+    }
 
 }

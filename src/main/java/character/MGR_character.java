@@ -1,10 +1,8 @@
 package character;
 
 
-import action.AnimateNoteAction;
-import action.ChannelNoteAction;
-import action.EvokeAllNotesAction;
-import action.EvokeNoteAction;
+import action.*;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import basemod.abstracts.CustomPlayer;
 import basemod.interfaces.OnStartBattleSubscriber;
 import com.badlogic.gdx.graphics.Color;
@@ -45,6 +43,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import power.FortePower;
 import java.util.Iterator;
 import note.*;
+import ui.CounterPanel;
 
 public class MGR_character extends CustomPlayer implements OnStartBattleSubscriber {
     private static final int ENERGY_PER_TURN = 3;
@@ -64,6 +63,9 @@ public class MGR_character extends CustomPlayer implements OnStartBattleSubscrib
     public static final Color MyColor = CardHelper.getColor(255, 120, 0);
 //    public static final Color YuhColor = CardHelper.getColor(255, 200, 80);
     public int counter=0;
+    public int counter_master=4;
+    public int counter_max=counter_master;
+    public static CounterPanel myCounterPanel=new CounterPanel();
 
     public MGR_character(String name) {
         super(name, ModClassEnum.MGR_CLASS, ORB_TEXTURES, ORB_VFX, LAYER_SPEED, (String)null, (String)null);
@@ -153,8 +155,6 @@ public class MGR_character extends CustomPlayer implements OnStartBattleSubscrib
 
     public void doCharSelectScreenSelectEffect() {}
 
-    public void updateOrb(int orbCount) {this.energyOrb.updateOrb(orbCount);}
-
     public String getCustomModeCharacterButtonSoundKey() {return null;}
 
     public AbstractPlayer newInstance() {return new MGR_character(this.name);}
@@ -167,10 +167,14 @@ public class MGR_character extends CustomPlayer implements OnStartBattleSubscrib
 
     public String getVampireText() {return "Hello, vampires?";}
 
-    public void applyEndOfTurnTriggers() {super.applyEndOfTurnTriggers();}
-
     @Override
     public void useCard(AbstractCard targetCard, AbstractMonster monster, int energyOnUse) {
+        super.useCard(targetCard, monster, energyOnUse);
+        GenerateNote(targetCard);
+    }
+
+    public void GenerateNote(AbstractCard targetCard)
+    {
         if(!targetCard.dontTriggerOnUseCard)
         {
             AbstractNote note;
@@ -185,16 +189,19 @@ public class MGR_character extends CustomPlayer implements OnStartBattleSubscrib
             }
             AbstractDungeon.actionManager.addToBottom(new ChannelNoteAction(note));
         }
-        super.useCard(targetCard, monster, energyOnUse);
     }
 
-    public void receiveOnBattleStart(AbstractRoom var1){}
+    public void receiveOnBattleStart(AbstractRoom var1)
+    {
+        this.counter=0;
+        this.counter_max=this.counter_master;
+    }
 
     @Override
     public void channelOrb(AbstractOrb orbToSet) {
         if(orbToSet instanceof EmptyOrbSlot || orbToSet instanceof EmptyNoteSlot)
             return;
-        else if (this.maxOrbs <= 0) {
+        else if (this.maxOrbs <= 0 || !(orbToSet instanceof AbstractNote)) {
             AbstractDungeon.effectList.add(new ThoughtBubble(this.dialogX, this.dialogY, 3.0F, MSG[4], true));
         } else
         {
@@ -213,7 +220,7 @@ public class MGR_character extends CustomPlayer implements OnStartBattleSubscrib
                 AbstractDungeon.actionManager.orbsChanneledThisCombat.add(orbToSet);
                 AbstractDungeon.actionManager.orbsChanneledThisTurn.add(orbToSet);
                 (orbToSet).applyFocus();
-                if(index==this.orbs.size()-1) AbstractDungeon.actionManager.addToTop(new EvokeAllNotesAction());
+                if(index==this.orbs.size()-1) AbstractDungeon.actionManager.addToTop(new ChordAction());
             } else
             {
                 AbstractDungeon.effectList.add(new ThoughtBubble(this.dialogX, this.dialogY, 5.0F, "This should not happen. Report this to the author.", true));
@@ -280,6 +287,11 @@ public class MGR_character extends CustomPlayer implements OnStartBattleSubscrib
     public void Inccounter(int amount)
     {
         this.counter=Math.max(0,this.counter+amount);
-        AbstractDungeon.actionManager.addToTop(new TalkAction(true,"My counter is "+this.counter,3.0F,4.0F));
+        //AbstractDungeon.actionManager.addToTop(new TalkAction(true,"My counter is "+this.counter,3.0F,4.0F));
     }
+
+    public void updateCounterPanel() {myCounterPanel.updatePositions();}
+    public void showCounterPanel() {myCounterPanel.show();}
+    public void hideCounterPanel() {myCounterPanel.hide();}
+    public void renderCounterPanel(SpriteBatch sb){myCounterPanel.render(sb);}
 }
