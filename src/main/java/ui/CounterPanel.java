@@ -4,7 +4,9 @@ import character.MGR_character;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -28,37 +30,23 @@ public class CounterPanel extends AbstractPanel {
     private Hitbox CounterHB;
     public static final UIStrings Counter_UIString;
     public static final String[] Counter_MSG;
-    private float scale = 1.0F;
-    private float glowAlpha;
-    private Color glowColor;
-    String Counter_DATA;
+    private float fontScale = 1.0F;
 
     public CounterPanel() {
         super(Counter_X, Counter_Y, CounterHB_WIDTH, CounterHB_HEIGHT, Counter_X, Counter_Y, (Texture)null, true);
         this.CounterHB = new Hitbox(Counter_X + CounterHB_HEIGHT * 2.0F + 16.0F * Settings.scale, Counter_Y - 30.0F * Settings.scale, CounterHB_WIDTH, CounterHB_HEIGHT);
-        this.glowAlpha = 1.0F;
-        this.glowColor = Color.WHITE.cpy();
     }
+
+    public void EnlargeFontScale() {this.fontScale=2.0f;}
 
     public void updatePositions() {
         super.updatePositions();
         if (!this.isHidden) {
             this.CounterHB.update();
-            this.scale = MathHelper.scaleLerpSnap(this.scale, Settings.scale);
+            if (fontScale != 1.0F) {
+                fontScale = MathHelper.scaleLerpSnap(fontScale, 1.0F);
+            }
         }
-
-        this.glowAlpha += Gdx.graphics.getDeltaTime() * 3.0F;
-        if (this.glowAlpha < 0.0F) {
-            this.glowAlpha *= -1.0F;
-        }
-
-        float tmp = MathUtils.cos(this.glowAlpha);
-        if (tmp < 0.0F) {
-            this.glowColor.a = -tmp / 2.0F;
-        } else {
-            this.glowColor.a = tmp / 2.0F;
-        }
-
     }
 
     public void render(SpriteBatch sb) {
@@ -66,20 +54,17 @@ public class CounterPanel extends AbstractPanel {
             return;
         MGR_character p=(MGR_character)AbstractDungeon.player;
         sb.setColor(Color.WHITE);
-        if (this.CounterHB.hovered) {
-            this.scale = 1.2F * Settings.scale;
-        }
-
         if (!this.isHidden) {
             this.CounterHB.render(sb);
             sb.draw(CounterBG, this.CounterHB.x, this.CounterHB.y, this.CounterHB.width, this.CounterHB.height);
-            this.Counter_DATA = "-" + p.counter + "-";
-            FontHelper.renderFontCentered(sb, AbstractDungeon.player.getEnergyNumFont(), this.Counter_DATA, this.CounterHB.cX, this.CounterHB.cY, new Color(1.0F, 1.0F, 1.0F, 1.0F));
+            String Counter_String = p.counter + "/" + p.counter_max;
+            BitmapFont PanelFont=AbstractDungeon.player.getEnergyNumFont();
+            PanelFont.getData().setScale(fontScale);
+            FontHelper.renderFontCentered(sb, PanelFont, Counter_String, this.CounterHB.cX, this.CounterHB.cY, new Color(1.0F, 1.0F, 1.0F, 1.0F));
             if (this.CounterHB.hovered && !AbstractDungeon.isScreenUp && AbstractDungeon.getMonsters() != null && !AbstractDungeon.getMonsters().areMonstersDead()) {
                 TipHelper.renderGenericTip((float)InputHelper.mX + 60.0F * Settings.scale, (float)InputHelper.mY + 100.0F * Settings.scale, Counter_MSG[0], Counter_MSG[1]+p.counter_max+Counter_MSG[2]);
             }
         }
-
     }
 
     static {

@@ -7,14 +7,9 @@ import basemod.abstracts.CustomPlayer;
 import basemod.interfaces.OnStartBattleSubscriber;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.math.RandomXS128;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.animations.TalkAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
-import com.megacrit.cardcrawl.actions.defect.AnimateOrbAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
-import com.megacrit.cardcrawl.actions.defect.EvokeOrbAction;
+import com.megacrit.cardcrawl.actions.watcher.ChangeStanceAction;
 import com.megacrit.cardcrawl.orbs.*;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
@@ -35,13 +30,7 @@ import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import path.ModClassEnum;
 import path.AbstractCardEnum;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
-import com.megacrit.cardcrawl.actions.defect.ChannelAction;
-import com.megacrit.cardcrawl.core.Settings;
-import power.FortePower;
-import java.util.Iterator;
 import note.*;
 import ui.CounterPanel;
 
@@ -68,7 +57,7 @@ public class MGR_character extends CustomPlayer implements OnStartBattleSubscrib
     public static CounterPanel myCounterPanel=new CounterPanel();
 
     public MGR_character(String name) {
-        super(name, ModClassEnum.MGR_CLASS, ORB_TEXTURES, ORB_VFX, LAYER_SPEED, (String)null, (String)null);
+        super(name, ModClassEnum.MGR_CLASS, ORB_TEXTURES, ORB_VFX, LAYER_SPEED, null, null);
         this.dialogX = this.drawX + 0.0F * Settings.scale;
         this.dialogY = this.drawY + 220.0F * Settings.scale;
         initializeClass(MGR_STAND, MGR_SHOULDER_2, MGR_SHOULDER_1, MGR_CORPSE,
@@ -109,7 +98,7 @@ public class MGR_character extends CustomPlayer implements OnStartBattleSubscrib
     }
 
     public String getTitle(PlayerClass playerClass) {
-        String title="";
+        String title;
         if (Settings.language == Settings.GameLanguage.ZHS) {
             title = "MGR";
         } else if (Settings.language == Settings.GameLanguage.ZHT) {
@@ -134,7 +123,7 @@ public class MGR_character extends CustomPlayer implements OnStartBattleSubscrib
     }
 
     public List<CutscenePanel> getCutscenePanels() {
-        List<CutscenePanel> panels = new ArrayList();
+        List<CutscenePanel> panels = new ArrayList<>();
         panels.add(new CutscenePanel("img/victory/part_1.png", "ATTACK_FIRE"));
         panels.add(new CutscenePanel("img/victory/part_2.png"));
         panels.add(new CutscenePanel("img/victory/part_3.png"));
@@ -287,7 +276,21 @@ public class MGR_character extends CustomPlayer implements OnStartBattleSubscrib
     public void Inccounter(int amount)
     {
         this.counter=Math.max(0,this.counter+amount);
-        //AbstractDungeon.actionManager.addToTop(new TalkAction(true,"My counter is "+this.counter,3.0F,4.0F));
+        if(amount!=0) myCounterPanel.EnlargeFontScale();
+        checkCounter();
+    }
+
+    public void checkCounter()
+    {
+        if(!(AbstractDungeon.player instanceof MGR_character))
+            return;
+        MGR_character p=(MGR_character)AbstractDungeon.player;
+        if(p.counter>=p.counter_max)
+        {
+            p.counter=0;
+            myCounterPanel.EnlargeFontScale();
+            AbstractDungeon.actionManager.addToTop(new ChangeStanceAction("Wrath"));
+        }
     }
 
     public void updateCounterPanel() {myCounterPanel.updatePositions();}

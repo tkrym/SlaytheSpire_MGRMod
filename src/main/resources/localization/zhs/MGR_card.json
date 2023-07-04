@@ -61,10 +61,9 @@
 	""
 	]
   },
-    "Strafing":{
-    "NAME":"连射",
-    "DESCRIPTION": "射击类 NL 造成 !D! 点伤害 !M! 次",
-    "UPGRADE_DESCRIPTION": "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"
+    "MGR:FinalMovement":{
+    "NAME":"终章",
+    "DESCRIPTION": "!M!"
   },
     "ThreeNiangRikyo":{
     "NAME":"立教三人娘",

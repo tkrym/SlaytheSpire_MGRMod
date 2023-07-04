@@ -124,6 +124,7 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         this.cardsToAdd.add(new GentleEnding());
         this.cardsToAdd.add(new SpBullet1());
         this.cardsToAdd.add(new SpBullet2());
+        this.cardsToAdd.add(new FinalMovement());
     }
     @Override
     public void receiveEditRelics()
