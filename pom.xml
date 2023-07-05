@@ -35,6 +35,13 @@
             <scope>system</scope>
             <systemPath>C:/Users/19603/Desktop/Java/lib/BaseMod.jar</systemPath>
         </dependency>
+        <dependency>
+            <groupId>lib</groupId>
+            <artifactId>STSLib</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>C:/Users/19603/Desktop/Java/lib/STSLib.jar</systemPath>
+        </dependency>
     </dependencies>
     <build>
         <finalName>MGRMod</finalName>

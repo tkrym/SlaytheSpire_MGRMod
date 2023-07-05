@@ -32,6 +32,7 @@ import path.AbstractCardEnum;
 import java.util.ArrayList;
 import java.util.List;
 import note.*;
+import stance.BigBrotherStance;
 import ui.CounterPanel;
 
 public class MGR_character extends CustomPlayer implements OnStartBattleSubscriber {
@@ -49,10 +50,10 @@ public class MGR_character extends CustomPlayer implements OnStartBattleSubscrib
     private static final int STARTING_GOLD = 99;
     private static final int HAND_SIZE = 4;
     private static final int ASCENSION_MAX_HP_LOSS = 7;
-    public static final Color MyColor = CardHelper.getColor(255, 120, 0);
+    public static final Color MyColor = CardHelper.getColor(255, 160, 0);
 //    public static final Color YuhColor = CardHelper.getColor(255, 200, 80);
     public int counter=0;
-    public int counter_master=4;
+    public int counter_master=2;
     public int counter_max=counter_master;
     public static CounterPanel myCounterPanel=new CounterPanel();
 
@@ -171,8 +172,8 @@ public class MGR_character extends CustomPlayer implements OnStartBattleSubscrib
             {
                 case ATTACK:note=new AttackNote();break;
                 case SKILL:note=new DefendNote();break;
-                case POWER:note=new PowerNote();break;
-                case STATUS:note=new DrawNote();break;
+                case POWER:note=new DrawNote();break;
+                case STATUS:note=new PowerNote();break;
                 case CURSE:note=new DebuffNote();break;
                 default:note=new EmptyNoteSlot();
             }
@@ -252,7 +253,7 @@ public class MGR_character extends CustomPlayer implements OnStartBattleSubscrib
 
     @Override
     public void increaseMaxOrbSlots(int amount, boolean playSfx) {
-        if (this.maxOrbs == 10) {
+        if (this.maxOrbs == 5) {
             AbstractDungeon.effectList.add(new ThoughtBubble(this.dialogX, this.dialogY, 3.0F, MSG[3], true));
         } else {
             if (playSfx) CardCrawlGame.sound.play("ORB_SLOT_GAIN", 0.1F);
@@ -289,7 +290,7 @@ public class MGR_character extends CustomPlayer implements OnStartBattleSubscrib
         {
             p.counter=0;
             myCounterPanel.EnlargeFontScale();
-            AbstractDungeon.actionManager.addToTop(new ChangeStanceAction("Wrath"));
+            AbstractDungeon.actionManager.addToTop(new ChangeStanceAction(new BigBrotherStance()));
         }
     }
 

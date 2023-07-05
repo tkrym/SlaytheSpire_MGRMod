@@ -1,36 +1,31 @@
 package character;
 
 import basemod.BaseMod;
+import basemod.ModPanel;
 import basemod.interfaces.*;
 import card.*;
-import character.MGR_character;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
-import com.megacrit.cardcrawl.actions.defect.ChannelAction;
+import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.*;
-import com.megacrit.cardcrawl.orbs.Dark;
-import com.megacrit.cardcrawl.orbs.Frost;
-import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
-import com.megacrit.cardcrawl.rooms.AbstractRoom;
-import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDrawPileEffect;
+import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import path.AbstractCardEnum;
 import path.ModClassEnum;
 import relic.*;
+import potion.*;
 
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Iterator;
 
 @SpireInitializer
-public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscriber,EditCardsSubscriber,EditStringsSubscriber,EditKeywordsSubscriber{
+public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscriber,EditCardsSubscriber,EditStringsSubscriber,EditKeywordsSubscriber,PostInitializeSubscriber{
     private static final String MOD_BADGE = "img/UI/badge.png";
     private static final String ATTACK_CC = "img/512/MGR_attack_s.png";
     private static final String SKILL_CC = "img/512/MGR_skill_s.png";
@@ -47,7 +42,7 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
     private ArrayList<AbstractCard> cardsToAdd = new ArrayList<>();
 
     public MGR_subscriber() {
-        BaseMod.subscribe((ISubscriber)this);
+        BaseMod.subscribe(this);
         BaseMod.addColor(AbstractCardEnum.MGR_COLOR, MyColor, MyColor, MyColor, MyColor, MyColor, MyColor, MyColor, ATTACK_CC, SKILL_CC, POWER_CC, ENERGY_ORB_CC, ATTACK_CC_PORTRAIT, SKILL_CC_PORTRAIT,POWER_CC_PORTRAIT, ENERGY_ORB_CC_PORTRAIT, CARD_ENERGY_ORB);
     }
 
@@ -62,52 +57,75 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
     @Override
     public void receiveEditCards() {
         loadCardsToAdd();
-        Iterator<AbstractCard> var1 = this.cardsToAdd.iterator();
-        while (var1.hasNext()) {
-            AbstractCard card = var1.next();
+        for (AbstractCard card : this.cardsToAdd) {
             BaseMod.addCard(card);
         }
+    }
+
+    public void receivePostInitialize()
+    {
+        Texture badge = ImageMaster.loadImage("img/UI/badge.png");
+        BaseMod.registerModBadge(badge, "MGRMod", "MGRSK", "COOKIE mod MGR.ver", new ModPanel());
+        Color mybluecolor=new Color(1693511880);
+        BaseMod.addPotion(FortePotion.class, mybluecolor.cpy(), Color.WHITE.cpy(), mybluecolor.cpy(), FortePotion.POTION_ID, ModClassEnum.MGR_CLASS);
+        BaseMod.addPotion(BottledNotes.class,mybluecolor.cpy(), mybluecolor.cpy(), Color.WHITE.cpy(),BottledNotes.POTION_ID,ModClassEnum.MGR_CLASS);
+        BaseMod.addPotion(TinyApotheosis.class, Color.WHITE.cpy(), Color.WHITE.cpy(), Color.WHITE.cpy(), TinyApotheosis.POTION_ID);
+    }
+
+    @Override
+    public void receiveEditKeywords() {
+        String keywordsPath=getStringPath()+"MGR_keyword.json";
+        Gson gson = new Gson();
+        Keyword[] keywords = gson.fromJson(loadJson(keywordsPath), Keyword[].class);
+        if (keywords != null) {
+            for (Keyword keyword : keywords) {
+                BaseMod.addKeyword("mgr", keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
+            }
+        }
+    }
+
+    private String getStringPath()
+    {
+        String StringPath;
+        switch (Settings.language) {
+            case ZHS: StringPath = "localization/zhs/"; break;
+            default: StringPath = "localization/eng/";
+        }
+        return StringPath;
     }
 
     private static String loadJson(String jsonPath) {
         return Gdx.files.internal(jsonPath).readString(String.valueOf(StandardCharsets.UTF_8));
     }
 
-
-    @Override
-    public void receiveEditKeywords() {
-
-    }
-
     @Override
     public void receiveEditStrings() {
-        String StringPath;
-        switch (Settings.language) {
-            case ZHS: StringPath = "localization/zhs/"; break;
-            default: StringPath = "localization/eng/";
-        }
+        String StringPath=getStringPath();
         String  relic=StringPath+"MGR_relic.json",
                 card=StringPath+"MGR_card.json",
                 power=StringPath+"MGR_power.json",
                 potion=StringPath+"MGR_potion.json",
                 event=StringPath+"MGR_event.json",
                 orb=StringPath+"MGR_orb.json",
-                ui=StringPath+"MGR_ui.json";
+                ui=StringPath+"MGR_ui.json",
+                stance=StringPath+"MGR_stance.json";
 
-        String relicStrings = Gdx.files.internal(relic).readString(String.valueOf(StandardCharsets.UTF_8));
+        String relicStrings = loadJson(relic);
         BaseMod.loadCustomStrings(RelicStrings.class, relicStrings);
-        String cardStrings = Gdx.files.internal(card).readString(String.valueOf(StandardCharsets.UTF_8));
+        String cardStrings = loadJson(card);
         BaseMod.loadCustomStrings(CardStrings.class, cardStrings);
-        String powerStrings = Gdx.files.internal(power).readString(String.valueOf(StandardCharsets.UTF_8));
+        String powerStrings = loadJson(power);
         BaseMod.loadCustomStrings(PowerStrings.class, powerStrings);
-        String potionStrings = Gdx.files.internal(potion).readString(String.valueOf(StandardCharsets.UTF_8));
+        String potionStrings = loadJson(potion);
         BaseMod.loadCustomStrings(PotionStrings.class, potionStrings);
-        String eventStrings = Gdx.files.internal(event).readString(String.valueOf(StandardCharsets.UTF_8));
+        String eventStrings = loadJson(event);
         BaseMod.loadCustomStrings(EventStrings.class, eventStrings);
-        String orbStrings = Gdx.files.internal(orb).readString(String.valueOf(StandardCharsets.UTF_8));
+        String orbStrings = loadJson(orb);
         BaseMod.loadCustomStrings(OrbStrings.class, orbStrings);
-        String uiStrings = Gdx.files.internal(ui).readString(String.valueOf(StandardCharsets.UTF_8));
+        String uiStrings = loadJson(ui);
         BaseMod.loadCustomStrings(UIStrings.class, uiStrings);
+        String stanceStrings = loadJson(stance);
+        BaseMod.loadCustomStrings(StanceStrings.class, stanceStrings);
     }
 
     private void loadCardsToAdd() {
@@ -130,9 +148,5 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
     public void receiveEditRelics()
     {
         BaseMod.addRelicToCustomPool(new TheFirst(),AbstractCardEnum.MGR_COLOR);
-    }
-
-    class Keywords {
-        Keyword[] keywords;
     }
 }

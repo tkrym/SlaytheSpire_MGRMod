@@ -36,12 +36,12 @@
   },
     "MGR:AttackTied":{
     "NAME":"攻击连音",
-    "DESCRIPTION": "造成 !D! 点伤害，生成 !M! 个攻击音符。"
+    "DESCRIPTION": "造成 !D! 点伤害，生成 !M! 个 mgr:攻击音符 。"
   },
     "MGR:GentleEnding":{
-    "NAME":"舒缓尾音",
-    "DESCRIPTION": "获得 !B! 点格挡，生成1个防御音符。 NL 尾音：给予所有生物 !M! 层虚弱。",
-    "UPGRADE_DESCRIPTION": "获得 !B! 点格挡，生成1个防御音符。 NL 尾音：给予所有敌人 !M! 层虚弱。"
+    "NAME":"柔和尾音",
+    "DESCRIPTION": "获得 !B! 点格挡，生成1个防御 mgr:音符 。 NL  mgr:尾音 ：给予所有生物 !M! 层虚弱。",
+    "UPGRADE_DESCRIPTION": "获得 !B! 点格挡，生成1个防御 mgr:音符 。 NL  mgr:尾音 ：给予所有敌人 !M! 层虚弱。"
   },
     "MGR:CrispEnding":{
     "NAME":"轻快尾音",
@@ -49,12 +49,12 @@
   },
     "MGR:SpBullet1":{
     "NAME":"Knifegame",
-    "DESCRIPTION": "损失3点生命，叠加 !M! 层 siyudi支援",
+    "DESCRIPTION": "测试： mgr:BigBrother  ",
     "UPGRADE_DESCRIPTION": "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"
   },
     "MGR:SpBullet2":{
     "NAME":"会话",
-    "DESCRIPTION": "只能在有 diyusi支援 的时候打出。获得 [E] [E] NL 消耗 .",
+    "DESCRIPTION": "Gain 1 mgr:MagiamObruor.",
     "UPGRADE_DESCRIPTION": "只能在有 diyusi支援 的时候打出。获得 [E] [E] .",
 	"EXTENDED_DESCRIPTION": [
 	"我没有diyusi支援。",

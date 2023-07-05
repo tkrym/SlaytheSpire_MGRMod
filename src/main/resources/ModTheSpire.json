@@ -4,10 +4,9 @@
   "author_list": [
     "MGRSK"
   ],
-  "description": "Adds MGR as a new character.",
-  "dependencies": [
-    "basemod"
-  ],
-  "version": "0.0.0",
-  "sts_version": "06-23-2023"
+  "description": "Adds MGR(Hirasawa meguru) as a new character.",
+  "dependencies": ["basemod", "stslib"],
+  "version": "1.0.0",
+  "sts_version": "01-01-2023",
+  "credits": "Lovely meguru and all those who created for her."
 }

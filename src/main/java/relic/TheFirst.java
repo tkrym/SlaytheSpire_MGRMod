@@ -39,8 +39,8 @@ public class TheFirst extends CustomRelic implements OnChordHook {
         notes.clear();
         notes.add(new AttackNote());
         notes.add(new DefendNote());
-        notes.add(new PowerNote());
         notes.add(new DrawNote());
+        notes.add(new PowerNote());
         notes.add(new DebuffNote());
         cnt=0;
     }
@@ -58,7 +58,7 @@ public class TheFirst extends CustomRelic implements OnChordHook {
 
     public void OnChord(ArrayList<AbstractNote> notes)
     {
-        AbstractDungeon.actionManager.addToBottom(new TalkAction(true,notes.get(0).name,3.0F,3.0F));
+        //AbstractDungeon.actionManager.addToBottom(new TalkAction(true,notes.get(0).name,3.0F,3.0F));
     }
 
 }

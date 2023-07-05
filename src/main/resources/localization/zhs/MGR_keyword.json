@@ -1,0 +1,49 @@
+[
+  {
+    "NAMES": [
+      "计数器"
+    ],
+    "DESCRIPTION": "达到一定数量后，进入 #yBigBrother"
+  },
+  {
+    "NAMES": [
+      "bigbrother"
+    ],
+    "PROPER_NAME": "BigBrother",
+    "DESCRIPTION": "进入这一 #y姿态 时，获得 [E] 并抽 #b2 张牌 。处于这一 #y姿态 时，部分卡牌能触发特殊效果 。在你的回合结束时离开这一 #y姿态 。"
+  },
+  {
+    "NAMES": [
+      "强音"
+    ],
+    "DESCRIPTION": " 增强音符的效果。"
+  },
+  {
+    "NAMES": [
+      "和弦"
+    ],
+    "DESCRIPTION": "音符数量达到上限时触发一次和弦，使用所有音符的效果并增加计数器 #b1 点。"
+  },
+  {
+    "NAMES": [
+      "音符",
+      "基本音符",
+      "攻击音符",
+      "防御音符"
+    ],
+    "DESCRIPTION": "在音符数量达到上限时，触发 #y和弦 。每当你使用一张牌，生成一个对应的 #y基本音符 。"
+  },
+  {
+    "NAMES": [
+      "尾音"
+    ],
+    "DESCRIPTION": "恰有 1 个空音符栏位时触发。"
+  },
+  {
+    "NAMES": [
+      "magiamobruor"
+    ],
+    "PROPER_NAME": "MagiamObruor",
+    "DESCRIPTION": "Lose [E] next turn."
+  }
+]
