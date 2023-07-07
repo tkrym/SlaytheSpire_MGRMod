@@ -3,7 +3,11 @@ package character;
 import basemod.BaseMod;
 import basemod.ModPanel;
 import basemod.interfaces.*;
-import card.*;
+import card.BASIC.*;
+import card.COMMON.*;
+import card.RARE.*;
+import card.TEST.*;
+import card.UNCOMMON.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
@@ -13,8 +17,11 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
+import com.megacrit.cardcrawl.helpers.Prefs;
+import com.megacrit.cardcrawl.helpers.SaveHelper;
 import com.megacrit.cardcrawl.localization.*;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import path.AbstractCardEnum;
 import path.ModClassEnum;
 import relic.*;
@@ -22,7 +29,6 @@ import potion.*;
 
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.Iterator;
 
 @SpireInitializer
 public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscriber,EditCardsSubscriber,EditStringsSubscriber,EditKeywordsSubscriber,PostInitializeSubscriber{
@@ -40,6 +46,7 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
     private static final String MY_CHARACTER_PORTRAIT = "img/select/figure.png";
     public static final Color MyColor = CardHelper.getColor(255, 120, 0);
     private ArrayList<AbstractCard> cardsToAdd = new ArrayList<>();
+    private ArrayList<AbstractRelic> relicsToAdd = new ArrayList<>();
 
     public MGR_subscriber() {
         BaseMod.subscribe(this);
@@ -48,7 +55,7 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
 
     @Override
     public void receiveEditCharacters() {
-        BaseMod.addCharacter(new MGR_character("MGR"), MY_CHARACTER_BUTTON, MY_CHARACTER_PORTRAIT, ModClassEnum.MGR_CLASS);
+        BaseMod.addCharacter(new MGR_character("MGR"), MY_CHARACTER_BUTTON, MY_CHARACTER_PORTRAIT, ModClassEnum.MGR);
     }
     public static void initialize() {
         new MGR_subscriber();
@@ -67,9 +74,20 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         Texture badge = ImageMaster.loadImage(MOD_BADGE);
         BaseMod.registerModBadge(badge, "MGRMod", "MGRSK", "COOKIE mod MGR.ver", new ModPanel());
         Color mybluecolor=new Color(1693511935);
-        BaseMod.addPotion(FortePotion.class, mybluecolor.cpy(), mybluecolor.cpy(), mybluecolor.cpy(), FortePotion.POTION_ID, ModClassEnum.MGR_CLASS);
-        BaseMod.addPotion(BottledNotes.class,Color.LIME.cpy(), Color.SCARLET.cpy(), Color.CLEAR.cpy(),BottledNotes.POTION_ID,ModClassEnum.MGR_CLASS);
+        BaseMod.addPotion(FortePotion.class, mybluecolor.cpy(), mybluecolor.cpy(), mybluecolor.cpy(), FortePotion.POTION_ID, ModClassEnum.MGR);
+        BaseMod.addPotion(BottledNotes.class,Color.LIME.cpy(), Color.SCARLET.cpy(), Color.CLEAR.cpy(),BottledNotes.POTION_ID,ModClassEnum.MGR);
         BaseMod.addPotion(TinyApotheosis.class, Color.WHITE.cpy(), Color.WHITE.cpy(), Color.WHITE.cpy(), TinyApotheosis.POTION_ID);
+        UnlockAscensionLevel();
+    }
+
+    private void UnlockAscensionLevel()
+    {
+        Prefs p=SaveHelper.getPrefs("MGR");
+        if (p.getInteger("WIN_COUNT", 0) == 0) p.putInteger("WIN_COUNT", 1);
+        if (p.getInteger("BOSS_KILL", 0) == 0) p.putInteger("BOSS_KILL", 1);
+        p.putInteger("ASCENSION_LEVEL", 20);
+        p.putInteger("LAST_ASCENSION_LEVEL", 0);
+        p.flush();
     }
 
     @Override
@@ -147,7 +165,16 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
     @Override
     public void receiveEditRelics()
     {
-        BaseMod.addRelicToCustomPool(new TheFirst(),AbstractCardEnum.MGR_COLOR);
-        BaseMod.addRelicToCustomPool(new TheSecond(),AbstractCardEnum.MGR_COLOR);
+        loadRelicsToAdd();
+        for (AbstractRelic relic : this.relicsToAdd) {
+            BaseMod.addRelicToCustomPool(relic,AbstractCardEnum.MGR_COLOR);
+        }
+    }
+
+    private void loadRelicsToAdd()
+    {
+        this.relicsToAdd.clear();
+        this.relicsToAdd.add(new TheFirst());
+        this.relicsToAdd.add(new TheSecond());
     }
 }

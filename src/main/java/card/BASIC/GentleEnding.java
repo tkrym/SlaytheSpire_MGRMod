@@ -1,6 +1,5 @@
-package card;
+package card.BASIC;
 
-import action.ChannelNoteAction;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -11,14 +10,8 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
-import note.AttackNote;
-import note.DefendNote;
 import path.AbstractCardEnum;
-import com.badlogic.gdx.graphics.Color;
-
-import java.util.Iterator;
 
 public class GentleEnding extends CustomCard{
     public static final String ID = "MGR:GentleEnding";

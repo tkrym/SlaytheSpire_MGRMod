@@ -1,4 +1,4 @@
-package card;
+package card.TEST;
 
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -12,16 +12,16 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import path.AbstractCardEnum;
 
-public class SpBullet1 extends CustomCard{
-    public static final String ID = "MGR:SpBullet1";
+public class SpBullet2 extends CustomCard{
+    public static final String ID = "MGR:SpBullet2";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String[] EXTENDED_DESCRIPTION= cardStrings.EXTENDED_DESCRIPTION;
     public static final String IMG = "img/card/SpBullet.png";
     private static final int COST = 1;
-    public SpBullet1() {
+    public SpBullet2() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.ATTACK,
-                AbstractCardEnum.MGR_COLOR, CardRarity.UNCOMMON, CardTarget.ENEMY);
+                AbstractCardEnum.MGR_COLOR, CardRarity.COMMON, CardTarget.ENEMY);
         this.baseDamage = 0;
         this.baseMagicNumber=40;
         this.magicNumber=this.baseMagicNumber;
@@ -58,7 +58,7 @@ public class SpBullet1 extends CustomCard{
         int DMG=(int)(m.currentHealth*((float)this.magicNumber/100.0)+0.5);
         DMGdisplay(DMG);
     }
-    public AbstractCard makeCopy() { return new SpBullet1(); }
+    public AbstractCard makeCopy() { return new SpBullet2(); }
 
     public void upgrade() {
         if (!this.upgraded) {

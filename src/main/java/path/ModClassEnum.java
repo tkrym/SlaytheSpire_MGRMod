@@ -5,5 +5,5 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 
 public class ModClassEnum {
     @SpireEnum
-    public static AbstractPlayer.PlayerClass MGR_CLASS;
+    public static AbstractPlayer.PlayerClass MGR;
 }

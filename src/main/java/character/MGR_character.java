@@ -62,7 +62,7 @@ public class MGR_character extends CustomPlayer implements OnStartBattleSubscrib
     public static CounterPanel myCounterPanel=new CounterPanel();
 
     public MGR_character(String name) {
-        super(name, ModClassEnum.MGR_CLASS, ORB_TEXTURES, ORB_VFX, LAYER_SPEED, null, null);
+        super(name, ModClassEnum.MGR, ORB_TEXTURES, ORB_VFX, LAYER_SPEED, null, null);
         this.dialogX = this.drawX + 0.0F * Settings.scale;
         this.dialogY = this.drawY + 220.0F * Settings.scale;
         initializeClass(MGR_STAND, MGR_SHOULDER_2, MGR_SHOULDER_1, MGR_CORPSE,
