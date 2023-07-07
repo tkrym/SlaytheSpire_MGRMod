@@ -37,7 +37,7 @@
     ],
     "NAME": "攻击"
   },
-  "MGR:Artifact": {
+  "MGR:Power": {
     "DESCRIPTION": [
       "#y触发 ：获得 #b",
       " 层人工制品。 NL 每 #b",

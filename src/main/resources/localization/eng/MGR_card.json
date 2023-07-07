@@ -17,50 +17,47 @@
   },
     "MGR:TestAttack":{
     "NAME":"TestAttack",
-    "DESCRIPTION": "击杀目标"
+    "DESCRIPTION": "击杀目标",
+    "EXTENDED_DESCRIPTION": [
+      "杀了它"
+    ]
   },
     "MGR:TestDefend":{
-    "NAME":"TestDefend",
-    "DESCRIPTION": "获得 999 点固定格挡。"
+    "NAME":"测试防御",
+    "DESCRIPTION": "测试  #yBigBrother  结束"
   },
     "MGR:TestPower":{
-    "NAME":"TestPower",
-    "DESCRIPTION": "获得 999 某状态。"
+    "NAME":"测试能力",
+    "DESCRIPTION": "测试  #ybigbrother  结束"
   },
     "MGR:CoinflipStrike":{
     "NAME":"掷币攻击",
     "DESCRIPTION": "造成 !D! 点伤害。 NL 有一半概率打出一张基础伤害翻倍的复制。"
   },
-    "Disintegration":{
-    "NAME":"决裂",
-    "DESCRIPTION": "射击类 NL 对一个敌人造成 !D! 点伤害， NL 若只有一个敌人，则造成1.5倍伤害"
+    "MGR:AttackTied":{
+    "NAME":"攻击连音",
+    "DESCRIPTION": "造成 !D! 点伤害，生成 !M! 个 mgr:攻击音符 。"
   },
-    "MoKu":{
-    "NAME":"MoKu",
-    "DESCRIPTION": "射击类 NL 造成 !D! 点伤害，获得一层 呼叫 "
+    "MGR:GentleEnding":{
+    "NAME":"柔和尾音",
+    "DESCRIPTION": "获得 !B! 点格挡，生成1个防御 mgr:音符 。 NL  mgr:尾音 ：给予所有生物 !M! 层虚弱。",
+    "UPGRADE_DESCRIPTION": "获得 !B! 点格挡，生成1个防御 mgr:音符 。 NL  mgr:尾音 ：给予所有敌人 !M! 层虚弱。"
   },
-    "SwingingTraverse":{
-    "NAME":"扫射",
-    "DESCRIPTION": "射击类 NL 对所有敌人造成 !D! 点伤害2次."
+    "MGR:CrispEnding":{
+    "NAME":"轻快尾音",
+    "DESCRIPTION": "造成 !D! 点伤害，抽1张牌。 NL 尾音：打出一张复制。"
   },
-    "Knifegame":{
-    "NAME":"Knifegame",
-    "DESCRIPTION": "损失3点生命，叠加 !M! 层 siyudi支援",
-    "UPGRADE_DESCRIPTION": "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"
+    "MGR:SpBullet1":{
+    "NAME":"测试1卡牌",
+    "DESCRIPTION": "测试 #ymgr:bigbrother  结束"
   },
-    "Conversation":{
-    "NAME":"会话",
-    "DESCRIPTION": "只能在有 diyusi支援 的时候打出。获得 [E] [E] NL 消耗 .",
-    "UPGRADE_DESCRIPTION": "只能在有 diyusi支援 的时候打出。获得 [E] [E] .",
-	"EXTENDED_DESCRIPTION": [
-	"我没有diyusi支援。",
-	""
-	]
+    "MGR:SpBullet2":{
+    "NAME":"测试2卡牌",
+    "DESCRIPTION": "测试 #ymgr:BigBrother  结束"
   },
-    "Strafing":{
-    "NAME":"连射",
-    "DESCRIPTION": "射击类 NL 造成 !D! 点伤害 !M! 次",
-    "UPGRADE_DESCRIPTION": "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"
+    "MGR:FinalMovement":{
+    "NAME":"终章",
+    "DESCRIPTION": "!M!"
   },
     "ThreeNiangRikyo":{
     "NAME":"立教三人娘",

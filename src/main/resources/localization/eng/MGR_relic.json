@@ -1,16 +1,16 @@
 { 
-  "TheFirst": {
+  "MGR:TheFirst": {
     "NAME": "测试1",
     "FLAVOR": "测试1文本",
     "DESCRIPTIONS": [
-      "每使用一张牌，获得 #b1 点格挡。"
+      "测试 BigBrother  。"
     ]
   },
-  "sakenomi": {
-    "NAME": "酒饮",
-    "FLAVOR": "可爱的生物，让人想知道身体内部是什么构造。可惜这个只是头部玩偶。",
+  "MGR:TheSecond": {
+    "NAME": "测试2",
+    "FLAVOR": "测试2文本 #y音符",
     "DESCRIPTIONS": [
-      "每杀死一个非爪牙敌人，恢复 #b1 点生命。"
+      "测试 #yBigBrother "
     ]
   },
   "erohon": {

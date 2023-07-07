@@ -64,11 +64,11 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
 
     public void receivePostInitialize()
     {
-        Texture badge = ImageMaster.loadImage("img/UI/badge.png");
+        Texture badge = ImageMaster.loadImage(MOD_BADGE);
         BaseMod.registerModBadge(badge, "MGRMod", "MGRSK", "COOKIE mod MGR.ver", new ModPanel());
-        Color mybluecolor=new Color(1693511880);
-        BaseMod.addPotion(FortePotion.class, mybluecolor.cpy(), Color.WHITE.cpy(), mybluecolor.cpy(), FortePotion.POTION_ID, ModClassEnum.MGR_CLASS);
-        BaseMod.addPotion(BottledNotes.class,mybluecolor.cpy(), mybluecolor.cpy(), Color.WHITE.cpy(),BottledNotes.POTION_ID,ModClassEnum.MGR_CLASS);
+        Color mybluecolor=new Color(1693511935);
+        BaseMod.addPotion(FortePotion.class, mybluecolor.cpy(), mybluecolor.cpy(), mybluecolor.cpy(), FortePotion.POTION_ID, ModClassEnum.MGR_CLASS);
+        BaseMod.addPotion(BottledNotes.class,Color.LIME.cpy(), Color.SCARLET.cpy(), Color.CLEAR.cpy(),BottledNotes.POTION_ID,ModClassEnum.MGR_CLASS);
         BaseMod.addPotion(TinyApotheosis.class, Color.WHITE.cpy(), Color.WHITE.cpy(), Color.WHITE.cpy(), TinyApotheosis.POTION_ID);
     }
 
@@ -148,5 +148,6 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
     public void receiveEditRelics()
     {
         BaseMod.addRelicToCustomPool(new TheFirst(),AbstractCardEnum.MGR_COLOR);
+        BaseMod.addRelicToCustomPool(new TheSecond(),AbstractCardEnum.MGR_COLOR);
     }
 }

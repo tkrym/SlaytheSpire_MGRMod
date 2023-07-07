@@ -27,7 +27,7 @@ public class GentleEnding extends CustomCard{
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG = "img/card/"+ID.substring(4)+".png";
     private static final int COST = 2;
-    private static final int BLOCK = 7;
+    private static final int BLOCK = 8;
     private static final int PLUS_BLOCK = 2;
     private static final int MAGIC = 3;
     private boolean AffectSelf=true;
@@ -41,7 +41,6 @@ public class GentleEnding extends CustomCard{
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
-        AbstractDungeon.actionManager.addToBottom(new ChannelNoteAction(new AttackNote()));
         if(p.filledOrbCount()==p.maxOrbs-1)
         {
             for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters)

@@ -44,7 +44,7 @@ public class AttackNote extends AbstractNote {
         this.ID = ORB_ID;
         this.img = ImageMaster.ORB_LIGHTNING;
         this.name = orbString.NAME;
-        this.baseEvokeAmount = 3;
+        this.baseEvokeAmount = 2;
         this.evokeAmount = this.baseEvokeAmount;
         this.angle = MathUtils.random(360.0f);
         this.channelAnimTimer = 0.5f;

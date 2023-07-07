@@ -1,24 +1,14 @@
 package relic;
 import action.ChannelNoteAction;
 import basemod.abstracts.CustomRelic;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import character.MGR_character;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
-import com.megacrit.cardcrawl.actions.common.DamageRandomEnemyAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
-import com.megacrit.cardcrawl.actions.defect.ChannelAction;
-import com.megacrit.cardcrawl.actions.utility.UseCardAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
-import com.megacrit.cardcrawl.orbs.AbstractOrb;
-import com.megacrit.cardcrawl.orbs.Frost;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import hook.OnChordHook;
 import note.*;
-import org.apache.commons.lang3.ObjectUtils;
 
 import java.util.ArrayList;
 
@@ -40,7 +30,7 @@ public class TheFirst extends CustomRelic implements OnChordHook {
         notes.add(new AttackNote());
         notes.add(new DefendNote());
         notes.add(new DrawNote());
-        notes.add(new PowerNote());
+        notes.add(new ArtifactNote());
         notes.add(new DebuffNote());
         cnt=0;
     }
@@ -59,6 +49,13 @@ public class TheFirst extends CustomRelic implements OnChordHook {
     public void OnChord(ArrayList<AbstractNote> notes)
     {
         //AbstractDungeon.actionManager.addToBottom(new TalkAction(true,notes.get(0).name,3.0F,3.0F));
+    }
+
+    @Override
+    public void onPlayerEndTurn()
+    {
+        if(MGR_character.BigBrotherStanceCheck())
+            AbstractDungeon.actionManager.addToBottom(new TalkAction(true,"Hi!",2.0F,2.0F));
     }
 
 }

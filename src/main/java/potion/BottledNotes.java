@@ -2,18 +2,12 @@ package potion;
 
 import action.ChannelNoteAction;
 import character.MGR_character;
-import com.badlogic.gdx.graphics.Color;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.GameDictionary;
 import com.megacrit.cardcrawl.helpers.PowerTip;
-import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
-import com.megacrit.cardcrawl.potions.BlockPotion;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import note.*;
 
@@ -46,7 +40,7 @@ public class BottledNotes extends AbstractPotion{
             for (int i = 0; i < this.potency; i++)
                 AbstractDungeon.actionManager.addToBottom(new ChannelNoteAction(new DrawNote()));
             for (int i = 0; i < this.potency; i++)
-                AbstractDungeon.actionManager.addToBottom(new ChannelNoteAction(new PowerNote()));
+                AbstractDungeon.actionManager.addToBottom(new ChannelNoteAction(new ArtifactNote()));
             for (int i = 0; i < this.potency; i++)
                 AbstractDungeon.actionManager.addToBottom(new ChannelNoteAction(new DebuffNote()));
         }

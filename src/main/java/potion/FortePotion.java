@@ -37,10 +37,10 @@ public class FortePotion extends AbstractPotion{
     @Override
     public void use(AbstractCreature target) {
         if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyForteAction(this.potency*2));
             AbstractCreature p = AbstractDungeon.player;
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p,new StrengthPower(p,-this.potency),-this.potency));
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p,new DexterityPower(p,-this.potency),-this.potency));
+            AbstractDungeon.actionManager.addToBottom(new ApplyForteAction(this.potency*2));
         }
     }
 

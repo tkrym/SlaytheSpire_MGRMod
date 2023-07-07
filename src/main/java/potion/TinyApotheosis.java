@@ -68,9 +68,8 @@ public class TinyApotheosis extends AbstractPotion{
             Collections.shuffle(upgradableCards, new Random(AbstractDungeon.miscRng.randomLong()));
             if (!upgradableCards.isEmpty()) {
                 upgradableCards.get(0).upgrade();
-                if(upgradableCards.size()>1)  AbstractDungeon.player.bottledCardUpgradeCheck(upgradableCards.get(1));
                 AbstractDungeon.player.bottledCardUpgradeCheck(upgradableCards.get(0));
-                AbstractDungeon.topLevelEffects.add(new ShowCardBrieflyEffect(upgradableCards.get(0).makeStatEquivalentCopy(), ((((float) Settings.WIDTH) / 2.0f) - (AbstractCard.IMG_WIDTH / 2.0f)) - (20.0f * Settings.scale), ((float) Settings.HEIGHT) / 2.0f));
+                AbstractDungeon.topLevelEffects.add(new ShowCardBrieflyEffect(upgradableCards.get(0).makeStatEquivalentCopy(), ((((float) Settings.WIDTH) / 2.0f) - (AbstractCard.IMG_WIDTH / 2.0f)) - (20.0f * Settings.scale)+AbstractCard.IMG_WIDTH*i, ((float) Settings.HEIGHT) / 2.0f));
                 AbstractDungeon.topLevelEffects.add(new UpgradeShineEffect(((float) Settings.WIDTH) / 2.0f, ((float) Settings.HEIGHT) / 2.0f));
             }
         }

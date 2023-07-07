@@ -2,6 +2,8 @@ package character;
 
 
 import action.*;
+import basemod.interfaces.PostBattleSubscriber;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import basemod.abstracts.CustomPlayer;
 import basemod.interfaces.OnStartBattleSubscriber;
@@ -10,9 +12,11 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.actions.watcher.ChangeStanceAction;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.orbs.*;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.stances.NeutralStance;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -35,7 +39,7 @@ import note.*;
 import stance.BigBrotherStance;
 import ui.CounterPanel;
 
-public class MGR_character extends CustomPlayer implements OnStartBattleSubscriber {
+public class MGR_character extends CustomPlayer implements OnStartBattleSubscriber , PostBattleSubscriber {
     private static final int ENERGY_PER_TURN = 3;
     private static final String MGR_SHOULDER_2 = "img/character/shoulder2.png";
     private static final String MGR_SHOULDER_1 = "img/character/shoulder1.png";
@@ -81,7 +85,9 @@ public class MGR_character extends CustomPlayer implements OnStartBattleSubscrib
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
         retVal.add("MGR:TheFirst");
+        retVal.add("MGR:TheSecond");
         UnlockTracker.markRelicAsSeen("TheFirst");
+        UnlockTracker.markRelicAsSeen("TheSecond");
         return retVal;
     }
 
@@ -125,10 +131,13 @@ public class MGR_character extends CustomPlayer implements OnStartBattleSubscrib
 
     public List<CutscenePanel> getCutscenePanels() {
         List<CutscenePanel> panels = new ArrayList<>();
-        panels.add(new CutscenePanel("img/victory/part_1.png", "ATTACK_FIRE"));
-        panels.add(new CutscenePanel("img/victory/part_2.png"));
-        panels.add(new CutscenePanel("img/victory/part_3.png"));
+        panels.add(new CutscenePanel("img/victory/VictoryPart1.png","ATTACK_FIRE"));
+        panels.add(new CutscenePanel("img/victory/VictoryPart2.png", "WHEEL"));
         return panels;
+    }
+
+    public Texture getCutsceneBg() {
+        return ImageMaster.loadImage("img/victory/bg.png");
     }
 
     public AbstractCard.CardColor getCardColor() {return AbstractCardEnum.MGR_COLOR;}
@@ -173,7 +182,7 @@ public class MGR_character extends CustomPlayer implements OnStartBattleSubscrib
                 case ATTACK:note=new AttackNote();break;
                 case SKILL:note=new DefendNote();break;
                 case POWER:note=new DrawNote();break;
-                case STATUS:note=new PowerNote();break;
+                case STATUS:note=new ArtifactNote();break;
                 case CURSE:note=new DebuffNote();break;
                 default:note=new EmptyNoteSlot();
             }
@@ -185,6 +194,12 @@ public class MGR_character extends CustomPlayer implements OnStartBattleSubscrib
     {
         this.counter=0;
         this.counter_max=this.counter_master;
+    }
+
+    public void receivePostBattle(AbstractRoom r)
+    {
+        //int size=AbstractDungeon.actionManager.cardsPlayedThisCombat.size();
+        //if(size>0) AbstractDungeon.actionManager.addToBottom(new TalkAction(true,size+"||"+AbstractDungeon.actionManager.cardsPlayedThisCombat.get(size-1).name,3.0F,3.0F));
     }
 
     @Override
@@ -276,6 +291,7 @@ public class MGR_character extends CustomPlayer implements OnStartBattleSubscrib
 
     public void Inccounter(int amount)
     {
+        if(amount>0&&InBigBrotherStance()) return;
         this.counter=Math.max(0,this.counter+amount);
         if(amount!=0) myCounterPanel.EnlargeFontScale();
         checkCounter();
@@ -298,4 +314,15 @@ public class MGR_character extends CustomPlayer implements OnStartBattleSubscrib
     public void showCounterPanel() {myCounterPanel.show();}
     public void hideCounterPanel() {myCounterPanel.hide();}
     public void renderCounterPanel(SpriteBatch sb){myCounterPanel.render(sb);}
+    public static boolean BigBrotherStanceCheck()
+    {
+        AbstractPlayer p=AbstractDungeon.player;
+        if(p.stance.ID.equals(BigBrotherStance.STANCE_ID))
+        {
+            AbstractDungeon.actionManager.addToTop(new ChangeStanceAction(NeutralStance.STANCE_ID));
+            return true;
+        }
+        else return false;
+    }
+    public static boolean InBigBrotherStance() {return AbstractDungeon.player.stance.ID.equals(BigBrotherStance.STANCE_ID);}
 }

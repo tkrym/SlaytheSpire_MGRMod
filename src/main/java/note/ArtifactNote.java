@@ -1,25 +1,20 @@
 package note;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.OrbStrings;
 import com.megacrit.cardcrawl.powers.ArtifactPower;
 import com.megacrit.cardcrawl.vfx.combat.*;
 
-public class PowerNote extends AbstractNote {
-    public static final String ORB_ID = "MGR:Power";
+public class ArtifactNote extends AbstractNote {
+    public static final String ORB_ID = "MGR:Artifact";
     private static final OrbStrings orbString = CardCrawlGame.languagePack.getOrbString(ORB_ID);
     private float vfxTimer = 1.0f;
     private float vfxIntervalMin = 0.1f;
@@ -27,7 +22,7 @@ public class PowerNote extends AbstractNote {
     private static final float ORB_WAVY_DIST = 0.04f;
     private static final float PI_4 = 12.566371f;
 
-    public PowerNote() {
+    public ArtifactNote() {
         this.ID = ORB_ID;
         this.img = ImageMaster.ORB_PLASMA;
         this.name = orbString.NAME;
@@ -83,6 +78,6 @@ public class PowerNote extends AbstractNote {
     }
 
     public AbstractNote makeCopy() {
-        return new PowerNote();
+        return new ArtifactNote();
     }
 }

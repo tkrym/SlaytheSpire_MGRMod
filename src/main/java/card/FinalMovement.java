@@ -2,6 +2,7 @@ package card;
 
 import action.ChannelNoteAction;
 import basemod.abstracts.CustomCard;
+import character.MGR_character;
 import com.megacrit.cardcrawl.actions.common.InstantKillAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -34,6 +35,9 @@ public class FinalMovement extends CustomCard{
     public void use(AbstractPlayer p, AbstractMonster m) {
         for(int i=0;i<this.magicNumber;i++)
             AbstractDungeon.actionManager.addToBottom(new ChannelNoteAction(new AttackNote()));
+        if(MGR_character.BigBrotherStanceCheck())
+            for(int i=0;i<this.magicNumber;i++)
+                AbstractDungeon.actionManager.addToBottom(new ChannelNoteAction(new AttackNote()));
     }
 
     @Override
@@ -55,5 +59,12 @@ public class FinalMovement extends CustomCard{
     @Override
     public boolean canUpgrade() {
         return true;
+    }
+
+    @Override
+    public void triggerOnGlowCheck() {
+        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+        if(MGR_character.InBigBrotherStance())
+            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
     }
 }

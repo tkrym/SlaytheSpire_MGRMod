@@ -7,9 +7,11 @@
   },
   {
     "NAMES": [
-      "老大哥形态"
+      "bigbrother",
+      "BigBrother"
     ],
-    "DESCRIPTION": " #y姿态 。进入时，获得 [E] 并抽 #b2 张牌 。部分卡牌能触发特殊效果 。在你的回合结束时离开这一姿态 。"
+    "PROPER_NAME": "BigBrother",
+    "DESCRIPTION": "进入这一 #y姿态 时，获得 [E] 并抽 #b2 张牌 。处于这一 #y姿态 时，部分卡牌能触发特殊效果 。在你的回合结束时离开这一 #y姿态 。"
   },
   {
     "NAMES": [
