@@ -1,19 +1,12 @@
 package action;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.AbstractGameAction.ActionType;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.characters.AbstractPlayer.PlayerClass;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom.RoomPhase;
-import com.megacrit.cardcrawl.unlock.UnlockTracker;
-import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 import power.GazePower;
 
 public class GazeLoseHpAction extends AbstractGameAction {
@@ -45,8 +38,8 @@ public class GazeLoseHpAction extends AbstractGameAction {
                 if (this.target.currentHealth > 0) {
                     this.target.tint.color = new Color(2147483647);
                     this.target.tint.changeColor(Color.WHITE.cpy());
-                    AbstractDungeon.actionManager.addToTop(new DamageAction(target,new DamageInfo(source,amount,DamageType.THORNS),true));
-                    //this.target.damage(new DamageInfo(this.source, this.amount, DamageType.THORNS));
+                    //AbstractDungeon.actionManager.addToTop(new DamageAction(target,new DamageInfo(source,amount,DamageType.THORNS),true));
+                    this.target.damage(new DamageInfo(this.source, this.amount, DamageType.HP_LOSS));
                     if (this.target.isDying) {}
                 }
 
