@@ -42,13 +42,13 @@ public class DefendNote extends AbstractNote {
 
     public void onEvoke()
     {
-        AbstractDungeon.actionManager.addToTop(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, this.evokeAmount));
+        AbstractDungeon.actionManager.addToTop(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, this.evokeAmount,true));
     }
 
     @Override
     public void triggerEvokeAnimation() {
-        CardCrawlGame.sound.play("ORB_FROST_EVOKE", 0.1f);
-        AbstractDungeon.effectsQueue.add(new FrostOrbActivateEffect(this.cX, this.cY));
+        //CardCrawlGame.sound.play("ORB_FROST_EVOKE", 0.1f);
+        //AbstractDungeon.effectsQueue.add(new FrostOrbActivateEffect(this.cX, this.cY));
     }
 
     @Override

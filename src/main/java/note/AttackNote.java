@@ -64,8 +64,8 @@ public class AttackNote extends AbstractNote {
 
     @Override
     public void triggerEvokeAnimation() {
-        CardCrawlGame.sound.play("ORB_LIGHTNING_EVOKE", 0.1f);
-        AbstractDungeon.effectsQueue.add(new LightningOrbActivateEffect(this.cX, this.cY));
+        //CardCrawlGame.sound.play("ORB_LIGHTNING_EVOKE", 0.1f);
+        //AbstractDungeon.effectsQueue.add(new LightningOrbActivateEffect(this.cX, this.cY));
     }
 
     @Override

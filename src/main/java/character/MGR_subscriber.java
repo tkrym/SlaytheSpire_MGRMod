@@ -73,7 +73,7 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
     {
         Texture badge = ImageMaster.loadImage(MOD_BADGE);
         BaseMod.registerModBadge(badge, "MGRMod", "MGRSK", "COOKIE mod MGR.ver", new ModPanel());
-        Color mybluecolor=new Color(1693511935);
+        Color mybluecolor=new Color(2147483647);
         BaseMod.addPotion(FortePotion.class, mybluecolor.cpy(), mybluecolor.cpy(), mybluecolor.cpy(), FortePotion.POTION_ID, ModClassEnum.MGR);
         BaseMod.addPotion(BottledNotes.class,Color.LIME.cpy(), Color.SCARLET.cpy(), Color.CLEAR.cpy(),BottledNotes.POTION_ID,ModClassEnum.MGR);
         BaseMod.addPotion(TinyApotheosis.class, Color.WHITE.cpy(), Color.WHITE.cpy(), Color.WHITE.cpy(), TinyApotheosis.POTION_ID);
@@ -85,8 +85,11 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         Prefs p=SaveHelper.getPrefs("MGR");
         if (p.getInteger("WIN_COUNT", 0) == 0) p.putInteger("WIN_COUNT", 1);
         if (p.getInteger("BOSS_KILL", 0) == 0) p.putInteger("BOSS_KILL", 1);
-        p.putInteger("ASCENSION_LEVEL", 20);
-        p.putInteger("LAST_ASCENSION_LEVEL", 0);
+        if (p.getInteger("ASCENSION_LEVEL",0) != 20 )
+        {
+            p.putInteger("ASCENSION_LEVEL", 20);
+            p.putInteger("LAST_ASCENSION_LEVEL", 0);
+        }
         p.flush();
     }
 

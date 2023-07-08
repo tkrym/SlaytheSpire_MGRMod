@@ -54,8 +54,8 @@ public class TheFirst extends CustomRelic implements OnChordHook {
     @Override
     public void onPlayerEndTurn()
     {
-        if(MGR_character.BigBrotherStanceCheck())
-            AbstractDungeon.actionManager.addToBottom(new TalkAction(true,"Hi!",2.0F,2.0F));
+        //if(MGR_character.BigBrotherStanceCheck())
+            //AbstractDungeon.actionManager.addToBottom(new TalkAction(true,"Hi!",2.0F,2.0F));
     }
 
 }

@@ -7,7 +7,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import power.FortePower;
 
 public class ApplyForteAction extends AbstractGameAction {
-    private int amount;
     public ApplyForteAction(int amount) {
         this.duration = this.startDuration;
         this.actionType = ActionType.POWER;
@@ -16,7 +15,7 @@ public class ApplyForteAction extends AbstractGameAction {
 
     public void update() {
         AbstractCreature p=AbstractDungeon.player;
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new FortePower(p, this.amount), this.amount));
+        AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(p, p, new FortePower(p, this.amount), this.amount));
         this.isDone=true;
     }
 }

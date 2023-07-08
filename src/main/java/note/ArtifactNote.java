@@ -41,13 +41,13 @@ public class ArtifactNote extends AbstractNote {
 
     public void onEvoke() {
         AbstractCreature p=AbstractDungeon.player;
-        AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(p, p, new ArtifactPower(p, this.evokeAmount), this.evokeAmount));
+        AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(p, p, new ArtifactPower(p, this.evokeAmount), this.evokeAmount,true));
     }
 
     @Override
     public void triggerEvokeAnimation() {
-        CardCrawlGame.sound.play("ORB_PLASMA_EVOKE", 0.1f);
-        AbstractDungeon.effectsQueue.add(new PlasmaOrbActivateEffect(this.cX, this.cY));
+        //CardCrawlGame.sound.play("ORB_PLASMA_EVOKE", 0.1f);
+        //AbstractDungeon.effectsQueue.add(new PlasmaOrbActivateEffect(this.cX, this.cY));
     }
 
     @Override

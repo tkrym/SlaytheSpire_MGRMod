@@ -6,10 +6,12 @@
       "削弱音符的效果。"
     ]
   },
-  	"RMASupport": {
-    "NAME": "rma支援",
+  	"MGR:Gaze": {
+    "NAME": "注视",
     "DESCRIPTIONS": [
-      "亲友rma的支援，每回合获得 [E] "
+      "每当你触发 #y和弦 时，失去 #b",
+      " 点生命并减少 #b",
+      " 层。"
     ]
   },
   	"MDCNSupport": {

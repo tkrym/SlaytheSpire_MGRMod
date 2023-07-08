@@ -10,8 +10,6 @@ public class IncCounterAction extends AbstractGameAction
 {
     public IncCounterAction()
     {
-        this.startDuration = 0.1F;
-        this.duration = this.startDuration;
     }
     public void update()
     {

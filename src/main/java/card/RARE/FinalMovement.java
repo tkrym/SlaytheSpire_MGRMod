@@ -3,6 +3,7 @@ package card.RARE;
 import action.ChannelNoteAction;
 import basemod.abstracts.CustomCard;
 import character.MGR_character;
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -64,6 +65,6 @@ public class FinalMovement extends CustomCard{
     public void triggerOnGlowCheck() {
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
         if(MGR_character.InBigBrotherStance())
-            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+            this.glowColor = new Color(1.0F,0.4F,1.0F,1.0F);
     }
 }

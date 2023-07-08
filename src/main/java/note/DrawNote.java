@@ -51,8 +51,8 @@ public class DrawNote extends AbstractNote {
 
     @Override
     public void triggerEvokeAnimation() {
-        CardCrawlGame.sound.play("ORB_DARK_EVOKE", 0.1f);
-        AbstractDungeon.effectsQueue.add(new DarkOrbActivateEffect(this.cX, this.cY));
+        //CardCrawlGame.sound.play("ORB_DARK_EVOKE", 0.1f);
+        //AbstractDungeon.effectsQueue.add(new DarkOrbActivateEffect(this.cX, this.cY));
     }
 
     @Override
