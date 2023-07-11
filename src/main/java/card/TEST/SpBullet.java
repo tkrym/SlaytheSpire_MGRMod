@@ -1,6 +1,7 @@
 package card.TEST;
 
 import basemod.abstracts.CustomCard;
+import card.AbstractMGRCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -12,7 +13,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import path.AbstractCardEnum;
 
-public class SpBullet extends CustomCard{
+public class SpBullet extends AbstractMGRCard {
     public static final String ID = "MGR:SpBullet";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
@@ -27,7 +28,7 @@ public class SpBullet extends CustomCard{
         this.magicNumber=this.baseMagicNumber;
     }
 
-    public void use(AbstractPlayer p, AbstractMonster m) {
+    public void myUse(AbstractPlayer p, AbstractMonster m) {
         int DMG=calculateDMG(m);
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, DMG, this.damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
     }

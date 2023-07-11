@@ -9,20 +9,15 @@ import java.util.Iterator;
 
 public class ChannelNoteAction extends AbstractGameAction {
     private AbstractOrb orbType;
-    private boolean autoEvoke;
 
     public ChannelNoteAction(AbstractOrb newOrbType) {
-        this(newOrbType, true);
-    }
-
-    public ChannelNoteAction(AbstractOrb newOrbType, boolean autoEvoke) {
-        this.duration = Settings.ACTION_DUR_FAST;
+        this.startDuration = 0.1F;
+        this.duration = this.startDuration;
         this.orbType = newOrbType;
-        this.autoEvoke = autoEvoke;
     }
 
     public void update() {
-        if (this.duration == Settings.ACTION_DUR_FAST) {
+        if (this.duration == this.startDuration) {
             AbstractDungeon.player.channelOrb(this.orbType);
             if (Settings.FAST_MODE) {
                 this.isDone = true;

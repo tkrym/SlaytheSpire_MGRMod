@@ -1,51 +1,53 @@
 { 
   "MGR:TheFirst": {
     "NAME": "测试1",
-    "FLAVOR": "测试1文本",
+    "FLAVOR": "测试1",
     "DESCRIPTIONS": [
       "测试1。"
     ]
   },
-  "MGR:TheSecond": {
-    "NAME": "测试2",
-    "FLAVOR": "测试2文本",
+  "MGR:OldBow": {
+    "NAME": "旧蝴蝶结",
+    "FLAVOR": "物品只会被丢弃。物品永不死亡。",
+    "DESCRIPTIONS": [
+      "还没想好。"
+    ]
+  },
+  "MGR:BloodshotEyeball": {
+    "NAME": "充血的眼球",
+    "FLAVOR": "未曾被人注视之人才会迫切地注视他人。",
+    "DESCRIPTIONS": [
+      "还没想好X2。"
+    ]
+  },
+  "MGR:Sunglasses": {
+    "NAME": "墨镜",
+    "FLAVOR": "可是，高塔中真的有需要戴墨镜的时候么？",
+    "DESCRIPTIONS": [
+      " #ymgr:注视 触发时仅减少 #b1 层。"
+    ]
+  },
+  "MGR:UnknownCreature": {
+    "NAME": "不明生物",
+    "FLAVOR": "你不知道它为什么跟着你，正如它不解你为何攀登。",
+    "DESCRIPTIONS": [
+      "每回合开始获得 [E] 。每场战斗， #ymgr:吃掉 你使用的第一张 #yMGR 能力牌。"
+    ]
+  },
+  "MGR:Telescreen": {
+    "NAME": "电幕",
+    "FLAVOR": "老大哥在看着你。",
     "DESCRIPTIONS": [
       "战斗开始时，进入 #ymgr:老大哥形态 。"
     ]
   },
-  "erohon": {
-    "NAME": "大人的曲奇",
-    "FLAVOR": "看小黄本，延年益寿，振奋精神，强身健体（迫真）。",
-    "DESCRIPTIONS": [
-      "当使用非 射击类 或 斩击类 时，只有 #b50 %的几率失去 连招 或 精准 。"
-    ]
-  },
-  "Nico": {
-    "NAME": "Nico本社",
-    "FLAVOR": "易燃易爆物，请小心使用。",
-    "DESCRIPTIONS": [
-      "每场战斗开始时，对所有敌人造成 #b10 点伤害。"
-    ]
-  },
-  "tomare": {
-    "NAME": "停下",
-    "FLAVOR": "附件标识之一，无条件地阻止敌人行动。",
-    "DESCRIPTIONS": [
-      "每场战斗开始时，额外获得一回合。"
-    ]
-  },
-  "yueyao": {
-    "NAME": "月曜先辈",
-    "FLAVOR": "它转起来了，它倒着转起来了（被枪毙）。",
-    "DESCRIPTIONS": [
-      "无法获得 精准 ，但连招的获得量变为三倍。"
-    ]
-  },
   "Juanru": {
-    "NAME": "小心卷入",
-    "FLAVOR": "危险标识之一，引起手卷入机械意外的发生。",
+    "NAME": "庇佑？",
+    "FLAVOR": "",
     "DESCRIPTIONS": [
-      "每回合开始时，对随机敌人造成 #b3 点伤害，引起 #b2 层流血。"
+      "每回合抽牌后，若你手中的 #y技能牌 小于等于 #b",
+      " 张，抽#b",
+      " 张牌。"
     ]
   },
   "Kururu": {

@@ -2,6 +2,7 @@ package card.COMMON;
 
 import action.ChannelNoteAction;
 import basemod.abstracts.CustomCard;
+import card.AbstractMGRCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -14,7 +15,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import note.AttackNote;
 import path.AbstractCardEnum;
 
-public class AttackTied extends CustomCard{
+public class AttackTied extends AbstractMGRCard {
     public static final String ID = "MGR:AttackTied";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
@@ -32,7 +33,7 @@ public class AttackTied extends CustomCard{
         this.magicNumber=this.baseMagicNumber;
     }
 
-    public void use(AbstractPlayer p, AbstractMonster m)
+    public void myUse(AbstractPlayer p, AbstractMonster m)
     {
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
         for(int i=1;i<=this.magicNumber;i++)

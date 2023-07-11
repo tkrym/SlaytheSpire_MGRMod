@@ -1,24 +1,18 @@
 package relic;
-import action.ChannelNoteAction;
 import basemod.abstracts.CustomRelic;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.actions.watcher.ChangeStanceAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
-import hook.OnChordHook;
-import note.*;
 import stance.BigBrotherStance;
 
-import java.util.ArrayList;
-
-public class TheSecond extends CustomRelic{
-    public static final String ID = "MGR:TheSecond";
+public class Telescreen extends CustomRelic{
+    public static final String ID = "MGR:Telescreen";
     private static final String IMG = "img/relic/"+ID.substring(4)+".png";
     private static final String OUTLINE = "img/relic/outline/"+ID.substring(4)+".png";
 
-    public TheSecond() {
-        super(ID, ImageMaster.loadImage(IMG), ImageMaster.loadImage(OUTLINE), RelicTier.RARE, LandingSound.CLINK);
+    public Telescreen() {
+        super(ID, ImageMaster.loadImage(IMG), ImageMaster.loadImage(OUTLINE), RelicTier.UNCOMMON, LandingSound.FLAT);
     }
 
     @Override

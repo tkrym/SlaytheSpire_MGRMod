@@ -1,4 +1,5 @@
 package action;
+import character.MGR_character;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -8,6 +9,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom.RoomPhase;
 import power.GazePower;
+import relic.Sunglasses;
 
 public class GazeLoseHpAction extends AbstractGameAction {
     private static final float DURATION = 0.05F;
@@ -29,14 +31,20 @@ public class GazeLoseHpAction extends AbstractGameAction {
             if (this.isDone) {
                 AbstractPower p = this.target.getPower(GazePower.POWER_ID);
                 if (p != null) {
-                    p.amount-=GazePower.DecreaseAmount;
+                    int dec=2;
+                    if(AbstractDungeon.player.hasRelic(Sunglasses.ID))
+                    {
+                        dec=1;
+                        AbstractDungeon.player.getRelic(Sunglasses.ID).flash();
+                    }
+                    p.amount-=dec;
                     p.flashWithoutSound();
                     if (p.amount <= 0) this.target.powers.remove(p);
                     else p.updateDescription();
                 }
 
                 if (this.target.currentHealth > 0) {
-                    this.target.tint.color = new Color(2147483647);
+                    this.target.tint.color = MGR_character.myBuleColor;
                     this.target.tint.changeColor(Color.WHITE.cpy());
                     //AbstractDungeon.actionManager.addToTop(new DamageAction(target,new DamageInfo(source,amount,DamageType.THORNS),true));
                     this.target.damage(new DamageInfo(this.source, this.amount, DamageType.HP_LOSS));

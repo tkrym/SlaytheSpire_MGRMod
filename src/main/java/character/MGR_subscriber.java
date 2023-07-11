@@ -22,6 +22,7 @@ import com.megacrit.cardcrawl.helpers.SaveHelper;
 import com.megacrit.cardcrawl.localization.*;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import path.AbstractCardEnum;
 import path.ModClassEnum;
 import relic.*;
@@ -32,7 +33,7 @@ import java.util.ArrayList;
 
 @SpireInitializer
 public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscriber,EditCardsSubscriber,EditStringsSubscriber,EditKeywordsSubscriber,PostInitializeSubscriber{
-    private static final String MOD_BADGE = "img/UI/badge.png";
+    private static final String MOD_BADGE = "img/UI/MGR_badge.png";
     private static final String ATTACK_CC = "img/512/MGR_attack_s.png";
     private static final String SKILL_CC = "img/512/MGR_skill_s.png";
     private static final String POWER_CC = "img/512/MGR_power_s.png";
@@ -44,7 +45,7 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
     public static final String CARD_ENERGY_ORB = "img/UI/energyOrb.png";
     private static final String MY_CHARACTER_BUTTON = "img/select/button.png";
     private static final String MY_CHARACTER_PORTRAIT = "img/select/figure.png";
-    public static final Color MyColor = CardHelper.getColor(255, 120, 0);
+    public static final Color MyColor = CardHelper.getColor(255, 160, 0);
     private ArrayList<AbstractCard> cardsToAdd = new ArrayList<>();
     private ArrayList<AbstractRelic> relicsToAdd = new ArrayList<>();
 
@@ -66,6 +67,7 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         loadCardsToAdd();
         for (AbstractCard card : this.cardsToAdd) {
             BaseMod.addCard(card);
+            UnlockTracker.markCardAsSeen(card.cardID);
         }
     }
 
@@ -73,9 +75,9 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
     {
         Texture badge = ImageMaster.loadImage(MOD_BADGE);
         BaseMod.registerModBadge(badge, "MGRMod", "MGRSK", "COOKIE mod MGR.ver", new ModPanel());
-        Color mybluecolor=new Color(2147483647);
+        Color mybluecolor=MGR_character.myBuleColor;
         BaseMod.addPotion(FortePotion.class, mybluecolor.cpy(), mybluecolor.cpy(), mybluecolor.cpy(), FortePotion.POTION_ID, ModClassEnum.MGR);
-        BaseMod.addPotion(BottledNotes.class,Color.LIME.cpy(), Color.SCARLET.cpy(), Color.CLEAR.cpy(),BottledNotes.POTION_ID,ModClassEnum.MGR);
+        BaseMod.addPotion(BottledNotes.class,mybluecolor.cpy(), Color.SCARLET.cpy(), Color.CLEAR.cpy(),BottledNotes.POTION_ID,ModClassEnum.MGR);
         BaseMod.addPotion(TinyApotheosis.class, Color.WHITE.cpy(), Color.WHITE.cpy(), Color.WHITE.cpy(), TinyApotheosis.POTION_ID);
         UnlockAscensionLevel();
     }
@@ -161,9 +163,9 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         this.cardsToAdd.add(new AttackTied());
         this.cardsToAdd.add(new CrispEnding());
         this.cardsToAdd.add(new GentleEnding());
-        this.cardsToAdd.add(new SpBullet1());
-        this.cardsToAdd.add(new SpBullet2());
         this.cardsToAdd.add(new FinalMovement());
+        this.cardsToAdd.add(new GazeOfOthers());
+        this.cardsToAdd.add(new GazeLock());
     }
     @Override
     public void receiveEditRelics()
@@ -171,6 +173,7 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         loadRelicsToAdd();
         for (AbstractRelic relic : this.relicsToAdd) {
             BaseMod.addRelicToCustomPool(relic,AbstractCardEnum.MGR_COLOR);
+            UnlockTracker.markRelicAsSeen(relic.relicId);
         }
     }
 
@@ -178,6 +181,10 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
     {
         this.relicsToAdd.clear();
         this.relicsToAdd.add(new TheFirst());
-        this.relicsToAdd.add(new TheSecond());
+        this.relicsToAdd.add(new UnknownCreature());
+        this.relicsToAdd.add(new Sunglasses());
+        this.relicsToAdd.add(new OldBow());
+        this.relicsToAdd.add(new Telescreen());
+        this.relicsToAdd.add(new BloodshotEyeball());
     }
 }

@@ -2,6 +2,7 @@ package card.RARE;
 
 import action.ChannelNoteAction;
 import basemod.abstracts.CustomCard;
+import card.AbstractMGRCard;
 import character.MGR_character;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -13,7 +14,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import note.AttackNote;
 import path.AbstractCardEnum;
 
-public class FinalMovement extends CustomCard{
+public class FinalMovement extends AbstractMGRCard {
     public static final String ID = "MGR:FinalMovement";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
@@ -32,7 +33,7 @@ public class FinalMovement extends CustomCard{
         this.timesUpgraded = upgrades;
     }
 
-    public void use(AbstractPlayer p, AbstractMonster m) {
+    public void myUse(AbstractPlayer p, AbstractMonster m) {
         for(int i=0;i<this.magicNumber;i++)
             AbstractDungeon.actionManager.addToBottom(new ChannelNoteAction(new AttackNote()));
         if(MGR_character.BigBrotherStanceCheck())

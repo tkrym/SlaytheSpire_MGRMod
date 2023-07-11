@@ -2,11 +2,9 @@ package character;
 
 
 import action.*;
-import basemod.interfaces.PostBattleSubscriber;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import basemod.abstracts.CustomPlayer;
-import basemod.interfaces.OnStartBattleSubscriber;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -15,7 +13,6 @@ import com.megacrit.cardcrawl.actions.watcher.ChangeStanceAction;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.orbs.*;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.stances.NeutralStance;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -39,7 +36,7 @@ import note.*;
 import stance.BigBrotherStance;
 import ui.CounterPanel;
 
-public class MGR_character extends CustomPlayer implements OnStartBattleSubscriber , PostBattleSubscriber {
+public class MGR_character extends CustomPlayer{
     private static final int ENERGY_PER_TURN = 3;
     private static final String MGR_SHOULDER_2 = "img/character/shoulder2.png";
     private static final String MGR_SHOULDER_1 = "img/character/shoulder1.png";
@@ -50,15 +47,18 @@ public class MGR_character extends CustomPlayer implements OnStartBattleSubscrib
     private static final float[] LAYER_SPEED = new float[] { -40.0F, -32.0F, 20.0F, -20.0F, 0.0F, -10.0F, -8.0F, 5.0F, -5.0F, 0.0F };
     private static final int STARTING_HP = 66;
     private static final int MAX_HP = 66;
-    private static final int CARD_DRAW = 5;
+    private static final int CARD_DRAW = 10;
     private static final int STARTING_GOLD = 99;
     private static final int HAND_SIZE = 4;
     private static final int ASCENSION_MAX_HP_LOSS = 7;
     public static final Color MyColor = CardHelper.getColor(255, 160, 0);
+    public static final Color myBuleColor=new Color(1339620607);//
 //    public static final Color YuhColor = CardHelper.getColor(255, 200, 80);
-    public int counter=0;
-    public int counter_master=2;
-    public int counter_max=counter_master;
+    public int counter;
+    public int counter_min;
+    public int counter_max;
+    public int counter_min_master=0;
+    public int counter_max_master=4;
     public static CounterPanel myCounterPanel=new CounterPanel();
 
     public MGR_character(String name) {
@@ -85,9 +85,7 @@ public class MGR_character extends CustomPlayer implements OnStartBattleSubscrib
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
         retVal.add("MGR:TheFirst");
-        retVal.add("MGR:TheSecond");
         UnlockTracker.markRelicAsSeen("TheFirst");
-        UnlockTracker.markRelicAsSeen("TheSecond");
         return retVal;
     }
 
@@ -107,7 +105,7 @@ public class MGR_character extends CustomPlayer implements OnStartBattleSubscrib
     public String getTitle(PlayerClass playerClass) {
         String title;
         if (Settings.language == Settings.GameLanguage.ZHS) {
-            title = "MGR";
+            title = "MGR_Title";
         } else if (Settings.language == Settings.GameLanguage.ZHT) {
             title = "MGR";
         } else {
@@ -120,7 +118,7 @@ public class MGR_character extends CustomPlayer implements OnStartBattleSubscrib
     public String getLocalizedCharacterName() {
         String char_name;
         if (Settings.language == Settings.GameLanguage.ZHS) {
-            char_name = "MGR";
+            char_name = "MGR_NAME";
         } else if (Settings.language == Settings.GameLanguage.ZHT) {
             char_name = "MGR";
         } else {
@@ -162,7 +160,9 @@ public class MGR_character extends CustomPlayer implements OnStartBattleSubscrib
 
     public Color getSlashAttackColor() {return MyColor;}
 
-    public AbstractGameAction.AttackEffect[] getSpireHeartSlashEffect() {return new AbstractGameAction.AttackEffect[0];}
+    public AbstractGameAction.AttackEffect[] getSpireHeartSlashEffect() {
+        return new AbstractGameAction.AttackEffect[]{AbstractGameAction.AttackEffect.SLASH_HEAVY, AbstractGameAction.AttackEffect.FIRE, AbstractGameAction.AttackEffect.SLASH_DIAGONAL, AbstractGameAction.AttackEffect.SLASH_HEAVY, AbstractGameAction.AttackEffect.FIRE, AbstractGameAction.AttackEffect.SLASH_DIAGONAL};
+    }
 
     public String getVampireText() {return "Hello, vampires?";}
 
@@ -182,24 +182,12 @@ public class MGR_character extends CustomPlayer implements OnStartBattleSubscrib
                 case ATTACK:note=new AttackNote();break;
                 case SKILL:note=new DefendNote();break;
                 case POWER:note=new DrawNote();break;
-                case STATUS:note=new ArtifactNote();break;
-                case CURSE:note=new DebuffNote();break;
+                case STATUS:note=new DebuffNote();break;
+                case CURSE:note=new ArtifactNote();break;
                 default:note=new EmptyNoteSlot();
             }
             AbstractDungeon.actionManager.addToBottom(new ChannelNoteAction(note));
         }
-    }
-
-    public void receiveOnBattleStart(AbstractRoom var1)
-    {
-        this.counter=0;
-        this.counter_max=this.counter_master;
-    }
-
-    public void receivePostBattle(AbstractRoom r)
-    {
-        //int size=AbstractDungeon.actionManager.cardsPlayedThisCombat.size();
-        //if(size>0) AbstractDungeon.actionManager.addToBottom(new TalkAction(true,size+"||"+AbstractDungeon.actionManager.cardsPlayedThisCombat.get(size-1).name,3.0F,3.0F));
     }
 
     @Override
@@ -234,6 +222,15 @@ public class MGR_character extends CustomPlayer implements OnStartBattleSubscrib
                 AbstractDungeon.actionManager.addToTop(new AnimateNoteAction(1));
             }
         }
+    }
+
+    @Override
+    public void preBattlePrep()
+    {
+        super.preBattlePrep();
+        this.counter_max=this.counter_max_master;
+        this.counter_min=this.counter_min_master;
+        this.counter=this.counter_min;
     }
 
     @Override
@@ -291,20 +288,19 @@ public class MGR_character extends CustomPlayer implements OnStartBattleSubscrib
 
     public void Inccounter(int amount)
     {
-        if(amount>0&&InBigBrotherStance()) return;
-        this.counter=Math.max(0,this.counter+amount);
-        if(amount!=0) myCounterPanel.EnlargeFontScale();
+        int changed_number=this.counter+amount;
+        if(InBigBrotherStance()&&changed_number>this.counter_max-1) changed_number=this.counter_max-1;
+        if(changed_number<this.counter_min) changed_number=this.counter_min;
+        if(changed_number!=this.counter) myCounterPanel.EnlargeFontScale();
+        this.counter=changed_number;
         checkCounter();
     }
 
     public void checkCounter()
     {
-        if(!(AbstractDungeon.player instanceof MGR_character))
-            return;
-        MGR_character p=(MGR_character)AbstractDungeon.player;
-        if(p.counter>=p.counter_max)
+        if(this.counter>=this.counter_max)
         {
-            p.counter=0;
+            this.counter=this.counter_min;
             myCounterPanel.EnlargeFontScale();
             AbstractDungeon.actionManager.addToTop(new ChangeStanceAction(new BigBrotherStance()));
         }

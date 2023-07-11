@@ -10,10 +10,10 @@
   "MGR:Debuff": {
     "DESCRIPTION": [
       "#y触发 ：给予所有敌人 #b",
-      " 层 虚弱 和 易伤 。 NL 每 #b",
+      " 层 虚弱 与 易伤 。 NL 每 #b",
       " 层 #y强音 增强 #b1 点效果。"
     ],
-    "NAME": "Debuff"
+    "NAME": "debuff"
   },
   "MGR:Empty": {
     "DESCRIPTION": [

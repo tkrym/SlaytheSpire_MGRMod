@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.OrbStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.ConstrictedPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.vfx.combat.DarkOrbActivateEffect;
@@ -46,6 +47,7 @@ public class DebuffNote extends AbstractNote {
     {
         AbstractCreature p=AbstractDungeon.player;
         for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
+            //AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(mo, p, new ConstrictedPower(mo, p, this.evokeAmount), this.evokeAmount,true,AbstractGameAction.AttackEffect.NONE));
             AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(mo, p, new VulnerablePower(mo, this.evokeAmount, false), this.evokeAmount, true, AbstractGameAction.AttackEffect.NONE));
             AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(mo, p, new WeakPower(mo, this.evokeAmount, false), this.evokeAmount, true, AbstractGameAction.AttackEffect.NONE));
         }

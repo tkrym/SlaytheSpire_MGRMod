@@ -9,7 +9,7 @@
   },
     "MGR:SpBullet": {
     "NAME": "SpBullet",
-    "DESCRIPTION": "造成等同于目标当前生命 !M! %的固定伤害",
+    "DESCRIPTION": "测试用。造成等同于目标当前生命 !M! %的固定伤害",
     "EXTENDED_DESCRIPTION": [
       "造成等同于目标当前生命 !M! %(",
       ")的固定伤害"
@@ -47,32 +47,28 @@
     "NAME":"轻快尾音",
     "DESCRIPTION": "造成 !D! 点伤害，抽1张牌。 NL 尾音：打出一张复制。"
   },
-    "MGR:SpBullet1":{
-    "NAME":"测试1卡牌",
-    "DESCRIPTION": "给予 !M! 层 mgr:注视 。"
-  },
-    "MGR:SpBullet2":{
-    "NAME":"测试2卡牌",
-    "DESCRIPTION": "测试2"
-  },
     "MGR:FinalMovement":{
     "NAME":"终章",
     "DESCRIPTION": "!M!"
   },
-    "ThreeNiangRikyo":{
-    "NAME":"立教三人娘",
-    "DESCRIPTION": "叠加三层 呼叫 NL 消耗",
-    "UPGRADE_DESCRIPTION": "固有 NL 叠加三层 呼叫 NL 消耗"
+    "MGR:GazeOfOthers":{
+    "NAME":"他人的视线",
+    "DESCRIPTION": "获得 !B! 点格挡。额外获得等同于目标 mgr:注视 层数的格挡。",
+    "UPGRADE_DESCRIPTION": "获得 !B! 点格挡。额外获得等同于所有敌人 mgr:注视 层数总和的格挡。",
+    "EXTENDED_DESCRIPTION": [
+      " NL （额外获得 ",
+       " 点格挡）"
+    ]
   },
-    "Rest":{
-    "NAME":"休息",
-    "DESCRIPTION": "恢复 !M! 点生命，叠加两层 呼叫 NL 消耗",
-    "UPGRADE_DESCRIPTION": "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"
+    "MGR:GazeLock":{
+    "NAME":"视线之锁",
+    "DESCRIPTION": "给予目标 !M! 层 虚弱 与 易伤 。然后，施加等同于其负面状态（不包括注视）层数总和的 mgr:注视 。 消耗性2",
+    "UPGRADE_DESCRIPTION":  "给予目标 !M! 层 虚弱 与 易伤 并生成一个 mgr:debuff音符 。然后，施加等同于其负面状态（不包括注视）层数总和的 mgr:注视 。 消耗性2"
   },
-    "TeamOfThree":{
-    "NAME":"三人成队",
-    "DESCRIPTION": "叠加一层 diyusi支援 和 rma支援，获得 [E] ",
-    "UPGRADE_DESCRIPTION": "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"
+    "MGR:LAB01":{
+    "NAME":"LAB=01☆",
+    "DESCRIPTION": "在手牌中时，记录触发的每个音符的效果。打出时，使用这些效果。 NL 抽到时保留 #b1 回合。 消耗 ",
+    "UPGRADE_DESCRIPTION": "在手牌中时，记录触发的每个音符的效果。打出时，使用这些效果。 NL 抽到时保留 #b2 回合。 消耗 "
   },
     "SIKNoSupport":{
     "NAME":"SIK的支援",

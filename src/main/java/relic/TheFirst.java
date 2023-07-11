@@ -20,7 +20,7 @@ public class TheFirst extends CustomRelic implements OnChordHook {
     private int cnt=0;
 
     public TheFirst() {
-        super(ID, ImageMaster.loadImage(IMG), ImageMaster.loadImage(OUTLINE), RelicTier.STARTER, AbstractRelic.LandingSound.CLINK);
+        super(ID, ImageMaster.loadImage(IMG), ImageMaster.loadImage(OUTLINE), RelicTier.STARTER, AbstractRelic.LandingSound.MAGICAL);
     }
 
     @Override

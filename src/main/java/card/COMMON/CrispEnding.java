@@ -1,6 +1,7 @@
 package card.COMMON;
 
 import basemod.abstracts.CustomCard;
+import card.AbstractMGRCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
@@ -15,7 +16,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import path.AbstractCardEnum;
 
-public class CrispEnding extends CustomCard{
+public class CrispEnding extends AbstractMGRCard {
     public static final String ID = "MGR:CrispEnding";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
@@ -30,7 +31,7 @@ public class CrispEnding extends CustomCard{
         this.baseDamage = DMG;
     }
 
-    public void use(AbstractPlayer p, AbstractMonster m) {
+    public void myUse(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
         addToBot(new DrawCardAction(p, 1));
         if(p.filledOrbCount()==p.maxOrbs-1&&!this.myPurgeOnUse)

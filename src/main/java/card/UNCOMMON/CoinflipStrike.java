@@ -1,6 +1,7 @@
 package card.UNCOMMON;
 
 import basemod.abstracts.CustomCard;
+import card.AbstractMGRCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -16,7 +17,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.FlickCoinEffect;
 import path.AbstractCardEnum;
 
-public class CoinflipStrike extends CustomCard{
+public class CoinflipStrike extends AbstractMGRCard {
     public static final String ID = "MGR:CoinflipStrike";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
@@ -30,11 +31,11 @@ public class CoinflipStrike extends CustomCard{
         this.baseDamage = DMG;
     }
 
-    public void use(AbstractPlayer p, AbstractMonster m)
+    public void myUse(AbstractPlayer p, AbstractMonster m)
     {
         this.addToBot(new VFXAction(new FlickCoinEffect(p.hb.cX, p.hb.cY, m.hb.cX, m.hb.cY), 0.2F));
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
-        if (AbstractDungeon.cardRandomRng.random(99) < 60)//Actually 60% possibility
+        if (AbstractDungeon.cardRandomRng.random(99) < 60)//Actually 60% of possibility
         {
             AbstractCard tmp = this.makeSameInstanceOf();
             AbstractDungeon.player.limbo.addToBottom(tmp);

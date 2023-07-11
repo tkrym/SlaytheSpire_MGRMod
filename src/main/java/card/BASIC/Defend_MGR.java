@@ -1,6 +1,7 @@
 package card.BASIC;
 
 import basemod.abstracts.CustomCard;
+import card.AbstractMGRCard;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -10,7 +11,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import path.AbstractCardEnum;
 
-public class Defend_MGR extends CustomCard{
+public class Defend_MGR extends AbstractMGRCard {
     public static final String ID = "MGR:Defend_MGR";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
@@ -25,7 +26,7 @@ public class Defend_MGR extends CustomCard{
         this.baseBlock = BLOCK;
     }
 
-    public void use(AbstractPlayer p, AbstractMonster m) {
+    public void myUse(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
     }
 
@@ -37,4 +38,5 @@ public class Defend_MGR extends CustomCard{
             this.upgradeBlock(PLUS_BLOCK);
         }
     }
+
 }
