@@ -1,9 +1,9 @@
 { 
-  "MGR:TheFirst": {
-    "NAME": "测试1",
-    "FLAVOR": "测试1",
+  "MGR:TestRelic0": {
+    "NAME": "测试0",
+    "FLAVOR": "测试0",
     "DESCRIPTIONS": [
-      "测试1。"
+      "测试0。"
     ]
   },
   "MGR:OldBow": {
@@ -41,11 +41,11 @@
       "战斗开始时，进入 #ymgr:老大哥形态 。"
     ]
   },
-  "MGR:TestRelic1": {
-    "NAME": "庇佑？",
+  "MGR:LittleAngel": {
+    "NAME": "小天使",
     "FLAVOR": "愿你不再受制于厄运。",
     "DESCRIPTIONS": [
-      "每回合抽牌后，若你手中的 #y技能牌 小于等于 #b",
+      "回合抽牌后，若你手中的 #y技能牌 小于等于 #b",
       " 张，抽 #b",
       " 张牌。"
     ]
@@ -58,11 +58,12 @@
       " 层 #ymgr:强音 。"
     ]
   },
-  "Zailiaoya": {
-    "NAME": "移动材料屋",
-    "FLAVOR": "为了方便售货，大量生产的移动材料店。在这种地方，居然有一家材料屋。",
+  "MGR:Maguroyaki": {
+    "NAME": "鮪鱼烧",
+    "FLAVOR": "被做成金枪鱼形状的点心。是什么馅的呢？",
     "DESCRIPTIONS": [
-      "每场战斗第二、三回合，多抽一张卡。"
+      "每当你 #y锻造 ，回复最大生命值的",
+      "% 。"
     ]
   },
   "CiXing": {

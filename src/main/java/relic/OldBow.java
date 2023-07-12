@@ -13,7 +13,7 @@ public class OldBow extends CustomRelic{
     private static final String OUTLINE = "img/relic/outline/"+ID.substring(4)+".png";
 
     public OldBow() {
-        super(ID, ImageMaster.loadImage(IMG), ImageMaster.loadImage(OUTLINE), RelicTier.SHOP, LandingSound.MAGICAL);
+        super(ID, ImageMaster.loadImage(IMG), ImageMaster.loadImage(OUTLINE), RelicTier.COMMON, LandingSound.MAGICAL);
     }
 
     public String getUpdatedDescription() { return this.DESCRIPTIONS[0]; }

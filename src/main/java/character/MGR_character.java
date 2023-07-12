@@ -87,7 +87,7 @@ public class MGR_character extends CustomPlayer{
 
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
-        retVal.add("MGR:TheFirst");
+        retVal.add("MGR:TestRelic0");
         return retVal;
     }
 

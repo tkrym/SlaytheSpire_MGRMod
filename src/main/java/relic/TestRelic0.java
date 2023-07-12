@@ -1,8 +1,6 @@
 package relic;
 import action.ChannelNoteAction;
 import basemod.abstracts.CustomRelic;
-import character.MGR_character;
-import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
@@ -12,14 +10,14 @@ import note.*;
 
 import java.util.ArrayList;
 
-public class TheFirst extends CustomRelic implements OnChordHook {
-    public static final String ID = "MGR:TheFirst";
+public class TestRelic0 extends CustomRelic implements OnChordHook {
+    public static final String ID = "MGR:TestRelic0";
     private static final String IMG = "img/relic/"+ID.substring(4)+".png";
     private static final String OUTLINE = "img/relic/outline/"+ID.substring(4)+".png";
     private ArrayList<AbstractNote> notes=new ArrayList();
     private int cnt=0;
 
-    public TheFirst() {
+    public TestRelic0() {
         super(ID, ImageMaster.loadImage(IMG), ImageMaster.loadImage(OUTLINE), RelicTier.STARTER, AbstractRelic.LandingSound.MAGICAL);
     }
 
@@ -60,7 +58,7 @@ public class TheFirst extends CustomRelic implements OnChordHook {
 
     @Override
     public AbstractRelic makeCopy() {
-        return new TheFirst();
+        return new TestRelic0();
     }
 
 }

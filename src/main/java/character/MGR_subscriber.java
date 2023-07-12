@@ -182,13 +182,14 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
     private void loadRelicsToAdd()
     {
         this.relicsToAdd.clear();
-        this.relicsToAdd.add(new TheFirst());
+        this.relicsToAdd.add(new TestRelic0());
         this.relicsToAdd.add(new UnknownCreature());
         this.relicsToAdd.add(new Sunglasses());
         this.relicsToAdd.add(new OldBow());
         this.relicsToAdd.add(new Telescreen());
         this.relicsToAdd.add(new BloodshotEyeball());
-        this.relicsToAdd.add(new TestRelic1());
+        this.relicsToAdd.add(new LittleAngel());
         this.relicsToAdd.add(new TestRelic2());
+        this.relicsToAdd.add(new Maguroyaki());
     }
 }
