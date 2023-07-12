@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.actions.watcher.ChangeStanceAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import stance.BigBrotherStance;
 
 public class Sunglasses extends CustomRelic{
@@ -16,5 +17,10 @@ public class Sunglasses extends CustomRelic{
     }
 
     public String getUpdatedDescription() { return this.DESCRIPTIONS[0]; }
+
+    @Override
+    public AbstractRelic makeCopy() {
+        return new Sunglasses();
+    }
 
 }

@@ -46,7 +46,7 @@ public class EmptyNoteSlot extends AbstractNote{
     }
 
     @Override
-    public void onEvoke() {
+    public void myEvoke() {
     }
 
     @Override

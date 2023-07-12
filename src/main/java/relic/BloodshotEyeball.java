@@ -1,6 +1,7 @@
 package relic;
 import basemod.abstracts.CustomRelic;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 public class BloodshotEyeball extends CustomRelic{
     public static final String ID = "MGR:BloodshotEyeball";
@@ -12,5 +13,10 @@ public class BloodshotEyeball extends CustomRelic{
     }
 
     public String getUpdatedDescription() { return this.DESCRIPTIONS[0]; }
+
+    @Override
+    public AbstractRelic makeCopy() {
+        return new BloodshotEyeball();
+    }
 
 }

@@ -28,7 +28,7 @@ public class Strike_MGR extends AbstractMGRCard {
         this.baseDamage = DMG;
     }
 
-    public void myUse(AbstractPlayer p, AbstractMonster m) {
+    public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
     }
 

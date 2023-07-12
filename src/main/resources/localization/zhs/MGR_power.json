@@ -14,16 +14,16 @@
       " 层。"
     ]
   },
-  	"MDCNSupport": {
-    "NAME": "mdcn支援",
+  	"MGR:Stereo": {
+    "NAME": "立体声",
     "DESCRIPTIONS": [
-      "每回合对随机一名敌人施加 #b4 层 中毒 "
+      " #y音符 对所有敌人造成伤害。"
     ]
   },
-  	"QuestPower": {
-    "NAME": "探寻",
+  	"MGR:StereoPlus": {
+    "NAME": "立体声+",
     "DESCRIPTIONS": [
-      "每回合消耗 #b3 层 #y呼叫 ，选择一层随机亲友支援。"
+      " #y音符 对所有敌人造成伤害，并且受 #y易伤 加成。"
     ]
   },
   	"MultipleCallsPower": {

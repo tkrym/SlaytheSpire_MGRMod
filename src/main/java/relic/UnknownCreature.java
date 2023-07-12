@@ -4,6 +4,7 @@ import basemod.abstracts.CustomRelic;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import hook.OnChordHook;
 import note.*;
 
@@ -38,11 +39,14 @@ public class UnknownCreature extends CustomRelic{
         if(this.PowerCardUsed) return false;
         this.PowerCardUsed=true;
         this.flash();
-        this.grayscale=true;
         this.addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
         return true;
     }
 
     public String getUpdatedDescription() { return this.DESCRIPTIONS[0]; }
 
+    @Override
+    public AbstractRelic makeCopy() {
+        return new UnknownCreature();
+    }
 }

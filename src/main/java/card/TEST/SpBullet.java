@@ -28,7 +28,7 @@ public class SpBullet extends AbstractMGRCard {
         this.magicNumber=this.baseMagicNumber;
     }
 
-    public void myUse(AbstractPlayer p, AbstractMonster m) {
+    public void use(AbstractPlayer p, AbstractMonster m) {
         int DMG=calculateDMG(m);
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, DMG, this.damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
     }

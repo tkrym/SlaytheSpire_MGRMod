@@ -8,7 +8,7 @@
   },
   "MGR:OldBow": {
     "NAME": "旧蝴蝶结",
-    "FLAVOR": "物品只会被丢弃。物品永不死亡。",
+    "FLAVOR": "物品只是被丢弃。物品永不死亡。",
     "DESCRIPTIONS": [
       "还没想好。"
     ]
@@ -29,9 +29,9 @@
   },
   "MGR:UnknownCreature": {
     "NAME": "不明生物",
-    "FLAVOR": "你不知道它为什么跟着你，正如它不解你为何攀登。",
+    "FLAVOR": "你不知道它为什么跟着你，正如它不知道你为何攀登。",
     "DESCRIPTIONS": [
-      "每回合开始获得 [E] 。每场战斗， #ymgr:吃掉 你使用的第一张 #yMGR 能力牌。"
+      "每回合开始获得 [E] 。每场战斗， #ymgr:吃掉 你使用的第一张能力牌。"
     ]
   },
   "MGR:Telescreen": {
@@ -41,20 +41,21 @@
       "战斗开始时，进入 #ymgr:老大哥形态 。"
     ]
   },
-  "Juanru": {
+  "MGR:TestRelic1": {
     "NAME": "庇佑？",
-    "FLAVOR": "",
+    "FLAVOR": "愿你不再受制于厄运。",
     "DESCRIPTIONS": [
       "每回合抽牌后，若你手中的 #y技能牌 小于等于 #b",
-      " 张，抽#b",
+      " 张，抽 #b",
       " 张牌。"
     ]
   },
-  "Kururu": {
-    "NAME": "黑色高级车",
-    "FLAVOR": "也许是因为过于疲惫，不幸追尾了一辆黑色高级轿车……",
+  "MGR:TestRelic2": {
+    "NAME": "数值？",
+    "FLAVOR": "简单，粗暴，直接。",
     "DESCRIPTIONS": [
-      "每场战斗开始时，选择一个随机支援。"
+      "每场战斗开始时，获得 #b",
+      " 层 #ymgr:强音 。"
     ]
   },
   "Zailiaoya": {

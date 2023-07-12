@@ -39,7 +39,7 @@ public class ArtifactNote extends AbstractNote {
         this.description = orbString.DESCRIPTION[0]+this.evokeAmount+orbString.DESCRIPTION[1]+this.forterate+orbString.DESCRIPTION[2];
     }
 
-    public void onEvoke() {
+    public void myEvoke() {
         AbstractCreature p=AbstractDungeon.player;
         AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(p, p, new ArtifactPower(p, this.evokeAmount), this.evokeAmount,true));
     }

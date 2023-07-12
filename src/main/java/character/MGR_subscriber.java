@@ -166,6 +166,8 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         this.cardsToAdd.add(new FinalMovement());
         this.cardsToAdd.add(new GazeOfOthers());
         this.cardsToAdd.add(new GazeLock());
+        this.cardsToAdd.add(new LAB01());
+        this.cardsToAdd.add(new Stereophonic());
     }
     @Override
     public void receiveEditRelics()
@@ -186,5 +188,7 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         this.relicsToAdd.add(new OldBow());
         this.relicsToAdd.add(new Telescreen());
         this.relicsToAdd.add(new BloodshotEyeball());
+        this.relicsToAdd.add(new TestRelic1());
+        this.relicsToAdd.add(new TestRelic2());
     }
 }

@@ -34,7 +34,7 @@ public class GazeOfOthers extends AbstractMGRCard {
         DESC=DESCRIPTION;
     }
 
-    public void myUse(AbstractPlayer p, AbstractMonster m) {
+    public void use(AbstractPlayer p, AbstractMonster m) {
         int BLOCK=GetAdditionalBlock(m);
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p,p,this.block+BLOCK));
     }

@@ -1,5 +1,7 @@
 package note;
 
+import action.ChannelNoteAction;
+import card.TEST.LAB01;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
@@ -7,6 +9,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -17,12 +21,15 @@ import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.orbs.*;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.vfx.BobEffect;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Objects;
 
 import javassist.expr.Instanceof;
 import power.FortePower;
+import power.StereoPlusPower;
 
 public abstract class AbstractNote extends AbstractOrb
 {
@@ -57,15 +64,6 @@ public abstract class AbstractNote extends AbstractOrb
         else this.evokeAmount = this.baseEvokeAmount;
     }
 
-    public static AbstractOrb getRandomNote() {
-        ArrayList<AbstractOrb> orbs = new ArrayList();
-        orbs.add(new Dark());
-        orbs.add(new Frost());
-        orbs.add(new Lightning());
-        orbs.add(new Plasma());
-        return orbs.get(AbstractDungeon.cardRandomRng.random(orbs.size() - 1));
-    }
-
     @Override
     protected void renderText(SpriteBatch sb)
     {
@@ -80,5 +78,48 @@ public abstract class AbstractNote extends AbstractOrb
         this.tY = 250.0F * Settings.scale + AbstractDungeon.player.drawY + AbstractDungeon.player.hb_h / 2.0F;
         this.tX+=((float)slotNum-((float)maxOrbs-1)/2)*135.0F*Settings.scale;
         this.hb.move(this.tX, this.tY);
+    }
+
+    public static AbstractNote GetCorrespondingNote(AbstractCard c)
+    {
+        AbstractNote note;
+        switch (c.type)
+        {
+            case ATTACK:note=new AttackNote();break;
+            case SKILL:note=new DefendNote();break;
+            case POWER:note=new DrawNote();break;
+            case STATUS:note=new DebuffNote();break;
+            case CURSE:note=new ArtifactNote();break;
+            default:note=new EmptyNoteSlot();
+        }
+        return note;
+    }
+
+    public static void GenerateNote(AbstractCard c)
+    {
+        AbstractDungeon.actionManager.addToBottom(new ChannelNoteAction(GetCorrespondingNote(c)));
+    }
+
+    public abstract void myEvoke();
+
+    public void onEvoke()
+    {
+        myEvoke();
+        if(!(this instanceof EmptyNoteSlot)) LAB01Check();
+    }
+
+    public void LAB01Check()
+    {
+        for (AbstractCard c : AbstractDungeon.player.hand.group)
+            if(c instanceof LAB01)
+                ((LAB01)c).AddNote(this);
+    }
+
+    public static int applyVulnerable(AbstractCreature m, int dmg) {
+        int retVal = dmg;
+        if (m.hasPower(VulnerablePower.POWER_ID)&&AbstractDungeon.player.hasPower(StereoPlusPower.POWER_ID)) {
+            retVal = (int)(m.getPower(VulnerablePower.POWER_ID).atDamageReceive((float)dmg, DamageInfo.DamageType.NORMAL));
+        }
+        return retVal;
     }
 }

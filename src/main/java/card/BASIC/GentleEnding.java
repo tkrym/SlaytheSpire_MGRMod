@@ -33,7 +33,7 @@ public class GentleEnding extends AbstractMGRCard {
         this.magicNumber=this.baseMagicNumber;
     }
 
-    public void myUse(AbstractPlayer p, AbstractMonster m) {
+    public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
         if(p.filledOrbCount()==p.maxOrbs-1)
         {

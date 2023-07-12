@@ -24,7 +24,7 @@ public class TestPower extends AbstractMGRCard {
         this.magicNumber=this.baseMagicNumber;
     }
 
-    public void myUse(AbstractPlayer p, AbstractMonster m) {
+    public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ApplyForteAction(this.baseMagicNumber));
     }
 

@@ -24,7 +24,7 @@ public class TestAttack extends AbstractMGRCard {
         this.baseDamage = 0;
     }
 
-    public void myUse(AbstractPlayer p, AbstractMonster m) {
+    public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new InstantKillAction(m));
     }
 

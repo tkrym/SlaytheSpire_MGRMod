@@ -23,7 +23,7 @@ public class TestDefend extends AbstractMGRCard {
         this.baseBlock = 999;
     }
 
-    public void myUse(AbstractPlayer p, AbstractMonster m) {
+    public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
     }
 

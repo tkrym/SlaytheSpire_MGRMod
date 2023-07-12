@@ -29,10 +29,10 @@ public class GazeLock extends AbstractMGRCard {
     public static final String ID = "MGR:GazeLock";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG = "img/card/"+ID.substring(4)+".png";
     private static final int COST = 1;
     private static final int MAGIC = 1;
+    private static final int PLUS_MAGIC = 1;
     public GazeLock() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.SKILL,
                 AbstractCardEnum.MGR_COLOR, CardRarity.UNCOMMON, CardTarget.ENEMY);
@@ -43,21 +43,12 @@ public class GazeLock extends AbstractMGRCard {
         ExhaustiveField.ExhaustiveFields.isExhaustiveUpgraded.set(this, false);
     }
 
-    public void myUse(AbstractPlayer p, AbstractMonster m)
+    public void use(AbstractPlayer p, AbstractMonster m)
     {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new WeakPower(m, this.magicNumber, false), this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new VulnerablePower(m, this.magicNumber, false), this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
-        //AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new ConstrictedPower(m, p, this.magicNumber), this.magicNumber,true,AbstractGameAction.AttackEffect.NONE));
-        if(this.upgraded)
-            AbstractDungeon.actionManager.addToBottom(new ChannelNoteAction(new DebuffNote()));
         AbstractDungeon.actionManager.addToBottom(new GazeLockAction(m));
-        UpdateDescription();
-    }
-
-    private void UpdateDescription()
-    {
-        this.rawDescription=this.rawDescription.substring(0,this.rawDescription.length()-1)+ExhaustiveField.ExhaustiveFields.exhaustive.get(this);
-        initializeDescription();
+        this.UpdateExhaustiveDescription();
     }
 
     public AbstractCard makeCopy() { return new GazeLock(); }
@@ -65,8 +56,7 @@ public class GazeLock extends AbstractMGRCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.rawDescription=UPGRADE_DESCRIPTION;
-            this.initializeDescription();
+            this.upgradeMagicNumber(PLUS_MAGIC);
         }
     }
 }

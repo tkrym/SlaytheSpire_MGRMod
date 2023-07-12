@@ -33,7 +33,7 @@ public class AttackTied extends AbstractMGRCard {
         this.magicNumber=this.baseMagicNumber;
     }
 
-    public void myUse(AbstractPlayer p, AbstractMonster m)
+    public void use(AbstractPlayer p, AbstractMonster m)
     {
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
         for(int i=1;i<=this.magicNumber;i++)

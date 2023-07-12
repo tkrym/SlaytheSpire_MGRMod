@@ -58,4 +58,9 @@ public class TheFirst extends CustomRelic implements OnChordHook {
             //AbstractDungeon.actionManager.addToBottom(new TalkAction(true,"Hi!",2.0F,2.0F));
     }
 
+    @Override
+    public AbstractRelic makeCopy() {
+        return new TheFirst();
+    }
+
 }

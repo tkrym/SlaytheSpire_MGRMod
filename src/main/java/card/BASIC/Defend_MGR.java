@@ -26,7 +26,7 @@ public class Defend_MGR extends AbstractMGRCard {
         this.baseBlock = BLOCK;
     }
 
-    public void myUse(AbstractPlayer p, AbstractMonster m) {
+    public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
     }
 

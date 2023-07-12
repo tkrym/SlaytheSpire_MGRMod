@@ -9,11 +9,13 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.actions.watcher.ChangeStanceAction;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.orbs.*;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.stances.NeutralStance;
+import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -33,6 +35,7 @@ import path.AbstractCardEnum;
 import java.util.ArrayList;
 import java.util.List;
 import note.*;
+import relic.UnknownCreature;
 import stance.BigBrotherStance;
 import ui.CounterPanel;
 
@@ -47,7 +50,7 @@ public class MGR_character extends CustomPlayer{
     private static final float[] LAYER_SPEED = new float[] { -40.0F, -32.0F, 20.0F, -20.0F, 0.0F, -10.0F, -8.0F, 5.0F, -5.0F, 0.0F };
     private static final int STARTING_HP = 66;
     private static final int MAX_HP = 66;
-    private static final int CARD_DRAW = 10;
+    private static final int CARD_DRAW = 5;
     private static final int STARTING_GOLD = 99;
     private static final int HAND_SIZE = 4;
     private static final int ASCENSION_MAX_HP_LOSS = 7;
@@ -85,7 +88,6 @@ public class MGR_character extends CustomPlayer{
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
         retVal.add("MGR:TheFirst");
-        UnlockTracker.markRelicAsSeen("TheFirst");
         return retVal;
     }
 
@@ -166,28 +168,40 @@ public class MGR_character extends CustomPlayer{
 
     public String getVampireText() {return "Hello, vampires?";}
 
-    @Override
-    public void useCard(AbstractCard targetCard, AbstractMonster monster, int energyOnUse) {
-        super.useCard(targetCard, monster, energyOnUse);
-        GenerateNote(targetCard);
+    private boolean BeforeUseCheck(AbstractCard c)
+    {
+        AbstractPlayer p=AbstractDungeon.player;
+        if(c.type==AbstractCard.CardType.POWER&&p.hasRelic(UnknownCreature.ID))
+            if(((UnknownCreature)p.getRelic(UnknownCreature.ID)).Check()) return true;
+        return false;
     }
 
-    public void GenerateNote(AbstractCard targetCard)
-    {
-        if(!targetCard.dontTriggerOnUseCard)
-        {
-            AbstractNote note;
-            switch (targetCard.type)
-            {
-                case ATTACK:note=new AttackNote();break;
-                case SKILL:note=new DefendNote();break;
-                case POWER:note=new DrawNote();break;
-                case STATUS:note=new DebuffNote();break;
-                case CURSE:note=new ArtifactNote();break;
-                default:note=new EmptyNoteSlot();
-            }
-            AbstractDungeon.actionManager.addToBottom(new ChannelNoteAction(note));
+
+    @Override
+    public void useCard(AbstractCard c, AbstractMonster monster, int energyOnUse) {
+        if (c.type == AbstractCard.CardType.ATTACK) {
+            this.useFastAttackAnimation();
         }
+
+        c.calculateCardDamage(monster);
+        if (c.cost == -1 && EnergyPanel.totalCount < energyOnUse && !c.ignoreEnergyOnUse) {
+            c.energyOnUse = EnergyPanel.totalCount;
+        }
+
+        if (c.cost == -1 && c.isInAutoplay) {
+            c.freeToPlayOnce = true;
+        }
+
+        if(!BeforeUseCheck(c)) c.use(this, monster);
+        AbstractDungeon.actionManager.addToBottom(new UseCardAction(c, monster));
+        if(!c.dontTriggerOnUseCard) this.hand.triggerOnOtherCardPlayed(c);
+        if(!c.dontTriggerOnUseCard) AbstractNote.GenerateNote(c);
+        this.hand.removeCard(c);
+        this.cardInUse = c;
+        c.target_x = (float)(Settings.WIDTH / 2);
+        c.target_y = (float)(Settings.HEIGHT / 2);
+        if (c.costForTurn > 0 && !c.freeToPlay() && !c.isInAutoplay && (!this.hasPower("Corruption") || c.type != AbstractCard.CardType.SKILL)) this.energy.use(c.costForTurn);
+        if (!this.hand.canUseAnyCard() && !this.endTurnQueued) AbstractDungeon.overlayMenu.endTurnButton.isGlowing = true;
     }
 
     @Override

@@ -31,7 +31,7 @@ public class CrispEnding extends AbstractMGRCard {
         this.baseDamage = DMG;
     }
 
-    public void myUse(AbstractPlayer p, AbstractMonster m) {
+    public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
         addToBot(new DrawCardAction(p, 1));
         if(p.filledOrbCount()==p.maxOrbs-1&&!this.myPurgeOnUse)

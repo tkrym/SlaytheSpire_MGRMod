@@ -33,7 +33,7 @@ public class FinalMovement extends AbstractMGRCard {
         this.timesUpgraded = upgrades;
     }
 
-    public void myUse(AbstractPlayer p, AbstractMonster m) {
+    public void use(AbstractPlayer p, AbstractMonster m) {
         for(int i=0;i<this.magicNumber;i++)
             AbstractDungeon.actionManager.addToBottom(new ChannelNoteAction(new AttackNote()));
         if(MGR_character.BigBrotherStanceCheck())

@@ -36,7 +36,7 @@
   },
     "MGR:AttackTied":{
     "NAME":"攻击连音",
-    "DESCRIPTION": "造成 !D! 点伤害，生成 !M! 个 mgr:攻击音符 。"
+    "DESCRIPTION": "造成 !D! 点伤害，生成 !M! 个 *攻击 mgr:音符 。"
   },
     "MGR:GentleEnding":{
     "NAME":"柔和尾音",
@@ -62,40 +62,39 @@
   },
     "MGR:GazeLock":{
     "NAME":"视线之锁",
-    "DESCRIPTION": "给予目标 !M! 层 虚弱 与 易伤 。然后，施加等同于其负面状态（不包括注视）层数总和的 mgr:注视 。 消耗性2",
-    "UPGRADE_DESCRIPTION":  "给予目标 !M! 层 虚弱 与 易伤 并生成一个 mgr:debuff音符 。然后，施加等同于其负面状态（不包括注视）层数总和的 mgr:注视 。 消耗性2"
+    "DESCRIPTION": "给予!M! 层虚弱与易伤，再施加等于其负面状态（不包括注视）层数总和的 mgr:注视 。 消耗性 2"
   },
     "MGR:LAB01":{
     "NAME":"LAB=01☆",
-    "DESCRIPTION": "在手牌中时，记录触发的每个音符的效果。打出时，使用这些效果。 NL 抽到时保留 #b1 回合。 消耗 ",
-    "UPGRADE_DESCRIPTION": "在手牌中时，记录触发的每个音符的效果。打出时，使用这些效果。 NL 抽到时保留 #b2 回合。 消耗 "
+    "DESCRIPTION": "在手中时，记录触发过的音符。打出时，使用这些音符的效果。丢弃时重置。 NL 保留 !M! 回合。 消耗 "
   },
-    "SIKNoSupport":{
-    "NAME":"SIK的支援",
-    "DESCRIPTION": "叠加一层 sik支援",
-    "UPGRADE_DESCRIPTION": "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"
+    "MGR:Test1":{
+    "NAME":"?1",
+    "DESCRIPTION": "你最左边和最右边的 mgr:音符 额外触发一次。 虚无 ",
+    "UPGRADE_DESCRIPTION": "你最左边和最右边的 mgr:音符 额外触发一次。"
   },
-    "Reload":{
-    "NAME":"换弹",
-    "DESCRIPTION": "弃掉所有手牌，抓取等量的牌 + 1， NL 弃掉其中非攻击牌，剩下的牌耗能在本回合变为0。",
-    "UPGRADE_DESCRIPTION": "弃掉所有手牌，抓取等量+ !M! 的牌， NL 弃掉其中非攻击牌，剩下的牌耗能在本回合变为0。"
+    "MGR:Stereophonic":{
+    "NAME":"立体声",
+    "DESCRIPTION": "你的 mgr:音符 会对所有敌人造成伤害。",
+    "UPGRADE_DESCRIPTION": "你的 mgr:音符 会对所有敌人造成伤害，并且受 易伤 加成。"
   },
-    "Seek":{
-    "NAME":"索敌",
-    "DESCRIPTION": "下一次射击类的伤害翻倍。",
-    "UPGRADE_DESCRIPTION": "下两次射击类的伤害翻倍。"
+    "MGR:Test3":{
+    "NAME":"?3",
+    "DESCRIPTION": " mgr:尾音 ：本次 mgr:和弦 后再次生成这些 mgr:音符 。",
+    "UPGRADE_DESCRIPTION": "生成一个 *抽牌 mgr:音符 。 mgr:尾音 ：本次 mgr:和弦 后再次生成这些 mgr:音符 。"
   },
-    "DefensiveCounterattack":{
-    "NAME":"防守反击",
-    "DESCRIPTION": "斩击类 NL 造成 !D! 点伤害，获得 !B! 点格挡； NL 如果打出之前没有格挡，抽一张牌。"
+    "MGR:Test4":{
+    "NAME":"?4",
+    "DESCRIPTION": "获得 !M! 层 mgr:强音 。",
+    "UPGRADE_DESCRIPTION": "获得 !M! 层 mgr:强音 。 mgr:老大哥形态 ：再获得 #b1 层。"
   },
-	"ThePostureOfBattle": {
-	"NAME":"战斗姿态",
-	"DESCRIPTION": "抽 !M! 张牌,丢弃 !M! 张牌。 NL 丢弃射击类:获得2层 呼叫 ，丢弃斩击类:给予所有敌人2层 流血 。"
+	"MGR:Test5": {
+	"NAME":"?5",
+	"DESCRIPTION": "造成 !D! 点伤害，给予 !M! 层 mgr:注视 ，然后触发其 mgr:注视 。"
   },
-    "PoorSignal": {
-    "NAME": "信号不良",
-    "DESCRIPTION": " 不能被打出 。 NL 在你的回合结束时，减少1层 支援 。"
+    "MGR:Test6": {
+    "NAME": "?6",
+    "DESCRIPTION": "每当你给予或触发 mgr:注视 时，获得 !M! 点格挡。"
   },
     "MagneticFieldBurst": {
     "NAME": "磁场爆发",

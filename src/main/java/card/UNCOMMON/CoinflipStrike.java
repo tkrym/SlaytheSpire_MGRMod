@@ -31,7 +31,7 @@ public class CoinflipStrike extends AbstractMGRCard {
         this.baseDamage = DMG;
     }
 
-    public void myUse(AbstractPlayer p, AbstractMonster m)
+    public void use(AbstractPlayer p, AbstractMonster m)
     {
         this.addToBot(new VFXAction(new FlickCoinEffect(p.hb.cX, p.hb.cY, m.hb.cX, m.hb.cY), 0.2F));
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));

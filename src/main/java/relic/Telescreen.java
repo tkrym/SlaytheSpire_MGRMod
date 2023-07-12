@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.actions.watcher.ChangeStanceAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import stance.BigBrotherStance;
 
 public class Telescreen extends CustomRelic{
@@ -12,7 +13,7 @@ public class Telescreen extends CustomRelic{
     private static final String OUTLINE = "img/relic/outline/"+ID.substring(4)+".png";
 
     public Telescreen() {
-        super(ID, ImageMaster.loadImage(IMG), ImageMaster.loadImage(OUTLINE), RelicTier.UNCOMMON, LandingSound.FLAT);
+        super(ID, ImageMaster.loadImage(IMG), ImageMaster.loadImage(OUTLINE), RelicTier.UNCOMMON, LandingSound.HEAVY);
     }
 
     @Override
@@ -25,5 +26,10 @@ public class Telescreen extends CustomRelic{
     }
 
     public String getUpdatedDescription() { return this.DESCRIPTIONS[0]; }
+
+    @Override
+    public AbstractRelic makeCopy() {
+        return new Telescreen();
+    }
 
 }
