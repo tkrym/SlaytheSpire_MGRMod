@@ -26,24 +26,25 @@
       " #y音符 对所有敌人造成伤害，并且受 #y易伤 加成。"
     ]
   },
-  	"MultipleCallsPower": {
-    "NAME": "多次呼叫",
+  	"MGR:IndifferentLook": {
+    "NAME": "冷眼旁观",
     "DESCRIPTIONS": [
-      "每获得一次 #y呼叫 ，抽一张牌。"
+      "每当你给予或触发 #y注视 时，获得 #b",
+      " 点格挡。"
     ]
   },
-    "DIYUSISupport": {
-    "NAME": "diyusi支援",
+    "MGR:AdjustTempo": {
+    "NAME": "节奏调节",
     "DESCRIPTIONS": [
-      "亲友diyusi的支援，每回合额外抽 #b",
-	  " 张卡，获得 #b",
-	  " 点格挡"
+      "下次 #y和弦 后，再次生成这些 #y音符 。",
+      "下 #b",
+	  " 次 #y和弦 后，再次生成这些 #y音符 。"
     ]
   },
-    "SIYUDISupport": {
-    "NAME": "siyudi支援",
+    "MGR:HarmonyForm": {
+    "NAME": "和声形态",
     "DESCRIPTIONS": [
-      "亲友的妹妹siyudi的支援，每回合对随机敌人造成 #b8 点伤害"
+      " #y音符 的效果触发两次。不可叠加。"
     ]
   }, 
     "ICGSupport": {

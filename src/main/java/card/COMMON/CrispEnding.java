@@ -2,6 +2,7 @@ package card.COMMON;
 
 import basemod.abstracts.CustomCard;
 import card.AbstractMGRCard;
+import character.MGR_character;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
@@ -34,7 +35,7 @@ public class CrispEnding extends AbstractMGRCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
         addToBot(new DrawCardAction(p, 1));
-        if(p.filledOrbCount()==p.maxOrbs-1&&!this.myPurgeOnUse)
+        if(MGR_character.EndingCheck()&&!this.myPurgeOnUse)
         {
             CrispEnding tmp = (CrispEnding) this.makeSameInstanceOf();
             AbstractDungeon.player.limbo.addToBottom(tmp);
@@ -50,11 +51,7 @@ public class CrispEnding extends AbstractMGRCard {
     }
 
     @Override
-    public void triggerOnGlowCheck() {
-        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-        if(AbstractDungeon.player.filledOrbCount()==AbstractDungeon.player.maxOrbs-1)
-            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
-    }
+    public void triggerOnGlowCheck() {triggerOnGlowCheck_Ending();}
 
     public AbstractCard makeCopy() { return new CrispEnding(); }
 

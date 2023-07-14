@@ -1,12 +1,9 @@
-package card.TEST;
+package card.RARE;
 
 import card.AbstractMGRCard;
-import com.megacrit.cardcrawl.actions.animations.TalkAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import note.AbstractNote;
@@ -36,7 +33,7 @@ public class LAB01 extends AbstractMGRCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        for(AbstractNote note:this.RecordNotes) note.myEvoke();
+        for(AbstractNote note:this.RecordNotes) note.TriggerEvokeEffect();
     }
 
     @Override

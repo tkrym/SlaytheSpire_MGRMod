@@ -22,7 +22,9 @@ import com.megacrit.cardcrawl.helpers.SaveHelper;
 import com.megacrit.cardcrawl.localization.*;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
+import note.AbstractNote;
 import path.AbstractCardEnum;
 import path.ModClassEnum;
 import relic.*;
@@ -32,7 +34,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 @SpireInitializer
-public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscriber,EditCardsSubscriber,EditStringsSubscriber,EditKeywordsSubscriber,PostInitializeSubscriber{
+public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscriber,EditCardsSubscriber,EditStringsSubscriber,EditKeywordsSubscriber,PostInitializeSubscriber,OnCardUseSubscriber,OnStartBattleSubscriber,PostBattleSubscriber,AddAudioSubscriber{
     private static final String MOD_BADGE = "img/UI/MGR_badge.png";
     private static final String ATTACK_CC = "img/512/MGR_attack_s.png";
     private static final String SKILL_CC = "img/512/MGR_skill_s.png";
@@ -48,6 +50,7 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
     public static final Color MyColor = CardHelper.getColor(255, 160, 0);
     private ArrayList<AbstractCard> cardsToAdd = new ArrayList<>();
     private ArrayList<AbstractRelic> relicsToAdd = new ArrayList<>();
+    private AbstractCard LastCardPlayed;
 
     public MGR_subscriber() {
         BaseMod.subscribe(this);
@@ -62,12 +65,16 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         new MGR_subscriber();
     }
 
+    public void receiveAddAudio() {
+        BaseMod.addAudio("MGR:CharSelect", "audio/MGR_charselect.ogg");
+        BaseMod.addAudio("MGR:MasterSpark", "audio/MGR_masterspark.wav");
+    }
+
     @Override
     public void receiveEditCards() {
         loadCardsToAdd();
         for (AbstractCard card : this.cardsToAdd) {
             BaseMod.addCard(card);
-            UnlockTracker.markCardAsSeen(card.cardID);
         }
     }
 
@@ -77,9 +84,11 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         BaseMod.registerModBadge(badge, "MGRMod", "MGRSK", "COOKIE mod MGR.ver", new ModPanel());
         Color mybluecolor=MGR_character.myBuleColor;
         BaseMod.addPotion(FortePotion.class, mybluecolor.cpy(), mybluecolor.cpy(), mybluecolor.cpy(), FortePotion.POTION_ID, ModClassEnum.MGR);
-        BaseMod.addPotion(BottledNotes.class,mybluecolor.cpy(), Color.SCARLET.cpy(), Color.CLEAR.cpy(),BottledNotes.POTION_ID,ModClassEnum.MGR);
+        BaseMod.addPotion(BottledNotes.class, mybluecolor.cpy(), mybluecolor.cpy(),new Color(1.0F,0.72F,0.19F,0.9F),BottledNotes.POTION_ID,ModClassEnum.MGR);
         BaseMod.addPotion(TinyApotheosis.class, Color.WHITE.cpy(), Color.WHITE.cpy(), Color.WHITE.cpy(), TinyApotheosis.POTION_ID);
         UnlockAscensionLevel();
+        for(AbstractCard card:cardsToAdd)
+            UnlockTracker.markCardAsSeen(card.cardID);
     }
 
     private void UnlockAscensionLevel()
@@ -168,6 +177,13 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         this.cardsToAdd.add(new GazeLock());
         this.cardsToAdd.add(new LAB01());
         this.cardsToAdd.add(new Stereophonic());
+        this.cardsToAdd.add(new IndifferentLook());
+        this.cardsToAdd.add(new StageWarmUp());
+        this.cardsToAdd.add(new ScaryGlare());
+        this.cardsToAdd.add(new HarmonyForm());
+        this.cardsToAdd.add(new AdjustTempo());
+        this.cardsToAdd.add(new MasterSpark());
+        this.cardsToAdd.add(new Obakenoukenerai());
     }
     @Override
     public void receiveEditRelics()
@@ -191,5 +207,21 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         this.relicsToAdd.add(new LittleAngel());
         this.relicsToAdd.add(new TestRelic2());
         this.relicsToAdd.add(new Maguroyaki());
+    }
+
+    @Override
+    public void receiveCardUsed(AbstractCard c) {
+        if(!c.purgeOnUse&&!c.dontTriggerOnUseCard) LastCardPlayed=c;
+    }
+
+    @Override
+    public void receiveOnBattleStart(AbstractRoom abstractRoom) {
+        LastCardPlayed=null;
+    }
+
+    @Override
+    public void receivePostBattle(AbstractRoom abstractRoom) {
+        if(LastCardPlayed!=null&&LastCardPlayed instanceof FinalMovement)
+            FinalMovement.IncMist(LastCardPlayed.uuid,1);
     }
 }

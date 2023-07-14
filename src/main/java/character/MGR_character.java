@@ -2,11 +2,13 @@ package character;
 
 
 import action.*;
+import card.BASIC.GentleEnding;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import basemod.abstracts.CustomPlayer;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
@@ -61,7 +63,7 @@ public class MGR_character extends CustomPlayer{
     public int counter_min;
     public int counter_max;
     public int counter_min_master=0;
-    public int counter_max_master=4;
+    public int counter_max_master=2;
     public static CounterPanel myCounterPanel=new CounterPanel();
 
     public MGR_character(String name) {
@@ -144,7 +146,7 @@ public class MGR_character extends CustomPlayer{
 
     public Color getCardRenderColor() {return MyColor;}
 
-    public AbstractCard getStartCardForEvent() {return null;}
+    public AbstractCard getStartCardForEvent() {return new GentleEnding();}
 
     public Color getCardTrailColor() {return MyColor;}
 
@@ -152,7 +154,9 @@ public class MGR_character extends CustomPlayer{
 
     public BitmapFont getEnergyNumFont() {return FontHelper.energyNumFontBlue;}
 
-    public void doCharSelectScreenSelectEffect() {}
+    public void doCharSelectScreenSelectEffect() {
+        CardCrawlGame.sound.play("MGR:CharSelect", 0.0F);
+    }
 
     public String getCustomModeCharacterButtonSoundKey() {return null;}
 
@@ -175,35 +179,6 @@ public class MGR_character extends CustomPlayer{
             if(((UnknownCreature)p.getRelic(UnknownCreature.ID)).Check()) return true;
         return false;
     }
-
-
-    @Override
-    public void useCard(AbstractCard c, AbstractMonster monster, int energyOnUse) {
-        if (c.type == AbstractCard.CardType.ATTACK) {
-            this.useFastAttackAnimation();
-        }
-
-        c.calculateCardDamage(monster);
-        if (c.cost == -1 && EnergyPanel.totalCount < energyOnUse && !c.ignoreEnergyOnUse) {
-            c.energyOnUse = EnergyPanel.totalCount;
-        }
-
-        if (c.cost == -1 && c.isInAutoplay) {
-            c.freeToPlayOnce = true;
-        }
-
-        if(!BeforeUseCheck(c)) c.use(this, monster);
-        AbstractDungeon.actionManager.addToBottom(new UseCardAction(c, monster));
-        if(!c.dontTriggerOnUseCard) this.hand.triggerOnOtherCardPlayed(c);
-        if(!c.dontTriggerOnUseCard) AbstractNote.GenerateNote(c);
-        this.hand.removeCard(c);
-        this.cardInUse = c;
-        c.target_x = (float)(Settings.WIDTH / 2);
-        c.target_y = (float)(Settings.HEIGHT / 2);
-        if (c.costForTurn > 0 && !c.freeToPlay() && !c.isInAutoplay && (!this.hasPower("Corruption") || c.type != AbstractCard.CardType.SKILL)) this.energy.use(c.costForTurn);
-        if (!this.hand.canUseAnyCard() && !this.endTurnQueued) AbstractDungeon.overlayMenu.endTurnButton.isGlowing = true;
-    }
-
     @Override
     public void channelOrb(AbstractOrb orbToSet) {
         if(orbToSet instanceof EmptyOrbSlot || orbToSet instanceof EmptyNoteSlot)
@@ -246,6 +221,14 @@ public class MGR_character extends CustomPlayer{
         this.counter_min=this.counter_min_master;
         this.counter=this.counter_min;
     }
+
+    @Override
+    public void useCard(AbstractCard c, AbstractMonster m, int e)
+    {
+        super.useCard(c,m,e);
+        if(!c.dontTriggerOnUseCard) AbstractNote.GenerateNote(c);
+    }
+
 
     @Override
     public void triggerEvokeAnimation(int slot) { triggerEvokeAnimation();}
@@ -298,6 +281,25 @@ public class MGR_character extends CustomPlayer{
             }
         }
         return orbCount;
+    }
+
+    public void SetSlotToFive()
+    {
+        if(this.maxOrbs>5) this.decreaseMaxOrbSlots(this.maxOrbs-5);
+        else if(this.maxOrbs<5) this.increaseMaxOrbSlots(5-this.maxOrbs,true);
+    }
+
+
+    public static boolean EndingCheck()
+    {
+        if(AbstractDungeon.player.filledOrbCount()==AbstractDungeon.player.maxOrbs-1) return true;
+        return false;
+    }
+
+    public static boolean StartingCheck()
+    {
+        if(AbstractDungeon.player.filledOrbCount()==0) return true;
+        return false;
     }
 
     public void Inccounter(int amount)

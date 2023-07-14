@@ -2,6 +2,7 @@ package card.BASIC;
 
 import basemod.abstracts.CustomCard;
 import card.AbstractMGRCard;
+import character.MGR_character;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -35,7 +36,7 @@ public class GentleEnding extends AbstractMGRCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
-        if(p.filledOrbCount()==p.maxOrbs-1)
+        if(MGR_character.EndingCheck())
         {
             for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters)
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(mo, p, new WeakPower(mo, this.magicNumber, false), this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
@@ -44,11 +45,7 @@ public class GentleEnding extends AbstractMGRCard {
     }
 
     @Override
-    public void triggerOnGlowCheck() {
-        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-        if(AbstractDungeon.player.filledOrbCount()==AbstractDungeon.player.maxOrbs-1)
-            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
-    }
+    public void triggerOnGlowCheck() {triggerOnGlowCheck_Ending();}
 
     public AbstractCard makeCopy() { return new GentleEnding(); }
 

@@ -24,14 +24,14 @@
     "NAME": "墨镜",
     "FLAVOR": "可是，高塔中真的有需要戴墨镜的时候么？",
     "DESCRIPTIONS": [
-      " #ymgr:注视 触发时仅减少 #b1 层。"
+      " #ymgr:注视 触发不再减少。"
     ]
   },
   "MGR:UnknownCreature": {
     "NAME": "不明生物",
     "FLAVOR": "你不知道它为什么跟着你，正如它不知道你为何攀登。",
     "DESCRIPTIONS": [
-      "每回合开始获得 [E] 。每场战斗， #ymgr:吃掉 你使用的第一张能力牌。"
+      "每回合开始获得 [E] 。拾起时，随机 #r吃掉 你的一件非BOSS遗物，高稀有度优先。"
     ]
   },
   "MGR:Telescreen": {

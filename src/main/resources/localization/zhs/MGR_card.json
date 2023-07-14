@@ -49,7 +49,7 @@
   },
     "MGR:FinalMovement":{
     "NAME":"终章",
-    "DESCRIPTION": "!M!"
+    "DESCRIPTION": "生成 !M! 个 *攻击 mgr:音符 。如果这是你在战斗中打出的最后一张牌，将数值永久增加 1 。 消耗性 2"
   },
     "MGR:GazeOfOthers":{
     "NAME":"他人的视线",
@@ -68,41 +68,42 @@
     "NAME":"LAB=01☆",
     "DESCRIPTION": "在手中时，记录触发过的音符。打出时，使用这些音符的效果。丢弃时重置。 NL 保留 !M! 回合。 消耗 "
   },
-    "MGR:Test1":{
-    "NAME":"?1",
-    "DESCRIPTION": "你最左边和最右边的 mgr:音符 额外触发一次。 虚无 ",
-    "UPGRADE_DESCRIPTION": "你最左边和最右边的 mgr:音符 额外触发一次。"
+    "MGR:HarmonyForm":{
+    "NAME":"和声形态",
+    "DESCRIPTION": " mgr:音符槽 数量变为 5 。 mgr:音符 的效果触发两次。  NL  虚无 ",
+    "UPGRADE_DESCRIPTION": " mgr:音符槽 数量变为 5 。 mgr:音符 的效果触发两次。"
   },
     "MGR:Stereophonic":{
     "NAME":"立体声",
     "DESCRIPTION": "你的 mgr:音符 会对所有敌人造成伤害。",
     "UPGRADE_DESCRIPTION": "你的 mgr:音符 会对所有敌人造成伤害，并且受 易伤 加成。"
   },
-    "MGR:Test3":{
-    "NAME":"?3",
-    "DESCRIPTION": " mgr:尾音 ：本次 mgr:和弦 后再次生成这些 mgr:音符 。",
-    "UPGRADE_DESCRIPTION": "生成一个 *抽牌 mgr:音符 。 mgr:尾音 ：本次 mgr:和弦 后再次生成这些 mgr:音符 。"
+    "MGR:AdjustTempo":{
+    "NAME":"节奏调节",
+    "DESCRIPTION": "生成 !M! 个 *抽牌 mgr:音符 。下次 mgr:和弦 后，再次生成这些音符 。 NL  消耗 ",
+    "UPGRADE_DESCRIPTION": "生成 !M! 个 *抽牌 mgr:音符 。下次 mgr:和弦 后，再次生成这些音符 。"
   },
-    "MGR:Test4":{
-    "NAME":"?4",
+    "MGR:StageWarmUp":{
+    "NAME":"舞台预热",
     "DESCRIPTION": "获得 !M! 层 mgr:强音 。",
-    "UPGRADE_DESCRIPTION": "获得 !M! 层 mgr:强音 。 mgr:老大哥形态 ：再获得 #b1 层。"
+    "UPGRADE_DESCRIPTION": "获得 !M! 层 mgr:强音 。 mgr:老大哥形态 ：再获得 1 层。"
   },
-	"MGR:Test5": {
-	"NAME":"?5",
+	"MGR:ScaryGlare": {
+	"NAME":"恐怖瞪视",
 	"DESCRIPTION": "造成 !D! 点伤害，给予 !M! 层 mgr:注视 ，然后触发其 mgr:注视 。"
   },
-    "MGR:Test6": {
-    "NAME": "?6",
+    "MGR:IndifferentLook": {
+    "NAME": "冷眼旁观",
     "DESCRIPTION": "每当你给予或触发 mgr:注视 时，获得 !M! 点格挡。"
   },
-    "MagneticFieldBurst": {
-    "NAME": "磁场爆发",
-    "DESCRIPTION": " 对所有敌人造成 !D! 点伤害，将一张 信号不良 加入手牌。"
+    "MGR:MasterSpark": {
+    "NAME": "极限火花☆",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。失去 !M! 层 mgr:强音 。"
   },
-    "Trench": {
-    "NAME": "战壕",
-    "DESCRIPTION": " 获得 !B! 点格挡，每有一种 特定支援 ，格挡数+3。"
+    "MGR:Obakenoukenerai": {
+    "NAME": "拍鬼怪的马屁☆",
+    "DESCRIPTION": " 生成 !M! 个 mgr:幽灵音符 。 NL  消耗 。 虚无 。",
+    "UPGRADE_DESCRIPTION":" 生成 !M! 个 mgr:幽灵音符 。 NL  mgr:老大哥形态 ：再生成 !M! 个。 NL 消耗 。"
   },
   "ExternalAssistance": {
     "NAME": "外援",

@@ -66,7 +66,7 @@ public class GazePower extends AbstractPower implements OnChordHook {
     @Override
     public void OnChord(ArrayList<AbstractNote> notes) {
         if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && !AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
-            AbstractDungeon.actionManager.addToTop(new GazeLoseHpAction(this.owner, this.amount));
+            AbstractDungeon.actionManager.addToTop(new GazeLoseHpAction(this.owner));
         }
     }
 }

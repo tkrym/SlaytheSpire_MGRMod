@@ -1,14 +1,9 @@
 package note;
 
 import action.ChannelNoteAction;
-import card.TEST.LAB01;
-import com.badlogic.gdx.Gdx;
+import card.RARE.LAB01;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.Interpolation;
-import com.badlogic.gdx.math.MathUtils;
-import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -16,19 +11,13 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.Hitbox;
-import com.megacrit.cardcrawl.helpers.MathHelper;
-import com.megacrit.cardcrawl.helpers.PowerTip;
-import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.orbs.*;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.vfx.BobEffect;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Objects;
 
-import javassist.expr.Instanceof;
 import power.FortePower;
+import power.HarmonyFormPower;
 import power.StereoPlusPower;
 
 public abstract class AbstractNote extends AbstractOrb
@@ -104,9 +93,16 @@ public abstract class AbstractNote extends AbstractOrb
 
     public void onEvoke()
     {
-        myEvoke();
+        this.TriggerEvokeEffect();
         if(!(this instanceof EmptyNoteSlot)) LAB01Check();
     }
+
+    public void TriggerEvokeEffect()
+    {
+        myEvoke();
+        if(AbstractDungeon.player.hasPower(HarmonyFormPower.POWER_ID)) myEvoke();
+    }
+
 
     public void LAB01Check()
     {
@@ -122,4 +118,6 @@ public abstract class AbstractNote extends AbstractOrb
         }
         return retVal;
     }
+
+    public abstract AbstractNote makeCopy();
 }
