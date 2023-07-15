@@ -10,7 +10,8 @@
     "NAME": "旧蝴蝶结",
     "FLAVOR": "物品只是被丢弃。物品永不死亡。",
     "DESCRIPTIONS": [
-      "还没想好。"
+      "每场战斗的前 #b",
+      " 个回合开始时，各生成一个 #y抽牌 #ymgr:音符 。"
     ]
   },
   "MGR:BloodshotEyeball": {

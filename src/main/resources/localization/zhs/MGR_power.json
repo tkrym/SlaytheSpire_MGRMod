@@ -47,12 +47,22 @@
       " #y音符 的效果触发两次。不可叠加。"
     ]
   }, 
-    "ICGSupport": {
-    "NAME": "ICG支援",
+    "MGR:UnisonLeft": {
+    "NAME": "齐唱（左）",
     "DESCRIPTIONS": [
-      "亲友的店长的亲友ICG的支援，每回合增加一点敏捷，将一张gaba物理加入手牌"
+      "你最左侧的 #y音符 的效果翻倍。",
+      "你最左侧的 #y音符 的效果增加 #b",
+      " 倍。"
     ]
-  }, 
+  },
+    "MGR:UnisonRight": {
+    "NAME": "齐唱（右）",
+    "DESCRIPTIONS": [
+      "你最右侧的 #y音符 的效果翻倍。",
+      "你最右侧的 #y音符 的效果增加 #b",
+      " 倍。"
+    ]
+  },
     "SIKSupport": {
     "NAME": "SIK支援",
     "DESCRIPTIONS": [

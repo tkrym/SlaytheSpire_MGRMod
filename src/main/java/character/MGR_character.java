@@ -60,6 +60,7 @@ public class MGR_character extends CustomPlayer{
     public static final Color MyColor = CardHelper.getColor(255, 160, 0);
     public static final Color myBuleColor=new Color(1339620607);//
 //    public static final Color YuhColor = CardHelper.getColor(255, 200, 80);
+    public int ChordTriggeredThisTurn;
     public int counter;
     public int counter_min;
     public int counter_max;
@@ -99,7 +100,7 @@ public class MGR_character extends CustomPlayer{
         String title="";
         String flavor="";
         if (Settings.language == Settings.GameLanguage.ZHS) {
-            title = "MGR_getloadout";
+            title = "MGR_Loadout";
             flavor = characterStrings.TEXT[0];
         } else if (Settings.language == Settings.GameLanguage.ZHT) {
         } else {
@@ -333,8 +334,7 @@ public class MGR_character extends CustomPlayer{
     public void renderCounterPanel(SpriteBatch sb){myCounterPanel.render(sb);}
     public static boolean BigBrotherStanceCheck()
     {
-        AbstractPlayer p=AbstractDungeon.player;
-        if(p.stance.ID.equals(BigBrotherStance.STANCE_ID))
+        if(AbstractDungeon.player.stance.ID.equals(BigBrotherStance.STANCE_ID))
         {
             AbstractDungeon.actionManager.addToTop(new ChangeStanceAction(NeutralStance.STANCE_ID));
             return true;
@@ -342,4 +342,17 @@ public class MGR_character extends CustomPlayer{
         else return false;
     }
     public static boolean InBigBrotherStance() {return AbstractDungeon.player.stance.ID.equals(BigBrotherStance.STANCE_ID);}
+    public static int GetChordCount()
+    {
+        if(!(AbstractDungeon.player instanceof MGR_character))
+            return 0;
+        else return ((MGR_character)AbstractDungeon.player).ChordTriggeredThisTurn;
+    }
+    public static void IncChordCount(int amount)
+    {
+        if(AbstractDungeon.player instanceof MGR_character)
+            ((MGR_character)AbstractDungeon.player).ChordTriggeredThisTurn+=amount;
+    }
+    @Override
+    public void applyStartOfTurnRelics() {this.ChordTriggeredThisTurn=0;super.applyStartOfTurnRelics();}
 }

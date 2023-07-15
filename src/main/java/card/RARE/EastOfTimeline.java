@@ -1,10 +1,8 @@
 package card.RARE;
 
 import action.ChannelNoteAction;
-import basemod.abstracts.CustomCard;
 import card.AbstractMGRCard;
 import character.MGR_character;
-import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.ExhaustiveField;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -17,43 +15,37 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import note.AttackNote;
 import path.AbstractCardEnum;
 
-import java.util.Iterator;
 import java.util.UUID;
 
-public class FinalMovement extends AbstractMGRCard {
-    public static final String ID = "MGR:FinalMovement";
+public class EastOfTimeline extends AbstractMGRCard {
+    public static final String ID = "MGR:EastOfTimeline";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String IMG = "img/card/"+ID.substring(4)+".png";
     private static final int COST = 1;
-    public FinalMovement() {
-        super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.ATTACK,
-                AbstractCardEnum.MGR_COLOR, CardRarity.RARE, CardTarget.ALL_ENEMY);
-        this.baseMagicNumber=2;
+    public EastOfTimeline() {
+        super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.SKILL,
+                AbstractCardEnum.MGR_COLOR, CardRarity.RARE, CardTarget.SELF);
+        this.baseMagicNumber=3;
         this.magicNumber=this.baseMagicNumber;
-        this.misc=2;
+        this.misc=3;
         ExhaustiveField.ExhaustiveFields.baseExhaustive.set(this, 2);
         ExhaustiveField.ExhaustiveFields.exhaustive.set(this, 2);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToTop(new TalkAction(true,"MAGIC="+this.magicNumber,3.0F,4.0F));
+        //addToTop(new TalkAction(true,"MAGIC="+this.magicNumber,3.0F,4.0F));
         for(int i=0;i<this.magicNumber;i++)
             AbstractDungeon.actionManager.addToBottom(new ChannelNoteAction(new AttackNote()));
-        if(MGR_character.BigBrotherStanceCheck())
-            for(int i=0;i<this.magicNumber;i++)
-                AbstractDungeon.actionManager.addToBottom(new ChannelNoteAction(new AttackNote()));
         this.UpdateExhaustiveDescription();
     }
 
-    public AbstractCard makeCopy() { return new FinalMovement(); }
+    public AbstractCard makeCopy() { return new EastOfTimeline(); }
 
     @Override
     public void applyPowers()
     {
         super.applyPowers();
-        this.damage=this.baseDamage=0;
-        this.isDamageModified=false;
         this.magicNumber=this.baseMagicNumber;
         initializeDescription();
     }

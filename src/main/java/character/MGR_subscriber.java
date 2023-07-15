@@ -6,7 +6,6 @@ import basemod.interfaces.*;
 import card.BASIC.*;
 import card.COMMON.*;
 import card.RARE.*;
-import card.TEST.*;
 import card.UNCOMMON.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -24,7 +23,6 @@ import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
-import note.AbstractNote;
 import path.AbstractCardEnum;
 import path.ModClassEnum;
 import relic.*;
@@ -170,15 +168,15 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         this.cardsToAdd.clear();
         this.cardsToAdd.add(new Strike_MGR());
         this.cardsToAdd.add(new Defend_MGR());
-        this.cardsToAdd.add(new SpBullet());
+        /*this.cardsToAdd.add(new SpBullet());
         this.cardsToAdd.add(new TestAttack());
         this.cardsToAdd.add(new TestDefend());
-        this.cardsToAdd.add(new TestPower());
+        this.cardsToAdd.add(new TestPower());*/
         this.cardsToAdd.add(new CoinflipStrike());
         this.cardsToAdd.add(new AttackTied());
         this.cardsToAdd.add(new CrispEnding());
         this.cardsToAdd.add(new GentleEnding());
-        this.cardsToAdd.add(new FinalMovement());
+        this.cardsToAdd.add(new EastOfTimeline());
         this.cardsToAdd.add(new GazeOfOthers());
         this.cardsToAdd.add(new GazeLock());
         this.cardsToAdd.add(new LAB01());
@@ -189,7 +187,9 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         this.cardsToAdd.add(new HarmonyForm());
         this.cardsToAdd.add(new AdjustTempo());
         this.cardsToAdd.add(new MasterSpark());
-        this.cardsToAdd.add(new Obakenoukenerai());
+        this.cardsToAdd.add(new MaguroAssault());
+        this.cardsToAdd.add(new MaguroBash());
+        this.cardsToAdd.add(new Unison());
     }
     @Override
     public void receiveEditRelics()
@@ -227,7 +227,7 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
 
     @Override
     public void receivePostBattle(AbstractRoom abstractRoom) {
-        if(LastCardPlayed!=null&&LastCardPlayed instanceof FinalMovement)
-            FinalMovement.IncMist(LastCardPlayed.uuid,1);
+        if(LastCardPlayed!=null&&LastCardPlayed instanceof EastOfTimeline)
+            EastOfTimeline.IncMist(LastCardPlayed.uuid,1);
     }
 }

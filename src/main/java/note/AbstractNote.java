@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -14,11 +15,10 @@ import com.megacrit.cardcrawl.helpers.Hitbox;
 import com.megacrit.cardcrawl.orbs.*;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.BobEffect;
 
-import power.FortePower;
-import power.HarmonyFormPower;
-import power.StereoPlusPower;
+import power.*;
 
 public abstract class AbstractNote extends AbstractOrb
 {
@@ -42,7 +42,7 @@ public abstract class AbstractNote extends AbstractOrb
         this.applyForte();
     }
 
-    public void applyForte()
+    public void myApplyForte()
     {
         AbstractPower power = AbstractDungeon.player.getPower(POWER_ID);
         if (power!=null)
@@ -51,6 +51,17 @@ public abstract class AbstractNote extends AbstractOrb
             else this.evokeAmount = Math.max(0,this.baseEvokeAmount-Math.floorDiv(-power.amount,this.forterate));
         }
         else this.evokeAmount = this.baseEvokeAmount;
+    }
+
+
+    public void applyForte()
+    {
+        myApplyForte();
+        AbstractPlayer p=AbstractDungeon.player;
+        int sum=1;
+        if(p.hasPower(UnisonLeft.POWER_ID)&&this.equals(p.orbs.get(0))) sum+=p.getPower(UnisonLeft.POWER_ID).amount;
+        if(p.hasPower(UnisonRight.POWER_ID)&&this.equals(p.orbs.get(p.maxOrbs-1))) sum+=p.getPower(UnisonRight.POWER_ID).amount;
+        this.evokeAmount*=sum;
     }
 
     @Override

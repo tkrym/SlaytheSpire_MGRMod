@@ -50,7 +50,7 @@ public class UnknownCreature extends CustomRelic{
         else if(shop.isPresent()) AbstractDungeon.player.loseRelic(shop.get().relicId);
         else if(common.isPresent()) AbstractDungeon.player.loseRelic(common.get().relicId);
         else if(starter.isPresent()) AbstractDungeon.player.loseRelic(starter.get().relicId);
-        else AbstractDungeon.actionManager.addToBottom(new TalkAction(true,CardCrawlGame.languagePack.getTutorialString("MGR:exception").TEXT[1],3.0F,3.0F));
+        //else AbstractDungeon.actionManager.addToBottom(new TalkAction(true,CardCrawlGame.languagePack.getTutorialString("MGR:exception").TEXT[1],3.0F,3.0F));
     }
 
     public void onUnequip() {
@@ -77,5 +77,11 @@ public class UnknownCreature extends CustomRelic{
     @Override
     public AbstractRelic makeCopy() {
         return new UnknownCreature();
+    }
+
+    @Override
+    public boolean canSpawn()
+    {
+        return AbstractDungeon.player.relics.stream().anyMatch(r->(r.tier!=RelicTier.BOSS&&r.tier!=RelicTier.STARTER));
     }
 }

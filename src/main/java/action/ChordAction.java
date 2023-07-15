@@ -48,6 +48,7 @@ public class ChordAction extends AbstractGameAction
                 ((OnChordHook) m.getPower(GazePower.POWER_ID)).OnChord(notes);
             }
         }
+        MGR_character.IncChordCount(1);
         this.addToTop(new IncCounterAction());
         this.addToTop(new EvokeAllNotesAction());
         this.isDone = true;
