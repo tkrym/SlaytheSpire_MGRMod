@@ -84,7 +84,7 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         BaseMod.registerModBadge(badge, "MGRMod", "MGRSK", "COOKIE mod MGR.ver", new ModPanel());
         Color mybluecolor=MGR_character.myBuleColor;
         BaseMod.addPotion(FortePotion.class, mybluecolor.cpy(), mybluecolor.cpy(), mybluecolor.cpy(), FortePotion.POTION_ID, ModClassEnum.MGR);
-        BaseMod.addPotion(BottledNotes.class, mybluecolor.cpy(), mybluecolor.cpy(),new Color(1.0F,0.72F,0.19F,0.9F),BottledNotes.POTION_ID,ModClassEnum.MGR);
+        BaseMod.addPotion(BottledNotes.class, mybluecolor.cpy(), mybluecolor.cpy(),new Color(1.0F,0.72F,0.19F,1.0F),BottledNotes.POTION_ID,ModClassEnum.MGR);
         BaseMod.addPotion(TinyApotheosis.class, Color.WHITE.cpy(), Color.WHITE.cpy(), Color.WHITE.cpy(), TinyApotheosis.POTION_ID);
         UnlockAscensionLevel();
         for(AbstractCard card:cardsToAdd)
@@ -140,7 +140,9 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
                 event=StringPath+"MGR_event.json",
                 orb=StringPath+"MGR_orb.json",
                 ui=StringPath+"MGR_ui.json",
-                stance=StringPath+"MGR_stance.json";
+                stance=StringPath+"MGR_stance.json",
+                tutorial=StringPath+"MGR_tutorial.json",
+                character=StringPath+"MGR_character.json";
 
         String relicStrings = loadJson(relic);
         BaseMod.loadCustomStrings(RelicStrings.class, relicStrings);
@@ -158,6 +160,10 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         BaseMod.loadCustomStrings(UIStrings.class, uiStrings);
         String stanceStrings = loadJson(stance);
         BaseMod.loadCustomStrings(StanceStrings.class, stanceStrings);
+        String tutorialStrings = loadJson(tutorial);
+        BaseMod.loadCustomStrings(TutorialStrings.class, tutorialStrings);
+        String characterStrings = loadJson(character);
+        BaseMod.loadCustomStrings(CharacterStrings.class, characterStrings);
     }
 
     private void loadCardsToAdd() {

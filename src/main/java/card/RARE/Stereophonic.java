@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import path.AbstractCardEnum;
 import power.StereoPlusPower;
 import power.HarmonyFormPower;
+import power.StereoPower;
 
 public class Stereophonic extends AbstractMGRCard {
     public static final String ID = "MGR:Stereophonic";
@@ -27,12 +28,12 @@ public class Stereophonic extends AbstractMGRCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         if(!this.upgraded)
         {
-            if(p.hasPower(StereoPlusPower.POWER_ID)||p.hasPower(HarmonyFormPower.POWER_ID)) return;
-            this.addToBot(new ApplyPowerAction(p, p, new HarmonyFormPower(p)));
+            if(p.hasPower(StereoPlusPower.POWER_ID)||p.hasPower(StereoPower.POWER_ID)) return;
+            this.addToBot(new ApplyPowerAction(p, p, new StereoPower(p)));
         }else
         {
             if(p.hasPower(StereoPlusPower.POWER_ID)) return;
-            if(p.hasPower(HarmonyFormPower.POWER_ID)) this.addToBot(new RemoveSpecificPowerAction(p,p, HarmonyFormPower.POWER_ID));
+            if(p.hasPower(StereoPower.POWER_ID)) this.addToBot(new RemoveSpecificPowerAction(p,p, StereoPower.POWER_ID));
             this.addToBot(new ApplyPowerAction(p,p,new StereoPlusPower(p)));
         }
     }

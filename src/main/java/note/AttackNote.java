@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.localization.OrbStrings;
 import com.megacrit.cardcrawl.vfx.combat.LightningOrbPassiveEffect;
 import power.StereoPlusPower;
 import power.HarmonyFormPower;
+import power.StereoPower;
 
 public class AttackNote extends AbstractNote {
     public static final String ORB_ID = "MGR:Attack";
@@ -40,7 +41,7 @@ public class AttackNote extends AbstractNote {
 
     public void myEvoke()
     {
-        boolean hasStereo=AbstractDungeon.player.hasPower(HarmonyFormPower.POWER_ID)||AbstractDungeon.player.hasPower(StereoPlusPower.POWER_ID);
+        boolean hasStereo=AbstractDungeon.player.hasPower(StereoPower.POWER_ID)||AbstractDungeon.player.hasPower(StereoPlusPower.POWER_ID);
         AbstractDungeon.actionManager.addToTop(new NoteDamageEnemyAction(this.evokeAmount,hasStereo));
     }
 

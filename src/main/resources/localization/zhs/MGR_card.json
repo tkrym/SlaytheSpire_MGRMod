@@ -49,7 +49,7 @@
   },
     "MGR:FinalMovement":{
     "NAME":"终章",
-    "DESCRIPTION": "生成 !M! 个 *攻击 mgr:音符 。如果这是你在战斗中打出的最后一张牌，将数值永久增加 1 。 消耗性 2"
+    "DESCRIPTION": "生成 !M! 个 *攻击 mgr:音符 。 NL 如果这是你在战斗中打出的最后一张牌，将数值永久增加 1 。 消耗性 2"
   },
     "MGR:GazeOfOthers":{
     "NAME":"他人的视线",
@@ -106,21 +106,21 @@
     "UPGRADE_DESCRIPTION":" 生成 !M! 个 mgr:幽灵音符 。 NL  mgr:老大哥形态 ：再生成 !M! 个。 NL 消耗 。"
   },
   "ExternalAssistance": {
-    "NAME": "外援",
-    "DESCRIPTION": "将 !D! 张随机卡牌加入抽牌堆并洗牌,然后抽 !M! 张牌。随机牌的牌数为 呼叫 数的一半加一。"
+    "NAME": "T1",
+    "DESCRIPTION": "每有一个 mgr:音符 ，抽 !M! 张牌。 NL 每有一个 #y空音符槽 ，获得 !B! 点格挡。"
   },
   "Wheatmeal": {
-    "NAME": "小麦粉",
-    "DESCRIPTION": "获得 !M! 层 缓冲 ，抽一张牌。"
+    "NAME": "T2",
+    "DESCRIPTION": "获得 !B! 点 格挡 ，增加 !M! 点 *和弦 mgr:计数器 。"
   },
   "ReactiveBlock": {
-    "NAME": "飞刀",
-    "DESCRIPTION": "斩击类 NL 保留 NL 造成 !D! 点伤害，打出时，将这张牌的复制加入手牌。"
+    "NAME": "T3",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 本回合每触发过一次 mgr:和弦 ，伤害增加 !M! 。"
   },
     "Explore":{
     "NAME":"探索",
-    "DESCRIPTION": "随机 NL  抽2张卡；获得 [E] ； NL 获得一个随机支援。",
-    "UPGRADE_DESCRIPTION": "随机2 NL  抽2张卡；获得 [E] ； 获得一个随机支援"
+    "DESCRIPTION": "最左边的 mgr:音符 效果增加 !M! 倍。",
+    "UPGRADE_DESCRIPTION": "最右边的 mgr:音符 效果增加 !M! 倍。\""
   },
     "HNSNoSupport":{
     "NAME":"HNS的支援",

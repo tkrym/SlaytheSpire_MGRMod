@@ -9,7 +9,7 @@ public class BloodshotEyeball extends CustomRelic{
     private static final String OUTLINE = "img/relic/outline/"+ID.substring(4)+".png";
 
     public BloodshotEyeball() {
-        super(ID, ImageMaster.loadImage(IMG), ImageMaster.loadImage(OUTLINE), RelicTier.UNCOMMON, LandingSound.MAGICAL);
+        super(ID, ImageMaster.loadImage(IMG), ImageMaster.loadImage(OUTLINE), RelicTier.UNCOMMON, LandingSound.CLINK);
     }
 
     public String getUpdatedDescription() { return this.DESCRIPTIONS[0]; }

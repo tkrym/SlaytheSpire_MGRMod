@@ -20,7 +20,7 @@ public class Maguroyaki extends CustomRelic implements BetterOnSmithRelic {
     private static final int MAGIC = 15;
 
     public Maguroyaki() {
-        super(ID, ImageMaster.loadImage(IMG), ImageMaster.loadImage(OUTLINE), RelicTier.SHOP, LandingSound.MAGICAL);
+        super(ID, ImageMaster.loadImage(IMG), ImageMaster.loadImage(OUTLINE), RelicTier.SHOP, LandingSound.FLAT);
     }
 
     public void betterOnSmith(AbstractCard card) {

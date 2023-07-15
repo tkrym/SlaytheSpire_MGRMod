@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.actions.watcher.ChangeStanceAction;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
+import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.orbs.*;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.stances.NeutralStance;
@@ -65,6 +66,7 @@ public class MGR_character extends CustomPlayer{
     public int counter_min_master=0;
     public int counter_max_master=2;
     public static CounterPanel myCounterPanel=new CounterPanel();
+    private static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString("MGR:character");
 
     public MGR_character(String name) {
         super(name, ModClassEnum.MGR, ORB_TEXTURES, ORB_VFX, LAYER_SPEED, null, null);
@@ -97,8 +99,8 @@ public class MGR_character extends CustomPlayer{
         String title="";
         String flavor="";
         if (Settings.language == Settings.GameLanguage.ZHS) {
-            title = "MGR_Test";
-            flavor = "测试1 NL 测试2";
+            title = "MGR_getloadout";
+            flavor = characterStrings.TEXT[0];
         } else if (Settings.language == Settings.GameLanguage.ZHT) {
         } else {
         }
@@ -162,7 +164,10 @@ public class MGR_character extends CustomPlayer{
 
     public AbstractPlayer newInstance() {return new MGR_character(this.name);}
 
-    public String getSpireHeartText() {return SpireHeart.DESCRIPTIONS[10];}
+    public String getSpireHeartText()
+    {
+        return AbstractDungeon.cardRandomRng.random(1)==0?characterStrings.TEXT[1]:characterStrings.TEXT[2];
+    }
 
     public Color getSlashAttackColor() {return MyColor;}
 
@@ -170,7 +175,7 @@ public class MGR_character extends CustomPlayer{
         return new AbstractGameAction.AttackEffect[]{AbstractGameAction.AttackEffect.SLASH_HEAVY, AbstractGameAction.AttackEffect.FIRE, AbstractGameAction.AttackEffect.SLASH_DIAGONAL, AbstractGameAction.AttackEffect.SLASH_HEAVY, AbstractGameAction.AttackEffect.FIRE, AbstractGameAction.AttackEffect.SLASH_DIAGONAL};
     }
 
-    public String getVampireText() {return "Hello, vampires?";}
+    public String getVampireText() {return characterStrings.TEXT[3];}
 
     private boolean BeforeUseCheck(AbstractCard c)
     {
@@ -205,7 +210,7 @@ public class MGR_character extends CustomPlayer{
                 if(index==this.orbs.size()-1) AbstractDungeon.actionManager.addToTop(new ChordAction());
             } else
             {
-                AbstractDungeon.effectList.add(new ThoughtBubble(this.dialogX, this.dialogY, 5.0F, "This should not happen. Report this to the author.", true));
+                AbstractDungeon.effectList.add(new ThoughtBubble(this.dialogX, this.dialogY, 5.0F,CardCrawlGame.languagePack.getTutorialString("MGR:exception").TEXT[0], true));
                 AbstractDungeon.actionManager.addToTop(new ChannelAction(orbToSet));
                 AbstractDungeon.actionManager.addToTop(new EvokeNoteAction(1));
                 AbstractDungeon.actionManager.addToTop(new AnimateNoteAction(1));
