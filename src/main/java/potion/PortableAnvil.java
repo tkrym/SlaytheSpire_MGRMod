@@ -19,11 +19,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
-public class TinyApotheosis extends AbstractPotion{
-    public static final String POTION_ID = "MGR:TinyApotheosis";
+public class PortableAnvil extends AbstractPotion{
+    public static final String POTION_ID = "MGR:PortableAnvil";
     private static final PotionStrings potionStrings = CardCrawlGame.languagePack.getPotionString(POTION_ID);
 
-    public TinyApotheosis() {
+    public PortableAnvil() {
         super(potionStrings.NAME, POTION_ID, PotionRarity.RARE, PotionSize.ANVIL, AbstractPotion.PotionEffect.RAINBOW, Color.WHITE, null, null);
         this.isThrown = false;
     }
@@ -93,6 +93,6 @@ public class TinyApotheosis extends AbstractPotion{
 
     @Override
     public AbstractPotion makeCopy() {
-        return new TinyApotheosis();
+        return new PortableAnvil();
     }
 }

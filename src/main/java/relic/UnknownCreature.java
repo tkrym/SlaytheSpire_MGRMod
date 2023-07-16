@@ -23,7 +23,7 @@ public class UnknownCreature extends CustomRelic{
     public static final String ID = "MGR:UnknownCreature";
     private static final String IMG = "img/relic/"+ID.substring(4)+".png";
     private static final String OUTLINE = "img/relic/outline/"+ID.substring(4)+".png";
-    private boolean PowerCardUsed;
+    private static final int EatNumber=2;
 
     public UnknownCreature() {
         super(ID, ImageMaster.loadImage(IMG), ImageMaster.loadImage(OUTLINE), RelicTier.BOSS, LandingSound.MAGICAL);
@@ -36,6 +36,14 @@ public class UnknownCreature extends CustomRelic{
             AbstractDungeon.actionManager.addToBottom(new TalkAction(true, CardCrawlGame.languagePack.getTutorialString("MGR:exception").TEXT[0],4.0F,4.0F));
             return;
         }
+        for(int i=1;i<=EatNumber;i++)
+        {
+            ArrayList<AbstractRelic> relics = new ArrayList<>(AbstractDungeon.player.relics);
+            Collections.shuffle(relics, new Random(AbstractDungeon.miscRng.randomLong()));
+            Optional<AbstractRelic> food=relics.stream().filter(r->r.tier!=RelicTier.BOSS).findFirst();
+            if(food.isPresent()) AbstractDungeon.player.loseRelic(food.get().relicId);
+        }
+        /*
         ArrayList<AbstractRelic> relics = new ArrayList<>(AbstractDungeon.player.relics);
         Collections.shuffle(relics, new Random(AbstractDungeon.miscRng.randomLong()));
         Optional<AbstractRelic> rare=relics.stream().filter(r->r.tier==RelicTier.RARE).findFirst(),
@@ -49,27 +57,11 @@ public class UnknownCreature extends CustomRelic{
         else if(uncommon.isPresent()) AbstractDungeon.player.loseRelic(uncommon.get().relicId);
         else if(shop.isPresent()) AbstractDungeon.player.loseRelic(shop.get().relicId);
         else if(common.isPresent()) AbstractDungeon.player.loseRelic(common.get().relicId);
-        else if(starter.isPresent()) AbstractDungeon.player.loseRelic(starter.get().relicId);
-        //else AbstractDungeon.actionManager.addToBottom(new TalkAction(true,CardCrawlGame.languagePack.getTutorialString("MGR:exception").TEXT[1],3.0F,3.0F));
+        else if(starter.isPresent()) AbstractDungeon.player.loseRelic(starter.get().relicId);*/
     }
 
     public void onUnequip() {
         --AbstractDungeon.player.energy.energyMaster;
-    }
-
-    @Override
-    public void atPreBattle()
-    {
-        this.PowerCardUsed=false;
-    }
-
-    public boolean Check()
-    {
-        if(this.PowerCardUsed) return false;
-        this.PowerCardUsed=true;
-        this.flash();
-        this.addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
-        return true;
     }
 
     public String getUpdatedDescription() { return this.DESCRIPTIONS[0]; }
@@ -82,6 +74,6 @@ public class UnknownCreature extends CustomRelic{
     @Override
     public boolean canSpawn()
     {
-        return AbstractDungeon.player.relics.stream().anyMatch(r->(r.tier!=RelicTier.BOSS&&r.tier!=RelicTier.STARTER));
+        return AbstractDungeon.player.relics.stream().filter(r->r.tier!=RelicTier.BOSS).count()>=EatNumber;
     }
 }

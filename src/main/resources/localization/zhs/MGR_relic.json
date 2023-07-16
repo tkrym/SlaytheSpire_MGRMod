@@ -11,14 +11,16 @@
     "FLAVOR": "物品只是被丢弃。物品永不死亡。",
     "DESCRIPTIONS": [
       "每场战斗的前 #b",
-      " 个回合开始时，各生成一个 #y抽牌 #ymgr:音符 。"
+      " 个回合开始时，生成一个 #y抽牌 #ymgr:音符 。"
     ]
   },
   "MGR:BloodshotEyeball": {
     "NAME": "充血的眼球",
     "FLAVOR": "未曾被人注视之人才会迫切地注视他人。",
     "DESCRIPTIONS": [
-      "还没想好X2。"
+      "战斗开始时，给予随机敌人 #b",
+      " 层 #ymgr:注视 #b",
+      " 次。"
     ]
   },
   "MGR:Sunglasses": {
@@ -29,10 +31,10 @@
     ]
   },
   "MGR:UnknownCreature": {
-    "NAME": "不明生物",
+    "NAME": "未知生物",
     "FLAVOR": "你不知道它为什么跟着你，正如它不知道你为何攀登。",
     "DESCRIPTIONS": [
-      "每回合开始获得 [E] 。拾起时，随机 #r吃掉 你的一件非BOSS遗物，高稀有度优先。"
+      "每回合开始获得 [E] 。拾起时，随机 #r吃掉 你的两件非BOSS遗物。"
     ]
   },
   "MGR:Telescreen": {

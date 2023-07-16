@@ -1,4 +1,4 @@
-package card.UNCOMMON;
+package card.RARE;
 
 import card.AbstractMGRCard;
 import character.MGR_character;
@@ -13,7 +13,6 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.StarBounceEffect;
-import com.megacrit.cardcrawl.vfx.combat.VerticalImpactEffect;
 import com.megacrit.cardcrawl.vfx.combat.ViolentAttackEffect;
 import path.AbstractCardEnum;
 

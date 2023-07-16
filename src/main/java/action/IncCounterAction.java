@@ -8,16 +8,13 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 public class IncCounterAction extends AbstractGameAction
 {
-    public IncCounterAction()
+    public IncCounterAction(int amount)
     {
+        this.amount=amount;
     }
     public void update()
     {
-        if(AbstractDungeon.player instanceof MGR_character)
-        {
-            MGR_character p=(MGR_character)AbstractDungeon.player;
-            p.Inccounter(1);
-        }
+        MGR_character.IncCounter(this.amount);
         this.isDone=true;
     }
 }

@@ -25,6 +25,11 @@ public class Telescreen extends CustomRelic{
         this.grayscale = true;
     }
 
+    @Override
+    public void onVictory() {
+        this.grayscale = false;
+    }
+
     public String getUpdatedDescription() { return this.DESCRIPTIONS[0]; }
 
     @Override

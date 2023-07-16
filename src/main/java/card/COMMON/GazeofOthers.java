@@ -1,6 +1,5 @@
 package card.COMMON;
 
-import basemod.abstracts.CustomCard;
 import card.AbstractMGRCard;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -13,8 +12,8 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import path.AbstractCardEnum;
 import power.GazePower;
 
-public class GazeOfOthers extends AbstractMGRCard {
-    public static final String ID = "MGR:GazeOfOthers";
+public class GazeofOthers extends AbstractMGRCard {
+    public static final String ID = "MGR:GazeofOthers";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION=cardStrings.UPGRADE_DESCRIPTION;
@@ -25,7 +24,7 @@ public class GazeOfOthers extends AbstractMGRCard {
     private static final int BLOCK = 4;
     private static final int PLUS_BLOCK = 2;
     private static final int MAGIC = 1;
-    public GazeOfOthers() {
+    public GazeofOthers() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.SKILL,
                 AbstractCardEnum.MGR_COLOR, CardRarity.COMMON, CardTarget.ENEMY);
         this.baseBlock=BLOCK;
@@ -88,7 +87,7 @@ public class GazeOfOthers extends AbstractMGRCard {
     }
 
 
-    public AbstractCard makeCopy() { return new GazeOfOthers(); }
+    public AbstractCard makeCopy() { return new GazeofOthers(); }
 
     public void upgrade() {
         if (!this.upgraded) {

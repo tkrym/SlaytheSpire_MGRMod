@@ -49,7 +49,7 @@ public class ChordAction extends AbstractGameAction
             }
         }
         MGR_character.IncChordCount(1);
-        this.addToTop(new IncCounterAction());
+        this.addToTop(new IncCounterAction(1));
         this.addToTop(new EvokeAllNotesAction());
         this.isDone = true;
     }

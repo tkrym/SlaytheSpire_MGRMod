@@ -1,6 +1,5 @@
 package card.BASIC;
 
-import basemod.abstracts.CustomCard;
 import card.AbstractMGRCard;
 import character.MGR_character;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -15,8 +14,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import path.AbstractCardEnum;
 
-public class GentleEnding extends AbstractMGRCard {
-    public static final String ID = "MGR:GentleEnding";
+public class Lullaby extends AbstractMGRCard {
+    public static final String ID = "MGR:Lullaby";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
@@ -26,7 +25,7 @@ public class GentleEnding extends AbstractMGRCard {
     private static final int PLUS_BLOCK = 2;
     private static final int MAGIC = 3;
     private boolean AffectSelf=true;
-    public GentleEnding() {
+    public Lullaby() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.SKILL,
                 AbstractCardEnum.MGR_COLOR, CardRarity.BASIC, CardTarget.ALL);
         this.baseBlock = BLOCK;
@@ -47,7 +46,7 @@ public class GentleEnding extends AbstractMGRCard {
     @Override
     public void triggerOnGlowCheck() {triggerOnGlowCheck_Ending();}
 
-    public AbstractCard makeCopy() { return new GentleEnding(); }
+    public AbstractCard makeCopy() { return new Lullaby(); }
 
     public void upgrade() {
         if (!this.upgraded) {

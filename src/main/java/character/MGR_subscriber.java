@@ -6,6 +6,9 @@ import basemod.interfaces.*;
 import card.BASIC.*;
 import card.COMMON.*;
 import card.RARE.*;
+import card.TEST.OneUp;
+import card.TEST.Rehearsal;
+import card.TEST.SongOfLevitation;
 import card.UNCOMMON.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -83,7 +86,7 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         Color mybluecolor=MGR_character.myBuleColor;
         BaseMod.addPotion(FortePotion.class, mybluecolor.cpy(), mybluecolor.cpy(), mybluecolor.cpy(), FortePotion.POTION_ID, ModClassEnum.MGR);
         BaseMod.addPotion(BottledNotes.class, mybluecolor.cpy(), mybluecolor.cpy(),new Color(1.0F,0.72F,0.19F,1.0F),BottledNotes.POTION_ID,ModClassEnum.MGR);
-        BaseMod.addPotion(TinyApotheosis.class, Color.WHITE.cpy(), Color.WHITE.cpy(), Color.WHITE.cpy(), TinyApotheosis.POTION_ID);
+        BaseMod.addPotion(PortableAnvil.class, Color.WHITE.cpy(), Color.WHITE.cpy(), Color.WHITE.cpy(), PortableAnvil.POTION_ID);
         UnlockAscensionLevel();
         for(AbstractCard card:cardsToAdd)
             UnlockTracker.markCardAsSeen(card.cardID);
@@ -175,9 +178,9 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         this.cardsToAdd.add(new CoinflipStrike());
         this.cardsToAdd.add(new AttackTied());
         this.cardsToAdd.add(new CrispEnding());
-        this.cardsToAdd.add(new GentleEnding());
+        this.cardsToAdd.add(new Lullaby());
         this.cardsToAdd.add(new EastOfTimeline());
-        this.cardsToAdd.add(new GazeOfOthers());
+        this.cardsToAdd.add(new GazeofOthers());
         this.cardsToAdd.add(new GazeLock());
         this.cardsToAdd.add(new LAB01());
         this.cardsToAdd.add(new Stereophonic());
@@ -190,6 +193,9 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         this.cardsToAdd.add(new MaguroAssault());
         this.cardsToAdd.add(new MaguroBash());
         this.cardsToAdd.add(new Unison());
+        this.cardsToAdd.add(new OneUp());
+        this.cardsToAdd.add(new Rehearsal());
+        this.cardsToAdd.add(new SongOfLevitation());
     }
     @Override
     public void receiveEditRelics()

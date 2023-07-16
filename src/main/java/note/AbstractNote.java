@@ -95,9 +95,13 @@ public abstract class AbstractNote extends AbstractOrb
         return note;
     }
 
-    public static void GenerateNote(AbstractCard c)
+    public static void GenerateNoteBottom(AbstractCard c)
     {
         AbstractDungeon.actionManager.addToBottom(new ChannelNoteAction(GetCorrespondingNote(c)));
+    }
+    public static void GenerateNoteTop(AbstractCard c)
+    {
+        AbstractDungeon.actionManager.addToTop(new ChannelNoteAction(GetCorrespondingNote(c)));
     }
 
     public abstract void myEvoke();

@@ -2,23 +2,20 @@ package character;
 
 
 import action.*;
-import card.BASIC.GentleEnding;
+import card.BASIC.Lullaby;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import basemod.abstracts.CustomPlayer;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
-import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.actions.watcher.ChangeStanceAction;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.orbs.*;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.stances.NeutralStance;
-import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -27,18 +24,15 @@ import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.cutscenes.CutscenePanel;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.events.beyond.SpireHeart;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
-import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import path.ModClassEnum;
 import path.AbstractCardEnum;
 import java.util.ArrayList;
 import java.util.List;
 import note.*;
-import relic.UnknownCreature;
 import stance.BigBrotherStance;
 import ui.CounterPanel;
 
@@ -86,7 +80,7 @@ public class MGR_character extends CustomPlayer{
         retVal.add("MGR:Defend_MGR");
         retVal.add("MGR:Defend_MGR");
         retVal.add("MGR:AttackTied");
-        retVal.add("MGR:GentleEnding");
+        retVal.add("MGR:Lullaby");
         return retVal;
     }
 
@@ -149,7 +143,7 @@ public class MGR_character extends CustomPlayer{
 
     public Color getCardRenderColor() {return MyColor;}
 
-    public AbstractCard getStartCardForEvent() {return new GentleEnding();}
+    public AbstractCard getStartCardForEvent() {return new Lullaby();}
 
     public Color getCardTrailColor() {return MyColor;}
 
@@ -178,13 +172,6 @@ public class MGR_character extends CustomPlayer{
 
     public String getVampireText() {return characterStrings.TEXT[3];}
 
-    private boolean BeforeUseCheck(AbstractCard c)
-    {
-        AbstractPlayer p=AbstractDungeon.player;
-        if(c.type==AbstractCard.CardType.POWER&&p.hasRelic(UnknownCreature.ID))
-            if(((UnknownCreature)p.getRelic(UnknownCreature.ID)).Check()) return true;
-        return false;
-    }
     @Override
     public void channelOrb(AbstractOrb orbToSet) {
         if(orbToSet instanceof EmptyOrbSlot || orbToSet instanceof EmptyNoteSlot)
@@ -232,7 +219,7 @@ public class MGR_character extends CustomPlayer{
     public void useCard(AbstractCard c, AbstractMonster m, int e)
     {
         super.useCard(c,m,e);
-        if(!c.dontTriggerOnUseCard) AbstractNote.GenerateNote(c);
+        if(!c.dontTriggerOnUseCard) AbstractNote.GenerateNoteBottom(c);
     }
 
 
@@ -308,7 +295,7 @@ public class MGR_character extends CustomPlayer{
         return false;
     }
 
-    public void Inccounter(int amount)
+    public void inccounter(int amount)
     {
         int changed_number=this.counter+amount;
         if(InBigBrotherStance()&&changed_number>this.counter_max-1) changed_number=this.counter_max-1;
@@ -353,6 +340,12 @@ public class MGR_character extends CustomPlayer{
         if(AbstractDungeon.player instanceof MGR_character)
             ((MGR_character)AbstractDungeon.player).ChordTriggeredThisTurn+=amount;
     }
+    public static void IncCounter(int amount)
+    {
+        if(AbstractDungeon.player instanceof MGR_character)
+            ((MGR_character)AbstractDungeon.player).inccounter(amount);
+    }
+
     @Override
     public void applyStartOfTurnRelics() {this.ChordTriggeredThisTurn=0;super.applyStartOfTurnRelics();}
 }
