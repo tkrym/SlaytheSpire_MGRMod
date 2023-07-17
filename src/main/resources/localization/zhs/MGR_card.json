@@ -133,18 +133,18 @@
   },
     "MGR:WaitingForFood":{
     "NAME":"等待进食",
-    "DESCRIPTION": "获得 !B! 点格挡。 NL 若你在本场战斗受到过伤害，改为恢复 !M! 点生命并 消耗 。"
+    "DESCRIPTION": "获得 !B! 点格挡。 NL 若你在本场战斗中失去过生命，改为恢复 !M! 点生命并 消耗 。"
   },
-    "MGR:TestCard1":{
+    "MGR:DiffusionOfDarkness":{
     "NAME":"黑暗扩散",
-    "DESCRIPTION": "对所有敌人造成 !M! 点伤害。 NL 所有敌人本回合失去等同于 mgr:注视 层数一半的 力量。 消耗性 2"
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 所有敌人本回合失去等同于 mgr:注视 层数一半的 力量。 消耗性 2"
   },
     "MGR:TestCard2":{
     "NAME":"",
     "DESCRIPTION": "造成 !D! 点伤害。目标每有一种负面状态，给予 !M! 层 mgr:注视 。"
   },
-    "MGR:SongOfHallucination":{
-    "NAME":"迷幻之歌",
+    "MGR:Hallucination":{
+    "NAME":"迷幻",
     "DESCRIPTION": "将你的所有负面状态转移给随机敌人。 消耗 。",
     "UPGRADE_DESCRIPTION": "将你的所有负面状态转移给随机敌人。 保留 。 消耗 。"
   },

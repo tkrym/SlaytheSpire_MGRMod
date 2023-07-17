@@ -25,7 +25,7 @@ public class BloodshotEyeball extends CustomRelic{
     public void atBattleStartPreDraw() {
         flash();
         for(int i=1;i<=TIMES;++i) {
-            AbstractMonster monster = AbstractDungeon.getMonsters().getRandomMonster(true);
+            AbstractMonster monster = AbstractDungeon.getMonsters().getRandomMonster(null, true, AbstractDungeon.cardRandomRng);
             AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(monster, this));
             this.addToBot(new ApplyGazeAction(monster,MAGIC));
         }
