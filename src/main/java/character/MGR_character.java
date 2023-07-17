@@ -33,6 +33,7 @@ import path.AbstractCardEnum;
 import java.util.ArrayList;
 import java.util.List;
 import note.*;
+import relic.YourExclusiveStage;
 import stance.BigBrotherStance;
 import ui.CounterPanel;
 
@@ -58,8 +59,7 @@ public class MGR_character extends CustomPlayer{
     public int counter;
     public int counter_min;
     public int counter_max;
-    public int counter_min_master=0;
-    public int counter_max_master=2;
+    public static final int counter_max_master=2;
     public static CounterPanel myCounterPanel=new CounterPanel();
     private static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString("MGR:character");
 
@@ -86,7 +86,7 @@ public class MGR_character extends CustomPlayer{
 
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
-        retVal.add("MGR:TestRelic0");
+        retVal.add("MGR:MiniMicrophone");
         return retVal;
     }
 
@@ -210,8 +210,8 @@ public class MGR_character extends CustomPlayer{
     public void preBattlePrep()
     {
         super.preBattlePrep();
-        this.counter_max=this.counter_max_master;
-        this.counter_min=this.counter_min_master;
+        this.counter_max=counter_max_master;
+        this.counter_min=AbstractDungeon.player.hasRelic(YourExclusiveStage.ID)?1:0;
         this.counter=this.counter_min;
     }
 

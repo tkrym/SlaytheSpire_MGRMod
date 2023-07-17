@@ -6,9 +6,9 @@ import basemod.interfaces.*;
 import card.BASIC.*;
 import card.COMMON.*;
 import card.RARE.*;
-import card.TEST.OneUp;
-import card.TEST.Rehearsal;
-import card.TEST.SongOfLevitation;
+import card.COMMON.OneUp;
+import card.UNCOMMON.Rehearsal;
+import card.UNCOMMON.SongOfLevitation;
 import card.UNCOMMON.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -210,15 +210,16 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
     private void loadRelicsToAdd()
     {
         this.relicsToAdd.clear();
-        this.relicsToAdd.add(new TestRelic0());
         this.relicsToAdd.add(new UnknownCreature());
         this.relicsToAdd.add(new Sunglasses());
         this.relicsToAdd.add(new OldBow());
         this.relicsToAdd.add(new Telescreen());
         this.relicsToAdd.add(new BloodshotEyeball());
         this.relicsToAdd.add(new LittleAngel());
-        this.relicsToAdd.add(new TestRelic2());
         this.relicsToAdd.add(new Maguroyaki());
+        this.relicsToAdd.add(new MiniMicrophone());
+        this.relicsToAdd.add(new YourExclusiveStage());
+        this.relicsToAdd.add(new WitchHat());
     }
 
     @Override

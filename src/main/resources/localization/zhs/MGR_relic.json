@@ -1,11 +1,4 @@
-{ 
-  "MGR:TestRelic0": {
-    "NAME": "测试0",
-    "FLAVOR": "测试0",
-    "DESCRIPTIONS": [
-      "测试0。"
-    ]
-  },
+{
   "MGR:OldBow": {
     "NAME": "旧蝴蝶结",
     "FLAVOR": "物品只是被丢弃。物品永不死亡。",
@@ -27,7 +20,7 @@
     "NAME": "墨镜",
     "FLAVOR": "可是，高塔中真的有需要戴墨镜的时候么？",
     "DESCRIPTIONS": [
-      " #ymgr:注视 触发不再减少。"
+      " #ymgr:注视 触发时不再减少。"
     ]
   },
   "MGR:UnknownCreature": {
@@ -53,9 +46,9 @@
       " 张牌。"
     ]
   },
-  "MGR:TestRelic2": {
-    "NAME": "数值？",
-    "FLAVOR": "简单，粗暴，直接。",
+  "MGR:Fumo": {
+    "NAME": "Fumo",
+    "FLAVOR": "她真可爱。她真迷人。她真有趣。",
     "DESCRIPTIONS": [
       "每场战斗开始时，获得 #b",
       " 层 #ymgr:强音 。"
@@ -65,34 +58,36 @@
     "NAME": "鮪鱼烧",
     "FLAVOR": "被做成金枪鱼形状的点心。是什么馅的呢？",
     "DESCRIPTIONS": [
-      "每当你 #y锻造 ，回复最大生命值的",
-      "% 。"
+      "每当你 #y锻造 ，回复最大生命值的 #b",
+      " % 。"
     ]
   },
-  "CiXing": {
-    "NAME": "危险标识：强磁性",
-    "FLAVOR": "SIYUDI能力的具现化，大部分早已佚失，或许有一部分沉眠在高塔中。",
+  "MGR:MiniMicrophone": {
+    "NAME": "迷你麦克风",
+    "FLAVOR": "准备好向高塔展示你的歌喉了么？",
     "DESCRIPTIONS": [
-      "有SIYUDI支援时，每回合获得 [E] 。"
+      "每场战斗开始时，生成 #y攻击  、 #y防御 、 #y抽牌  #ymgr:音符 各一个。"
     ]
   },
-  "Biim": {
-    "NAME": "Biim兄贵",
-    "FLAVOR": "会说话的种田馒头，很可爱。或许还存在着其他形态……？",
+  "MGR:YourExclusiveStage": {
+    "NAME": "只属于你的舞台",
+    "FLAVOR": "于此刻响彻世界。",
     "DESCRIPTIONS": [
-      "每回合开始获得等同于状态数的格挡。"
+      "你的 #ymgr:计数器 不会低于 #b1 。 NL 回合开始时，随机生成一个 #ymgr:基本音符 。"
     ]
   },
-  "Turioba": {
-    "NAME": "钓鱼大妈面具",
-    "FLAVOR": "据说喜爱钓鱼的人都会备有这副面具。因为受到了ZUN的承认而带有神奇力量。",
+  "MGR:WitchHat": {
+    "NAME": "魔女帽",
+    "FLAVOR": "其实你不太使用魔法。",
     "DESCRIPTIONS": [
-      "每使用 #b1 费卡牌 #b5 次，抽一张牌。"
+      "回合开始时，若你的生命值不大于最大生命值的 #b",
+      " %，生成一个 #y防御 #ymgr:音符 。如果不大于 #b",
+      " %，再生成一个。"
     ]
   },
-  "Radio": {
-    "NAME": "无线电",
-    "FLAVOR": "军方配备的无线电，但被CRN改造成了好友通话机。",
+  "MGR:": {
+    "NAME": "",
+    "FLAVOR": "",
     "DESCRIPTIONS": [
       "每 #b3 ",
       "个回合，获得 支援 。"

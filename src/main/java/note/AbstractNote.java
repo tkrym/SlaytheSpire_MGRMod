@@ -20,6 +20,8 @@ import com.megacrit.cardcrawl.vfx.BobEffect;
 
 import power.*;
 
+import java.util.ArrayList;
+
 public abstract class AbstractNote extends AbstractOrb
 {
     public static final String POWER_ID=FortePower.POWER_ID;
@@ -102,6 +104,20 @@ public abstract class AbstractNote extends AbstractOrb
     public static void GenerateNoteTop(AbstractCard c)
     {
         AbstractDungeon.actionManager.addToTop(new ChannelNoteAction(GetCorrespondingNote(c)));
+    }
+    public static AbstractNote GetRandomBasicNote()
+    {
+        ArrayList<AbstractNote> notes = new ArrayList<>();
+        notes.add(new AttackNote());
+        notes.add(new DefendNote());
+        notes.add(new DrawNote());
+        notes.add(new DebuffNote());
+        notes.add(new ArtifactNote());
+        return notes.get(AbstractDungeon.cardRandomRng.random(notes.size() - 1));
+    }
+    public static void GenerateRandomBasicNoteBottom()
+    {
+        AbstractDungeon.actionManager.addToBottom(new ChannelNoteAction(GetRandomBasicNote()));
     }
 
     public abstract void myEvoke();

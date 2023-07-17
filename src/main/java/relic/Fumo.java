@@ -9,13 +9,13 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.powers.FocusPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
-public class TestRelic2 extends CustomRelic{
-    public static final String ID = "MGR:TestRelic2";
+public class Fumo extends CustomRelic{
+    public static final String ID = "MGR:Fumo";
     private static final String IMG = "img/relic/"+ID.substring(4)+".png";
     private static final String OUTLINE = "img/relic/outline/"+ID.substring(4)+".png";
     private static final int MAGIC = 1;
 
-    public TestRelic2() {
+    public Fumo() {
         super(ID, ImageMaster.loadImage(IMG), ImageMaster.loadImage(OUTLINE), RelicTier.COMMON, LandingSound.FLAT);
     }
 
@@ -30,6 +30,6 @@ public class TestRelic2 extends CustomRelic{
 
     @Override
     public AbstractRelic makeCopy() {
-        return new TestRelic2();
+        return new Fumo();
     }
 }

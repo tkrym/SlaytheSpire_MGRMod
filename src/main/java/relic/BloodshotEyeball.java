@@ -29,10 +29,6 @@ public class BloodshotEyeball extends CustomRelic{
             AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(monster, this));
             this.addToBot(new ApplyGazeAction(monster,MAGIC));
         }
-        this.grayscale=true;
-    }
-    public void onVictory() {
-        this.grayscale = false;
     }
 
     @Override

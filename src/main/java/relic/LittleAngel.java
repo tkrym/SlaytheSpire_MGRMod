@@ -1,7 +1,6 @@
 package relic;
-import action.LittleAngelAction;
 import basemod.abstracts.CustomRelic;
-import com.megacrit.cardcrawl.actions.animations.TalkAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -22,7 +21,18 @@ public class LittleAngel extends CustomRelic{
 
     @Override
     public void atTurnStartPostDraw() {
-        addToBot(new LittleAngelAction(this));
+        addToBot(new AbstractGameAction() {
+            @Override
+            public void update() {
+                if(AbstractDungeon.player.hand.group.stream().filter(c->c.type==AbstractCard.CardType.SKILL).count()<= LittleAngel.DrawThreshold)
+                {
+                    LittleAngel.this.flash();
+                    addToTop(new DrawCardAction(LittleAngel.MAGIC));
+                    addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, LittleAngel.this));
+                }
+                this.isDone=true;
+            }
+        });
     }
 
     public String getUpdatedDescription() { return this.DESCRIPTIONS[0]+DrawThreshold+this.DESCRIPTIONS[1]+MAGIC+this.DESCRIPTIONS[2]; }
