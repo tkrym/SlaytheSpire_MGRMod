@@ -3,8 +3,8 @@
     "NAME": "旧蝴蝶结",
     "FLAVOR": "物品只是被丢弃。物品永不死亡。",
     "DESCRIPTIONS": [
-      "每场战斗的前 #b",
-      " 个回合开始时，生成一个 #y抽牌 #ymgr:音符 。"
+      "每当你累计丢弃或消耗 #b",
+      " 张牌，抽一张牌。"
     ]
   },
   "MGR:BloodshotEyeball": {
@@ -91,6 +91,14 @@
     "DESCRIPTIONS": [
       "每触发 #b",
       " 次 #ymgr:和弦 ，生成 #y攻击 、 #y防御 #ymgr:音符 各一个。"
+    ]
+  },
+  "MGR:1Spirit": {
+    "NAME": "1",
+    "FLAVOR": "1",
+    "DESCRIPTIONS": [
+      "每当你进入 #ymgr:老大哥形态 ，额外获得 [E] 并抽 #b",
+      " 张牌。"
     ]
   }
 }

@@ -27,7 +27,7 @@ public class HarmonyForm extends AbstractMGRCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new AbstractGameAction() {
+        /*addToBot(new AbstractGameAction() {
             @Override
             public void update() {
                 if(AbstractDungeon.player instanceof MGR_character)
@@ -38,7 +38,7 @@ public class HarmonyForm extends AbstractMGRCard {
                 }
                 this.isDone=true;
             }
-        });
+        });*/
         if(!p.hasPower(HarmonyFormPower.POWER_ID))
             this.addToBot(new ApplyPowerAction(p,p,new HarmonyFormPower(p),1));
     }

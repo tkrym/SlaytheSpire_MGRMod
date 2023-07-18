@@ -1,4 +1,4 @@
-package card.TEST;
+package card.BASIC;
 
 import action.ApplyGazeAction;
 import card.AbstractMGRCard;
@@ -9,7 +9,6 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import path.AbstractCardEnum;
 
@@ -17,9 +16,7 @@ public class Peek extends AbstractMGRCard {
     public static final String ID = "MGR:Peek";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG = "img/card/"+ID.substring(4)+".png";
-    public static final String UPGRADED_IMG = "img/card/"+ID.substring(4)+"Upgraded"+".png";
     private static final int COST = 1;
     private static final int MAGIC = 5;
     private static final int PLUS_MAGIC = 3;

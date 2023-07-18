@@ -21,6 +21,7 @@ public class LittleAngel extends CustomRelic{
 
     @Override
     public void atTurnStartPostDraw() {
+        int OriginCount= (int) AbstractDungeon.player.hand.group.stream().filter(c->c.type==AbstractCard.CardType.SKILL).count();
         addToBot(new AbstractGameAction() {
             @Override
             public void update() {

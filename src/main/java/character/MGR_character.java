@@ -77,9 +77,15 @@ public class MGR_character extends CustomPlayer{
         ArrayList<String> retVal = new ArrayList<>();
         retVal.add("MGR:Strike_MGR");
         retVal.add("MGR:Strike_MGR");
+        retVal.add("MGR:Strike_MGR");
+        retVal.add("MGR:Strike_MGR");
+        retVal.add("MGR:Strike_MGR");
         retVal.add("MGR:Defend_MGR");
         retVal.add("MGR:Defend_MGR");
-        retVal.add("MGR:AttackTied");
+        retVal.add("MGR:Defend_MGR");
+        retVal.add("MGR:Defend_MGR");
+        retVal.add("MGR:Defend_MGR");
+        retVal.add("MGR:Peek");
         retVal.add("MGR:Lullaby");
         return retVal;
     }
@@ -90,43 +96,11 @@ public class MGR_character extends CustomPlayer{
         return retVal;
     }
 
-    public CharSelectInfo getLoadout() {
-        String title="";
-        String flavor="";
-        if (Settings.language == Settings.GameLanguage.ZHS) {
-            title = "MGR_Loadout";
-            flavor = characterStrings.TEXT[0];
-        } else if (Settings.language == Settings.GameLanguage.ZHT) {
-        } else {
-        }
+    public CharSelectInfo getLoadout() {return new CharSelectInfo(characterStrings.NAMES[0], characterStrings.TEXT[0], STARTING_HP, MAX_HP,HAND_SIZE , STARTING_GOLD, CARD_DRAW, this, getStartingRelics(), getStartingDeck(), false);}
 
-        return new CharSelectInfo(title, flavor, STARTING_HP, MAX_HP,HAND_SIZE , STARTING_GOLD, CARD_DRAW, this, getStartingRelics(), getStartingDeck(), false);
-    }
+    public String getTitle(PlayerClass playerClass) {return characterStrings.NAMES[0];}
 
-    public String getTitle(PlayerClass playerClass) {
-        String title;
-        if (Settings.language == Settings.GameLanguage.ZHS) {
-            title = "MGR_Title";
-        } else if (Settings.language == Settings.GameLanguage.ZHT) {
-            title = "MGR";
-        } else {
-            title = "MGR";
-        }
-
-        return title;
-    }
-
-    public String getLocalizedCharacterName() {
-        String char_name;
-        if (Settings.language == Settings.GameLanguage.ZHS) {
-            char_name = "MGR_NAME";
-        } else if (Settings.language == Settings.GameLanguage.ZHT) {
-            char_name = "MGR";
-        } else {
-            char_name = "MGR";
-        }
-        return char_name;
-    }
+    public String getLocalizedCharacterName() {return characterStrings.NAMES[1];}
 
     public List<CutscenePanel> getCutscenePanels() {
         List<CutscenePanel> panels = new ArrayList<>();

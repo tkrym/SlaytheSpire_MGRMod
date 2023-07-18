@@ -7,7 +7,11 @@ import card.BASIC.*;
 import card.COMMON.*;
 import card.RARE.*;
 import card.COMMON.OneUp;
-import card.TEST.Peek;
+import card.RARE.Hallucination;
+import card.BASIC.Peek;
+import card.SPECIAL.Hmm;
+import card.TEST.TestCard11;
+import card.UNCOMMON.GazeFromTheShadow;
 import card.UNCOMMON.DiffusionOfDarkness;
 import card.UNCOMMON.WaitingForFood;
 import card.UNCOMMON.Rehearsal;
@@ -199,6 +203,10 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         this.cardsToAdd.add(new WaitingForFood());
         this.cardsToAdd.add(new DiffusionOfDarkness());
         this.cardsToAdd.add(new Peek());
+        this.cardsToAdd.add(new Hallucination());
+        this.cardsToAdd.add(new GazeFromTheShadow());
+        this.cardsToAdd.add(new TestCard11());
+        this.cardsToAdd.add(new Hmm());
     }
     @Override
     public void receiveEditRelics()

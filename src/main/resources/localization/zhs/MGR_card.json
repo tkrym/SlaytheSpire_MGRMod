@@ -70,8 +70,8 @@
   },
     "MGR:HarmonyForm":{
     "NAME":"和声形态",
-    "DESCRIPTION": " mgr:音符槽 数量变为 5 。 mgr:音符 的效果触发两次。  NL  虚无 ",
-    "UPGRADE_DESCRIPTION": " mgr:音符槽 数量变为 5 。 mgr:音符 的效果触发两次。"
+    "DESCRIPTION": " mgr:音符 的效果触发两次。  NL  虚无 ",
+    "UPGRADE_DESCRIPTION": " mgr:音符 的效果触发两次。"
   },
     "MGR:Stereophonic":{
     "NAME":"立体声",
@@ -90,7 +90,7 @@
   },
 	"MGR:ScaryGlare": {
 	"NAME":"恐怖瞪视",
-	"DESCRIPTION": "造成 !D! 点伤害，给予 !M! 层 mgr:注视 ，然后触发其 mgr:注视 。"
+	"DESCRIPTION": "造成 !D! 点伤害。 NL 给予 !M! 层 mgr:注视 。 NL 触发其 mgr:注视 。"
   },
     "MGR:IndifferentLook": {
     "NAME": "冷眼旁观",
@@ -141,104 +141,106 @@
   },
     "MGR:Hallucination":{
     "NAME":"迷幻",
-    "DESCRIPTION": "将你的随机负面状态转移给目标。 NL mgr:老大哥形态 ：改为所有负面状态。  NL  消耗 。",
-    "UPGRADE_DESCRIPTION": "将你的随机负面状态转移给目标。 NL mgr:老大哥形态 ：改为所有负面状态。  NL 保留 。 消耗 。"
+    "DESCRIPTION": "将你的随机负面状态转移给目标。 NL mgr:老大哥形态 ：改为所有负面状态。",
+    "UPGRADE_DESCRIPTION": "将你的随机负面状态转移给目标。 NL mgr:老大哥形态 ：改为所有负面状态。 NL 保留 。"
   },
     "MGR:Peek":{
     "NAME":"偷窥",
     "DESCRIPTION": "给予 !M! 层注视与 1 层 易伤 。 NL mgr:老大哥形态 ：再给予一次。"
   },
-    "USE":{
-    "NAME":"使用",
-    "DESCRIPTION": "获得 !B! 点格挡。 NL 本回合每当受到攻击，给予攻击者 !M! 层 mgr:注视 。"
+    "MGR:GazeFromTheShadow":{
+    "NAME":"阴影中的视线",
+    "DESCRIPTION": " 固有 。 消耗 。 NL 选择一个敌人。本场战斗中，在它的每个回合开始时，给予 !M! 层 mgr:注视 。"
   },
-    "DontUse":{
-    "NAME":"不使用",
-    "DESCRIPTION": "获得 !B! 点格挡。"
+    "MGR:TestCard1":{
+    "NAME":"TestCard1",
+    "DESCRIPTION": "获得 !B! 点格挡。 NL 本回合每当受到攻击，给予攻击者 !M! 层 虚弱 。"
   },
-    "Milke":{
-    "NAME":"牛乳",
-    "DESCRIPTION": "下一回合移除所有身上负面效果，获得 !M! 层 呼叫 。"
+    "MGR:TestCard2":{
+    "NAME":"TestCard2",
+    "DESCRIPTION": "获得 !B! 点格挡，抽1张牌。 NL mgr:起音 ：打出一张复制。"
   },
-    "Jakenyoru":{
-    "NAME":"邪剑「夜」·逝魔冲音",
-    "DESCRIPTION": "斩击类 NL 造成 !D! 点伤害，若敌人有 流血 ，则施加大量负面效果。"
+    "MGR:TestCard3":{
+    "NAME":"TestCard3",
+    "DESCRIPTION": "随机生成 !M! 个 mgr:基本音符 。 NL mgr:起音 或 mgr:尾音 ：再生成2个。"
   },
-    "Accuration":{
-    "NAME":"精准",
-    "DESCRIPTION": "射击类 NL 伤害提高30%，叠加 !M! 层 呼叫 。"
+    "MGR:TestCard4":{
+    "NAME":"TestCard4",
+    "DESCRIPTION": " 不能被打出 。 NL 这张牌对应的 mgr:音符 为 mgr:能量音符。 NL 被消耗或丢弃时，生成一个 mgr:能量音符 。",
+    "UPGRADE_DESCRIPTION": " 不能被打出 。 NL 这张牌对应的 mgr:音符 为 mgr:能量音符。 NL 抽到、被消耗或丢弃时，生成一个 mgr:能量音符 。"
   },
-    "TwoFriends":{
-    "NAME":"亲友两人",
-    "DESCRIPTION": "叠加一层 mdcn支援 和 diyusi支援 。"
+    "MGR:TestCard5":{
+    "NAME":"TestCard5",
+    "DESCRIPTION": " 预见 !M! 。 NL 生成丢弃的牌所对应的 mgr:基本音符 。"
   },
-    "DIYUSI_DS":{
-    "NAME":"DIYUSI",
-    "DESCRIPTION": "获得 diyusi支援 。"
+    "MGR:TestCard6":{
+    "NAME":"TestCard6",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 存在多于一个敌人时，打出一张复制。"
   },
-    "SIYUDI_DS":{
-    "NAME":"SIYUDI",
-    "DESCRIPTION": "获得 siyudi支援 。"
+    "MGR:TestCard7":{
+    "NAME":"TestCard7",
+    "DESCRIPTION": "消耗所有手牌。 NL 每张被消耗的牌给予 !B! 点格挡。 NL 消耗至少 !M! 张牌时，获得 2 点 mgr:强音 。"
   },
-    "HNS_DS":{
-    "NAME":"HNS",
-    "DESCRIPTION": "获得 hns支援 。"
+    "MGR:TestCard8":{
+    "NAME":"TestCard8",
+    "DESCRIPTION": "丢弃至多 !M! 张牌，生成对应的 mgr:基本音符 。 NL 如果丢弃了至少3张牌，抽1张牌。"
   },
-    "ICG_DS":{
-    "NAME":"ICG",
-    "DESCRIPTION": "获得 icg支援 。"
+    "MGR:TestCard9":{
+    "NAME":"TestCard9",
+    "DESCRIPTION": "每当你累计抽到、打出、丢弃或消耗第 !M! 张牌，将它的一张本回合费用为0的 消耗 、 虚无 的复制置入手牌。 NL 不可叠加。 虚无 。",
+    "UPGRADE_DESCRIPTION": "每当你累计抽到、打出、丢弃或消耗第 !M! 张牌，将它的一张本回合费用为0的 消耗 、 虚无 的复制置入手牌。 NL 不可叠加。"
   },
-    "RMA_DS":{
-    "NAME":"RMA",
-    "DESCRIPTION": "获得 rma支援 。"
+    "MGR:TestCard10":{
+    "NAME":"TestCard10",
+    "DESCRIPTION": "打出 诅咒 牌时抽 !M! 张牌。 NL 将 1 张随机诅咒牌加入抽牌堆。"
   },
-    "MDCN_DS":{
-    "NAME":"MDCN",
-    "DESCRIPTION": "获得 mdcn支援 。"
+    "MGR:TestCard11":{
+    "NAME":"TestCard11",
+    "DESCRIPTION": "获得 !B! 点格挡。 NL 将 !M! 张 *嗯？ 置入手牌。"
   },
-    "SZ_DS":{
-    "NAME":"SZ",
-    "DESCRIPTION": "获得 sz支援 。"
+    "MGR:TestCard13":{
+    "NAME":"TestCard13",
+    "DESCRIPTION": "回合开始时，弃一张牌，将一张 *嗯？ 置入手牌。"
   },
-    "SIK_DS":{
-    "NAME":"SIK",
-    "DESCRIPTION": "获得 sik支援 。"
+    "MGR:TestCard14":{
+    "NAME":"TestCard14",
+    "DESCRIPTION": "抽 !M! 张牌。 NL 清空你的 mgr:计数器 ，获得等量的 [E] 。 NL 消耗性 2"
   },
-    "Lightning":{
-    "NAME":"打雷",
-    "DESCRIPTION": "每回合对随机敌人造成14点伤害。"
+    "MGR:TestCard15":{
+    "NAME":"MGR:TestCard15",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 如果目标具有 mgr:注视 ，抽1张牌。 NL 如果至少有!M!层 mgr:注视 ，再生成一个 mgr:能量音符 。"
   },
-    "Fire_SI":{
-    "NAME":"炎上",
-    "DESCRIPTION": "每回合对所有敌人造成6点伤害，施加一层易伤。"
+    "MGR:TestCard16":{
+    "NAME":"MGR:TestCard16",
+    "DESCRIPTION": "本回合内，每触发过一次 mgr:和弦 ，就获得1层 金属化 与 多层护甲 。"
   },
-    "RadioactiveSubstance":{
-    "NAME":"放射性物质",
-    "DESCRIPTION": "每回合对随机敌人施加大量负面效果。"
+    "MGR:TestCard17":{
+    "NAME":"MGR:TestCard17",
+    "DESCRIPTION": "抽牌直到手牌有 !M! 张。 NL 然后，丢弃费用最高的两张手牌。"
   },
-    "Corrosivity":{
-    "NAME":"生物学有害",
-    "DESCRIPTION": "使所有敌人的负面效果层数变为2倍。"
+    "MGR:TestCard18":{
+    "NAME":"被遗忘者",
+    "DESCRIPTION": "每当你累计消耗或丢弃 !M! 张牌，获得 [E] 。"
   },
-    "AttentionToFallingObjects":{
-    "NAME":"落下物注意",
-    "DESCRIPTION": "斩杀生命值在30以下的敌人。"
+    "MGR:TestCard19":{
+    "NAME":"MGR:TestCard19",
+    "DESCRIPTION": "本回合，你每触发过一次 mgr:和弦 ，就获得 !M! 金币。 NL 保留 。"
   },
-    "Laser":{
-    "NAME":"激光",
-    "DESCRIPTION": "对一名随机敌人造成42点伤害。"
+    "MGR:TestCard20":{
+    "NAME":"MGR:TestCard20",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 若本回合触发过至少 !M! 次 mgr:和弦 ，再获得 !B! 点格挡。"
   },
-    "MotorVehicleAttention":{
-    "NAME":"机动车注意",
-    "DESCRIPTION": "抵挡下两次伤害。"
+    "MGR:TestCard21":{
+    "NAME":"MGR:TestCard21",
+    "DESCRIPTION": "所有生物失去 !M! 点 力量 。"
   },
-    "CyclingByBike":{
-    "NAME":"自行车骑行",
+    "MGR:TestCard22":{
+    "NAME":"TestCard22",
     "DESCRIPTION": "每回合额外抽两张牌。"
   },
-    "KingdomOfWalkers":{
-    "NAME":"步行者天国",
-    "DESCRIPTION": "每回合获得8点格挡。"
+    "MGR:Hmm":{
+    "NAME":"嗯？",
+    "DESCRIPTION": "抽 !M! 张牌。 NL 保留 。"
   },
     "RPG":{
     "NAME":"RPG",

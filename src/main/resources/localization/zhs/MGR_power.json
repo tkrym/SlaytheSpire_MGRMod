@@ -63,10 +63,11 @@
       " 倍。"
     ]
   },
-    "SIKSupport": {
-    "NAME": "SIK支援",
+    "MGR:GazeFromTheShadowPower": {
+    "NAME": "你被盯上了...",
     "DESCRIPTIONS": [
-      "亲友的朋友SIK的支援，斩击类伤害加 #b3 "
+      "在回合开始时，获得 #b",
+      " 层 #y注视 。"
     ]
   }, 
     "Burning": {
