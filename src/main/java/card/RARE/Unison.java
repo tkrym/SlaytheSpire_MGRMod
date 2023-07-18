@@ -1,6 +1,5 @@
 package card.RARE;
 
-import action.SetSlotToFiveAction;
 import card.AbstractMGRCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -9,7 +8,6 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import path.AbstractCardEnum;
-import power.HarmonyFormPower;
 import power.UnisonLeft;
 import power.UnisonRight;
 

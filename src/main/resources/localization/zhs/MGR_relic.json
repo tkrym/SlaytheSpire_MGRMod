@@ -85,19 +85,12 @@
       " %，再生成一个。"
     ]
   },
-  "MGR:": {
-    "NAME": "",
-    "FLAVOR": "",
+  "MGR:FriendsSpirit": {
+    "NAME": "友人之魂",
+    "FLAVOR": "身于千里，心若咫尺。",
     "DESCRIPTIONS": [
-      "每 #b3 ",
-      "个回合，获得 支援 。"
-    ]
-  },
-  "WWWWWWWWWWW": {
-    "NAME": "WWWWWWWWWWWWW",
-    "FLAVOR": "WWWWWWWWWWWWWWW",
-    "DESCRIPTIONS": [
-      "WWWWWWWWWWWWWWWWWWW"
+      "每触发 #b",
+      " 次 #ymgr:和弦 ，生成 #y攻击 、 #y防御 #ymgr:音符 各一个。"
     ]
   }
 }

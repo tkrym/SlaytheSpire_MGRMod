@@ -59,7 +59,7 @@ public class MGR_character extends CustomPlayer{
     public int counter;
     public int counter_min;
     public int counter_max;
-    public static final int counter_max_master=2;
+    public static final int counter_max_master=4;
     public static CounterPanel myCounterPanel=new CounterPanel();
     private static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString("MGR:character");
 
@@ -275,14 +275,6 @@ public class MGR_character extends CustomPlayer{
         }
         return orbCount;
     }
-
-    public void SetSlotToFive()
-    {
-        if(this.maxOrbs>5) this.decreaseMaxOrbSlots(this.maxOrbs-5);
-        else if(this.maxOrbs<5) this.increaseMaxOrbSlots(5-this.maxOrbs,true);
-    }
-
-
     public static boolean EndingCheck()
     {
         if(AbstractDungeon.player.filledOrbCount()==AbstractDungeon.player.maxOrbs-1) return true;

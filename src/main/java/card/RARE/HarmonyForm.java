@@ -1,16 +1,16 @@
 package card.RARE;
 
-import action.SetSlotToFiveAction;
 import card.AbstractMGRCard;
+import character.MGR_character;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import path.AbstractCardEnum;
-import power.StereoPlusPower;
 import power.HarmonyFormPower;
 
 public class HarmonyForm extends AbstractMGRCard {
@@ -27,7 +27,18 @@ public class HarmonyForm extends AbstractMGRCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new SetSlotToFiveAction());
+        addToBot(new AbstractGameAction() {
+            @Override
+            public void update() {
+                if(AbstractDungeon.player instanceof MGR_character)
+                {
+                    MGR_character p=(MGR_character)AbstractDungeon.player;
+                    if(p.maxOrbs>5) p.decreaseMaxOrbSlots(p.maxOrbs-5);
+                    else if(p.maxOrbs<5) p.increaseMaxOrbSlots(5-p.maxOrbs,true);
+                }
+                this.isDone=true;
+            }
+        });
         if(!p.hasPower(HarmonyFormPower.POWER_ID))
             this.addToBot(new ApplyPowerAction(p,p,new HarmonyFormPower(p),1));
     }

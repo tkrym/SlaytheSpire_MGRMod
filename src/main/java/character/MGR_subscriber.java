@@ -7,6 +7,7 @@ import card.BASIC.*;
 import card.COMMON.*;
 import card.RARE.*;
 import card.COMMON.OneUp;
+import card.TEST.Peek;
 import card.UNCOMMON.DiffusionOfDarkness;
 import card.UNCOMMON.WaitingForFood;
 import card.UNCOMMON.Rehearsal;
@@ -89,6 +90,7 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         BaseMod.addPotion(FortePotion.class, mybluecolor.cpy(), mybluecolor.cpy(), mybluecolor.cpy(), FortePotion.POTION_ID, ModClassEnum.MGR);
         BaseMod.addPotion(BottledNotes.class, mybluecolor.cpy(), mybluecolor.cpy(),new Color(1.0F,0.72F,0.19F,1.0F),BottledNotes.POTION_ID,ModClassEnum.MGR);
         BaseMod.addPotion(PortableAnvil.class, Color.WHITE.cpy(), Color.WHITE.cpy(), Color.WHITE.cpy(), PortableAnvil.POTION_ID);
+        BaseMod.addPotion(ShiningEssence.class, Color.GOLD.cpy(),CardHelper.getColor(214,186,38),null,ShiningEssence.POTION_ID,ModClassEnum.MGR);
         UnlockAscensionLevel();
         for(AbstractCard card:cardsToAdd)
             UnlockTracker.markCardAsSeen(card.cardID);
@@ -173,10 +175,6 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         this.cardsToAdd.clear();
         this.cardsToAdd.add(new Strike_MGR());
         this.cardsToAdd.add(new Defend_MGR());
-        /*this.cardsToAdd.add(new SpBullet());
-        this.cardsToAdd.add(new TestAttack());
-        this.cardsToAdd.add(new TestDefend());
-        this.cardsToAdd.add(new TestPower());*/
         this.cardsToAdd.add(new CoinflipStrike());
         this.cardsToAdd.add(new AttackTied());
         this.cardsToAdd.add(new CrispEnding());
@@ -200,6 +198,7 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         this.cardsToAdd.add(new SongOfLevitation());
         this.cardsToAdd.add(new WaitingForFood());
         this.cardsToAdd.add(new DiffusionOfDarkness());
+        this.cardsToAdd.add(new Peek());
     }
     @Override
     public void receiveEditRelics()
@@ -224,6 +223,8 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         this.relicsToAdd.add(new MiniMicrophone());
         this.relicsToAdd.add(new YourExclusiveStage());
         this.relicsToAdd.add(new WitchHat());
+        this.relicsToAdd.add(new FriendsSpirit());
+        this.relicsToAdd.add(new Fumo());
     }
 
     @Override

@@ -139,14 +139,10 @@
     "NAME":"黑暗扩散",
     "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 所有敌人本回合失去等同于 mgr:注视 层数一半的 力量。 消耗性 2"
   },
-    "MGR:TestCard2":{
-    "NAME":"",
-    "DESCRIPTION": "造成 !D! 点伤害。目标每有一种负面状态，给予 !M! 层 mgr:注视 。"
-  },
     "MGR:Hallucination":{
     "NAME":"迷幻",
-    "DESCRIPTION": "将你的所有负面状态转移给随机敌人。 消耗 。",
-    "UPGRADE_DESCRIPTION": "将你的所有负面状态转移给随机敌人。 保留 。 消耗 。"
+    "DESCRIPTION": "将你的随机负面状态转移给目标。 NL mgr:老大哥形态 ：改为所有负面状态。  NL  消耗 。",
+    "UPGRADE_DESCRIPTION": "将你的随机负面状态转移给目标。 NL mgr:老大哥形态 ：改为所有负面状态。  NL 保留 。 消耗 。"
   },
     "MGR:Peek":{
     "NAME":"偷窥",
@@ -154,11 +150,11 @@
   },
     "USE":{
     "NAME":"使用",
-    "DESCRIPTION": "消耗 呼叫 来使效果发动。"
+    "DESCRIPTION": "获得 !B! 点格挡。 NL 本回合每当受到攻击，给予攻击者 !M! 层 mgr:注视 。"
   },
     "DontUse":{
     "NAME":"不使用",
-    "DESCRIPTION": "不消耗 呼叫 。"
+    "DESCRIPTION": "获得 !B! 点格挡。"
   },
     "Milke":{
     "NAME":"牛乳",
