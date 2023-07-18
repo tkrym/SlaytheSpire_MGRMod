@@ -196,7 +196,8 @@
   },
     "MGR:TestCard11":{
     "NAME":"TestCard11",
-    "DESCRIPTION": "获得 !B! 点格挡。 NL 将 !M! 张 *嗯？ 置入手牌。"
+    "DESCRIPTION": "获得 !B! 点格挡。 NL 将 !M! 张 *嗯？ 置入手牌。",
+    "UPGRADE_DESCRIPTION": "获得 !B! 点格挡。 NL 将 !M! 张 *嗯 *？ *+ 置入手牌。"
   },
     "MGR:TestCard13":{
     "NAME":"TestCard13",
@@ -238,9 +239,10 @@
     "NAME":"TestCard22",
     "DESCRIPTION": "每回合额外抽两张牌。"
   },
-    "MGR:Hmm":{
+    "MGR:Confused":{
     "NAME":"嗯？",
-    "DESCRIPTION": "抽 !M! 张牌。 NL 保留 。"
+    "DESCRIPTION": "抽 !M! 张牌。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "抽 !M! 张牌。 NL 保留 。 消耗 。"
   },
     "RPG":{
     "NAME":"RPG",

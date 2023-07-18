@@ -9,7 +9,7 @@ import card.RARE.*;
 import card.COMMON.OneUp;
 import card.RARE.Hallucination;
 import card.BASIC.Peek;
-import card.SPECIAL.Hmm;
+import card.SPECIAL.Confused;
 import card.TEST.TestCard11;
 import card.UNCOMMON.GazeFromTheShadow;
 import card.UNCOMMON.DiffusionOfDarkness;
@@ -206,7 +206,7 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         this.cardsToAdd.add(new Hallucination());
         this.cardsToAdd.add(new GazeFromTheShadow());
         this.cardsToAdd.add(new TestCard11());
-        this.cardsToAdd.add(new Hmm());
+        this.cardsToAdd.add(new Confused());
     }
     @Override
     public void receiveEditRelics()

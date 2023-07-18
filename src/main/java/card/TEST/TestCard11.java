@@ -1,7 +1,7 @@
 package card.TEST;
 
 import card.AbstractMGRCard;
-import card.SPECIAL.Hmm;
+import card.SPECIAL.Confused;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -16,10 +16,11 @@ public class TestCard11 extends AbstractMGRCard {
     public static final String ID = "MGR:TestCard11";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG = "img/card/"+ID.substring(4)+".png";
     private static final int COST = 1;
     private static final int BLOCK = 5;
-    private static final int PLUS_BLOCK = 3;
+    private static final int PLUS_BLOCK = 1;
     private static final int MAGIC = 2;
     public TestCard11() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.SKILL,
@@ -27,12 +28,14 @@ public class TestCard11 extends AbstractMGRCard {
         this.baseBlock = BLOCK;
         this.baseMagicNumber=MAGIC;
         this.magicNumber=this.baseMagicNumber;
-        this.cardsToPreview=new Hmm();
+        this.cardsToPreview=new Confused();
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, p, this.block));
-        addToBot(new MakeTempCardInHandAction(new Hmm(),this.magicNumber));
+        AbstractCard newCard=new Confused();
+        if(this.upgraded) newCard.upgrade();
+        addToBot(new MakeTempCardInHandAction(newCard,this.magicNumber));
     }
 
     public AbstractCard makeCopy() { return new TestCard11(); }
@@ -41,6 +44,9 @@ public class TestCard11 extends AbstractMGRCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeBlock(PLUS_BLOCK);
+            this.rawDescription=UPGRADE_DESCRIPTION;
+            this.cardsToPreview.upgrade();
+            initializeDescription();
         }
     }
 }
