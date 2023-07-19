@@ -56,7 +56,7 @@ public abstract class AbstractMGRCard extends CustomCard {
 
     protected void triggerOnGlowCheck_Starting() {
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-        if(MGR_character.EndingCheck())
+        if(MGR_character.StartingCheck())
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
     }
 }

@@ -1,11 +1,11 @@
 package card.COMMON;
 
-import basemod.abstracts.CustomCard;
 import card.AbstractMGRCard;
 import character.MGR_character;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -17,27 +17,27 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import path.AbstractCardEnum;
 
-public class CrispEnding extends AbstractMGRCard {
-    public static final String ID = "MGR:CrispEnding";
+public class EnergeticStarting extends AbstractMGRCard {
+    public static final String ID = "MGR:EnergeticStarting";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String IMG = "img/card/"+ID.substring(4)+".png";
     private static final int COST = 0;
-    private static final int DMG = 2;
-    private static final int PLUS_DMG = 2;
+    private static final int BLOCK = 2;
+    private static final int PLUS_BLOCK = 2;
     public boolean myPurgeOnUse=false;
-    public CrispEnding() {
-        super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.ATTACK,
-                AbstractCardEnum.MGR_COLOR, CardRarity.COMMON, CardTarget.ENEMY);
-        this.baseDamage = DMG;
+    public EnergeticStarting() {
+        super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.SKILL,
+                AbstractCardEnum.MGR_COLOR, CardRarity.COMMON, CardTarget.SELF);
+        this.baseBlock=BLOCK;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+        addToBot(new GainBlockAction(p,p,this.block));
         addToBot(new DrawCardAction(p, 1));
-        if(MGR_character.EndingCheck()&&!this.myPurgeOnUse)
+        if(MGR_character.StartingCheck()&&!this.myPurgeOnUse)
         {
-            CrispEnding tmp = (CrispEnding) this.makeSameInstanceOf();
+            EnergeticStarting tmp = (EnergeticStarting) this.makeSameInstanceOf();
             AbstractDungeon.player.limbo.addToBottom(tmp);
             tmp.current_x = this.current_x;
             tmp.current_y = this.current_y;
@@ -51,14 +51,14 @@ public class CrispEnding extends AbstractMGRCard {
     }
 
     @Override
-    public void triggerOnGlowCheck() {triggerOnGlowCheck_Ending();}
+    public void triggerOnGlowCheck() {triggerOnGlowCheck_Starting();}
 
-    public AbstractCard makeCopy() { return new CrispEnding(); }
+    public AbstractCard makeCopy() { return new EnergeticStarting(); }
 
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeDamage(PLUS_DMG);
+            this.upgradeBlock(PLUS_BLOCK);
         }
     }
 }

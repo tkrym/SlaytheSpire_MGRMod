@@ -131,7 +131,9 @@ public abstract class AbstractNote extends AbstractOrb
     public void TriggerEvokeEffect()
     {
         myEvoke();
-        if(AbstractDungeon.player.hasPower(HarmonyFormPower.POWER_ID)) myEvoke();
+        if(AbstractDungeon.player.hasPower(HarmonyFormPower.POWER_ID))
+            for(int i=1;i<=AbstractDungeon.player.getPower(HarmonyFormPower.POWER_ID).amount;i++)
+                myEvoke();
     }
 
 

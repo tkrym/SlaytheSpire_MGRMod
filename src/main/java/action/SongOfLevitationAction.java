@@ -8,10 +8,10 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import relic.LittleAngel;
 
-public class SongOfLevitationAction extends AbstractGameAction {
+public class AlternateSingingAction extends AbstractGameAction {
     private int NoteCount;
     private int EmptyCount;
-    public SongOfLevitationAction(int block,int NoteCount,int EmptyCount)
+    public AlternateSingingAction(int block,int NoteCount,int EmptyCount)
     {
         this.amount=block;
         this.NoteCount=NoteCount;

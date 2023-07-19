@@ -44,7 +44,8 @@
     "MGR:HarmonyForm": {
     "NAME": "和声形态",
     "DESCRIPTIONS": [
-      " #y音符 的效果触发两次。不可叠加。"
+      " #y音符 的效果额外触发 #b",
+      " 次。"
     ]
   }, 
     "MGR:UnisonLeft": {
@@ -70,24 +71,35 @@
       " 层 #y注视 。"
     ]
   }, 
-    "Burning": {
-    "NAME": "烧伤",
+    "MGR:YazyuutokasuPower": {
+    "NAME": "野兽化",
     "DESCRIPTIONS": [
-      "受到的 斩击类 伤害提高 #b",
-	  " 点"
+      "回合开始时，将 #b",
+	  " 张 #y困惑 置入手牌。"
+    ]
+  },
+    "MGR:YazyuutokasuPlusPower": {
+    "NAME": "野兽化+",
+    "DESCRIPTIONS": [
+      "回合开始时，将 #b",
+      " 张 #y困惑+ 置入手牌。"
+    ]
+  },
+    "MGR:ResonanceFormPower": {
+    "NAME": "共鸣形态",
+    "DESCRIPTIONS": [
+      "每当你抽到、打出或丢弃第 #b",
+      " 张牌，将它的一张本回合费用为0的消耗、虚无的复制置入手牌。不可叠加。 NL 还需 #b",
+      " 张。"
     ]
   },  
-    "WirelessCallingPower": {
-    "NAME": "无线呼叫",
+    "MGR:TheForsakenPower": {
+    "NAME": "被遗忘者",
     "DESCRIPTIONS": [
-      "每回合 #y呼叫 数+"
-    ]
-  },  
-    "FuryCutterPower": {
-    "NAME": "连斩",
-    "DESCRIPTIONS": [
-      "你每打出一张 斩击类 卡，受到 #b",
-	  " 点伤害。"
+      "每当你累计消耗或丢弃 #b",
+      " 张牌，获得",
+      " NL 还需 #b",
+      " 张。"
     ]
   },  
     "LightningPower": {

@@ -27,6 +27,7 @@ public class WaitingForFood extends AbstractMGRCard {
         this.baseBlock=BLOCK;
         this.baseMagicNumber=MAGIC;
         this.magicNumber=this.baseMagicNumber;
+        this.tags.add(CardTags.HEALING);
         TookDamage=false;
     }
 

@@ -25,6 +25,7 @@ public class Strike_MGR extends AbstractMGRCard {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.ATTACK,
                 AbstractCardEnum.MGR_COLOR, CardRarity.BASIC, CardTarget.ENEMY);
         this.tags.add(CardTags.STARTER_STRIKE);
+        this.tags.add(CardTags.STRIKE);
         this.baseDamage = DMG;
     }
 

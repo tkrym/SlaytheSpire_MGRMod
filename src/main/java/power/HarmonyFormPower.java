@@ -17,11 +17,15 @@ public class HarmonyFormPower extends AbstractPower {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
+        this.amount=1;
         updateDescription();
         this.img = new Texture(IMG);
     }
 
     @Override
-    public void updateDescription() {this.description = DESCRIPTIONS[0];}
+    public void updateDescription()
+    {
+        this.description = DESCRIPTIONS[0]+this.amount+DESCRIPTIONS[1];
+    }
 }
 

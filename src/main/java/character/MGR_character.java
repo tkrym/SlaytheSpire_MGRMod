@@ -151,7 +151,7 @@ public class MGR_character extends CustomPlayer{
         if(orbToSet instanceof EmptyOrbSlot || orbToSet instanceof EmptyNoteSlot)
             return;
         else if (this.maxOrbs <= 0 || !(orbToSet instanceof AbstractNote)) {
-            AbstractDungeon.effectList.add(new ThoughtBubble(this.dialogX, this.dialogY, 3.0F, MSG[4], true));
+            AbstractDungeon.effectList.add(new ThoughtBubble(this.dialogX, this.dialogY, 3.0F, CardCrawlGame.languagePack.getTutorialString("MGR:exception").TEXT[1], true));
         } else
         {
             int index = -1;

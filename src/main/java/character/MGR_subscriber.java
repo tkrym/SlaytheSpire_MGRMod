@@ -9,13 +9,15 @@ import card.RARE.*;
 import card.COMMON.OneUp;
 import card.RARE.Hallucination;
 import card.BASIC.Peek;
-import card.SPECIAL.Confused;
-import card.TEST.TestCard11;
+import card.COMMON.Bewildered;
+import card.RARE.ResonanceForm;
+import card.UNCOMMON.Yazyuutokasu;
+import card.UNCOMMON.TheForsaken;
 import card.UNCOMMON.GazeFromTheShadow;
 import card.UNCOMMON.DiffusionOfDarkness;
 import card.UNCOMMON.WaitingForFood;
 import card.UNCOMMON.Rehearsal;
-import card.UNCOMMON.SongOfLevitation;
+import card.UNCOMMON.AlternateSinging;
 import card.UNCOMMON.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -42,7 +44,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 @SpireInitializer
-public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscriber,EditCardsSubscriber,EditStringsSubscriber,EditKeywordsSubscriber,PostInitializeSubscriber,OnCardUseSubscriber,OnStartBattleSubscriber,PostBattleSubscriber,AddAudioSubscriber{
+public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscriber,EditCardsSubscriber,EditStringsSubscriber,EditKeywordsSubscriber,PostInitializeSubscriber,OnCardUseSubscriber,OnStartBattleSubscriber,PostBattleSubscriber,AddAudioSubscriber,PostDungeonInitializeSubscriber{
     private static final String MOD_BADGE = "img/UI/MGR_badge.png";
     private static final String ATTACK_CC = "img/512/MGR_attack_s.png";
     private static final String SKILL_CC = "img/512/MGR_skill_s.png";
@@ -199,14 +201,18 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         this.cardsToAdd.add(new Unison());
         this.cardsToAdd.add(new OneUp());
         this.cardsToAdd.add(new Rehearsal());
-        this.cardsToAdd.add(new SongOfLevitation());
+        this.cardsToAdd.add(new AlternateSinging());
         this.cardsToAdd.add(new WaitingForFood());
         this.cardsToAdd.add(new DiffusionOfDarkness());
         this.cardsToAdd.add(new Peek());
         this.cardsToAdd.add(new Hallucination());
         this.cardsToAdd.add(new GazeFromTheShadow());
-        this.cardsToAdd.add(new TestCard11());
-        this.cardsToAdd.add(new Confused());
+        this.cardsToAdd.add(new Bewildered());
+        this.cardsToAdd.add(new Yazyuutokasu());
+        this.cardsToAdd.add(new ResonanceForm());
+        this.cardsToAdd.add(new TheForsaken());
+        this.cardsToAdd.add(new MaguroCleave());
+        this.cardsToAdd.add(new EnergeticStarting());
     }
     @Override
     public void receiveEditRelics()
@@ -249,5 +255,11 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
     public void receivePostBattle(AbstractRoom abstractRoom) {
         if(LastCardPlayed!=null&&LastCardPlayed instanceof EastOfTimeline)
             EastOfTimeline.IncMist(LastCardPlayed.uuid,1);
+    }
+
+    @Override
+    public void receivePostDungeonInitialize() {
+        /*if(AbstractDungeon.player instanceof MGR_character)
+            AbstractDungeon.shopRelicPool.remove("StrikeDummy");*/
     }
 }
