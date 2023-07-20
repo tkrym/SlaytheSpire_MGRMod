@@ -224,6 +224,7 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         this.cardsToAdd.add(new Kimitomitahosizora());
         this.cardsToAdd.add(new TestCard3());
         this.cardsToAdd.add(new SongOfSubmersion());
+        this.cardsToAdd.add(new DizzyAndGiddy());
     }
     @Override
     public void receiveEditRelics()

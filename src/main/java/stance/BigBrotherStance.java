@@ -64,8 +64,8 @@ public class BigBrotherStance extends AbstractStance {
         CardCrawlGame.sound.play("STANCE_ENTER_DIVINITY");
         sfxId = CardCrawlGame.sound.playAndLoop("STANCE_LOOP_DIVINITY");
         AbstractDungeon.effectsQueue.add(new BorderFlashEffect(Color.PINK, true));
-        AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(1));
-        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(1));
+        //AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(1));
+        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(2));
     }
 
     @Override
