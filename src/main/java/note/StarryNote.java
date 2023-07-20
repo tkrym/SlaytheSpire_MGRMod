@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -11,10 +12,10 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.OrbStrings;
 import com.megacrit.cardcrawl.powers.ArtifactPower;
-import com.megacrit.cardcrawl.vfx.combat.*;
+import com.megacrit.cardcrawl.vfx.combat.PlasmaOrbPassiveEffect;
 
-public class ArtifactNote extends AbstractNote {
-    public static final String ORB_ID = "MGR:Artifact";
+public class StarryNote extends AbstractNote {
+    public static final String ORB_ID = "MGR:Starry";
     private static final OrbStrings orbString = CardCrawlGame.languagePack.getOrbString(ORB_ID);
     private float vfxTimer = 1.0f;
     private float vfxIntervalMin = 0.1f;
@@ -22,7 +23,7 @@ public class ArtifactNote extends AbstractNote {
     private static final float ORB_WAVY_DIST = 0.04f;
     private static final float PI_4 = 12.566371f;
 
-    public ArtifactNote() {
+    public StarryNote() {
         this.ID = ORB_ID;
         this.img = ImageMaster.ORB_PLASMA;
         this.name = orbString.NAME;
@@ -30,18 +31,20 @@ public class ArtifactNote extends AbstractNote {
         this.evokeAmount = this.baseEvokeAmount;
         this.angle = MathUtils.random(360.0f);
         this.channelAnimTimer = 0.5f;
-        this.forterate=3;
+        this.forterate=999;
         updateDescription();
     }
 
+    @Override
+    public void myApplyForte() { this.evokeAmount=this.baseEvokeAmount; }
+
     public void updateDescription() {
         applyForte();
-        this.description = orbString.DESCRIPTION[0]+this.evokeAmount+orbString.DESCRIPTION[1]+this.forterate+orbString.DESCRIPTION[2];
+        this.description = orbString.DESCRIPTION[0]+this.evokeAmount+orbString.DESCRIPTION[1];
     }
 
     public void myEvoke() {
-        AbstractCreature p=AbstractDungeon.player;
-        AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(p, p, new ArtifactPower(p, this.evokeAmount), this.evokeAmount,true));
+        AbstractDungeon.actionManager.addToTop(new GainEnergyAction(this.evokeAmount));
     }
 
     @Override
@@ -78,6 +81,6 @@ public class ArtifactNote extends AbstractNote {
     }
 
     public AbstractNote makeCopy() {
-        return new ArtifactNote();
+        return new StarryNote();
     }
 }

@@ -74,14 +74,16 @@
     "MGR:YazyuutokasuPower": {
     "NAME": "野兽化",
     "DESCRIPTIONS": [
-      "回合开始时，将 #b",
-	  " 张 #y困惑 置入手牌。"
+      "回合开始时，丢弃 #b",
+      " 张牌，然后将 #b",
+      " 张 #y困惑 置入手牌。"
     ]
   },
     "MGR:YazyuutokasuPlusPower": {
     "NAME": "野兽化+",
     "DESCRIPTIONS": [
-      "回合开始时，将 #b",
+      "回合开始时，丢弃 #b",
+      " 张牌，然后将 #b",
       " 张 #y困惑+ 置入手牌。"
     ]
   },
@@ -102,10 +104,11 @@
       " 张。"
     ]
   },  
-    "LightningPower": {
-    "NAME": "打雷",
+    "MGR:SongOfSubmersionPower": {
+    "NAME": "沉没吧...",
     "DESCRIPTIONS": [
-      "每回合对随机敌人造成 #b14 点伤害。"
+      "在接下来的 #b",
+      " 个回合结束时，所有敌人失去 #b1 点力量。"
     ]
   },  
     "FirePower": {

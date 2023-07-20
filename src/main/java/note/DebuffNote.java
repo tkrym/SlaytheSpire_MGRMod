@@ -34,7 +34,7 @@ public class DebuffNote extends AbstractNote {
         this.baseEvokeAmount = 1;
         this.evokeAmount = this.baseEvokeAmount;
         this.channelAnimTimer = 0.5f;
-        this.forterate=4;
+        this.forterate=2;
         updateDescription();
     }
 
@@ -47,7 +47,7 @@ public class DebuffNote extends AbstractNote {
     {
         AbstractCreature p=AbstractDungeon.player;
         for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-            //AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(mo, p, new ConstrictedPower(mo, p, this.evokeAmount), this.evokeAmount,true,AbstractGameAction.AttackEffect.NONE));
+            if(mo.isDeadOrEscaped()) continue;
             AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(mo, p, new VulnerablePower(mo, this.evokeAmount, false), this.evokeAmount, true, AbstractGameAction.AttackEffect.NONE));
             AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(mo, p, new WeakPower(mo, this.evokeAmount, false), this.evokeAmount, true, AbstractGameAction.AttackEffect.NONE));
         }

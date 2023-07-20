@@ -36,7 +36,7 @@ public class DrawNote extends AbstractNote {
         this.baseEvokeAmount = 1;
         this.evokeAmount = this.baseEvokeAmount;
         this.channelAnimTimer = 0.5f;
-        this.forterate=4;
+        this.forterate=3;
         updateDescription();
     }
 

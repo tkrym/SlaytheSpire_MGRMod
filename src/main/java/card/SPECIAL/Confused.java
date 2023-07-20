@@ -19,7 +19,7 @@ public class Confused extends AbstractMGRCard {
     private static final int COST = 0;
     private static final int MAGIC = 1;
     public Confused() {
-        super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.SKILL,
+        super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.STATUS,
                 CardColor.COLORLESS, CardRarity.SPECIAL, CardTarget.SELF);
         this.baseMagicNumber=MAGIC;
         this.magicNumber=this.baseMagicNumber;

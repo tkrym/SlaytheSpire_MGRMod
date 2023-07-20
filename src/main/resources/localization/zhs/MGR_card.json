@@ -137,7 +137,7 @@
   },
     "MGR:DiffusionOfDarkness":{
     "NAME":"黑暗扩散",
-    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 所有敌人本回合失去 mgr:注视 层数一半的 力量。 消耗性 2"
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 所有敌人本回合失去 mgr:注视 层数一半的力量。 消耗性 2"
   },
     "MGR:Hallucination":{
     "NAME":"迷幻",
@@ -157,6 +157,11 @@
     "DESCRIPTION": "每当你抽到、打出或丢弃第 !M! 张牌，将它的一张本回合费用为0的 消耗 、 虚无 的复制置入手牌。 NL *不可叠加 。 虚无 。",
     "UPGRADE_DESCRIPTION": "每当你抽到、打出或丢弃第 !M! 张牌，将它的一张本回合费用为0的 消耗 、 虚无 的复制置入手牌。 NL *不可叠加 。"
   },
+    "MGR:Confused":{
+    "NAME":"困惑",
+    "DESCRIPTION": "抽 !M! 张牌。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "抽 !M! 张牌。 NL 保留 。 消耗 。"
+  },
     "MGR:Bewildered":{
     "NAME":"迷茫",
     "DESCRIPTION": "获得 !B! 点格挡。 NL 将 !M! 张 *困惑 置入手牌。",
@@ -164,8 +169,8 @@
   },
     "MGR:Yazyuutokasu":{
     "NAME":"野兽化",
-    "DESCRIPTION": "回合开始时，将一张 *困惑 置入手牌。",
-    "UPGRADE_DESCRIPTION": "回合开始时，将一张 *困惑+ 置入手牌。"
+    "DESCRIPTION": "回合开始时，弃一张牌，将一张 *困惑 置入手牌。",
+    "UPGRADE_DESCRIPTION": "回合开始时，弃一张牌，将一张 *困惑+ 置入手牌。"
   },
     "MGR:TheForsaken":{
     "NAME":"被遗忘者",
@@ -180,26 +185,32 @@
     "NAME":"EnergeticStarting",
     "DESCRIPTION": "获得 !B! 点格挡，抽1张牌。 NL mgr:起音 ：打出一张复制。"
   },
-    "MGR:TestCard1":{
-    "NAME":"TestCard1",
-    "DESCRIPTION": "获得 !B! 点格挡。 NL 本回合每当受到攻击，给予攻击者 !M! 层 虚弱 。"
+    "MGR:SongOfSubmersion":{
+    "NAME":"沉没之歌",
+    "DESCRIPTION": "获得 !B! 点格挡。 NL 在接下来的 !M! 个回合结束时，使所有敌人失去1点力量。 NL 消耗 。"
   },
     "MGR:TestCard3":{
     "NAME":"TestCard3",
-    "DESCRIPTION": "随机生成 !M! 个 mgr:基本音符 。 NL mgr:起音 或 mgr:尾音 ：再生成2个。"
+    "DESCRIPTION": "随机生成 !M! 个 mgr:基本音符 。 NL mgr:起音 ：再生成1个。",
+    "UPGRADE_DESCRIPTION": "随机生成 !M! 个 mgr:基本音符 。 NL mgr:起音 ：再生成2个。"
   },
     "MGR:StarryDrift":{
     "NAME":"星空飘浮",
-    "DESCRIPTION": " 不能被打出 。 NL 这张牌对应的 mgr:音符 为 mgr:星空音符。 NL 被消耗或丢弃时，生成一个 mgr:星空音符 。",
-    "UPGRADE_DESCRIPTION": " 不能被打出 。 NL 这张牌对应的 mgr:音符 为 mgr:星空音符。 NL 被消耗或丢弃时，生成一个 mgr:星空音符 。 NL 抽到时，生成一个 mgr:星空音符 。"
+    "DESCRIPTION": " 不能被打出 。 NL 这张牌对应的 mgr:音符 为 mgr:星空音符 。 NL 被消耗或丢弃时，生成一个 mgr:星空音符 。",
+    "UPGRADE_DESCRIPTION": " 不能被打出 。抽到时，生成一个 mgr:星空音符 。 NL 这张牌对应的 mgr:音符 为 mgr:星空音符 。 NL 被消耗或丢弃时，生成一个 mgr:星空音符 。"
   },
     "MGR:StardustLaser":{
     "NAME":"星屑镭射",
     "DESCRIPTION": "造成 !D! 点伤害。 NL 如果目标具有 mgr:注视 ，抽1张牌。 NL 如果至少有!M!层 mgr:注视 ，再生成一个 mgr:星空音符 。"
   },
     "MGR:Kimitomitahosizora":{
-    "NAME":"曾和你见过的星空",
-    "DESCRIPTION": " 预见 !M! 。 NL 生成弃置的牌所对应的 mgr:基本音符 。 NL 如果弃置了所有牌，生成一个 mgr:星空音符 。"
+    "NAME":"曾与你见过的星空",
+    "DESCRIPTION": " 预见 !M! 。生成弃置的牌所对应的 mgr:基本音符 。 NL 如果弃置了至少3张牌，生成一个 mgr:星空音符 。"
+  },
+    "MGR:Futariboshi":{
+    "NAME":"两个人的星☆",
+    "DESCRIPTION": "清空你的 mgr:计数器 ，生成等量的 mgr:星空音符 。",
+    "UPGRADE_DESCRIPTION": "清空你的 mgr:计数器 ，生成等量的 mgr:星空音符 。 NL 至少生成 !M! 个。"
   },
     "MGR:TestCard7":{
     "NAME":"TestCard7",
@@ -207,19 +218,15 @@
   },
     "MGR:TestCard8":{
     "NAME":"TestCard8",
-    "DESCRIPTION": "丢弃至多 !M! 张牌，生成对应的 mgr:基本音符 。 NL 如果丢弃了至少3张牌，抽1张牌。"
+    "DESCRIPTION": "丢弃至多 !M! 张牌，生成对应的 mgr:基本音符 。 NL 如果丢弃了至少2张牌，抽1张牌。"
   },
     "MGR:TestCard10":{
     "NAME":"TestCard10",
     "DESCRIPTION": "打出 诅咒 牌时抽 !M! 张牌。 NL 将 1 张随机诅咒牌加入抽牌堆。"
   },
-    "MGR:Futariboshi":{
-    "NAME":"两个人的星☆",
-    "DESCRIPTION": "清空你的 mgr:计数器 ，生成等量的 mgr:星空音符 。 NL 消耗性 2"
-  },
     "MGR:TestCard16":{
     "NAME":"MGR:TestCard16",
-    "DESCRIPTION": "获得1层 金属化 与 多层护甲 。"
+    "DESCRIPTION": "获得 !M! 层 金属化 与 多层护甲 。"
   },
     "MGR:TestCard17":{
     "NAME":"MGR:TestCard17",
@@ -240,11 +247,6 @@
     "MGR:TestCard22":{
     "NAME":"TestCard22",
     "DESCRIPTION": "每回合额外抽两张牌。"
-  },
-    "MGR:Confused":{
-    "NAME":"困惑",
-    "DESCRIPTION": "抽 !M! 张牌。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "抽 !M! 张牌。 NL 保留 。 消耗 。"
   },
     "RPG":{
     "NAME":"RPG",

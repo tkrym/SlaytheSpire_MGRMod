@@ -11,6 +11,11 @@ import card.RARE.Hallucination;
 import card.BASIC.Peek;
 import card.COMMON.Bewildered;
 import card.RARE.ResonanceForm;
+import card.TEST.SongOfSubmersion;
+import card.TEST.TestCard3;
+import card.UNCOMMON.Futariboshi;
+import card.COMMON.Kimitomitahosizora;
+import card.UNCOMMON.StarryDrift;
 import card.UNCOMMON.Yazyuutokasu;
 import card.UNCOMMON.TheForsaken;
 import card.UNCOMMON.GazeFromTheShadow;
@@ -209,10 +214,16 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         this.cardsToAdd.add(new GazeFromTheShadow());
         this.cardsToAdd.add(new Bewildered());
         this.cardsToAdd.add(new Yazyuutokasu());
+        this.cardsToAdd.add(new Obakenoukenerai());
         this.cardsToAdd.add(new ResonanceForm());
         this.cardsToAdd.add(new TheForsaken());
         this.cardsToAdd.add(new MaguroCleave());
         this.cardsToAdd.add(new EnergeticStarting());
+        this.cardsToAdd.add(new StarryDrift());
+        this.cardsToAdd.add(new Futariboshi());
+        this.cardsToAdd.add(new Kimitomitahosizora());
+        this.cardsToAdd.add(new TestCard3());
+        this.cardsToAdd.add(new SongOfSubmersion());
     }
     @Override
     public void receiveEditRelics()

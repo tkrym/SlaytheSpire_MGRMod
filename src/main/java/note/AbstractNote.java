@@ -2,6 +2,7 @@ package note;
 
 import action.ChannelNoteAction;
 import card.RARE.LAB01;
+import card.UNCOMMON.StarryDrift;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -15,7 +16,6 @@ import com.megacrit.cardcrawl.helpers.Hitbox;
 import com.megacrit.cardcrawl.orbs.*;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
-import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.BobEffect;
 
 import power.*;
@@ -84,6 +84,8 @@ public abstract class AbstractNote extends AbstractOrb
 
     public static AbstractNote GetCorrespondingNote(AbstractCard c)
     {
+        if(c instanceof StarryDrift)
+            return new StarryNote();
         AbstractNote note;
         switch (c.type)
         {
@@ -107,13 +109,12 @@ public abstract class AbstractNote extends AbstractOrb
     }
     public static AbstractNote GetRandomBasicNote()
     {
-        ArrayList<AbstractNote> notes = new ArrayList<>();
-        notes.add(new AttackNote());
-        notes.add(new DefendNote());
-        notes.add(new DrawNote());
-        notes.add(new DebuffNote());
-        notes.add(new ArtifactNote());
-        return notes.get(AbstractDungeon.cardRandomRng.random(notes.size() - 1));
+        int seed=AbstractDungeon.cardRandomRng.random(99)+1;
+        if(seed<=30) return new AttackNote();
+        else if(seed<=60) return new DefendNote();
+        else if(seed<=76) return new DebuffNote();
+        else if(seed<=92) return new DrawNote();
+        else return new ArtifactNote();
     }
     public static void GenerateRandomBasicNoteBottom()
     {

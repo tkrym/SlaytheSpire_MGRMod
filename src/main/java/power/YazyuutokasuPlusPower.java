@@ -2,6 +2,7 @@ package power;
 
 import card.SPECIAL.Confused;
 import com.badlogic.gdx.graphics.Texture;
+import com.megacrit.cardcrawl.actions.common.DiscardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -31,9 +32,10 @@ public class YazyuutokasuPlusPower extends AbstractPower {
         flashWithoutSound();
         AbstractCard newCard=new Confused();
         newCard.upgrade();
+        addToBot(new DiscardAction(this.owner, this.owner, this.amount, false));
         addToBot(new MakeTempCardInHandAction(newCard,this.amount));
     }
 
     @Override
-    public void updateDescription() {this.description = DESCRIPTIONS[0]+this.amount+DESCRIPTIONS[1];}
+    public void updateDescription() {this.description = DESCRIPTIONS[0]+this.amount+DESCRIPTIONS[1]+this.amount+DESCRIPTIONS[2];}
 }
