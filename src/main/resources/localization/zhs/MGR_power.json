@@ -126,10 +126,11 @@
       " 种。"
     ]
   },  
-    "CorrosivityPower": {
-    "NAME": "放射性物质",
+    "MGR:NextTurnStarryNotePower": {
+    "NAME": "下回合星空音符",
     "DESCRIPTIONS": [
-      "每回合对随机敌人施加大量负面效果。"
+      "在下回合开始时，生成 #b",
+      " 个 #y星空音符 。"
     ]
   },  
     "KNNSupport": {

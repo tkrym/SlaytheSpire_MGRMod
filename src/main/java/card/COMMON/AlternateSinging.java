@@ -1,4 +1,4 @@
-package card.UNCOMMON;
+package card.COMMON;
 
 import action.AlternateSingingAction;
 import card.AbstractMGRCard;
@@ -19,10 +19,9 @@ public class AlternateSinging extends AbstractMGRCard {
     private static final int BLOCK = 3;
     private static final int PLUS_BLOCK = 2;
     private static final int MAGIC = 1;
-    //private static final int PLUS_MAGIC = 0;
     public AlternateSinging() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.SKILL,
-                AbstractCardEnum.MGR_COLOR, CardRarity.UNCOMMON, CardTarget.SELF);
+                AbstractCardEnum.MGR_COLOR, CardRarity.COMMON, CardTarget.SELF);
         this.baseBlock = BLOCK;
         this.baseMagicNumber=MAGIC;
         this.magicNumber=this.baseMagicNumber;

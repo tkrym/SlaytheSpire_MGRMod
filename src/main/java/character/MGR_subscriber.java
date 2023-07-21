@@ -13,6 +13,7 @@ import card.COMMON.Bewildered;
 import card.RARE.ResonanceForm;
 import card.COMMON.Nocturnal;
 import card.COMMON.Marionette;
+import card.COMMON.StardustLaser;
 import card.UNCOMMON.TheCursed;
 import card.UNCOMMON.Swallow;
 import card.UNCOMMON.SongOfSubmersion;
@@ -26,7 +27,7 @@ import card.UNCOMMON.GazeFromTheShadow;
 import card.UNCOMMON.DiffusionOfDarkness;
 import card.UNCOMMON.WaitingForFood;
 import card.COMMON.Rehearsal;
-import card.UNCOMMON.AlternateSinging;
+import card.COMMON.AlternateSinging;
 import card.UNCOMMON.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -237,6 +238,7 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         this.cardsToAdd.add(new Marionette());
         this.cardsToAdd.add(new TinyOrchestra());
         this.cardsToAdd.add(new FieryPerformance());
+        this.cardsToAdd.add(new StardustLaser());
     }
     @Override
     public void receiveEditRelics()

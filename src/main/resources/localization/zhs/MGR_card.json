@@ -201,7 +201,7 @@
   },
     "MGR:StardustLaser":{
     "NAME":"星屑镭射",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 如果目标具有 mgr:注视 ，抽1张牌。 NL 如果至少有!M!层 mgr:注视 ，再生成一个 mgr:星空音符 。"
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 选择丢弃至多 !M! 张牌，下回合开始时生成等量的 mgr:星空音符 。"
   },
     "MGR:Kimitomitahosizora":{
     "NAME":"曾与你见过的星空",
@@ -226,7 +226,7 @@
   },
     "MGR:Nocturnal":{
     "NAME":"夜行",
-    "DESCRIPTION": "将一张随机诅咒加入抽牌堆。 NL 你的抽牌堆、弃牌堆与手牌中每有一张诅咒，对所有敌人造成 !D! 点伤害。"
+    "DESCRIPTION": "将一张随机诅咒加入抽牌堆。 NL 你的抽牌堆、弃牌堆与手牌中每有一张诅咒，对随机敌人造成 !D! 点伤害。"
   },
     "MGR:TheCursed":{
     "NAME":"被诅咒者",
@@ -239,8 +239,8 @@
   },
     "MGR:MetalGear":{
     "NAME":"合金装备",
-    "DESCRIPTION": "失去2点 敏捷 。 NL 获得 !M! 层 *金属化 与 *多层护甲 。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "失去3点 敏捷 。 NL 获得 !M! 层 *金属化 与 *多层护甲 。 NL 消耗 。"
+    "DESCRIPTION": "失去2点敏捷，获得 !M! 层 *金属化 与 *多层护甲 。 NL mgr:老大哥形态 ：额外获得2层。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "失去3点敏捷，获得 !M! 层 *金属化 与 *多层护甲 。 NL mgr:老大哥形态 ：额外获得3层。 NL 消耗 。"
     },
     "MGR:Marionette":{
     "NAME":"提线木偶",
@@ -259,7 +259,7 @@
     "NAME":"MGR:TestCard20",
     "DESCRIPTION": "造成 !D! 点伤害。 NL 若本回合触发过至少 !M! 次 mgr:和弦 ，再获得 !B! 点格挡。"
   },
-    "Replenishment":{
+    "Frenzied":{
     "NAME":"补给",
     "DESCRIPTION": "抽一张牌，叠加 !M! 层 呼叫 。"
   },

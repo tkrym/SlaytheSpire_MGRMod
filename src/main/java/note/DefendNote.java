@@ -28,10 +28,10 @@ public class DefendNote extends AbstractNote {
     public DefendNote() {
         this.ID = ORB_ID;
         this.name = orbString.NAME;
-        this.baseEvokeAmount = 1;
+        this.baseEvokeAmount = 2;
         this.evokeAmount = this.baseEvokeAmount;
         this.channelAnimTimer = 0.5f;
-        this.forterate=1;
+        this.forterate=2;
         updateDescription();
     }
 

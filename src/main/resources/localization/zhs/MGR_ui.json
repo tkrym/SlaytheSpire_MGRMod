@@ -10,7 +10,7 @@
   "KimitomitahosizoraAction": {
     "TEXT": [
       "选择任意张牌弃置。如果至少选择了",
-      "张，生成一个 星空音符 。"
+      "张，生成一个星空音符。"
     ]
   },
   "DizzyAndGiddyAction": {
@@ -24,6 +24,12 @@
   "LoseRelicReward": {
     "TEXT": [
       "失去 "
+    ]
+  },
+  "StardustLaserAction": {
+    "TEXT": [
+      "丢弃，至多",
+      "张。在下回合开始生成等量的星空音符。"
     ]
   }
 }

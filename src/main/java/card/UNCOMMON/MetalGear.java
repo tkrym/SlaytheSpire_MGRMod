@@ -1,6 +1,7 @@
 package card.UNCOMMON;
 
 import card.AbstractMGRCard;
+import character.MGR_character;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -22,7 +23,7 @@ public class MetalGear extends AbstractMGRCard {
     public static final String IMG = "img/card/"+ID.substring(4)+".png";
     private static final int COST = 2;
     private static final int MAGIC = 4;
-    private static final int PLUS_MAGIC = 2;
+    private static final int PLUS_MAGIC = 1;
     public MetalGear() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.SKILL,
                 AbstractCardEnum.MGR_COLOR, CardRarity.UNCOMMON, CardTarget.SELF);
@@ -33,12 +34,21 @@ public class MetalGear extends AbstractMGRCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         int DecDexterity=this.upgraded?-3:-2;
+        int PlusNumber=this.upgraded?3:2;
         addToBot(new ApplyPowerAction(p,p,new DexterityPower(p,DecDexterity),DecDexterity));
         addToBot(new ApplyPowerAction(p,p,new MetallicizePower(p,this.magicNumber),this.magicNumber));
         addToBot(new ApplyPowerAction(p,p,new PlatedArmorPower(p,this.magicNumber),this.magicNumber));
+        if(MGR_character.BigBrotherStanceCheck())
+        {
+            addToBot(new ApplyPowerAction(p,p,new MetallicizePower(p,PlusNumber),PlusNumber));
+            addToBot(new ApplyPowerAction(p,p,new PlatedArmorPower(p,PlusNumber),PlusNumber));
+        }
     }
 
     public AbstractCard makeCopy() { return new MetalGear(); }
+
+    @Override
+    public void triggerOnGlowCheck(){triggerOnGlowCheck_BigBrother();}
 
     public void upgrade() {
         if(!this.upgraded)
