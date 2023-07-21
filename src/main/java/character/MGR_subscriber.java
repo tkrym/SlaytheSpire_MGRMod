@@ -11,8 +11,12 @@ import card.RARE.Hallucination;
 import card.BASIC.Peek;
 import card.COMMON.Bewildered;
 import card.RARE.ResonanceForm;
-import card.TEST.SongOfSubmersion;
-import card.TEST.TestCard3;
+import card.COMMON.Nocturnal;
+import card.TEST.Marionette;
+import card.UNCOMMON.TheCursed;
+import card.UNCOMMON.Swallow;
+import card.UNCOMMON.SongOfSubmersion;
+import card.COMMON.Chorus;
 import card.UNCOMMON.Futariboshi;
 import card.COMMON.Kimitomitahosizora;
 import card.UNCOMMON.StarryDrift;
@@ -31,6 +35,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.Prefs;
@@ -222,9 +227,14 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         this.cardsToAdd.add(new StarryDrift());
         this.cardsToAdd.add(new Futariboshi());
         this.cardsToAdd.add(new Kimitomitahosizora());
-        this.cardsToAdd.add(new TestCard3());
+        this.cardsToAdd.add(new Chorus());
         this.cardsToAdd.add(new SongOfSubmersion());
         this.cardsToAdd.add(new DizzyAndGiddy());
+        this.cardsToAdd.add(new Swallow());
+        this.cardsToAdd.add(new TheCursed());
+        this.cardsToAdd.add(new Nocturnal());
+        this.cardsToAdd.add(new MetalGear());
+        this.cardsToAdd.add(new Marionette());
     }
     @Override
     public void receiveEditRelics()
@@ -271,7 +281,7 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
 
     @Override
     public void receivePostDungeonInitialize() {
-        /*if(AbstractDungeon.player instanceof MGR_character)
-            AbstractDungeon.shopRelicPool.remove("StrikeDummy");*/
+        if(AbstractDungeon.player instanceof MGR_character)
+            AbstractDungeon.bossRelicPool.remove("Snecko Eye");
     }
 }

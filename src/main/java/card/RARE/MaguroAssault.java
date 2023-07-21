@@ -26,7 +26,6 @@ public class MaguroAssault extends AbstractMGRCard {
     private static final int PLUS_DMG = 2;
     private static final int MAGIC = 1;
     private static final int PLUS_MAGIC = 1;
-    private int OriginDamage;
     private static final Color myColorRed=new Color(1.0F,0.25F,0.0F,1.0F);
     public MaguroAssault() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.ATTACK,
@@ -34,7 +33,6 @@ public class MaguroAssault extends AbstractMGRCard {
         this.baseDamage = DMG;
         this.baseMagicNumber=MAGIC;
         this.magicNumber=this.baseMagicNumber;
-        this.OriginDamage=this.baseDamage;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m)
@@ -42,8 +40,6 @@ public class MaguroAssault extends AbstractMGRCard {
         int finaldamage=this.damage;
         boolean NoteCheck=MGR_character.EndingCheck()||MGR_character.StartingCheck();
         boolean BigBrotherCheck=MGR_character.BigBrotherStanceCheck();
-        if(NoteCheck) finaldamage*=2;
-        if(BigBrotherCheck) finaldamage*=2;
         if(BigBrotherCheck&&NoteCheck)
         {
             addToBot(new VFXAction(new ViolentAttackEffect(m.hb.cX, m.hb.cY, myColorRed)));
@@ -56,22 +52,28 @@ public class MaguroAssault extends AbstractMGRCard {
 
     public AbstractCard makeCopy() { return new MaguroAssault(); }
 
-    @Override
-    public void applyPowers()
-    {
-        this.baseDamage=this.OriginDamage+this.magicNumber* MGR_character.GetChordCount();
+    public void calculateCardDamage(AbstractMonster m) {
+        int realBaseDamage = this.baseDamage;
+        this.baseDamage += this.magicNumber*MGR_character.GetChordCount();
+        super.calculateCardDamage(m);
+        boolean NoteCheck=MGR_character.EndingCheck()||MGR_character.StartingCheck();
+        boolean BigBrotherCheck=MGR_character.InBigBrotherStance();
+        if(NoteCheck) this.damage*=2;
+        if(BigBrotherCheck) this.damage*=2;
+        this.baseDamage = realBaseDamage;
+        this.isDamageModified = this.damage != this.baseDamage;
+    }
+
+    public void applyPowers() {
+        int realBaseDamage = this.baseDamage;
+        this.baseDamage += this.magicNumber*MGR_character.GetChordCount();
         super.applyPowers();
         boolean NoteCheck=MGR_character.EndingCheck()||MGR_character.StartingCheck();
         boolean BigBrotherCheck=MGR_character.InBigBrotherStance();
         if(NoteCheck) this.damage*=2;
         if(BigBrotherCheck) this.damage*=2;
-    }
-
-    @Override
-    public void onMoveToDiscard()
-    {
-        this.baseDamage=this.OriginDamage;
-        this.initializeDescription();
+        this.baseDamage = realBaseDamage;
+        this.isDamageModified = this.damage != this.baseDamage;
     }
 
     @Override
@@ -90,7 +92,6 @@ public class MaguroAssault extends AbstractMGRCard {
             this.upgradeName();
             this.upgradeDamage(PLUS_DMG);
             this.upgradeMagicNumber(PLUS_MAGIC);
-            this.OriginDamage=this.baseDamage;
         }
     }
 }

@@ -182,15 +182,15 @@
     "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 本回合中每触发过一次 mgr:和弦 ，伤害增加 !M! 。"
   },
     "MGR:EnergeticStarting":{
-    "NAME":"EnergeticStarting",
+    "NAME":"活力起音",
     "DESCRIPTION": "获得 !B! 点格挡，抽1张牌。 NL mgr:起音 ：打出一张复制。"
   },
     "MGR:SongOfSubmersion":{
     "NAME":"沉没之歌",
     "DESCRIPTION": "获得 !B! 点格挡。 NL 在接下来的 !M! 个回合结束时，使所有敌人失去1点力量。 NL 消耗 。"
   },
-    "MGR:TestCard3":{
-    "NAME":"TestCard3",
+    "MGR:Chorus":{
+    "NAME":"合唱队",
     "DESCRIPTION": "随机生成 !M! 个 mgr:基本音符 。 NL mgr:起音 ：再生成1个。",
     "UPGRADE_DESCRIPTION": "随机生成 !M! 个 mgr:基本音符 。 NL mgr:起音 ：再生成2个。"
   },
@@ -212,26 +212,44 @@
     "DESCRIPTION": "清空你的 mgr:计数器 ，生成等量的 mgr:星空音符 。",
     "UPGRADE_DESCRIPTION": "清空你的 mgr:计数器 ，生成等量的 mgr:星空音符 。 NL 至少生成 !M! 个。"
   },
-    "MGR:TestCard7":{
-    "NAME":"TestCard7",
-    "DESCRIPTION": "消耗所有手牌。 NL 每张被消耗的牌给予 !B! 点格挡。 NL 消耗至少 !M! 张牌时，获得 2 点 mgr:强音 。"
-  },
     "MGR:DizzyAndGiddy":{
     "NAME":"头晕目眩",
     "DESCRIPTION": "丢弃至多 !M! 张牌，生成对应的 mgr:基本音符 。 NL 如果丢弃了至少2张牌，抽1张牌。",
     "UPGRADE_DESCRIPTION": "丢弃至多 !M! 张牌，生成对应的 mgr:基本音符 。 NL 如果丢弃了至少3张牌，抽2张牌。"
   },
-    "MGR:TestCard10":{
-    "NAME":"TestCard10",
-    "DESCRIPTION": "打出 诅咒 牌时抽 !M! 张牌。 NL 将 1 张随机诅咒牌加入抽牌堆。"
+    "MGR:Swallow":{
+    "NAME":"吞食",
+    "DESCRIPTION": "造成 !D! 点伤害，恢复 !M! 点生命。 NL 如果目标为 *爪牙 ，改为直接杀死它并恢复三倍生命。",
+    "EXTENDED_DESCRIPTION": [
+        "吃掉它！"
+    ]
   },
-    "MGR:TestCard16":{
-    "NAME":"MGR:TestCard16",
-    "DESCRIPTION": "获得 !M! 层 金属化 与 多层护甲 。"
+    "MGR:Nocturnal":{
+    "NAME":"夜行",
+    "DESCRIPTION": "将一张随机诅咒加入抽牌堆。 NL 你的抽牌堆、弃牌堆与手牌中每有一张诅咒，对所有敌人造成 !D! 点伤害。"
+  },
+    "MGR:TheCursed":{
+    "NAME":"被诅咒者",
+    "DESCRIPTION": "打出 诅咒 时抽 !M! 张牌。 NL 将一张随机诅咒加入抽牌堆。",
+    "UPGRADE_DESCRIPTION": " 固有 。 NL 打出 诅咒 时抽 !M! 张牌。 NL 将一张随机诅咒加入抽牌堆。"
+  },
+    "MGR:TestCard7":{
+    "NAME":"TestCard7",
+    "DESCRIPTION": "消耗所有手牌。 NL 每张被消耗的牌给予 !B! 点格挡。 NL 消耗至少 !M! 张牌时，获得 2 点 mgr:强音 。"
+  },
+    "MGR:MetalGear":{
+    "NAME":"合金装备",
+    "DESCRIPTION": "失去2点 敏捷 。 NL 获得 !M! 层 *金属化 与 *多层护甲 。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "失去3点 敏捷 。 NL 获得 !M! 层 *金属化 与 *多层护甲 。 NL 消耗 。"
+    },
+    "MGR:Marionette":{
+    "NAME":"提线木偶",
+    "DESCRIPTION": "不能被打出 。 NL 这张牌对应的 mgr:音符 为 *debuff mgr:音符 。 NL 被消耗或丢弃时，所有敌人本回合失去 !M! 点力量。",
+    "UPGRADE_DESCRIPTION": "不能被打出 。 NL 这张牌对应的 mgr:音符 为 *debuff mgr:音符 。 NL 被消耗或丢弃时，所有敌人本回合失去 !M! 点力量，并生成一个 debuff mgr:音符 。"
   },
     "MGR:TestCard17":{
     "NAME":"MGR:TestCard17",
-    "DESCRIPTION": "抽牌直到手牌有 !M! 张。 NL 然后，丢弃费用最高的两张手牌。"
+    "DESCRIPTION": "抽牌直到手牌有 !M! 张。 NL 然后，随机丢弃两张费用最低的手牌。"
   },
     "MGR:ChristmasGift":{
     "NAME":"圣诞礼物！",
@@ -240,18 +258,6 @@
     "MGR:TestCard20":{
     "NAME":"MGR:TestCard20",
     "DESCRIPTION": "造成 !D! 点伤害。 NL 若本回合触发过至少 !M! 次 mgr:和弦 ，再获得 !B! 点格挡。"
-  },
-    "MGR:TestCard21":{
-    "NAME":"MGR:TestCard21",
-    "DESCRIPTION": "所有生物失去 !M! 点 力量 。"
-  },
-    "MGR:TestCard22":{
-    "NAME":"TestCard22",
-    "DESCRIPTION": "每回合额外抽两张牌。"
-  },
-    "RPG":{
-    "NAME":"RPG",
-    "DESCRIPTION": "对所有敌人造成 !D! 点伤害，叠加 !M! 层 烧伤 。"
   },
     "Replenishment":{
     "NAME":"补给",

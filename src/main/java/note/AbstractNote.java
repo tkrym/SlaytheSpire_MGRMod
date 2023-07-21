@@ -2,6 +2,7 @@ package note;
 
 import action.ChannelNoteAction;
 import card.RARE.LAB01;
+import card.TEST.Marionette;
 import card.UNCOMMON.StarryDrift;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -84,8 +85,8 @@ public abstract class AbstractNote extends AbstractOrb
 
     public static AbstractNote GetCorrespondingNote(AbstractCard c)
     {
-        if(c instanceof StarryDrift)
-            return new StarryNote();
+        if(c instanceof StarryDrift) return new StarryNote();
+        else if(c instanceof Marionette) return new DebuffNote();
         AbstractNote note;
         switch (c.type)
         {

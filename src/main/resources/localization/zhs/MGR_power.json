@@ -111,10 +111,11 @@
       " 个回合结束时，所有敌人失去 #b1 点力量。"
     ]
   },  
-    "FirePower": {
-    "NAME": "炎上",
+    "MGR:TheCursedPower": {
+    "NAME": "诅咒抽牌",
     "DESCRIPTIONS": [
-      "每回合对所有敌人造成 #b6 点伤害，施加两层烧伤。"
+      "打出 #y诅咒 时，抽 #b",
+      " 张牌。"
     ]
   }, 
     "XuliPower": {

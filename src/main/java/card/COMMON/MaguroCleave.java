@@ -30,14 +30,12 @@ public class MaguroCleave extends AbstractMGRCard {
     private static final int PLUS_DMG = 2;
     private static final int MAGIC = 2;
     private static final int PLUS_MAGIC = 1;
-    private int OriginDamage;
     public MaguroCleave() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.ATTACK,
                 AbstractCardEnum.MGR_COLOR, CardRarity.COMMON, CardTarget.ALL_ENEMY);
         this.baseDamage = DMG;
-        this.OriginDamage=DMG;
         this.baseMagicNumber=MAGIC;
-        this.magicNumber=PLUS_MAGIC;
+        this.magicNumber=this.baseMagicNumber;
         this.isMultiDamage=true;
     }
 
@@ -47,18 +45,20 @@ public class MaguroCleave extends AbstractMGRCard {
         this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
     }
 
-    @Override
-    public void applyPowers()
-    {
-        this.baseDamage=this.OriginDamage+this.magicNumber*MGR_character.GetChordCount();
-        super.applyPowers();
+    public void calculateCardDamage(AbstractMonster m) {
+        int realBaseDamage = this.baseDamage;
+        this.baseDamage += this.magicNumber*MGR_character.GetChordCount();
+        super.calculateCardDamage(m);
+        this.baseDamage = realBaseDamage;
+        this.isDamageModified = this.damage != this.baseDamage;
     }
 
-    @Override
-    public void onMoveToDiscard()
-    {
-        this.baseDamage=this.OriginDamage;
-        this.initializeDescription();
+    public void applyPowers() {
+        int realBaseDamage = this.baseDamage;
+        this.baseDamage += this.magicNumber*MGR_character.GetChordCount();
+        super.applyPowers();
+        this.baseDamage = realBaseDamage;
+        this.isDamageModified = this.damage != this.baseDamage;
     }
 
     public AbstractCard makeCopy() { return new MaguroCleave(); }
@@ -68,7 +68,6 @@ public class MaguroCleave extends AbstractMGRCard {
             this.upgradeName();
             this.upgradeDamage(PLUS_DMG);
             this.upgradeMagicNumber(PLUS_MAGIC);
-            this.OriginDamage=this.baseDamage;
         }
     }
 }
