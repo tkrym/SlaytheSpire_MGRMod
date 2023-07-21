@@ -118,10 +118,12 @@
       " 张牌。"
     ]
   }, 
-    "XuliPower": {
-    "NAME": "蓄力",
+    "MGR:TinyOrchestraPower": {
+    "NAME": "微型乐团",
     "DESCRIPTIONS": [
-      "下一张 斩击类 牌伤害增加 #b8 点。"
+      "回合结束时，你在本回合每使用过一种类型的卡牌，对所有敌人造成 #b",
+      " 点伤害。如果至少使用过三种，下回合多抽一张牌。 NL 本回合已使用 #b",
+      " 种。"
     ]
   },  
     "CorrosivityPower": {

@@ -12,7 +12,7 @@ import card.BASIC.Peek;
 import card.COMMON.Bewildered;
 import card.RARE.ResonanceForm;
 import card.COMMON.Nocturnal;
-import card.TEST.Marionette;
+import card.COMMON.Marionette;
 import card.UNCOMMON.TheCursed;
 import card.UNCOMMON.Swallow;
 import card.UNCOMMON.SongOfSubmersion;
@@ -25,7 +25,7 @@ import card.UNCOMMON.TheForsaken;
 import card.UNCOMMON.GazeFromTheShadow;
 import card.UNCOMMON.DiffusionOfDarkness;
 import card.UNCOMMON.WaitingForFood;
-import card.UNCOMMON.Rehearsal;
+import card.COMMON.Rehearsal;
 import card.UNCOMMON.AlternateSinging;
 import card.UNCOMMON.*;
 import com.badlogic.gdx.Gdx;
@@ -235,6 +235,8 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         this.cardsToAdd.add(new Nocturnal());
         this.cardsToAdd.add(new MetalGear());
         this.cardsToAdd.add(new Marionette());
+        this.cardsToAdd.add(new TinyOrchestra());
+        this.cardsToAdd.add(new FieryPerformance());
     }
     @Override
     public void receiveEditRelics()

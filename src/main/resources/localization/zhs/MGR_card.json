@@ -233,9 +233,9 @@
     "DESCRIPTION": "打出 诅咒 时抽 !M! 张牌。 NL 将一张随机诅咒加入抽牌堆。",
     "UPGRADE_DESCRIPTION": " 固有 。 NL 打出 诅咒 时抽 !M! 张牌。 NL 将一张随机诅咒加入抽牌堆。"
   },
-    "MGR:TestCard7":{
-    "NAME":"TestCard7",
-    "DESCRIPTION": "消耗所有手牌。 NL 每张被消耗的牌给予 !B! 点格挡。 NL 消耗至少 !M! 张牌时，获得 2 点 mgr:强音 。"
+    "MGR:TinyOrchestra":{
+    "NAME":"微型乐团",
+    "DESCRIPTION": "回合结束时，你在本回合每使用过一种类型的卡牌（从打出本牌开始记录），对所有敌人造成 !M! 点伤害。 NL 如果至少使用过三种，下回合多抽一张牌。"
   },
     "MGR:MetalGear":{
     "NAME":"合金装备",
@@ -247,8 +247,8 @@
     "DESCRIPTION": "不能被打出 。 NL 这张牌对应的 mgr:音符 为 *debuff mgr:音符 。 NL 被消耗或丢弃时，所有敌人本回合失去 !M! 点力量。",
     "UPGRADE_DESCRIPTION": "不能被打出 。 NL 这张牌对应的 mgr:音符 为 *debuff mgr:音符 。 NL 被消耗或丢弃时，所有敌人本回合失去 !M! 点力量，并生成一个 debuff mgr:音符 。"
   },
-    "MGR:TestCard17":{
-    "NAME":"MGR:TestCard17",
+    "MGR:FieryPerformance":{
+    "NAME":"激奏",
     "DESCRIPTION": "抽牌直到手牌有 !M! 张。 NL 然后，随机丢弃两张费用最低的手牌。"
   },
     "MGR:ChristmasGift":{

@@ -1,4 +1,4 @@
-package card.TEST;
+package card.COMMON;
 
 import action.ChannelNoteAction;
 import card.AbstractMGRCard;
@@ -14,7 +14,6 @@ import com.megacrit.cardcrawl.powers.ArtifactPower;
 import com.megacrit.cardcrawl.powers.GainStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import note.DebuffNote;
-import note.StarryNote;
 import path.AbstractCardEnum;
 
 public class Marionette extends AbstractMGRCard {

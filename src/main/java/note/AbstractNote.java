@@ -2,7 +2,7 @@ package note;
 
 import action.ChannelNoteAction;
 import card.RARE.LAB01;
-import card.TEST.Marionette;
+import card.COMMON.Marionette;
 import card.UNCOMMON.StarryDrift;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -20,8 +20,6 @@ import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.vfx.BobEffect;
 
 import power.*;
-
-import java.util.ArrayList;
 
 public abstract class AbstractNote extends AbstractOrb
 {

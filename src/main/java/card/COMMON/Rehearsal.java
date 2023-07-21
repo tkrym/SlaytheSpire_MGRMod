@@ -1,4 +1,4 @@
-package card.UNCOMMON;
+package card.COMMON;
 
 import action.GenerateNotefromDrawnCardAction;
 import card.AbstractMGRCard;
@@ -20,7 +20,7 @@ public class Rehearsal extends AbstractMGRCard {
     private static final int PLUS_MAGIC = 1;
     public Rehearsal() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.SKILL,
-                AbstractCardEnum.MGR_COLOR, CardRarity.UNCOMMON, CardTarget.SELF);
+                AbstractCardEnum.MGR_COLOR, CardRarity.COMMON, CardTarget.SELF);
         this.baseMagicNumber=MAGIC;
         this.magicNumber=this.baseMagicNumber;
     }
