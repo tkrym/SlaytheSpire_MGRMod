@@ -4,8 +4,10 @@ import action.ChannelNoteAction;
 import card.RARE.LAB01;
 import card.COMMON.Marionette;
 import card.UNCOMMON.StarryDrift;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -19,12 +21,17 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.vfx.BobEffect;
 
+import com.megacrit.cardcrawl.vfx.combat.FrostOrbPassiveEffect;
+import effect.NotePassiveEffect;
+import effect.NoteTriggeredEffect;
 import power.*;
 
 public abstract class AbstractNote extends AbstractOrb
 {
     public static final String POWER_ID=FortePower.POWER_ID;
+    protected float vfxTimer = 0.3f;
     public int forterate = 1;
+    protected Color myColor=new Color(1.0F,1.0F,1.0F,1.0F);
     public AbstractNote() {
         this.c = Settings.CREAM_COLOR.cpy();
         this.shineColor = new Color(1.0F, 1.0F, 1.0F, 0.0F);
@@ -153,4 +160,44 @@ public abstract class AbstractNote extends AbstractOrb
     }
 
     public abstract AbstractNote makeCopy();
+
+    @Override
+    public void updateAnimation()
+    {
+        super.updateAnimation();
+        updateDescription();
+        this.angle += Gdx.graphics.getDeltaTime() * 2.0f;
+        this.vfxTimer -= Gdx.graphics.getDeltaTime();
+        if (!(this instanceof EmptyNoteSlot)&&this.vfxTimer < 0.0f) {
+            AbstractDungeon.effectList.add(new NotePassiveEffect(this.cX, this.cY,this.myColor.cpy()));
+            if (MathUtils.randomBoolean()) {
+                AbstractDungeon.effectList.add(new NotePassiveEffect(this.cX, this.cY,this.myColor.cpy()));
+            }
+            this.vfxTimer = MathUtils.random(0.2F, 0.6F);
+        }
+    }
+
+    public void render(SpriteBatch sb) {
+        float scale=1+MathUtils.sin(this.angle)*0.05F+0.05F;
+        this.shineColor=this.c.cpy();
+        this.shineColor.a = this.c.a / scale;
+        sb.setBlendFunction(770, 771);
+        sb.setColor(this.shineColor);
+        sb.draw(this.img, this.cX - 48.0f, (this.cY - 48.0f) + this.bobEffect.y*0.5F, 48.0f, 48.0f, 96.0f, 96.0f, this.scale*scale, this.scale*scale, 0.0f, 0, 0, 96, 96, false, false);
+        if(AbstractDungeon.player!=null&&AbstractDungeon.player.hasPower(HarmonyFormPower.POWER_ID))
+        {
+            Color tmpColor=this.shineColor.cpy();
+            tmpColor.a/=2;
+            sb.setColor(tmpColor);
+            sb.setBlendFunction(770, 1);
+            sb.draw(this.img, this.cX - 48.0f, (this.cY - 48.0f) + this.bobEffect.y*0.5F, 48.0f, 48.0f, 96.0f, 96.0f, this.scale*scale*1.3F, this.scale*scale*1.3F, 0.0f, 0, 0, 96, 96, false, false);
+        }
+        renderText(sb);
+        this.hb.render(sb);
+    }
+
+    @Override
+    public void triggerEvokeAnimation() {
+        AbstractDungeon.effectsQueue.add(new NoteTriggeredEffect(this.cX-48.0F, this.cY-48.0F,this.img,this.scale,this.c.cpy()));
+    }
 }

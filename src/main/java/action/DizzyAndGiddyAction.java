@@ -53,7 +53,7 @@ public class DizzyAndGiddyAction extends AbstractGameAction {
             {
                 p.hand.moveToDiscardPile(c);
                 ManualDiscardPatch.triggerManualDiscard(c);
-                AbstractNote.GenerateNoteTop(c);
+                AbstractNote.GenerateNoteBottom(c);
                 c.triggerOnManualDiscard();
                 GameActionManager.incrementDiscard(false);
             }

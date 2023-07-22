@@ -40,7 +40,7 @@ public class KimitomitahosizoraAction extends AbstractGameAction {
                 addToTop(new ChannelNoteAction(new StarryNote()));
             for (AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards)
             {
-                AbstractNote.GenerateNoteTop(c);
+                AbstractNote.GenerateNoteBottom(c);
                 AbstractDungeon.player.drawPile.moveToDiscardPile(c);
             }
             AbstractDungeon.gridSelectScreen.selectedCards.clear();

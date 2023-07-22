@@ -79,8 +79,6 @@ public class MGR_character extends CustomPlayer{
         retVal.add("MGR:Strike_MGR");
         retVal.add("MGR:Strike_MGR");
         retVal.add("MGR:Strike_MGR");
-        retVal.add("MGR:Strike_MGR");
-        retVal.add("MGR:Defend_MGR");
         retVal.add("MGR:Defend_MGR");
         retVal.add("MGR:Defend_MGR");
         retVal.add("MGR:Defend_MGR");

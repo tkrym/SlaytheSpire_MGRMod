@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.OrbStrings;
@@ -31,12 +32,14 @@ public class DrawNote extends AbstractNote {
 
     public DrawNote() {
         this.ID = ORB_ID;
-        this.img = ImageMaster.ORB_DARK;
+        this.img = ImageMaster.loadImage("img/note/Draw.png");
         this.name = orbString.NAME;
         this.baseEvokeAmount = 1;
         this.evokeAmount = this.baseEvokeAmount;
         this.channelAnimTimer = 0.5f;
         this.forterate=3;
+        this.angle = MathUtils.random(360.0f);
+        myColor= CardHelper.getColor(0,178,249);
         updateDescription();
     }
 
@@ -47,37 +50,6 @@ public class DrawNote extends AbstractNote {
 
     public void myEvoke() {
         AbstractDungeon.actionManager.addToTop(new DrawCardAction(AbstractDungeon.player,this.evokeAmount));
-    }
-
-    @Override
-    public void triggerEvokeAnimation() {
-        //CardCrawlGame.sound.play("ORB_DARK_EVOKE", 0.1f);
-        //AbstractDungeon.effectsQueue.add(new DarkOrbActivateEffect(this.cX, this.cY));
-    }
-
-    @Override
-    public void updateAnimation() {
-        super.updateAnimation();
-        updateDescription();
-        this.angle += Gdx.graphics.getDeltaTime() * 120.0f;
-        this.vfxTimer -= Gdx.graphics.getDeltaTime();
-        if (this.vfxTimer < 0.0f) {
-            AbstractDungeon.effectList.add(new DarkOrbPassiveEffect(this.cX, this.cY));
-            this.vfxTimer = 0.25f;
-        }
-    }
-
-    public void render(SpriteBatch sb) {
-        sb.setColor(this.c);
-        sb.draw(this.img, this.cX - 48.0f, (this.cY - 48.0f) + this.bobEffect.y, 48.0f, 48.0f, 96.0f, 96.0f, this.scale, this.scale, this.angle, 0, 0, 96, 96, false, false);
-        this.shineColor.a = this.c.a / 3.0f;
-        sb.setColor(this.shineColor);
-        sb.setBlendFunction(770, 1);
-        sb.draw(this.img, this.cX - 48.0f, (this.cY - 48.0f) + this.bobEffect.y, 48.0f, 48.0f, 96.0f, 96.0f, this.scale * ORB_BORDER_SCALE, this.scale * ORB_BORDER_SCALE, this.angle / ORB_BORDER_SCALE, 0, 0, 96, 96, false, false);
-        sb.draw(this.img, this.cX - 48.0f, (this.cY - 48.0f) + this.bobEffect.y, 48.0f, 48.0f, 96.0f, 96.0f, this.scale * 1.5f, this.scale * 1.5f, this.angle / 1.4f, 0, 0, 96, 96, false, false);
-        sb.setBlendFunction(770, 771);
-        renderText(sb);
-        this.hb.render(sb);
     }
 
     public void playChannelSFX() {

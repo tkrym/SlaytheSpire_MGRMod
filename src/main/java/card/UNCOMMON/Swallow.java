@@ -25,10 +25,10 @@ public class Swallow extends AbstractMGRCard {
     public static final String EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION[0];
     public static final String IMG = "img/card/"+ID.substring(4)+".png";
     private static final int COST = 1;
-    private static final int DMG = 7;
+    private static final int DMG = 8;
     private static final int PLUS_DMG = 3;
-    private static final int MAGIC = 2;
-    private static final int PLUS_MAGIC = 2;
+    private static final int MAGIC = 3;
+    private static final int PLUS_MAGIC = 1;
     public Swallow() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.ATTACK,
                 AbstractCardEnum.MGR_COLOR, CardRarity.UNCOMMON, CardTarget.ENEMY);

@@ -16,7 +16,7 @@
     ]
   },
     "MGR:TestAttack":{
-    "NAME":"TestAttack",
+    "NAME":"测试攻击",
     "DESCRIPTION": "击杀目标",
     "EXTENDED_DESCRIPTION": [
       "杀了它"
@@ -24,11 +24,11 @@
   },
     "MGR:TestDefend":{
     "NAME":"测试防御",
-    "DESCRIPTION": " 测试  mgr:老大哥形态  结束"
+    "DESCRIPTION": " 测试 结束"
   },
     "MGR:TestPower":{
     "NAME":"测试能力",
-    "DESCRIPTION": " 测试  mgr:老大哥形态  结束"
+    "DESCRIPTION": " 测试 结束"
   },
     "MGR:CoinflipStrike":{
     "NAME":"掷币攻击",
@@ -51,7 +51,7 @@
     "NAME":"时间线之东☆",
     "DESCRIPTION": "生成 !M! 个 *攻击 mgr:音符 。 NL 如果这是你在战斗中打出的最后一张牌，将数值永久增加 1 。 消耗性 2"
   },
-    "MGR:GazeofOthers":{
+    "MGR:GazeOfOthers":{
     "NAME":"他人的视线",
     "DESCRIPTION": "获得 !B! 点格挡。额外获得等同于目标 mgr:注视 层数的格挡。",
     "UPGRADE_DESCRIPTION": "获得 !B! 点格挡。额外获得等同于所有敌人 mgr:注视 层数总和的格挡。",
@@ -80,8 +80,7 @@
   },
     "MGR:AdjustTempo":{
     "NAME":"节奏调节",
-    "DESCRIPTION": "生成 !M! 个 *抽牌 mgr:音符 。 NL 下次 mgr:和弦 后，再次生成这些音符 。 NL  消耗 ",
-    "UPGRADE_DESCRIPTION": "生成 !M! 个 *抽牌 mgr:音符 。 NL 下次 mgr:和弦 后，再次生成这些音符 。"
+    "DESCRIPTION": "生成 !M! 个 *抽牌 mgr:音符 。 NL 下次 mgr:和弦 后，再次生成被消耗的音符 。"
   },
     "MGR:StageWarmUp":{
     "NAME":"舞台预热",
@@ -116,7 +115,7 @@
   },
   "MGR:MaguroBash": {
     "NAME": "金枪鱼重击",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 本回合中每触发过一次 mgr:和弦 ，伤害增加 !M! 。"
+    "DESCRIPTION": "造成 !D! 点伤害。本回合中每触发过一次 mgr:和弦 ，伤害增加 !M! 。"
   },
     "MGR:Unison":{
     "NAME":"齐唱",
@@ -125,7 +124,7 @@
   },
     "MGR:MaguroAssault":{
     "NAME":"金枪鱼强袭",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 本回合中每触发过一次 mgr:和弦 ，伤害增加 !M! 。 NL  mgr:起音 或 mgr:尾音 ：伤害翻倍  NL  mgr:老大哥形态 ：伤害翻倍 "
+    "DESCRIPTION": "造成 !D! 点伤害。本回合中每触发过一次 mgr:和弦 ，伤害增加 !M! 。 NL  mgr:起音 或 mgr:尾音 ：伤害翻倍  NL  mgr:老大哥形态 ：伤害翻倍 "
   },
     "MGR:Rehearsal":{
     "NAME":"预演",
@@ -137,7 +136,7 @@
   },
     "MGR:DiffusionOfDarkness":{
     "NAME":"黑暗扩散",
-    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 所有敌人本回合失去 mgr:注视 层数一半的力量。 消耗性 2"
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 所有敌人失去 mgr:注视 层数一半的力量一回合。 消耗性 2"
   },
     "MGR:Hallucination":{
     "NAME":"迷幻",
@@ -179,7 +178,7 @@
   },
     "MGR:MaguroCleave":{
     "NAME":"金枪鱼横斩",
-    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 本回合中每触发过一次 mgr:和弦 ，伤害增加 !M! 。"
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。本回合中每触发过一次 mgr:和弦 ，伤害增加 !M! 。"
   },
     "MGR:EnergeticStarting":{
     "NAME":"活力起音",
@@ -196,8 +195,8 @@
   },
     "MGR:StarryDrift":{
     "NAME":"星空飘浮",
-    "DESCRIPTION": " 不能被打出 。 NL 这张牌对应的 mgr:音符 为 mgr:星空音符 。 NL 被消耗或丢弃时，生成一个 mgr:星空音符 。",
-    "UPGRADE_DESCRIPTION": " 不能被打出 。抽到时，生成一个 mgr:星空音符 。 NL 这张牌对应的 mgr:音符 为 mgr:星空音符 。 NL 被消耗或丢弃时，生成一个 mgr:星空音符 。"
+    "DESCRIPTION": " 不能被打出 。这张牌对应的 mgr:音符 为 mgr:星空音符 。 NL 被消耗或丢弃时，生成一个 mgr:星空音符 。",
+    "UPGRADE_DESCRIPTION": " 不能被打出 。这张牌对应的 mgr:音符 为 mgr:星空音符 。 NL 被消耗或丢弃时以及抽到时，生成一个 mgr:星空音符 。"
   },
     "MGR:StardustLaser":{
     "NAME":"星屑镭射",
@@ -235,7 +234,7 @@
   },
     "MGR:TinyOrchestra":{
     "NAME":"微型乐团",
-    "DESCRIPTION": "回合结束时，你在本回合每使用过一种类型的卡牌（从打出本牌开始记录），对所有敌人造成 !M! 点伤害。 NL 如果至少使用过三种，下回合多抽一张牌。"
+    "DESCRIPTION": "回合结束时，本回合（从打出本牌开始）每使用过一种类型的牌，对所有敌人造成 !M! 点伤害。 NL 如果至少使用过三种，下回合多抽一张牌。"
   },
     "MGR:MetalGear":{
     "NAME":"合金装备",
@@ -244,8 +243,7 @@
     },
     "MGR:Marionette":{
     "NAME":"提线木偶",
-    "DESCRIPTION": "不能被打出 。 NL 这张牌对应的 mgr:音符 为 *debuff mgr:音符 。 NL 被消耗或丢弃时，所有敌人本回合失去 !M! 点力量。",
-    "UPGRADE_DESCRIPTION": "不能被打出 。 NL 这张牌对应的 mgr:音符 为 *debuff mgr:音符 。 NL 被消耗或丢弃时，所有敌人本回合失去 !M! 点力量，并生成一个 debuff mgr:音符 。"
+    "DESCRIPTION": " 不能被打出 。这张牌对应的 mgr:音符 为 *debuff mgr:音符 。 NL 被消耗或丢弃时，所有敌人失去 !M! 点力量一回合，并生成一个 debuff mgr:音符 。"
   },
     "MGR:FieryPerformance":{
     "NAME":"激奏",
@@ -253,25 +251,28 @@
   },
     "MGR:ChristmasGift":{
     "NAME":"圣诞礼物！",
-    "DESCRIPTION": "本回合，你每触发过一次 mgr:和弦 ，就获得 !M! 金币。 NL 保留 。"
+    "DESCRIPTION": "获得 !M! 金币。 NL 保留 。 消耗 。"
   },
-    "MGR:TestCard20":{
-    "NAME":"MGR:TestCard20",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 若本回合触发过至少 !M! 次 mgr:和弦 ，再获得 !B! 点格挡。"
+    "MGR:BroomStrike":{
+    "NAME":"扫把打击",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 若本回合触发过 mgr:和弦 ，再获得 !B! 点格挡。"
   },
     "Frenzied":{
-    "NAME":"补给",
-    "DESCRIPTION": "抽一张牌，叠加 !M! 层 呼叫 。"
+    "NAME":"狂化",
+    "DESCRIPTION": "没想好哦。"
   },
-    "QuickCall":{
-    "NAME":"快速呼叫",
-    "DESCRIPTION": "获得4层 呼叫 ，在下下回合失去。 消耗。",
-    "UPGRADE_DESCRIPTION": "固有 NL 获得4层 呼叫 ，在下一回合失去。 消耗。"
+    "MGR:Shatter":{
+    "NAME":"破碎",
+    "DESCRIPTION": "消耗所有手牌，每张获得 !B! 点格挡。 NL 如果消耗了至少 !M! 张，获得1点 mgr:强音 。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "消耗所有手牌，每张获得 !B! 点格挡。 NL 如果消耗了至少 !M! 张，获得1点 mgr:强音 。 NL 消耗性 2"
   },
-    "BrakingArmor":{
-    "NAME":"制动装甲",
-    "DESCRIPTION": "每回合获得 呼叫 数的格挡。",
-    "UPGRADE_DESCRIPTION": "每回合获得 呼叫 数的格挡， NL 并获得 !B! 点格挡。"
+    "MGR:Strafe":{
+    "NAME":"扫射",
+    "DESCRIPTION": "造成1点伤害 !D! 次，生成等量的 *攻击 mgr:音符 。"
+  },
+    "MGR:NowhereToHide":{
+    "NAME":"无处可逃",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害并给予 !M! 层 mgr:注视 。 NL mgr:老大哥形态 ：再使所有敌人的 *注视 层数增加一半。"
   },
     "RandomCall":{
     "NAME":"特定呼叫",

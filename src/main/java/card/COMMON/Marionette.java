@@ -20,7 +20,6 @@ public class Marionette extends AbstractMGRCard {
     public static final String ID = "MGR:Marionette";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG = "img/card/"+ID.substring(4)+".png";
     private static final int COST = -2;
     private static final int MAGIC = 3;
@@ -43,8 +42,7 @@ public class Marionette extends AbstractMGRCard {
                 if (!m.hasPower(ArtifactPower.POWER_ID))
                     addToBot(new ApplyPowerAction(m, AbstractDungeon.player, new GainStrengthPower(m, this.magicNumber), this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
             }
-        if(this.upgraded)
-            addToBot(new ChannelNoteAction(new DebuffNote()));
+        addToBot(new ChannelNoteAction(new DebuffNote()));
     }
 
     @Override
@@ -56,8 +54,7 @@ public class Marionette extends AbstractMGRCard {
                 if (!m.hasPower(ArtifactPower.POWER_ID))
                     addToBot(new ApplyPowerAction(m, AbstractDungeon.player, new GainStrengthPower(m, this.magicNumber), this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
             }
-        if(this.upgraded)
-            addToBot(new ChannelNoteAction(new DebuffNote()));
+        addToBot(new ChannelNoteAction(new DebuffNote()));
     }
 
     @Override
@@ -68,9 +65,7 @@ public class Marionette extends AbstractMGRCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.rawDescription=UPGRADE_DESCRIPTION;
             this.upgradeMagicNumber(PLUS_MAGIC);
-            initializeDescription();
         }
     }
 }

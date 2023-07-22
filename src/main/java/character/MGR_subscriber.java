@@ -14,6 +14,11 @@ import card.RARE.ResonanceForm;
 import card.COMMON.Nocturnal;
 import card.COMMON.Marionette;
 import card.COMMON.StardustLaser;
+import card.COMMON.BroomStrike;
+import card.RARE.Shatter;
+import card.TEST.NowhereToHide;
+import card.UNCOMMON.ChristmasGift;
+import card.UNCOMMON.Strafe;
 import card.UNCOMMON.TheCursed;
 import card.UNCOMMON.Swallow;
 import card.UNCOMMON.SongOfSubmersion;
@@ -197,7 +202,7 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         this.cardsToAdd.add(new CrispEnding());
         this.cardsToAdd.add(new Lullaby());
         this.cardsToAdd.add(new EastOfTimeline());
-        this.cardsToAdd.add(new GazeofOthers());
+        this.cardsToAdd.add(new GazeOfOthers());
         this.cardsToAdd.add(new GazeLock());
         this.cardsToAdd.add(new LAB01());
         this.cardsToAdd.add(new Stereophonic());
@@ -239,6 +244,11 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         this.cardsToAdd.add(new TinyOrchestra());
         this.cardsToAdd.add(new FieryPerformance());
         this.cardsToAdd.add(new StardustLaser());
+        this.cardsToAdd.add(new BroomStrike());
+        this.cardsToAdd.add(new Shatter());
+        this.cardsToAdd.add(new ChristmasGift());
+        this.cardsToAdd.add(new Strafe());
+        this.cardsToAdd.add(new NowhereToHide());
     }
     @Override
     public void receiveEditRelics()

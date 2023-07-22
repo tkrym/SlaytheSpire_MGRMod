@@ -29,17 +29,17 @@ public class StarryDrift extends AbstractMGRCard {
 
     @Override
     public void triggerOnManualDiscard() {
-        addToTop(new ChannelNoteAction(new StarryNote()));
+        addToBot(new ChannelNoteAction(new StarryNote()));
     }
 
     @Override
     public void triggerWhenDrawn() {
         if(this.upgraded)
-            addToTop(new ChannelNoteAction(new StarryNote()));
+            addToBot(new ChannelNoteAction(new StarryNote()));
     }
 
     @Override
-    public void triggerOnExhaust() { addToTop(new ChannelNoteAction(new StarryNote()));}
+    public void triggerOnExhaust() { addToBot(new ChannelNoteAction(new StarryNote()));}
 
     @Override
     public boolean canUse(AbstractPlayer p, AbstractMonster m) { return false;}

@@ -17,10 +17,10 @@ public class Chorus extends AbstractMGRCard {
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG = "img/card/"+ID.substring(4)+".png";
     private static final int COST = 1;
-    private static final int MAGIC = 3;
-    private static final int PLUS_MAGIC = 1;
+    private static final int MAGIC = 4;
+    private static final int PLUS_MAGIC = 2;
     private static final int EXNOTE = 1;
-    private static final int UPGRADED_EXNOTE = 2;
+    private static final int UPGRADED_EXNOTE = 1;
     public Chorus() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.SKILL,
                 AbstractCardEnum.MGR_COLOR, CardRarity.COMMON, CardTarget.SELF);
