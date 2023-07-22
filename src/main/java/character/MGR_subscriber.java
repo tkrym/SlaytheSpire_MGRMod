@@ -16,7 +16,8 @@ import card.COMMON.Marionette;
 import card.COMMON.StardustLaser;
 import card.COMMON.BroomStrike;
 import card.RARE.Shatter;
-import card.TEST.NowhereToHide;
+import card.COMMON.Drown;
+import card.UNCOMMON.NowhereToHide;
 import card.UNCOMMON.ChristmasGift;
 import card.UNCOMMON.Strafe;
 import card.UNCOMMON.TheCursed;
@@ -249,6 +250,7 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         this.cardsToAdd.add(new ChristmasGift());
         this.cardsToAdd.add(new Strafe());
         this.cardsToAdd.add(new NowhereToHide());
+        this.cardsToAdd.add(new Drown());
     }
     @Override
     public void receiveEditRelics()

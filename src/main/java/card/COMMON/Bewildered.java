@@ -19,8 +19,8 @@ public class Bewildered extends AbstractMGRCard {
     public static final String IMG = "img/card/"+ID.substring(4)+".png";
     private static final int COST = 1;
     private static final int BLOCK = 6;
-    private static final int PLUS_BLOCK = 0;
-    private static final int MAGIC = 2;
+    private static final int PLUS_BLOCK = 2;
+    private static final int MAGIC = 1;
     public Bewildered() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.SKILL,
                 AbstractCardEnum.MGR_COLOR, CardRarity.COMMON, CardTarget.SELF);

@@ -32,9 +32,6 @@ public class IndifferentLook extends AbstractMGRCard {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new IndifferentLookPower(p, this.magicNumber), this.magicNumber));
     }
 
-    @Override
-    public void triggerOnGlowCheck() {triggerOnGlowCheck_BigBrother();}
-
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();

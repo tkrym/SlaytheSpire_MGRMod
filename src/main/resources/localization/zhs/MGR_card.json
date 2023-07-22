@@ -274,13 +274,9 @@
     "NAME":"无处可逃",
     "DESCRIPTION": "对所有敌人造成 !D! 点伤害并给予 !M! 层 mgr:注视 。 NL mgr:老大哥形态 ：再使所有敌人的 *注视 层数增加一半。"
   },
-    "RandomCall":{
-    "NAME":"特定呼叫",
-    "DESCRIPTION": "消耗!M!层呼叫 ，从三种随机支援中选择一个。 NL 消耗 ",
-    "EXTENDED_DESCRIPTION": [
-	"我没有足够的支援。",
-	""
-	]
+    "MGR:Drown":{
+    "NAME":"溺水",
+    "DESCRIPTION": "造成 !D! 点伤害，给予 !M! 层虚弱。 NL 如果目标已有虚弱，再给予 !M! 层 缠绕 。"
   },
     "SupportFire":{
     "NAME":"支援射击",
