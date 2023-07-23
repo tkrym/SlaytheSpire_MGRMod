@@ -280,15 +280,15 @@
   },
     "MGR:TestCard1":{
     "NAME":"TestCard1",
-    "DESCRIPTION": "射击类 NL 消耗X层 呼叫 ， NL 对所有敌人造成X+ !M! 次 !D! 点伤害。"
+    "DESCRIPTION": "射击类 NL 消耗X层 呼叫 ， NL 对所有敌人造成X+ !M! 次 !D! 点伤害。",
   },
     "MGR:TestCard2":{
     "NAME":"TestCard2",
-    "DESCRIPTION": "射击类 NL 消耗1层 呼叫 ， NL 对随机敌人造成 !D! 点伤害 !M! 次。"
+    "DESCRIPTION": "射击类 NL 消耗1层 呼叫 ， NL 对随机敌人造成 !D! 点伤害 !M! 次。",
   },
     "MGR:ReconvertMagic":{
-    "NAME":"复原魔法",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 将你打出的上 !M! 张未消耗的牌移回手牌。"
+    "NAME":"ReconvertMagic",
+    "DESCRIPTION": "斩击类 NL 射击类 NL 消耗1层 呼叫 ， NL 对所有敌人造成 !D! 点伤害。"
   },
     "Doubleslain":{
     "NAME":"双斩",

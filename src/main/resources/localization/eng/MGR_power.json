@@ -1,0 +1,274 @@
+{
+	"MGR:Forte": {
+    "NAME": "强音",
+    "DESCRIPTIONS": [
+      "增强音符的效果。",
+      "削弱音符的效果。"
+    ]
+  },
+  	"MGR:Gaze": {
+    "NAME": "注视",
+    "DESCRIPTIONS": [
+      "每当你触发 #y和弦 时，失去 #b",
+      " 点生命并减少 #b",
+      " 层。"
+    ]
+  },
+  	"MGR:Stereo": {
+    "NAME": "立体声",
+    "DESCRIPTIONS": [
+      " #y音符 对所有敌人造成伤害。"
+    ]
+  },
+  	"MGR:StereoPlus": {
+    "NAME": "立体声+",
+    "DESCRIPTIONS": [
+      " #y音符 对所有敌人造成伤害，并且受 #y易伤 加成。"
+    ]
+  },
+  	"MGR:IndifferentLook": {
+    "NAME": "冷眼旁观",
+    "DESCRIPTIONS": [
+      "每当你给予或触发 #y注视 时，获得 #b",
+      " 点格挡。"
+    ]
+  },
+    "MGR:AdjustTempo": {
+    "NAME": "节奏调节",
+    "DESCRIPTIONS": [
+      "下次 #y和弦 后，再次生成这些 #y音符 。",
+      "下 #b",
+	  " 次 #y和弦 后，再次生成这些 #y音符 。"
+    ]
+  },
+    "MGR:HarmonyForm": {
+    "NAME": "和声形态",
+    "DESCRIPTIONS": [
+      " #y音符 的效果额外触发 #b",
+      " 次。"
+    ]
+  }, 
+    "MGR:UnisonLeft": {
+    "NAME": "齐唱（左）",
+    "DESCRIPTIONS": [
+      "你最左侧的 #y音符 的效果翻倍。",
+      "你最左侧的 #y音符 的效果增加 #b",
+      " 倍。"
+    ]
+  },
+    "MGR:UnisonRight": {
+    "NAME": "齐唱（右）",
+    "DESCRIPTIONS": [
+      "你最右侧的 #y音符 的效果翻倍。",
+      "你最右侧的 #y音符 的效果增加 #b",
+      " 倍。"
+    ]
+  },
+    "MGR:GazeFromTheShadowPower": {
+    "NAME": "你被盯上了...",
+    "DESCRIPTIONS": [
+      "在回合开始时，获得 #b",
+      " 层 #y注视 。"
+    ]
+  }, 
+    "MGR:YazyuutokasuPower": {
+    "NAME": "野兽化",
+    "DESCRIPTIONS": [
+      "回合开始时，丢弃 #b",
+      " 张牌，然后将 #b",
+      " 张 #y困惑 置入手牌。"
+    ]
+  },
+    "MGR:YazyuutokasuPlusPower": {
+    "NAME": "野兽化+",
+    "DESCRIPTIONS": [
+      "回合开始时，丢弃 #b",
+      " 张牌，然后将 #b",
+      " 张 #y困惑+ 置入手牌。"
+    ]
+  },
+    "MGR:ResonanceFormPower": {
+    "NAME": "共鸣形态",
+    "DESCRIPTIONS": [
+      "每当你抽到、打出或丢弃第 #b",
+      " 张牌，将它的一张本回合费用为0的消耗、虚无的复制置入手牌。不可叠加。 NL 还需 #b",
+      " 张。"
+    ]
+  },  
+    "MGR:TheForsakenPower": {
+    "NAME": "被遗忘者",
+    "DESCRIPTIONS": [
+      "每当你累计消耗或丢弃 #b",
+      " 张牌，获得",
+      " NL 还需 #b",
+      " 张。"
+    ]
+  },  
+    "MGR:SongOfSubmersionPower": {
+    "NAME": "沉没吧！",
+    "DESCRIPTIONS": [
+      "在接下来的 #b",
+      " 个回合结束时，所有敌人失去 #b1 点力量。"
+    ]
+  },  
+    "MGR:TheCursedPower": {
+    "NAME": "诅咒抽牌",
+    "DESCRIPTIONS": [
+      "打出 #y诅咒 时，抽 #b",
+      " 张牌。"
+    ]
+  }, 
+    "MGR:TinyOrchestraPower": {
+    "NAME": "微型乐团",
+    "DESCRIPTIONS": [
+      "回合结束时，你在本回合每使用过一种类型的卡牌，对所有敌人造成 #b",
+      " 点伤害。如果至少使用过三种，下回合多抽一张牌。 NL 本回合已使用 #b",
+      " 种。"
+    ]
+  },  
+    "MGR:NextTurnStarryNotePower": {
+    "NAME": "下回合星空音符",
+    "DESCRIPTIONS": [
+      "在下回合开始时，生成 #b",
+      " 个 #y星空音符 。"
+    ]
+  },  
+    "KNNSupport": {
+    "NAME": "KNN支援",
+    "DESCRIPTIONS": [
+      "当你要被杀死时，免除这次伤害并回复最大生命值的 #b10 %，失去这个支援。"
+    ]
+  },  
+    "BloodPower": {
+    "NAME": "流血",
+    "DESCRIPTIONS": [
+      "每回合损失层数生命，受到射击伤害时 #b50 %的几率增加一层。"
+    ]
+  },  
+    "SharpnessPower": {
+    "NAME": "锋利",
+    "DESCRIPTIONS": [
+      "所有斩击类伤害有 #b20 %的几率造成流血。"
+    ]
+  },
+    "KingdomOfWalkersPower": {
+    "NAME": "步行者天国",
+    "DESCRIPTIONS": [
+      "每回合获得 #b8 点格挡。"
+    ]
+  },  
+    "CyclingByBikePower": {
+    "NAME": "自行车骑行",
+    "DESCRIPTIONS": [
+      "每回合多抽两张牌。"
+    ]
+  },   
+    "MotorVehicleAttentionPower": {
+    "NAME": "机动车注意",
+    "DESCRIPTIONS": [
+      "阻止下次受到的生命值损伤。"
+    ]
+  }, 
+    "Komugiko": {
+    "NAME": "小麦粉的支援",
+    "DESCRIPTIONS": [
+      "每回合获得一层 缓冲 。"
+    ]
+  },  
+    "Cushion": {
+    "NAME": "缓冲",
+    "DESCRIPTIONS": [
+      "下一次受到的伤害减少 #b50 %。"
+    ]
+  },  
+    "HNSSupport": {
+    "NAME": "HNS支援",
+    "DESCRIPTIONS": [
+      "亲友的母亲HNS的支援，每回合获得 #b1 点力量，对所有敌人造成 #b10 点伤害。"
+    ]
+  },   
+    "BrakingArmorPower": {
+    "NAME": "制动装甲",
+    "DESCRIPTIONS": [
+      "每回合获得等同呼叫数的格挡。"
+    ]
+  },     
+    "QuickCallPower": {
+    "NAME": "失联",
+    "DESCRIPTIONS": [
+      "下 #b",
+	  " 回合失去 #r",
+      " 层呼叫。"
+    ]
+  },      
+    "CallPfGunfirePower": {
+    "NAME": "枪声呼叫",
+    "DESCRIPTIONS": [
+      "每打出两张射击类牌，获得 #b1 层呼叫。",
+	  "每打出两张射击类牌，获得 #b2 层呼叫。"
+    ]
+  },   
+    "AccurationPower": {
+    "NAME": "精准",
+    "DESCRIPTIONS": [
+      "射击类伤害提高 #b30% "
+    ]
+  },     
+    "SZPower": {
+    "NAME": "SZ支援",
+    "DESCRIPTIONS": [
+      "每回合将一张攻击牌加入手牌中，这张牌在本回合耗能变为 #b0 ."
+    ]
+  },     
+    "LianZhao": {
+    "NAME": "连招",
+    "DESCRIPTIONS": [
+      "斩击类伤害提高 #b",
+	  " %，打出非斩击类后消失"
+    ]
+  },      
+    "Precise": {
+    "NAME": "瞄准",
+    "DESCRIPTIONS": [
+      "射击类有 #b",
+	  " %，的几率暴击，造成3倍伤害。打出非射击类或暴击后消失"
+    ]
+  },       
+    "NoDIYUSI": {
+    "NAME": "支援禁止",
+    "DESCRIPTIONS": [
+      "无法获得 #rDIYUSI支援 "
+    ]
+  },       
+    "Inparty": {
+    "NAME": "车内银趴",
+    "DESCRIPTIONS": [
+      "损失 呼叫 数的生命 "
+    ]
+  },   
+    "MilkPower": {
+    "NAME": "牛乳",
+    "DESCRIPTIONS": [
+      "下一回合移除所有身上DEBUFF"
+    ]
+  }, 
+    "SeekPower": {
+    "NAME": "索敌",
+    "DESCRIPTIONS": [
+      "下一次射击类的伤害翻倍"
+    ]
+  },
+    "BeerBeerPower": {
+    "NAME": "啤酒！啤酒！",
+    "DESCRIPTIONS": [
+      "每获得一次格挡，追加获得3点格挡。"
+    ]
+  },
+    "WWWWWWWWWWWWWWW": {
+    "NAME": "WWWWWWWWWWW",
+    "DESCRIPTIONS": [
+      "WWWWWWWWWWW",
+      "WWWWWWWWWWW"
+    ]
+  }
+}

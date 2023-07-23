@@ -1,0 +1,26 @@
+{
+  "MGR:tutorial": {
+    "TEXT": [
+      "教程1",
+      "教程2"
+    ],
+    "LABEL": [
+      "Next",
+      "Ok",
+      "Tutorial",
+      "(Page: ",
+      ")"
+    ]
+  },
+  "MGR:exception": {
+    "TEXT": [
+      "正常情况下，这不该发生。请考虑报告给开发者。",
+      "我不是机器人。我不能产球。"
+    ]
+  },
+  "MGR:extend": {
+    "TEXT": [
+      " NL 消耗 。 虚无 。"
+    ]
+  }
+}

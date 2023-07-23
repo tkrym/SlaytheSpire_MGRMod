@@ -1,0 +1,35 @@
+{
+  "CounterPanel": {
+    "TEXT": [
+      "和弦计数器",
+      "达到 #b",
+      " 点时，失去所有计数并进入 #yBigBrother 。 NL 当你处于该姿态时，计数器不能超过 #b",
+      " 点。"
+    ]
+  },
+  "KimitomitahosizoraAction": {
+    "TEXT": [
+      "选择任意张牌弃置。如果至少选择了",
+      "张，生成一个星空音符。"
+    ]
+  },
+  "DizzyAndGiddyAction": {
+    "TEXT": [
+      "丢弃，至多",
+      "张。如果至少选择了",
+      "张，抽",
+      "张牌。"
+    ]
+  },
+  "LoseRelicReward": {
+    "TEXT": [
+      "失去 "
+    ]
+  },
+  "StardustLaserAction": {
+    "TEXT": [
+      "丢弃，至多",
+      "张。在下回合开始生成等量的星空音符。"
+    ]
+  }
+}

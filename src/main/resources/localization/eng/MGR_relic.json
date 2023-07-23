@@ -1,0 +1,106 @@
+{
+  "MGR:OldBow": {
+    "NAME": "旧蝴蝶结",
+    "FLAVOR": "物品只是被丢弃。物品永不死亡。",
+    "DESCRIPTIONS": [
+      "每当你累计丢弃或消耗 #b",
+      " 张牌，抽一张牌。"
+    ]
+  },
+  "MGR:BloodshotEyeball": {
+    "NAME": "充血的眼球",
+    "FLAVOR": "未曾被人注视之人才会迫切地注视他人。",
+    "DESCRIPTIONS": [
+      "战斗开始时，给予随机敌人 #b",
+      " 层 #ymgr:注视 #b",
+      " 次。"
+    ]
+  },
+  "MGR:Sunglasses": {
+    "NAME": "墨镜",
+    "FLAVOR": "可是，高塔中真的有需要戴墨镜的时候么？",
+    "DESCRIPTIONS": [
+      " #ymgr:注视 触发时不再减少。"
+    ]
+  },
+  "MGR:UnknownCreature": {
+    "NAME": "油库里",
+    "FLAVOR": "你不知道它为什么跟着你，正如它不知道你为何攀登。",
+    "DESCRIPTIONS": [
+      "每回合开始获得 [E] 。拾起时，随机 #r吃掉 你的两件非BOSS遗物。",
+      "和你的遗物说再见吧！",
+      "前进"
+    ]
+  },
+  "MGR:Telescreen": {
+    "NAME": "电幕",
+    "FLAVOR": "老大哥在看着你。",
+    "DESCRIPTIONS": [
+      "战斗开始时，进入 #ymgr:老大哥形态 。"
+    ]
+  },
+  "MGR:LittleAngel": {
+    "NAME": "小天使",
+    "FLAVOR": "愿你不再受制于厄运。",
+    "DESCRIPTIONS": [
+      "回合抽牌后，若你手中的 #y技能牌 小于等于 #b",
+      " 张（不包括保留），抽 #b",
+      " 张牌。"
+    ]
+  },
+  "MGR:Fumo": {
+    "NAME": "Fumo",
+    "FLAVOR": "她真可爱。她真迷人。她真有趣。",
+    "DESCRIPTIONS": [
+      "每场战斗开始时，获得 #b",
+      " 层 #ymgr:强音 。"
+    ]
+  },
+  "MGR:Maguroyaki": {
+    "NAME": "鮪鱼烧",
+    "FLAVOR": "被做成金枪鱼形状的点心。是什么馅的呢？",
+    "DESCRIPTIONS": [
+      "每当你 #y锻造 ，回复最大生命值的 #b",
+      " % 。"
+    ]
+  },
+  "MGR:MiniMicrophone": {
+    "NAME": "迷你麦克风",
+    "FLAVOR": "准备好向高塔展示你的歌喉了么？",
+    "DESCRIPTIONS": [
+      "每场战斗开始时，生成 #y攻击  、 #y防御 、 #y抽牌  #ymgr:音符 各一个。"
+    ]
+  },
+  "MGR:YourExclusiveStage": {
+    "NAME": "只属于你的舞台",
+    "FLAVOR": "于此刻响彻世界。",
+    "DESCRIPTIONS": [
+      "你的 #ymgr:计数器 不会低于 #b1 。 NL 回合开始时，随机生成一个 #ymgr:基本音符 。"
+    ]
+  },
+  "MGR:WitchHat": {
+    "NAME": "魔女帽",
+    "FLAVOR": "其实你不太使用魔法。",
+    "DESCRIPTIONS": [
+      "回合开始时，若你的生命值不大于最大生命值的 #b",
+      " %，生成一个 #y防御 #ymgr:音符 。如果不大于 #b",
+      " %，再生成一个。"
+    ]
+  },
+  "MGR:FriendsSpirit": {
+    "NAME": "友人之魂",
+    "FLAVOR": "身于千里，心若咫尺。",
+    "DESCRIPTIONS": [
+      "每触发 #b",
+      " 次 #ymgr:和弦 ，生成 #y攻击 、 #y防御 #ymgr:音符 各一个。"
+    ]
+  },
+  "MGR:1Spirit": {
+    "NAME": "1",
+    "FLAVOR": "1",
+    "DESCRIPTIONS": [
+      "每当你进入 #ymgr:老大哥形态 ，额外获得 [E] 并抽 #b",
+      " 张牌。"
+    ]
+  }
+}

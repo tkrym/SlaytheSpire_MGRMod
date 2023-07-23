@@ -17,6 +17,7 @@ import card.COMMON.StardustLaser;
 import card.COMMON.BroomStrike;
 import card.RARE.Shatter;
 import card.COMMON.Drown;
+import card.TEST.ReconvertMagic;
 import card.UNCOMMON.NowhereToHide;
 import card.UNCOMMON.ChristmasGift;
 import card.UNCOMMON.Strafe;
@@ -30,7 +31,7 @@ import card.UNCOMMON.StarryDrift;
 import card.UNCOMMON.Yazyuutokasu;
 import card.UNCOMMON.TheForsaken;
 import card.UNCOMMON.GazeFromTheShadow;
-import card.UNCOMMON.DiffusionOfDarkness;
+import card.UNCOMMON.DarkDiffuse;
 import card.UNCOMMON.WaitingForFood;
 import card.COMMON.Rehearsal;
 import card.COMMON.AlternateSinging;
@@ -220,7 +221,7 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         this.cardsToAdd.add(new Rehearsal());
         this.cardsToAdd.add(new AlternateSinging());
         this.cardsToAdd.add(new WaitingForFood());
-        this.cardsToAdd.add(new DiffusionOfDarkness());
+        this.cardsToAdd.add(new DarkDiffuse());
         this.cardsToAdd.add(new Peek());
         this.cardsToAdd.add(new Hallucination());
         this.cardsToAdd.add(new GazeFromTheShadow());
@@ -251,6 +252,7 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         this.cardsToAdd.add(new Strafe());
         this.cardsToAdd.add(new NowhereToHide());
         this.cardsToAdd.add(new Drown());
+        this.cardsToAdd.add(new ReconvertMagic());
     }
     @Override
     public void receiveEditRelics()

@@ -1,0 +1,31 @@
+{
+  "MGR:BottledNotes": {
+    "NAME": "瓶装音符",
+    "DESCRIPTIONS": [
+      "生成五种 #y基本音符 各 #b",
+      " 个。"
+    ]
+  },
+  "MGR:PortableAnvil": {
+    "NAME": "便携熔炉",
+    "DESCRIPTIONS": [
+      "随机升级 #b",
+      " 张牌，优先升级高稀有度的卡牌。"
+    ]
+  },
+  "MGR:FortePotion": {
+    "NAME": "强音药水",
+    "DESCRIPTIONS": [
+      "获得 #b",
+      " 点 #y强音 ，失去 #b",
+      " 点 #y力量 和 #y敏捷 。"
+    ]
+  },
+  "MGR:ShiningEssence": {
+    "NAME": "闪耀精华",
+    "DESCRIPTIONS": [
+      "本场战斗中，将你的 #y计数器 上限减少 #b",
+      " （不会低于下限加一），并立即填满它。"
+    ]
+  }
+}

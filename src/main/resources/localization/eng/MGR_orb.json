@@ -1,0 +1,63 @@
+{
+  "MGR:Draw": {
+    "DESCRIPTION": [
+      "#y触发 ：抽 #b",
+      " 张牌。 NL 每 #b",
+      " 层 #y强音 增强 #b1 点效果。"
+    ],
+    "NAME": "抽牌"
+  },
+  "MGR:Debuff": {
+    "DESCRIPTION": [
+      "#y触发 ：给予所有敌人 #b",
+      " 层 虚弱 与 易伤 。 NL 每 #b",
+      " 层 #y强音 增强 #b1 点效果。"
+    ],
+    "NAME": "debuff"
+  },
+  "MGR:Empty": {
+    "DESCRIPTION": [
+      "你可以在这些位置生成音符。"
+    ],
+    "NAME": "音符槽"
+  },
+  "MGR:Defend": {
+    "DESCRIPTION": [
+      "#y触发 ：获得 #b",
+      " 点格挡。 NL 每 #b",
+      " 层 #y强音 增强 #b1 点效果。"
+    ],
+    "NAME": "防御"
+  },
+  "MGR:Attack": {
+    "DESCRIPTION": [
+      "#y触发 ：对随机敌人造成 #b",
+      " 点伤害。 NL 每 #b",
+      " 层 #y强音 增强 #b1 点效果。"
+    ],
+    "NAME": "攻击"
+  },
+  "MGR:Artifact": {
+    "DESCRIPTION": [
+      "#y触发 ：获得 #b",
+      " 层人工制品。 NL 每 #b",
+      " 层 #y强音 增强 #b1 点效果。"
+    ],
+    "NAME": "人工"
+  },
+  "MGR:Ghost": {
+    "DESCRIPTION": [
+      "#y触发 ：获得 #b",
+      " 层 无实体 。 NL 每 #b",
+      " 层 #y强音 增强 #b1 点效果。"
+    ],
+    "NAME": "幽灵"
+  },
+  "MGR:Starry": {
+    "DESCRIPTION": [
+      "#y触发 ：获得 #b",
+      " 点能量。 NL 不受 #y强音 影响。"
+    ],
+    "NAME": "星空"
+  }
+}

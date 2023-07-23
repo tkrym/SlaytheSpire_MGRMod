@@ -39,7 +39,8 @@ public class Bewildered extends AbstractMGRCard {
 
     public AbstractCard makeCopy() { return new Bewildered(); }
 
-    public void upgrade() {
+    public void upgrade()
+    {
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeBlock(PLUS_BLOCK);
