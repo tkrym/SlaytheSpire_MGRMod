@@ -2,8 +2,8 @@
   "MGR:BottledNotes": {
     "NAME": "瓶装音符",
     "DESCRIPTIONS": [
-      "生成五种 #y基本音符 各 #b",
-      " 个。"
+      "随机生成 #b",
+      " 个 #y基本音符 。"
     ]
   },
   "MGR:PortableAnvil": {
@@ -26,6 +26,13 @@
     "DESCRIPTIONS": [
       "本场战斗中，将你的 #y计数器 上限减少 #b",
       " （不会低于下限加一），并立即填满它。"
+    ]
+  },
+    "MGR:Doping": {
+    "NAME": "兴奋剂",
+    "DESCRIPTIONS": [
+      "将 #b",
+      " 张随机 #y能力牌 从抽牌堆加入手牌。它们本回合耗能减少 #b1 。"
     ]
   }
 }

@@ -34,7 +34,7 @@ public class ChristmasGift extends AbstractMGRCard {
         addToBot(new AbstractGameAction() {
             @Override
             public void update() {
-                AbstractDungeon.effectList.add(new RainingGoldEffect(ChristmasGift.this.magicNumber*3, true));
+                AbstractDungeon.effectList.add(new RainingGoldEffect(ChristmasGift.this.magicNumber*4, true));
                 this.addToTop(new GainGoldAction(ChristmasGift.this.magicNumber));
                 this.isDone=true;
             }

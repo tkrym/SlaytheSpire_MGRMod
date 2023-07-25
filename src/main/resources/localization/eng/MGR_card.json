@@ -278,12 +278,12 @@
     "NAME":"溺水",
     "DESCRIPTION": "造成 !D! 点伤害，给予 !M! 层虚弱。 NL 如果目标已有虚弱，再给予 !M! 层 缠绕 。"
   },
-    "MGR:TestCard1":{
-    "NAME":"TestCard1",
+    "MGR:DragonClaw":{
+    "NAME":"DragonClaw",
     "DESCRIPTION": "射击类 NL 消耗X层 呼叫 ， NL 对所有敌人造成X+ !M! 次 !D! 点伤害。",
   },
-    "MGR:TestCard2":{
-    "NAME":"TestCard2",
+    "MGR:FrenziedDragonBite":{
+    "NAME":"FrenziedDragonBite",
     "DESCRIPTION": "射击类 NL 消耗1层 呼叫 ， NL 对随机敌人造成 !D! 点伤害 !M! 次。",
   },
     "MGR:ReconvertMagic":{

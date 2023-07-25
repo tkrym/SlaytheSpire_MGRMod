@@ -14,15 +14,17 @@ public class Rehearsal extends AbstractMGRCard {
     public static final String ID = "MGR:Rehearsal";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG = "img/card/"+ID.substring(4)+".png";
     private static final int COST = 1;
-    private static final int MAGIC = 2;
+    private static final int MAGIC = 3;
     private static final int PLUS_MAGIC = 1;
     public Rehearsal() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.SKILL,
                 AbstractCardEnum.MGR_COLOR, CardRarity.COMMON, CardTarget.SELF);
         this.baseMagicNumber=MAGIC;
         this.magicNumber=this.baseMagicNumber;
+        this.exhaust=true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -34,7 +36,10 @@ public class Rehearsal extends AbstractMGRCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeMagicNumber(PLUS_MAGIC);
+            //this.upgradeMagicNumber(PLUS_MAGIC);
+            this.exhaust=false;
+            this.rawDescription=UPGRADE_DESCRIPTION;
+            initializeDescription();
         }
     }
 }

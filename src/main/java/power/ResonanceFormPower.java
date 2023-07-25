@@ -1,6 +1,6 @@
 package power;
 
-import action.ResonanceFormAddCardAction;
+import action.TemporaryDuplicationAction;
 import card.RARE.ResonanceForm;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
@@ -40,6 +40,9 @@ public class ResonanceFormPower extends AbstractPower implements OnManualDiscard
     public void onCardDraw(AbstractCard c) {UpdateAmount(c);}
 
     @Override
+    public void onExhaust(AbstractCard c) { UpdateAmount(c);}
+
+    @Override
     public void onUseCard(AbstractCard c, UseCardAction action) {UpdateAmount(c);}
 
     private void UpdateAmount(AbstractCard c)
@@ -49,7 +52,7 @@ public class ResonanceFormPower extends AbstractPower implements OnManualDiscard
         {
             this.amount=ResonanceForm.MAGIC;
             this.flashWithoutSound();
-            addToTop(new ResonanceFormAddCardAction(c));
+            addToTop(new TemporaryDuplicationAction(c));
         }
         updateDescription();
     }

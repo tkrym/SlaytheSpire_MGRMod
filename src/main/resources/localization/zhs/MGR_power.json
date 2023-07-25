@@ -133,28 +133,32 @@
       " 个 #y星空音符 。"
     ]
   },  
-    "KNNSupport": {
-    "NAME": "KNN支援",
+    "MGR:SirenPower": {
+    "NAME": "塞壬",
     "DESCRIPTIONS": [
-      "当你要被杀死时，免除这次伤害并回复最大生命值的 #b10 %，失去这个支援。"
+      "回合结束时，所有敌人的受到其负面状态层数总和的伤害，且场上每有一种负面状态就获得 #b",
+      " 点格挡。"
     ]
   },  
-    "BloodPower": {
-    "NAME": "流血",
+    "MGR:ClimaxPower": {
+    "NAME": "高潮！",
     "DESCRIPTIONS": [
-      "每回合损失层数生命，受到射击伤害时 #b50 %的几率增加一层。"
+      "本回合生成 #y音符 时，额外生成 #b",
+      " 个。"
     ]
   },  
-    "SharpnessPower": {
-    "NAME": "锋利",
+    "MGR:FolkRhymesPower": {
+    "NAME": "弹奏民谣",
     "DESCRIPTIONS": [
-      "所有斩击类伤害有 #b20 %的几率造成流血。"
+      "打出能力牌时不再产生抽牌音符，改为产生 #b",
+      " 个防御音符 。"
     ]
   },
-    "KingdomOfWalkersPower": {
-    "NAME": "步行者天国",
+    "MGR:LoseFortePower": {
+    "NAME": "失去强音",
     "DESCRIPTIONS": [
-      "每回合获得 #b8 点格挡。"
+      "回合结束时，失去 #b",
+      " 层 #y强音 。"
     ]
   },  
     "CyclingByBikePower": {

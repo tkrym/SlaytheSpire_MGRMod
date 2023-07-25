@@ -35,7 +35,7 @@ public class GhostNote extends AbstractNote {
         this.evokeAmount = this.baseEvokeAmount;
         this.angle = MathUtils.random(360.0f);
         this.channelAnimTimer = 0.5f;
-        this.forterate=6;
+        this.forterate=5;
         myColor= CardHelper.getColor(187,247,143);
         updateDescription();
     }
@@ -74,6 +74,7 @@ public class GhostNote extends AbstractNote {
             sb.setColor(tmpColor);
             sb.setBlendFunction(770, 1);
             sb.draw(this.img, this.cX - 48.0f, (this.cY - 48.0f) + this.bobEffect.y*0.5F, 48.0f, 48.0f, 96.0f, 96.0f, this.scale*scale*1.3F, this.scale*scale*1.3F, 0.0f, 0, 0, 96, 96, false, false);
+            sb.setBlendFunction(770, 771);
         }
         renderText(sb);
         this.hb.render(sb);

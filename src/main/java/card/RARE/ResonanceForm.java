@@ -11,35 +11,41 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import path.AbstractCardEnum;
 import power.ResonanceFormPower;
 
-public class ResonanceForm extends AbstractMGRCard {
+public class ResonanceForm extends AbstractMGRCard
+{
     public static final String ID = "MGR:ResonanceForm";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
-    public static final String IMG = "img/card/"+ID.substring(4)+".png";
+    public static final String IMG = "img/card/" + ID.substring(4) + ".png";
     private static final int COST = 3;
-    public static int MAGIC=12;
-    public ResonanceForm() {
+    public static int MAGIC = 13;
+
+    public ResonanceForm()
+    {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.POWER,
                 AbstractCardEnum.MGR_COLOR, CardRarity.RARE, CardTarget.SELF);
-        this.isEthereal=true;
-        this.baseMagicNumber=MAGIC;
-        this.magicNumber=this.baseMagicNumber;
+        this.isEthereal = true;
+        this.baseMagicNumber = MAGIC;
+        this.magicNumber = this.baseMagicNumber;
         this.tags.add(BaseModCardTags.FORM);
     }
 
-    public void use(AbstractPlayer p, AbstractMonster m) {
-        if(!p.hasPower(ResonanceFormPower.POWER_ID))
-            this.addToBot(new ApplyPowerAction(p,p,new ResonanceFormPower(p),1));
+    public void use(AbstractPlayer p, AbstractMonster m)
+    {
+        if (!p.hasPower(ResonanceFormPower.POWER_ID))
+            this.addToBot(new ApplyPowerAction(p, p, new ResonanceFormPower(p), 1));
     }
 
-    public AbstractCard makeCopy() { return new ResonanceForm(); }
+    public AbstractCard makeCopy() {return new ResonanceForm();}
 
-    public void upgrade() {
-        if (!this.upgraded) {
+    public void upgrade()
+    {
+        if (!this.upgraded)
+        {
             this.upgradeName();
-            this.isEthereal=false;
-            this.rawDescription=UPGRADE_DESCRIPTION;
+            this.isEthereal = false;
+            this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

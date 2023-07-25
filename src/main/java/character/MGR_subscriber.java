@@ -9,15 +9,20 @@ import card.RARE.*;
 import card.COMMON.OneUp;
 import card.RARE.Hallucination;
 import card.BASIC.Peek;
-import card.COMMON.Bewildered;
+import card.TEST.Climax;
+import card.TEST.MyReflection;
+import card.TEST.VocalPreparation;
+import card.UNCOMMON.Bewildered;
 import card.RARE.ResonanceForm;
 import card.COMMON.Nocturnal;
 import card.COMMON.Marionette;
 import card.COMMON.StardustLaser;
 import card.COMMON.BroomStrike;
 import card.RARE.Shatter;
-import card.COMMON.Drown;
-import card.TEST.ReconvertMagic;
+import card.COMMON.AccurateShooting;
+import card.UNCOMMON.Drown;
+import card.RARE.DragonClaw;
+import card.UNCOMMON.ReconvertMagic;
 import card.UNCOMMON.NowhereToHide;
 import card.UNCOMMON.ChristmasGift;
 import card.UNCOMMON.Strafe;
@@ -55,6 +60,7 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import path.AbstractCardEnum;
 import path.ModClassEnum;
+import power.SirenPower;
 import relic.*;
 import potion.*;
 
@@ -115,6 +121,7 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         BaseMod.addPotion(BottledNotes.class, mybluecolor.cpy(), mybluecolor.cpy(),new Color(1.0F,0.72F,0.19F,1.0F),BottledNotes.POTION_ID,ModClassEnum.MGR);
         BaseMod.addPotion(PortableAnvil.class, Color.WHITE.cpy(), Color.WHITE.cpy(), Color.WHITE.cpy(), PortableAnvil.POTION_ID);
         BaseMod.addPotion(ShiningEssence.class, Color.GOLD.cpy(),CardHelper.getColor(214,186,38),null,ShiningEssence.POTION_ID,ModClassEnum.MGR);
+        BaseMod.addPotion(Doping.class,Color.WHITE.cpy(),Color.WHITE.cpy(),Color.WHITE.cpy(),Doping.POTION_ID);
         UnlockAscensionLevel();
         for(AbstractCard card:cardsToAdd)
             UnlockTracker.markCardAsSeen(card.cardID);
@@ -253,6 +260,14 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         this.cardsToAdd.add(new NowhereToHide());
         this.cardsToAdd.add(new Drown());
         this.cardsToAdd.add(new ReconvertMagic());
+        this.cardsToAdd.add(new DragonClaw());
+        this.cardsToAdd.add(new QuickShooting());
+        this.cardsToAdd.add(new AccurateShooting());
+        this.cardsToAdd.add(new Siren());
+        this.cardsToAdd.add(new EndOfSanity());
+        this.cardsToAdd.add(new VocalPreparation());
+        this.cardsToAdd.add(new FolkRhymes());
+        this.cardsToAdd.add(new MyReflection());
     }
     @Override
     public void receiveEditRelics()
@@ -283,7 +298,12 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
 
     @Override
     public void receiveCardUsed(AbstractCard c) {
-        if(!c.purgeOnUse&&!c.dontTriggerOnUseCard) LastCardPlayed=c;
+        if(!c.purgeOnUse&&!c.dontTriggerOnUseCard)
+        {
+            if(LastCardPlayed==null&&c instanceof EastOfTimeline)
+                EastOfTimeline.IncMist(c.uuid,1);
+            LastCardPlayed=c;
+        }
     }
 
     @Override

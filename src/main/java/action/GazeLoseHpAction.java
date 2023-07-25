@@ -34,10 +34,10 @@ public class GazeLoseHpAction extends AbstractGameAction {
                 if(p==null) return;
                 this.amount=p.amount;
                 if (this.target.currentHealth > 0) {
-                    this.target.tint.color = MGR_character.myBuleColor;
-                    this.target.tint.changeColor(Color.WHITE.cpy());
+                    //this.target.tint.color = MGR_character.myBuleColor;
+                    //this.target.tint.changeColor(Color.WHITE.cpy());
                     this.target.damage(new DamageInfo(this.source, this.amount, DamageType.HP_LOSS));
-                    if (this.target.isDying) {}
+                    //if (this.target.isDying) {}
                 }
                 int dec=2;
                 if(AbstractDungeon.player.hasRelic(Sunglasses.ID)) {dec=0;AbstractDungeon.player.getRelic(Sunglasses.ID).flash();}

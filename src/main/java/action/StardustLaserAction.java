@@ -10,8 +10,8 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import note.AbstractNote;
+import note.StarryNote;
 import patch.ManualDiscardPatch;
-import power.NextTurnStarryNotePower;
 
 public class StardustLaserAction extends AbstractGameAction {
     public static String[] TEXT=CardCrawlGame.languagePack.getUIString("StardustLaserAction").TEXT;
@@ -41,13 +41,13 @@ public class StardustLaserAction extends AbstractGameAction {
         {
             for (AbstractCard c : AbstractDungeon.handCardSelectScreen.selectedCards.group)
             {
+                addToTop(new ChannelNoteAction(new StarryNote()));
                 p.hand.moveToDiscardPile(c);
                 ManualDiscardPatch.triggerManualDiscard(c);
                 c.triggerOnManualDiscard();
                 GameActionManager.incrementDiscard(false);
             }
             int size=AbstractDungeon.handCardSelectScreen.selectedCards.group.size();
-            if(size>0) addToBot(new ApplyPowerAction(p,p,new NextTurnStarryNotePower(size),size));
             AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
         }
         this.tickDuration();

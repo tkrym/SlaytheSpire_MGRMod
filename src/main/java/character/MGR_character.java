@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
+import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.actions.watcher.ChangeStanceAction;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
@@ -33,6 +34,7 @@ import path.AbstractCardEnum;
 import java.util.ArrayList;
 import java.util.List;
 import note.*;
+import power.FolkRhymesPower;
 import relic.YourExclusiveStage;
 import stance.BigBrotherStance;
 import ui.CounterPanel;
@@ -167,13 +169,14 @@ public class MGR_character extends CustomPlayer{
                 AbstractDungeon.actionManager.orbsChanneledThisCombat.add(orbToSet);
                 AbstractDungeon.actionManager.orbsChanneledThisTurn.add(orbToSet);
                 (orbToSet).applyFocus();
-                if(index==this.orbs.size()-1) AbstractDungeon.actionManager.addToTop(new ChordAction());
+                if(index==this.orbs.size()-1)
+                {
+                    AbstractDungeon.actionManager.addToTop(new ChordAction());
+                    AbstractDungeon.actionManager.addToTop(new WaitAction(0.1F));
+                }
             } else
             {
                 AbstractDungeon.effectList.add(new ThoughtBubble(this.dialogX, this.dialogY, 5.0F,CardCrawlGame.languagePack.getTutorialString("MGR:exception").TEXT[0], true));
-                AbstractDungeon.actionManager.addToTop(new ChannelAction(orbToSet));
-                AbstractDungeon.actionManager.addToTop(new EvokeNoteAction(1));
-                AbstractDungeon.actionManager.addToTop(new AnimateNoteAction(1));
             }
         }
     }
@@ -191,39 +194,33 @@ public class MGR_character extends CustomPlayer{
     public void useCard(AbstractCard c, AbstractMonster m, int e)
     {
         super.useCard(c,m,e);
-        if(!c.dontTriggerOnUseCard) AbstractNote.GenerateNoteBottom(c);
-    }
-
-
-    @Override
-    public void triggerEvokeAnimation(int slot) { triggerEvokeAnimation();}
-
-    public void triggerEvokeAnimation()
-    {
-        if (this.maxOrbs > 0) {
-            int index = -1;
-            for(int i=0;i<this.orbs.size();++i)
-                if (!(this.orbs.get(i) instanceof EmptyNoteSlot))
-                    {index=i;break;}
-            if(index!=-1) this.orbs.get(index).triggerEvokeAnimation();
-        }
-    }
-
-    @Override
-    public void evokeOrb()
-    {
-        if (!this.orbs.isEmpty())
+        if(!c.dontTriggerOnUseCard)
         {
-            int index = -1;
-            for(int i=0;i<this.orbs.size();++i)
-                if (!(this.orbs.get(i) instanceof EmptyNoteSlot))
-                    {index=i;break;}
-            if(index==-1) return;
-            (this.orbs.get(index)).onEvoke();
-            this.orbs.set(index, new EmptyNoteSlot());
-            this.orbs.get(index).setSlot(index,this.maxOrbs);
+            if(c.type.equals(AbstractCard.CardType.POWER)&&this.hasPower(FolkRhymesPower.POWER_ID))
+                ((FolkRhymesPower)this.getPower(FolkRhymesPower.POWER_ID)).Trigger();
+            else AbstractNote.GenerateNoteBottom(c);
         }
     }
+
+
+    @Override
+    public void triggerEvokeAnimation(int slot) {}
+
+    public void EvokeAll()
+    {
+        //for(int i=1;i<=3;i++) AbstractDungeon.actionManager.addToTop(new WaitAction(0.1F));
+        for(int i=0;i<this.orbs.size();++i)
+        {
+            this.orbs.get(i).triggerEvokeAnimation();
+            this.orbs.get(i).onEvoke();
+            this.orbs.set(i,new EmptyNoteSlot());
+            this.orbs.get(i).setSlot(i,this.maxOrbs);
+        }
+    }
+
+
+    @Override
+    public void evokeOrb() {}
 
     @Override
     public void increaseMaxOrbSlots(int amount, boolean playSfx) {

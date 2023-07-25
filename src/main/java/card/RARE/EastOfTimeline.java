@@ -44,6 +44,7 @@ public class EastOfTimeline extends AbstractMGRCard {
     public void applyPowers()
     {
         super.applyPowers();
+        this.baseMagicNumber=this.misc;
         this.magicNumber=this.baseMagicNumber;
         initializeDescription();
     }

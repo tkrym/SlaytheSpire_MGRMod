@@ -29,11 +29,11 @@ public class Peek extends AbstractMGRCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ApplyGazeAction(m,this.magicNumber));
-        addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, 1, false), 1));
+        //addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, 1, false), 1));
         if(MGR_character.BigBrotherStanceCheck())
         {
             addToBot(new ApplyGazeAction(m,this.magicNumber));
-            addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, 1, false), 1));
+            //addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, 1, false), 1));
         }
     }
 

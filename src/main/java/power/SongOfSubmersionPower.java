@@ -35,7 +35,7 @@ public class SongOfSubmersionPower extends AbstractPower {
     }
 
     @Override
-    public void atEndOfTurnPreEndTurnCards(boolean isPlayer)
+    public void atEndOfTurn(boolean isPlayer)
     {
         flashWithoutSound();
         for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {

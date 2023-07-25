@@ -35,6 +35,7 @@ public class Swallow extends AbstractMGRCard {
         this.baseDamage=DMG;
         this.baseMagicNumber=MAGIC;
         this.magicNumber=this.baseMagicNumber;
+        this.tags.add(CardTags.HEALING);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

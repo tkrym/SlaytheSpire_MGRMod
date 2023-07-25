@@ -34,7 +34,7 @@ public class DiscardLeastCostAction extends AbstractGameAction {
         int DiscardAmount=Math.min(this.amount,p.hand.group.size());
         ArrayList<AbstractCard> cards=new ArrayList<>(p.hand.group);
         Collections.shuffle(cards,new Random(AbstractDungeon.miscRng.randomLong()));
-        cards.sort(Comparator.comparingInt(c -> c.cost));
+        cards.sort(Comparator.comparingInt(c -> c.costForTurn));
         for(int i=0;i<DiscardAmount;i++)
             addToTop(new DiscardSpecificCardAction(cards.get(i)));
         this.isDone=true;

@@ -38,6 +38,7 @@ public class StageWarmUp extends AbstractMGRCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
+            this.selfRetain=true;
             this.rawDescription=UPGRADE_DESCRIPTION;
             initializeDescription();
         }

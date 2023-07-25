@@ -45,11 +45,11 @@
   },
     "MGR:CrispEnding":{
     "NAME":"轻快尾音",
-    "DESCRIPTION": "造成 !D! 点伤害，抽1张牌。 NL 尾音：打出一张复制。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 尾音：抽 !M! 张牌。"
   },
     "MGR:EastOfTimeline":{
     "NAME":"时间线之东☆",
-    "DESCRIPTION": "生成 !M! 个 *攻击 mgr:音符 。 NL 如果这是你在战斗中打出的最后一张牌，将数值永久增加 1 。 消耗性 2"
+    "DESCRIPTION": "生成 !M! 个 *攻击 mgr:音符 。 NL 如果这是你在战斗中打出的第一张或最后一张牌，将数值永久增加 1 。 NL 消耗性 2"
   },
     "MGR:GazeOfOthers":{
     "NAME":"他人的视线",
@@ -85,7 +85,7 @@
     "MGR:StageWarmUp":{
     "NAME":"舞台预热",
     "DESCRIPTION": "获得 !M! 层 mgr:强音 。",
-    "UPGRADE_DESCRIPTION": "获得 !M! 层 mgr:强音 。 mgr:老大哥形态 ：再获得 1 层。"
+    "UPGRADE_DESCRIPTION": "获得 !M! 层 mgr:强音 。 mgr:老大哥形态 ：再获得 1 层。 保留 。"
   },
 	"MGR:ScaryGlare": {
 	"NAME":"恐怖瞪视",
@@ -128,7 +128,8 @@
   },
     "MGR:Rehearsal":{
     "NAME":"预演",
-    "DESCRIPTION": "抽 !M! 张牌。 NL 生成这些牌对应的 mgr:基本音符 。"
+    "DESCRIPTION": "抽 !M! 张牌。 NL 生成这些牌对应的 mgr:基本音符 。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "抽 !M! 张牌。 NL 生成这些牌对应的 mgr:基本音符 。"
   },
     "MGR:WaitingForFood":{
     "NAME":"等待进食",
@@ -145,7 +146,7 @@
   },
     "MGR:Peek":{
     "NAME":"偷窥",
-    "DESCRIPTION": "给予 !M! 层注视与 1 层 易伤 。 NL mgr:老大哥形态 ：再给予一次。"
+    "DESCRIPTION": "给予 !M! 层注视。 NL mgr:老大哥形态 ：再给予一次。"
   },
     "MGR:GazeFromTheShadow":{
     "NAME":"阴影中的视线",
@@ -153,8 +154,8 @@
   },
     "MGR:ResonanceForm":{
     "NAME":"共鸣形态",
-    "DESCRIPTION": "每当你抽到、打出或丢弃第 !M! 张牌，将它的一张本回合费用为0的 消耗 、 虚无 的复制置入手牌。 NL *不可叠加 。 虚无 。",
-    "UPGRADE_DESCRIPTION": "每当你抽到、打出或丢弃第 !M! 张牌，将它的一张本回合费用为0的 消耗 、 虚无 的复制置入手牌。 NL *不可叠加 。"
+    "DESCRIPTION": "每当你抽到、打出、丢弃或消耗第 !M! 张牌，将它的 mgr:临时复制 置入手牌。 NL *不可叠加 。 虚无 。",
+    "UPGRADE_DESCRIPTION": "每当你抽到、打出、丢弃或消耗第 !M! 张牌，将它的 mgr:临时复制 置入手牌。 NL *不可叠加 。"
   },
     "MGR:Confused":{
     "NAME":"困惑",
@@ -182,7 +183,7 @@
   },
     "MGR:EnergeticStarting":{
     "NAME":"活力起音",
-    "DESCRIPTION": "获得 !B! 点格挡，抽1张牌。 NL mgr:起音 ：打出一张复制。"
+    "DESCRIPTION": "获得 !B! 点格挡。 NL mgr:起音 ：抽 !M! 张牌。"
   },
     "MGR:SongOfSubmersion":{
     "NAME":"沉没之歌",
@@ -195,16 +196,17 @@
   },
     "MGR:StarryDrift":{
     "NAME":"星空飘浮",
-    "DESCRIPTION": " 不能被打出 。这张牌对应的 mgr:音符 为 mgr:星空音符 。 NL 被消耗或丢弃时，生成一个 mgr:星空音符 。",
-    "UPGRADE_DESCRIPTION": " 不能被打出 。这张牌对应的 mgr:音符 为 mgr:星空音符 。 NL 被消耗或丢弃时以及抽到时，生成一个 mgr:星空音符 。"
+    "DESCRIPTION": " 不能被打出 。这张牌对应的音符为 mgr:星空音符 。 NL 被消耗或丢弃时，生成该音符。",
+    "UPGRADE_DESCRIPTION": " 不能被打出 。这张牌对应的音符为 mgr:星空音符 。 NL 被消耗或丢弃时以及抽到时，生成该音符。"
   },
     "MGR:StardustLaser":{
     "NAME":"星屑镭射",
-    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 选择丢弃至多 !M! 张牌，下回合开始时生成等量的 mgr:星空音符 。"
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 选择丢弃至多 !M! 张牌，生成等量的 mgr:星空音符 。"
   },
     "MGR:Kimitomitahosizora":{
     "NAME":"曾与你见过的星空",
-    "DESCRIPTION": " 预见 !M! 。生成弃置的牌所对应的 mgr:基本音符 。 NL 如果弃置了至少3张牌，生成一个 mgr:星空音符 。"
+    "DESCRIPTION": " 预见 !M! ，该预见的丢弃视为从手牌中丢弃。 NL 如果丢弃了至少3张牌，生成一个 mgr:星空音符 。",
+    "UPGRADE_DESCRIPTION": " 预见 !M! ，该预见的丢弃视为从手牌中丢弃。 NL 如果丢弃了至少4张牌，生成一个 mgr:星空音符 。"
   },
     "MGR:Futariboshi":{
     "NAME":"两个人的星☆",
@@ -243,11 +245,11 @@
     },
     "MGR:Marionette":{
     "NAME":"提线木偶",
-    "DESCRIPTION": " 不能被打出 。这张牌对应的 mgr:音符 为 *debuff mgr:音符 。 NL 被消耗或丢弃时，所有敌人失去 !M! 点力量一回合，并生成一个 debuff mgr:音符 。"
+    "DESCRIPTION": " 不能被打出 。对应的音符为 *debuff mgr:音符 。 NL 被消耗或丢弃时，所有敌人失去 !M! 点力量一回合，并生成该音符 。"
   },
     "MGR:FieryPerformance":{
     "NAME":"激奏",
-    "DESCRIPTION": "抽牌直到手牌有 !M! 张。 NL 然后，随机丢弃两张费用最低的手牌。"
+    "DESCRIPTION": "抽牌直到手牌有 !M! 张。 NL 然后，丢弃手中所有的状态与诅咒牌。"
   },
     "MGR:ChristmasGift":{
     "NAME":"圣诞礼物！",
@@ -256,10 +258,6 @@
     "MGR:BroomStrike":{
     "NAME":"扫把打击",
     "DESCRIPTION": "造成 !D! 点伤害。 NL 若本回合触发过 mgr:和弦 ，再获得 !B! 点格挡。"
-  },
-    "Frenzied":{
-    "NAME":"狂化",
-    "DESCRIPTION": "没想好哦。"
   },
     "MGR:Shatter":{
     "NAME":"破碎",
@@ -276,59 +274,60 @@
   },
     "MGR:Drown":{
     "NAME":"溺水",
-    "DESCRIPTION": "造成 !D! 点伤害，给予 !M! 层虚弱。 NL 如果目标已有虚弱，再给予 !M! 层 缠绕 。"
-  },
-    "MGR:TestCard1":{
-    "NAME":"TestCard1",
-    "DESCRIPTION": "射击类 NL 消耗X层 呼叫 ， NL 对所有敌人造成X+ !M! 次 !D! 点伤害。"
-  },
-    "MGR:TestCard2":{
-    "NAME":"TestCard2",
-    "DESCRIPTION": "射击类 NL 消耗1层 呼叫 ， NL 对随机敌人造成 !D! 点伤害 !M! 次。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 给予 !M! 层 *缠绕 。"
   },
     "MGR:ReconvertMagic":{
-    "NAME":"复原魔法",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 将你打出的上 !M! 张未消耗的牌移回手牌。"
+    "NAME":"回溯魔法",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 将你打出的上 !M! 张未消耗的牌移回手牌。 NL mgr:老大哥形态 ：获得这些牌的 mgr:临时复制 。"
   },
-    "Doubleslain":{
-    "NAME":"双斩",
-    "DESCRIPTION": "斩击类 NL 造成2次 !D! 点伤害。"
+    "MGR:DragonClaw":{
+    "NAME":"龙爪",
+    "DESCRIPTION": "造成 !D! 点伤害并给予等量 中毒 。 NL 打出或被丢弃 !M! 次后， 消耗 并将 *龙咬 加入抽牌堆。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害并给予等量 中毒 。 NL 打出或被丢弃 !M! 次后， 消耗 并将 *龙咬+ 加入抽牌堆。"
   },
-    "Combo":{
-    "NAME":"连招",
-    "DESCRIPTION": "射击类 NL 造成 !D! 点伤害2次， NL 如果本回合打出上一张牌是 斩击类 ，则抽一张牌；若是 射击类 ，则获得 [E] "
+    "MGR:FrenziedDragonBite":{
+    "NAME":"龙咬",
+    "DESCRIPTION": "使目标的所有负面状态层数翻倍。 NL 造成这些状态层数总和 !M! 倍的伤害。 NL 消耗 。"
   },
-    "CallOfGunfire":{
-    "NAME":"枪声呼叫",
-    "DESCRIPTION": "每打出两张射击类牌，获得 !M! 层呼叫。"
+    "MGR:QuickShooting":{
+    "NAME":"快速射击",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 丢弃至多 !M! 张牌，打出等量复制。"
   },
-    "ThroughShooting":{
-    "NAME":"贯穿射击",
-    "DESCRIPTION": "射击类 NL 造成 !D! 点伤害，无视格挡。"
+    "MGR:AccurateShooting":{
+    "NAME":"精确射击",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 至少有两张牌时，消耗两张牌，将伤害翻倍。"
   },
-    "ConfusingCombatants":{
-    "NAME":"乱战",
-    "DESCRIPTION": "射击类 对随机敌人造成 !D! 点伤害 !B! 次， NL 你每有一种 特定支援 ，增加一次。"
+    "MGR:Siren":{
+    "NAME":"塞壬☆",
+    "DESCRIPTION": "回合结束时，所有敌人的受到其负面状态层数总和的伤害，且场上每有一种负面状态就获得 !M! 点格挡。"
   },
-    "WarOfDADDY":{
-    "NAME":"War Of DADDY",
-    "DESCRIPTION": "获得4点格挡， NL 在弃牌堆放入一张此牌的复制品。"
+    "MGR:VocalPreparation":{
+    "NAME":"演唱准备",
+    "DESCRIPTION": "生成 !M! 个 *防御 mgr:音符 。将一张 *高潮！ 加入弃牌堆。 NL mgr:老大哥形态 ：改为抽牌堆。消耗 。",
+    "UPGRADE_DESCRIPTION": "生成 !M! 个 *防御 mgr:音符 。将一张 *高潮！ *+ 加入弃牌堆。 NL mgr:老大哥形态 ：改为抽牌堆。 保留 。 消耗 。"
   },
-    "Assault":{
-    "NAME":"突击",
-    "DESCRIPTION": "斩击类 NL 消耗一张牌，对所有敌人造成 !D! + 呼叫 层数点伤害。"
+    "MGR:Climax":{
+    "NAME":"高潮！",
+    "DESCRIPTION": "获得 !M! 层 *临时 mgr:强音 。 NL 本回合所有 mgr:音符 的生成数量翻倍。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "获得 !M! 层 *临时 mgr:强音 。 NL 本回合所有 mgr:音符 的生成数量翻倍。 NL 保留 。 消耗 。 "
   },
-    "MultipleCalls":{
-    "NAME":"多次呼叫",
-    "DESCRIPTION": "每获得一次 呼叫 ，抽一张牌。"
+    "MGR:":{
+    "NAME":"",
+    "DESCRIPTION": "清空你的 mgr:计数器 ，每点计数生成 !M! 个 *防御 mgr:音符 。"
   },
-    "BarrierProtection":{
-    "NAME":"屏障防护",
-    "DESCRIPTION": "消耗2层 呼叫 ，获得 !B! 点格挡。",
-    "EXTENDED_DESCRIPTION": [
-	"我没有足够的支援。",
-	""
-	]
+    "MGR:EndOfSanity":{
+    "NAME":"理智尽头",
+    "DESCRIPTION": "本场战斗中，将当前手牌的耗能变为0。 NL 每减费一张牌，向弃牌堆中加入一张 *虚空 。 NL 消耗 。"
+  },
+    "MGR:MyReflection":{
+    "NAME":"我的镜像",
+    "DESCRIPTION": "消耗手中随机费用最低的牌，使手中随机费用最高的牌本回合费用减少 [E] [E] 。",
+    "UPGRADE_DESCRIPTION": "消耗手中随机费用最低的牌，使手中随机费用最高的牌本回合费用减少 [E] [E] [E] 。"
+  },
+    "MGR:FolkRhymes":{
+    "NAME":"民谣",
+    "DESCRIPTION": "打出能力牌时不再产生 *抽牌 mgr:音符 ，改为产生 !M! 个 *防御音符 。",
+    "UPGRADE_DESCRIPTION": " 固有 。 NL 打出能力牌时不再产生 *抽牌 mgr:音符 ，改为产生 !M! 个 *防御音符 。"
   },
     "inmhito_c":{
     "NAME":"淫梦之一太刀",

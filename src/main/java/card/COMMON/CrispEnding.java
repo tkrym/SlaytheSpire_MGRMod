@@ -30,14 +30,16 @@ public class CrispEnding extends AbstractMGRCard {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.ATTACK,
                 AbstractCardEnum.MGR_COLOR, CardRarity.COMMON, CardTarget.ENEMY);
         this.baseDamage = DMG;
+        this.baseMagicNumber=1;
+        this.magicNumber=1;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-        addToBot(new DrawCardAction(p, 1));
+        //addToBot(new DrawCardAction(p, 1));
         if(MGR_character.EndingCheck()&&!this.myPurgeOnUse)
         {
-            CrispEnding tmp = (CrispEnding) this.makeSameInstanceOf();
+            /*CrispEnding tmp = (CrispEnding) this.makeSameInstanceOf();
             AbstractDungeon.player.limbo.addToBottom(tmp);
             tmp.current_x = this.current_x;
             tmp.current_y = this.current_y;
@@ -46,7 +48,8 @@ public class CrispEnding extends AbstractMGRCard {
             tmp.calculateCardDamage(m);
             tmp.purgeOnUse = true;
             tmp.myPurgeOnUse=true;
-            AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(tmp, m, this.energyOnUse, true, true), true);
+            AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(tmp, m, this.energyOnUse, true, true), true);*/
+            addToBot(new DrawCardAction(this.magicNumber));
         }
     }
 

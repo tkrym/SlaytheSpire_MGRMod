@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect;
 import note.AbstractNote;
 import note.StarryNote;
 
@@ -16,9 +17,11 @@ import java.util.ListIterator;
 
 public class ReconvertMagicAction extends AbstractGameAction
 {
-    public ReconvertMagicAction(int amount)
+    private boolean IsBigBrother;
+    public ReconvertMagicAction(int amount,boolean IsBigBrother)
     {
         this.amount = amount;
+        this.IsBigBrother=IsBigBrother;
         this.actionType = ActionType.CARD_MANIPULATION;
     }
 
@@ -62,12 +65,17 @@ public class ReconvertMagicAction extends AbstractGameAction
 
     private void AddToHand(AbstractCard c)
     {
-        if (AbstractDungeon.player.hand.size() < 10)
+        if(this.IsBigBrother) addToBot(new TemporaryDuplicationAction(c));
+        if (AbstractDungeon.player.hand.size() <= 9)
         {
             AbstractDungeon.player.hand.addToHand(c);
             c.lighten(false);
             c.unhover();
             c.applyPowers();
+        }else
+        {
+            AbstractDungeon.player.createHandIsFullDialog();
+            AbstractDungeon.effectList.add(new ShowCardAndAddToDiscardEffect(c, (float) Settings.WIDTH / 2.0F + 25.0F * Settings.scale + AbstractCard.IMG_WIDTH, (float) Settings.HEIGHT / 2.0F));
         }
     }
 }

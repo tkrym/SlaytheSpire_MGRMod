@@ -33,7 +33,7 @@ public class DefendNote extends AbstractNote {
         this.evokeAmount = this.baseEvokeAmount;
         this.channelAnimTimer = 0.5f;
         this.angle = MathUtils.random(360.0f);
-        this.forterate=2;
+        this.forterate=1;
         myColor= CardHelper.getColor(83,249,0);
         updateDescription();
     }

@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.OrbStrings;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.vfx.combat.LightningOrbPassiveEffect;
 import power.StereoPlusPower;
 import power.HarmonyFormPower;
@@ -30,7 +31,7 @@ public class AttackNote extends AbstractNote {
         this.baseEvokeAmount = 2;
         this.evokeAmount = this.baseEvokeAmount;
         this.channelAnimTimer = 0.5f;
-        this.forterate=1;
+        this.forterate=2;
         this.angle = MathUtils.random(360.0f);
         myColor= CardHelper.getColor(249,0,0);
         updateDescription();
@@ -39,6 +40,17 @@ public class AttackNote extends AbstractNote {
     public void updateDescription() {
         applyForte();
         this.description = orbString.DESCRIPTION[0]+this.evokeAmount+orbString.DESCRIPTION[1]+this.forterate+orbString.DESCRIPTION[2];
+    }
+
+    @Override
+    public void myApplyForte()
+    {
+        AbstractPower power = AbstractDungeon.player.getPower(POWER_ID);
+        if (power != null)
+        {
+            this.evokeAmount = Math.max(0, this.baseEvokeAmount + power.amount*this.forterate);
+        }
+        else this.evokeAmount = this.baseEvokeAmount;
     }
 
     public void myEvoke()

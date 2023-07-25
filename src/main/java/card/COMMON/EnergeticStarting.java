@@ -30,14 +30,16 @@ public class EnergeticStarting extends AbstractMGRCard {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.SKILL,
                 AbstractCardEnum.MGR_COLOR, CardRarity.COMMON, CardTarget.SELF);
         this.baseBlock=BLOCK;
+        this.baseMagicNumber=1;
+        this.magicNumber=1;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p,p,this.block));
-        addToBot(new DrawCardAction(p, 1));
+        //addToBot(new DrawCardAction(p, 1));
         if(MGR_character.StartingCheck()&&!this.myPurgeOnUse)
         {
-            EnergeticStarting tmp = (EnergeticStarting) this.makeSameInstanceOf();
+            /*EnergeticStarting tmp = (EnergeticStarting) this.makeSameInstanceOf();
             AbstractDungeon.player.limbo.addToBottom(tmp);
             tmp.current_x = this.current_x;
             tmp.current_y = this.current_y;
@@ -46,7 +48,8 @@ public class EnergeticStarting extends AbstractMGRCard {
             tmp.calculateCardDamage(m);
             tmp.purgeOnUse = true;
             tmp.myPurgeOnUse=true;
-            AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(tmp, m, this.energyOnUse, true, true), true);
+            AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(tmp, m, this.energyOnUse, true, true), true);*/
+            addToBot(new DrawCardAction(this.magicNumber));
         }
     }
 
