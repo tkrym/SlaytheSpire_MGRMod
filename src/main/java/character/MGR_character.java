@@ -71,7 +71,7 @@ public class MGR_character extends CustomPlayer{
         this.dialogY = this.drawY + 220.0F * Settings.scale;
         initializeClass(MGR_STAND, MGR_SHOULDER_2, MGR_SHOULDER_1, MGR_CORPSE,
                 getLoadout(),
-                0.0F, 0.0F, 200.0F, 320.0F,
+                0.0F, 0.0F, 150.0F, 350.0F,
                 new EnergyManager(ENERGY_PER_TURN));
     }
 
@@ -194,12 +194,19 @@ public class MGR_character extends CustomPlayer{
     public void useCard(AbstractCard c, AbstractMonster m, int e)
     {
         super.useCard(c,m,e);
-        if(!c.dontTriggerOnUseCard)
-        {
-            if(c.type.equals(AbstractCard.CardType.POWER)&&this.hasPower(FolkRhymesPower.POWER_ID))
-                ((FolkRhymesPower)this.getPower(FolkRhymesPower.POWER_ID)).Trigger();
-            else AbstractNote.GenerateNoteBottom(c);
-        }
+        AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
+            @Override
+            public void update()
+            {
+                if(!c.dontTriggerOnUseCard)
+                {
+                    if(c.type.equals(AbstractCard.CardType.POWER)&&AbstractDungeon.player.hasPower(FolkRhymesPower.POWER_ID))
+                        ((FolkRhymesPower)AbstractDungeon.player.getPower(FolkRhymesPower.POWER_ID)).Trigger();
+                    else AbstractNote.GenerateNoteBottom(c);
+                }
+                this.isDone=true;
+            }
+        });
     }
 
 

@@ -1,20 +1,15 @@
-package card.TEST;
+package card.RARE;
 
-import action.ApplyForteAction;
 import action.ChannelNoteAction;
 import card.AbstractMGRCard;
-import card.SPECIAL.FrenziedDragonBite;
+import card.SPECIAL.Climax;
 import character.MGR_character;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.PoisonPower;
 import note.DefendNote;
 import path.AbstractCardEnum;
 

@@ -75,7 +75,7 @@
     "NAME": "只属于你的舞台",
     "FLAVOR": "于此刻响彻世界。",
     "DESCRIPTIONS": [
-      "你的 #ymgr:计数器 不会低于 #b1 。 NL 回合开始时，随机生成一个 #ymgr:基本音符 。"
+      "你的 #ymgr:计数器 不会低于 #b1 。 NL 回合开始时，随机生成三个 #ymgr:基本音符 。"
     ]
   },
   "MGR:WitchHat": {

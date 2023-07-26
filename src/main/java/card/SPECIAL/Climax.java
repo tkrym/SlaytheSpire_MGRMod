@@ -1,4 +1,4 @@
-package card.TEST;
+package card.SPECIAL;
 
 import action.ApplyForteAction;
 import card.AbstractMGRCard;

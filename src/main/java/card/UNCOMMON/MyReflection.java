@@ -1,4 +1,4 @@
-package card.TEST;
+package card.UNCOMMON;
 
 import action.ApplyForteAction;
 import action.MyReflectionAction;

@@ -329,9 +329,9 @@
     "DESCRIPTION": "打出能力牌时不再产生 *抽牌 mgr:音符 ，改为产生 !M! 个 *防御音符 。",
     "UPGRADE_DESCRIPTION": " 固有 。 NL 打出能力牌时不再产生 *抽牌 mgr:音符 ，改为产生 !M! 个 *防御音符 。"
   },
-    "inmhito_c":{
-    "NAME":"淫梦之一太刀",
-    "DESCRIPTION": "斩击类 NL 造成 !D! 点伤害。 NL 可选择消耗 !M! 层 呼叫，抽等同于敌人身上debuff层数的牌。"
+    "MGR:Test2":{
+    "NAME":"Test2",
+    "DESCRIPTION": "获得 !B! 点格挡。 NL mgr:尾音 ：再获得 !M! 点。 NL mgr:起音 ：抽1张牌。"
   },
     "Dodge":{
     "NAME":"闪身",

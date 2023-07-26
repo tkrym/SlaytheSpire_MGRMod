@@ -42,6 +42,8 @@ public class YourExclusiveStage extends CustomRelic{
         flash();
         addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
         AbstractNote.GenerateRandomBasicNoteBottom();
+        AbstractNote.GenerateRandomBasicNoteBottom();
+        AbstractNote.GenerateRandomBasicNoteBottom();
     }
 
     public String getUpdatedDescription() { return this.DESCRIPTIONS[0]; }
