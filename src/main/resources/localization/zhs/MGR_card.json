@@ -329,13 +329,14 @@
     "DESCRIPTION": "打出能力牌时不再产生 *抽牌 mgr:音符 ，改为产生 !M! 个 *防御音符 。",
     "UPGRADE_DESCRIPTION": " 固有 。 NL 打出能力牌时不再产生 *抽牌 mgr:音符 ，改为产生 !M! 个 *防御音符 。"
   },
-    "MGR:Test2":{
-    "NAME":"Test2",
-    "DESCRIPTION": "获得 !B! 点格挡。 NL mgr:尾音 ：再获得 !M! 点。 NL mgr:起音 ：抽1张牌。"
+    "MGR:TestCard2":{
+    "NAME":"TestCard2",
+    "DESCRIPTION": "获得 !B! 点格挡。 NL mgr:尾音 ：抽 !M! 张牌。 NL mgr:起音 ：下回合获得 [E] 。",
+    "UPGRADE_DESCRIPTION": "获得 !B! 点格挡。 NL mgr:尾音 ：生成 !M! 个 *抽牌 mgr:音符 。 NL mgr:起音 ：下回合生成 !M! 个 mgr:星空音符 。"
   },
-    "Dodge":{
-    "NAME":"闪身",
-    "DESCRIPTION": "获得 !B! 点格挡，抽一张牌。"
+    "MGR:TestCard3":{
+    "NAME":"TestCard3",
+    "DESCRIPTION": "每当你通过 mgr:注视 杀死一名 *非爪牙 的敌人，获得 !M! 点最大生命。"
   },
     "Ijiritaosu":{
     "NAME":"玩弄致死",

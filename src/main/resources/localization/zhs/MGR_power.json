@@ -161,10 +161,11 @@
       " 层 #y强音 。"
     ]
   },  
-    "CyclingByBikePower": {
-    "NAME": "自行车骑行",
+    "MGR:TestCard3Power": {
+    "NAME": "TestCard3Power",
     "DESCRIPTIONS": [
-      "每回合多抽两张牌。"
+      "每当你通过 #y注视 杀死一名 #y非爪牙 的敌人，获得 #b",
+      " 点最大生命。"
     ]
   },   
     "MotorVehicleAttentionPower": {

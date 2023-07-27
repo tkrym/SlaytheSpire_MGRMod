@@ -9,6 +9,8 @@ import card.RARE.*;
 import card.COMMON.OneUp;
 import card.RARE.Hallucination;
 import card.BASIC.Peek;
+import card.TEST.TestCard2;
+import card.TEST.TestCard3;
 import card.UNCOMMON.MyReflection;
 import card.RARE.VocalPreparation;
 import card.UNCOMMON.Bewildered;
@@ -266,6 +268,8 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         this.cardsToAdd.add(new VocalPreparation());
         this.cardsToAdd.add(new FolkRhymes());
         this.cardsToAdd.add(new MyReflection());
+        this.cardsToAdd.add(new TestCard2());
+        this.cardsToAdd.add(new TestCard3());
     }
     @Override
     public void receiveEditRelics()

@@ -2,16 +2,23 @@ package action;
 import character.MGR_character;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
+import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.MinionPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom.RoomPhase;
+import com.megacrit.cardcrawl.vfx.combat.BiteEffect;
 import hook.OnChordHook;
 import hook.OnGazeTriggeredHook;
 import power.GazePower;
+import power.TestCard3Power;
 import relic.Sunglasses;
 
 public class GazeLoseHpAction extends AbstractGameAction {
@@ -34,12 +41,15 @@ public class GazeLoseHpAction extends AbstractGameAction {
                 if(p==null) return;
                 this.amount=p.amount;
                 if (this.target.currentHealth > 0) {
-                    //this.target.tint.color = MGR_character.myBuleColor;
-                    //this.target.tint.changeColor(Color.WHITE.cpy());
                     this.target.damage(new DamageInfo(this.source, this.amount, DamageType.HP_LOSS));
-                    //if (this.target.isDying) {}
+                    if (AbstractDungeon.player.hasPower(TestCard3Power.POWER_ID)&&(this.target.isDying||this.target.currentHealth <= 0)&&!this.target.halfDead&&!this.target.hasPower(MinionPower.POWER_ID))
+                    {
+                        addToTop(new WaitAction(0.1f));
+                        addToTop(new VFXAction(AbstractDungeon.player,new BiteEffect(this.target.hb.cX, this.target.hb.cY - (40.0f * Settings.scale), Color.SCARLET.cpy()), 0.1f,true));
+                        AbstractDungeon.player.increaseMaxHp(AbstractDungeon.player.getPower(TestCard3Power.POWER_ID).amount, false);
+                    }
                 }
-                int dec=2;
+                int dec=3;
                 if(AbstractDungeon.player.hasRelic(Sunglasses.ID)) {dec=0;AbstractDungeon.player.getRelic(Sunglasses.ID).flash();}
                 p.amount-=dec;
                 p.flashWithoutSound();

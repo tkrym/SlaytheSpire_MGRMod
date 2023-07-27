@@ -44,8 +44,8 @@ public class TestCard2 extends AbstractMGRCard
         addToBot(new GainBlockAction(p, p, this.block));
         if (!this.upgraded)
         {
-            if (MGR_character.StartingCheck()) addToBot(new DrawCardAction(this.magicNumber));
-            if (MGR_character.EndingCheck())
+            if (MGR_character.EndingCheck()) addToBot(new DrawCardAction(this.magicNumber));
+            if (MGR_character.StartingCheck())
                 addToBot(new ApplyPowerAction(p, p, new EnergizedBluePower(p, this.magicNumber), this.magicNumber));
         }
         else
