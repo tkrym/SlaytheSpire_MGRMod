@@ -7,15 +7,15 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class TestCard3Power extends AbstractPower
+public class SalivatePower extends AbstractPower
 {
-    public static final String POWER_ID = "MGR:TestCard3Power";
+    public static final String POWER_ID = "MGR:SalivatePower";
     private static final String IMG = "img/power/" + POWER_ID.substring(4) + ".png";
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    public TestCard3Power(int amount)
+    public SalivatePower(int amount)
     {
         this.name = NAME;
         this.ID = POWER_ID;

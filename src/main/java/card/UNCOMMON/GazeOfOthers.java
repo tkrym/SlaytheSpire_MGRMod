@@ -1,4 +1,4 @@
-package card.COMMON;
+package card.UNCOMMON;
 
 import card.AbstractMGRCard;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -26,7 +26,7 @@ public class GazeOfOthers extends AbstractMGRCard {
     private static final int MAGIC = 1;
     public GazeOfOthers() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.SKILL,
-                AbstractCardEnum.MGR_COLOR, CardRarity.COMMON, CardTarget.ENEMY);
+                AbstractCardEnum.MGR_COLOR, CardRarity.UNCOMMON, CardTarget.ENEMY);
         this.baseBlock=BLOCK;
         this.baseMagicNumber=MAGIC;
         this.magicNumber=this.baseMagicNumber;

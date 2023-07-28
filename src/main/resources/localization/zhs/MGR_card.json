@@ -227,7 +227,7 @@
   },
     "MGR:Nocturnal":{
     "NAME":"夜行",
-    "DESCRIPTION": "将一张随机诅咒加入抽牌堆。 NL 你的抽牌堆、弃牌堆与手牌中每有一张诅咒，对随机敌人造成 !D! 点伤害。"
+    "DESCRIPTION": "将一张随机诅咒加入弃牌堆。 NL 你的抽牌堆、弃牌堆与手牌中每有一张诅咒，对随机敌人造成 !D! 点伤害。"
   },
     "MGR:TheCursed":{
     "NAME":"被诅咒者",
@@ -276,7 +276,7 @@
     "NAME":"溺水",
     "DESCRIPTION": "造成 !D! 点伤害。 NL 给予 !M! 层 *缠绕 。"
   },
-    "MGR:ReconvertMagic":{
+    "MGR:ReconvertingCharm":{
     "NAME":"回溯魔法",
     "DESCRIPTION": "造成 !D! 点伤害。 NL 将你打出的上 !M! 张未消耗的牌移回手牌。 NL mgr:老大哥形态 ：获得这些牌的 mgr:临时复制 。"
   },
@@ -329,27 +329,26 @@
     "DESCRIPTION": "打出能力牌时不再产生 *抽牌 mgr:音符 ，改为产生 !M! 个 *防御音符 。",
     "UPGRADE_DESCRIPTION": " 固有 。 NL 打出能力牌时不再产生 *抽牌 mgr:音符 ，改为产生 !M! 个 *防御音符 。"
   },
-    "MGR:TestCard2":{
-    "NAME":"TestCard2",
+    "MGR:Dexterous":{
+    "NAME":"灵巧",
     "DESCRIPTION": "获得 !B! 点格挡。 NL mgr:尾音 ：抽 !M! 张牌。 NL mgr:起音 ：下回合获得 [E] 。",
     "UPGRADE_DESCRIPTION": "获得 !B! 点格挡。 NL mgr:尾音 ：生成 !M! 个 *抽牌 mgr:音符 。 NL mgr:起音 ：下回合生成 !M! 个 mgr:星空音符 。"
   },
-    "MGR:TestCard3":{
-    "NAME":"TestCard3",
+    "MGR:Salivate":{
+    "NAME":"垂涎",
     "DESCRIPTION": "每当你通过 mgr:注视 杀死一名 *非爪牙 的敌人，获得 !M! 点最大生命。"
   },
-    "Ijiritaosu":{
-    "NAME":"玩弄致死",
-    "DESCRIPTION": "斩击类 NL 造成 !D! 点伤害，若这张卡造成 !M! 点以上的伤害，获得 sz支援 。"
+    "MGR:SummoningCharm":{
+    "NAME":"召唤魔法",
+    "DESCRIPTION": "从抽牌堆中将随机一张费用最高的牌置入手牌。它在本回合费用减少 [E] 。 消耗"
   },
-    "Xuli":{
-    "NAME":"蓄力",
-    "DESCRIPTION": "下一张 斩击类 牌伤害增加 !M! 点，这张牌不会打断 连招 。"
+    "MGR:Observe":{
+    "NAME":"观察",
+    "DESCRIPTION": "生成 !D! 个 *攻击 mgr:音符 !M! 次。 NL 每当被打出，增加2个。 NL 每当被丢弃，增加1次。"
   },
-    "Haisuinojin":{
-    "NAME":"背水之阵",
-    "DESCRIPTION": "抽 !M! 张卡，当你没有呼叫时，抽 !B! 张。",
-    "UPGRADE_DESCRIPTION": "固有 NL 抽 !M! 张卡，当你没有呼叫时，抽 !B! 张。"
+    "MGR:SunDescending":{
+    "NAME":"日影西斜",
+    "DESCRIPTION": "无法被打出 。 NL 该牌在你手牌中时，你每打出或丢弃 !M! 张牌， 对所有敌人造成 !D! 点伤害。"
   },
     "Endurance":{
     "NAME":"妖精灵力",

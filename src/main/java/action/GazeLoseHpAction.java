@@ -18,7 +18,7 @@ import com.megacrit.cardcrawl.vfx.combat.BiteEffect;
 import hook.OnChordHook;
 import hook.OnGazeTriggeredHook;
 import power.GazePower;
-import power.TestCard3Power;
+import power.SalivatePower;
 import relic.Sunglasses;
 
 public class GazeLoseHpAction extends AbstractGameAction {
@@ -42,11 +42,11 @@ public class GazeLoseHpAction extends AbstractGameAction {
                 this.amount=p.amount;
                 if (this.target.currentHealth > 0) {
                     this.target.damage(new DamageInfo(this.source, this.amount, DamageType.HP_LOSS));
-                    if (AbstractDungeon.player.hasPower(TestCard3Power.POWER_ID)&&(this.target.isDying||this.target.currentHealth <= 0)&&!this.target.halfDead&&!this.target.hasPower(MinionPower.POWER_ID))
+                    if (AbstractDungeon.player.hasPower(SalivatePower.POWER_ID)&&(this.target.isDying||this.target.currentHealth <= 0)&&!this.target.halfDead&&!this.target.hasPower(MinionPower.POWER_ID))
                     {
                         addToTop(new WaitAction(0.1f));
                         addToTop(new VFXAction(AbstractDungeon.player,new BiteEffect(this.target.hb.cX, this.target.hb.cY - (40.0f * Settings.scale), Color.SCARLET.cpy()), 0.1f,true));
-                        AbstractDungeon.player.increaseMaxHp(AbstractDungeon.player.getPower(TestCard3Power.POWER_ID).amount, false);
+                        AbstractDungeon.player.increaseMaxHp(AbstractDungeon.player.getPower(SalivatePower.POWER_ID).amount, false);
                     }
                 }
                 int dec=3;

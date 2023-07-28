@@ -9,8 +9,10 @@ import card.RARE.*;
 import card.COMMON.OneUp;
 import card.RARE.Hallucination;
 import card.BASIC.Peek;
-import card.TEST.TestCard2;
-import card.TEST.TestCard3;
+import card.UNCOMMON.SummoningCharm;
+import card.COMMON.Dexterous;
+import card.RARE.Salivate;
+import card.UNCOMMON.SunDescending;
 import card.UNCOMMON.MyReflection;
 import card.RARE.VocalPreparation;
 import card.UNCOMMON.Bewildered;
@@ -23,7 +25,7 @@ import card.RARE.Shatter;
 import card.COMMON.AccurateShooting;
 import card.UNCOMMON.Drown;
 import card.RARE.DragonClaw;
-import card.UNCOMMON.ReconvertMagic;
+import card.UNCOMMON.ReconvertingCharm;
 import card.UNCOMMON.NowhereToHide;
 import card.UNCOMMON.ChristmasGift;
 import card.UNCOMMON.Strafe;
@@ -259,7 +261,7 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         this.cardsToAdd.add(new Strafe());
         this.cardsToAdd.add(new NowhereToHide());
         this.cardsToAdd.add(new Drown());
-        this.cardsToAdd.add(new ReconvertMagic());
+        this.cardsToAdd.add(new ReconvertingCharm());
         this.cardsToAdd.add(new DragonClaw());
         this.cardsToAdd.add(new QuickShooting());
         this.cardsToAdd.add(new AccurateShooting());
@@ -268,8 +270,10 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         this.cardsToAdd.add(new VocalPreparation());
         this.cardsToAdd.add(new FolkRhymes());
         this.cardsToAdd.add(new MyReflection());
-        this.cardsToAdd.add(new TestCard2());
-        this.cardsToAdd.add(new TestCard3());
+        this.cardsToAdd.add(new Dexterous());
+        this.cardsToAdd.add(new Salivate());
+        this.cardsToAdd.add(new SummoningCharm());
+        this.cardsToAdd.add(new SunDescending());
     }
     @Override
     public void receiveEditRelics()

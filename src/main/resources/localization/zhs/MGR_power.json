@@ -161,8 +161,8 @@
       " 层 #y强音 。"
     ]
   },  
-    "MGR:TestCard3Power": {
-    "NAME": "TestCard3Power",
+    "MGR:SalivatePower": {
+    "NAME": "垂涎",
     "DESCRIPTIONS": [
       "每当你通过 #y注视 杀死一名 #y非爪牙 的敌人，获得 #b",
       " 点最大生命。"

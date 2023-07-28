@@ -15,10 +15,10 @@ import note.StarryNote;
 
 import java.util.ListIterator;
 
-public class ReconvertMagicAction extends AbstractGameAction
+public class ReconvertingCharmAction extends AbstractGameAction
 {
     private boolean IsBigBrother;
-    public ReconvertMagicAction(int amount,boolean IsBigBrother)
+    public ReconvertingCharmAction(int amount,boolean IsBigBrother)
     {
         this.amount = amount;
         this.IsBigBrother=IsBigBrother;

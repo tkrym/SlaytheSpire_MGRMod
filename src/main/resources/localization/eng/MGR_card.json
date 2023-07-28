@@ -286,8 +286,8 @@
     "NAME":"FrenziedDragonBite",
     "DESCRIPTION": "射击类 NL 消耗1层 呼叫 ， NL 对随机敌人造成 !D! 点伤害 !M! 次。",
   },
-    "MGR:ReconvertMagic":{
-    "NAME":"ReconvertMagic",
+    "MGR:ReconvertingCharm":{
+    "NAME":"ReconvertingCharm",
     "DESCRIPTION": "斩击类 NL 射击类 NL 消耗1层 呼叫 ， NL 对所有敌人造成 !D! 点伤害。"
   },
     "Doubleslain":{

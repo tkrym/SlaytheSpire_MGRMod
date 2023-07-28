@@ -1,4 +1,4 @@
-package card.TEST;
+package card.COMMON;
 
 import action.ChannelNoteAction;
 import card.AbstractMGRCard;
@@ -15,11 +15,10 @@ import com.megacrit.cardcrawl.powers.EnergizedBluePower;
 import note.DrawNote;
 import path.AbstractCardEnum;
 import power.NextTurnStarryNotePower;
-import power.SongOfSubmersionPower;
 
-public class TestCard2 extends AbstractMGRCard
+public class Dexterous extends AbstractMGRCard
 {
-    public static final String ID = "MGR:TestCard2";
+    public static final String ID = "MGR:Dexterous";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
@@ -30,7 +29,7 @@ public class TestCard2 extends AbstractMGRCard
     private static final int BLOCK = 7;
     private static final int PLUS_BLOCK = 2;
 
-    public TestCard2()
+    public Dexterous()
     {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.SKILL,
                 AbstractCardEnum.MGR_COLOR, CardRarity.COMMON, CardTarget.SELF);
@@ -60,7 +59,7 @@ public class TestCard2 extends AbstractMGRCard
         }
     }
 
-    public AbstractCard makeCopy() {return new TestCard2();}
+    public AbstractCard makeCopy() {return new Dexterous();}
 
     @Override
     public void triggerOnGlowCheck()
