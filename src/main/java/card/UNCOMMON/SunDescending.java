@@ -48,6 +48,14 @@ public class SunDescending extends AbstractMGRCard
     }
 
     @Override
+    public void calculateCardDamage(AbstractMonster m)
+    {
+        super.calculateCardDamage(m);
+        this.damage = this.baseDamage;
+        this.isDamageModified = false;
+    }
+
+    @Override
     public void didDiscard() { DecCounter();}
 
     @Override
@@ -56,19 +64,16 @@ public class SunDescending extends AbstractMGRCard
     private void DecCounter()
     {
         this.magicNumber--;
-        this.baseMagicNumber=0;
         if (this.magicNumber <= 0)
         {
-            this.magicNumber = this.GetMagic();
+            this.magicNumber = this.baseMagicNumber;
             this.superFlash(Color.GREEN.cpy());
             addToTop(new WaitAction(0.1f));
             addToTop(new DamageAllEnemiesAction(AbstractDungeon.player, this.baseDamage, DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.NONE));
         }
-        this.isMagicNumberModified=true;
+        if(this.magicNumber!=this.baseMagicNumber) this.isMagicNumberModified=true;
         initializeDescription();
     }
-
-    private int GetMagic(){return this.upgraded?(MAGIC+PLUS_MAGIC):MAGIC;}
 
     @Override
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {return false;}

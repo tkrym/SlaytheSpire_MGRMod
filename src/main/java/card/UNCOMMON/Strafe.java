@@ -19,18 +19,19 @@ public class Strafe extends AbstractMGRCard {
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String IMG = "img/card/"+ID.substring(4)+".png";
     private static final int COST = 2;
-    private static final int DMG = 6;
-    private static final int PLUS_DMG = 3;
+    private static final int MAGIC = 5;
+    private static final int PLUS_MAGIC = 2;
     public Strafe() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.ATTACK,
                 AbstractCardEnum.MGR_COLOR, CardRarity.UNCOMMON, CardTarget.ENEMY);
-        this.baseDamage = DMG;
+        this.baseMagicNumber=MAGIC;
+        this.magicNumber=this.baseMagicNumber;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        for(int i=1;i<=this.damage;i++)
+        for(int i=1;i<=this.magicNumber;i++)
             addToBot(new DamageAction(m, new DamageInfo(p, 1, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-        for(int i=1;i<=this.damage;i++)
+        for(int i=1;i<=this.magicNumber;i++)
             addToBot(new ChannelNoteAction(new AttackNote()));
     }
 
@@ -39,7 +40,7 @@ public class Strafe extends AbstractMGRCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeDamage(PLUS_DMG);
+            this.upgradeMagicNumber(PLUS_MAGIC);
         }
     }
 }

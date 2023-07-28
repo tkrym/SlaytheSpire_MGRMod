@@ -15,7 +15,7 @@ public class OldBow extends CustomRelic{
     public static final String ID = "MGR:OldBow";
     private static final String IMG = "img/relic/"+ID.substring(4)+".png";
     private static final String OUTLINE = "img/relic/outline/"+ID.substring(4)+".png";
-    private static final int MAGIC=3;
+    private static final int MAGIC=6;
 
     public OldBow() {
         super(ID, ImageMaster.loadImage(IMG), ImageMaster.loadImage(OUTLINE), RelicTier.COMMON, LandingSound.FLAT);

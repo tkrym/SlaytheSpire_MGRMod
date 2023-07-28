@@ -14,23 +14,29 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.DrawCardNextTurnPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+import note.*;
 
-public class TinyOrchestraPower extends AbstractPower {
+public class TinyOrchestraPower extends AbstractPower
+{
     public static final String POWER_ID = "MGR:TinyOrchestraPower";
-    private static final String IMG = "img/power/"+POWER_ID.substring(4)+".png";
+    private static final String IMG = "img/power/" + POWER_ID.substring(4) + ".png";
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
     private boolean AttackPlayed;
-    private boolean SkillPlayed;
-    private boolean PowerPlayed;
-    private boolean STATUSPlayed;
-    private boolean CURSEPlayed;
+    private boolean DefendPlayed;
+    private boolean DrawPlayed;
+    private boolean DebuffPlayed;
+    private boolean ArtifactPlayed;
+    private boolean StarryPlayed;
+    private boolean GhostPlayed;
 
-    public TinyOrchestraPower(int amount) {
+    public TinyOrchestraPower(int amount)
+    {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = AbstractDungeon.player;
@@ -41,12 +47,14 @@ public class TinyOrchestraPower extends AbstractPower {
 
     private int CountType()
     {
-        int cnt=0;
-        if(AttackPlayed) cnt++;
-        if(SkillPlayed) cnt++;
-        if(PowerPlayed) cnt++;
-        if(STATUSPlayed) cnt++;
-        if(CURSEPlayed) cnt++;
+        int cnt = 0;
+        if (AttackPlayed) cnt++;
+        if (DefendPlayed) cnt++;
+        if (DrawPlayed) cnt++;
+        if (DebuffPlayed) cnt++;
+        if (ArtifactPlayed) cnt++;
+        if (StarryPlayed) cnt++;
+        if (GhostPlayed) cnt++;
         return cnt;
     }
 
@@ -54,38 +62,39 @@ public class TinyOrchestraPower extends AbstractPower {
     @Override
     public void atEndOfTurn(boolean isPlayer)
     {
-        if(CountType()>0)
+        UpdateNoteTypeCount();
+        if (CountType() > 0)
         {
             flashWithoutSound();
-            addToBot(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(CountType()*this.amount, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-            if(CountType()>=3)
-                addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new DrawCardNextTurnPower(AbstractDungeon.player, 1), 1));
+            addToBot(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(CountType() * this.amount, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.BLUNT_LIGHT));
         }
-        AttackPlayed=false;
-        SkillPlayed=false;
-        PowerPlayed=false;
-        STATUSPlayed=false;
-        CURSEPlayed=false;
-    }
-
-    @Override
-    public void onUseCard(AbstractCard c, UseCardAction action)
-    {
-        switch (c.type)
-        {
-            case ATTACK:AttackPlayed=true;break;
-            case SKILL:SkillPlayed=true;break;
-            case POWER:PowerPlayed=true;break;
-            case STATUS:STATUSPlayed=true;break;
-            case CURSE:CURSEPlayed=true;break;
-            default:;
-        }
+        AttackPlayed = false;
+        DefendPlayed = false;
+        DrawPlayed = false;
+        DebuffPlayed = false;
+        ArtifactPlayed = false;
+        StarryPlayed = false;
+        GhostPlayed = false;
         updateDescription();
     }
+
+    public void UpdateNoteTypeCount()
+    {
+        for (AbstractOrb orb : AbstractDungeon.actionManager.orbsChanneledThisTurn)
+            if (orb instanceof AttackNote) AttackPlayed = true;
+            else if (orb instanceof DefendNote) DefendPlayed = true;
+            else if (orb instanceof DrawNote) DrawPlayed = true;
+            else if (orb instanceof DebuffNote) DebuffPlayed = true;
+            else if (orb instanceof ArtifactNote) ArtifactPlayed = true;
+            else if (orb instanceof StarryNote) StarryPlayed = true;
+            else if (orb instanceof GhostNote) GhostPlayed = true;
+        updateDescription();
+    }
+
 
     @Override
     public void updateDescription()
     {
-        this.description = DESCRIPTIONS[0]+this.amount+DESCRIPTIONS[1]+CountType()+DESCRIPTIONS[2];
+        this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1] + CountType() + DESCRIPTIONS[2];
     }
 }

@@ -208,7 +208,6 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         this.cardsToAdd.clear();
         this.cardsToAdd.add(new Strike_MGR());
         this.cardsToAdd.add(new Defend_MGR());
-        this.cardsToAdd.add(new CoinflipStrike());
         this.cardsToAdd.add(new AttackTied());
         this.cardsToAdd.add(new CrispEnding());
         this.cardsToAdd.add(new Lullaby());
@@ -274,6 +273,7 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         this.cardsToAdd.add(new Salivate());
         this.cardsToAdd.add(new SummoningCharm());
         this.cardsToAdd.add(new SunDescending());
+        this.cardsToAdd.add(new FourEyes());
     }
     @Override
     public void receiveEditRelics()
@@ -326,6 +326,8 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
     @Override
     public void receivePostDungeonInitialize() {
         if(AbstractDungeon.player instanceof MGR_character)
+        {
             AbstractDungeon.bossRelicPool.remove("Snecko Eye");
+        }
     }
 }

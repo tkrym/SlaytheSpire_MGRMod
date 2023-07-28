@@ -12,8 +12,8 @@ public class LittleAngel extends CustomRelic{
     public static final String ID = "MGR:LittleAngel";
     private static final String IMG = "img/relic/"+ID.substring(4)+".png";
     private static final String OUTLINE = "img/relic/outline/"+ID.substring(4)+".png";
-    public static final int MAGIC = 3;
-    public static final int DrawThreshold = 1;
+    public static final int MAGIC = 2;
+    public static final int DrawThreshold = 2;
 
     public LittleAngel() {
         super(ID, ImageMaster.loadImage(IMG), ImageMaster.loadImage(OUTLINE), RelicTier.RARE, LandingSound.CLINK);
@@ -21,11 +21,11 @@ public class LittleAngel extends CustomRelic{
 
     @Override
     public void atTurnStartPostDraw() {
-        final int OriginCount= (int) AbstractDungeon.player.hand.group.stream().filter(c->c.type==AbstractCard.CardType.SKILL).count();
+        final int OriginCount= (int) AbstractDungeon.player.hand.group.stream().filter(c->c.type==AbstractCard.CardType.SKILL&&c.cost!=-2).count();
         addToBot(new AbstractGameAction() {
             @Override
             public void update() {
-                if(AbstractDungeon.player.hand.group.stream().filter(c->c.type==AbstractCard.CardType.SKILL).count()-OriginCount<= LittleAngel.DrawThreshold)
+                if(AbstractDungeon.player.hand.group.stream().filter(c->c.type==AbstractCard.CardType.SKILL&&c.cost!=-2).count()-OriginCount<= LittleAngel.DrawThreshold)
                 {
                     LittleAngel.this.flash();
                     addToTop(new DrawCardAction(LittleAngel.MAGIC));

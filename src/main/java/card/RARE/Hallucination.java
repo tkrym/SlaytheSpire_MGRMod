@@ -24,11 +24,11 @@ public class Hallucination extends AbstractMGRCard {
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG = "img/card/"+ID.substring(4)+".png";
-    private static final int COST = 1;
+    private static final int COST = 0;
     public Hallucination() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.SKILL,
                 AbstractCardEnum.MGR_COLOR, CardRarity.RARE, CardTarget.ENEMY);
-        //this.exhaust=true;
+        this.exhaust=true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m)

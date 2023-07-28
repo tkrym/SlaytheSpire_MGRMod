@@ -19,10 +19,10 @@ public class BroomStrike extends AbstractMGRCard {
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String IMG = "img/card/"+ID.substring(4)+".png";
     private static final int COST = 1;
-    private static final int DMG = 6;
-    private static final int PLUS_DMG = 3;
+    private static final int DMG = 7;
+    private static final int PLUS_DMG = 2;
     private static final int BLOCK = 6;
-    private static final int PLUS_BLOCK = 3;
+    private static final int PLUS_BLOCK = 2;
     public BroomStrike() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.ATTACK,
                 AbstractCardEnum.MGR_COLOR, CardRarity.COMMON, CardTarget.ENEMY);

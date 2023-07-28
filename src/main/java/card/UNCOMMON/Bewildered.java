@@ -28,6 +28,7 @@ public class Bewildered extends AbstractMGRCard {
         this.baseMagicNumber=MAGIC;
         this.magicNumber=this.baseMagicNumber;
         this.cardsToPreview=new Confused();
+        this.exhaust=true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

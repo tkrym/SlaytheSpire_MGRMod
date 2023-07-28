@@ -1,7 +1,10 @@
 package power;
 
 import action.GazeLoseHpAction;
+import character.MGR_character;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.HealthBarRenderPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.unique.PoisonLoseHpAction;
@@ -15,16 +18,18 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import hook.OnChordHook;
 import note.AbstractNote;
+import relic.Sunglasses;
 
 import java.util.ArrayList;
 
-public class GazePower extends AbstractPower implements OnChordHook {
+public class GazePower extends AbstractPower implements OnChordHook, HealthBarRenderPower
+{
     public static final String POWER_ID = "MGR:Gaze";
     private static final String IMG = "img/power/"+POWER_ID.substring(4)+".png";
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
-    public static final int DecreaseAmount=2;
+    public static final int DecreaseAmount=30;
 
     public GazePower(AbstractCreature owner, int amount) {
         this.name = NAME;
@@ -60,7 +65,8 @@ public class GazePower extends AbstractPower implements OnChordHook {
 
     @Override
     public void updateDescription() {
-        this.description=DESCRIPTIONS[0]+this.amount+DESCRIPTIONS[1]+DecreaseAmount+DESCRIPTIONS[2];
+        int DecAmount=AbstractDungeon.player.hasRelic(Sunglasses.ID)?Sunglasses.SunglassesNumber:DecreaseAmount;
+        this.description=DESCRIPTIONS[0]+this.amount+DESCRIPTIONS[1]+DecAmount+DESCRIPTIONS[2];
     }
 
     @Override
@@ -68,5 +74,17 @@ public class GazePower extends AbstractPower implements OnChordHook {
         if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && !AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
             AbstractDungeon.actionManager.addToTop(new GazeLoseHpAction(this.owner));
         }
+    }
+
+    @Override
+    public int getHealthBarAmount()
+    {
+        return this.amount;
+    }
+
+    @Override
+    public Color getColor()
+    {
+        return MGR_character.myBuleColor;
     }
 }

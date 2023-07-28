@@ -35,6 +35,7 @@ import java.util.ArrayList;
 import java.util.List;
 import note.*;
 import power.FolkRhymesPower;
+import power.TinyOrchestraPower;
 import relic.YourExclusiveStage;
 import stance.BigBrotherStance;
 import ui.CounterPanel;
@@ -168,6 +169,8 @@ public class MGR_character extends CustomPlayer{
                 for (AbstractPower p : this.powers) p.onChannel(orbToSet);
                 AbstractDungeon.actionManager.orbsChanneledThisCombat.add(orbToSet);
                 AbstractDungeon.actionManager.orbsChanneledThisTurn.add(orbToSet);
+                if(this.hasPower(TinyOrchestraPower.POWER_ID))
+                    ((TinyOrchestraPower)this.getPower(TinyOrchestraPower.POWER_ID)).UpdateNoteTypeCount();
                 (orbToSet).applyFocus();
                 if(index==this.orbs.size()-1)
                 {

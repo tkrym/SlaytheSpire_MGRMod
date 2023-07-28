@@ -22,7 +22,7 @@ public class GazeFromTheShadow extends AbstractMGRCard {
     public GazeFromTheShadow() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.SKILL,
                 AbstractCardEnum.MGR_COLOR, CardRarity.UNCOMMON, CardTarget.ENEMY);
-        this.isInnate=true;
+        //this.isInnate=true;
         this.baseMagicNumber=MAGIC;
         this.magicNumber=this.baseMagicNumber;
         this.exhaust=true;

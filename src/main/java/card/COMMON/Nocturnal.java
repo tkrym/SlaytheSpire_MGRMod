@@ -37,7 +37,7 @@ public class Nocturnal extends AbstractMGRCard {
                 cnt+=AbstractDungeon.player.drawPile.group.stream().filter(c->c.type.equals(CardType.CURSE)).count();
                 cnt+=AbstractDungeon.player.discardPile.group.stream().filter(c->c.type.equals(CardType.CURSE)).count();
                 for(int i=1;i<=cnt;i++)
-                    addToTop(new DamageRandomEnemyAction(new DamageInfo(p, Nocturnal.this.damage, Nocturnal.this.damageTypeForTurn), AttackEffect.FIRE));
+                    addToTop(new DamageAllEnemiesAction(p, Nocturnal.this.damage, Nocturnal.this.damageTypeForTurn, AttackEffect.FIRE));
                 this.isDone=true;
             }
         });

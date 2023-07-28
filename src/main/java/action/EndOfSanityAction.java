@@ -44,7 +44,7 @@ public class EndOfSanityAction extends AbstractGameAction
             while (cnt>0)
             {
                 int tmp= Math.min(cnt, 5);
-                addToTop(new MakeTempCardInDiscardAction(new VoidCard(),tmp));
+                addToTop(new MakeTempCardInDiscardAction(new Dazed(),tmp));
                 cnt-=tmp;
             }
         }

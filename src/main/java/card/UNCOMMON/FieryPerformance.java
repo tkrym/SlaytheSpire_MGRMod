@@ -4,10 +4,7 @@ import action.DiscardLeastCostAction;
 import card.AbstractMGRCard;
 import card.COMMON.Nocturnal;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
-import com.megacrit.cardcrawl.actions.common.DiscardSpecificCardAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.actions.unique.ExpertiseAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -49,7 +46,7 @@ public class FieryPerformance extends AbstractMGRCard {
                 for(AbstractCard c:AbstractDungeon.player.hand.group)
                     if(c.type.equals(CardType.CURSE)||c.type.equals(CardType.STATUS))
                     {
-                        addToTop(new DiscardSpecificCardAction(c));
+                        addToTop(new ExhaustSpecificCardAction(c,AbstractDungeon.player.hand));
                         addToTop(new WaitAction(0.1F));
                     }
                 this.isDone=true;
