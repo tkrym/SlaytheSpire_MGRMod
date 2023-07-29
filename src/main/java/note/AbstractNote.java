@@ -1,6 +1,7 @@
 package note;
 
 import action.ChannelNoteAction;
+import card.AbstractMGRCard;
 import card.RARE.LAB01;
 import card.COMMON.Marionette;
 import card.UNCOMMON.StarryDrift;
@@ -25,6 +26,8 @@ import com.megacrit.cardcrawl.vfx.combat.FrostOrbPassiveEffect;
 import effect.NotePassiveEffect;
 import effect.NoteTriggeredEffect;
 import power.*;
+
+import java.util.ArrayList;
 
 public abstract class AbstractNote extends AbstractOrb
 {
@@ -96,7 +99,7 @@ public abstract class AbstractNote extends AbstractOrb
 
     public static AbstractNote GetCorrespondingNote(AbstractCard c)
     {
-        if (c instanceof StarryDrift) return new StarryNote();
+        if (c instanceof AbstractMGRCard&&((AbstractMGRCard)c).IsStarryCard) return new StarryNote();
         else if (c instanceof Marionette) return new DebuffNote();
         AbstractNote note;
         switch (c.type)
@@ -129,12 +132,23 @@ public abstract class AbstractNote extends AbstractOrb
 
     public static AbstractNote GetRandomBasicNote()
     {
-        int seed = AbstractDungeon.cardRandomRng.random(99) + 1;
-        if (seed <= 30) return new AttackNote();
-        else if (seed <= 60) return new DefendNote();
-        else if (seed <= 76) return new DebuffNote();
-        else if (seed <= 92) return new DrawNote();
-        else return new ArtifactNote();
+        int seed = AbstractDungeon.cardRandomRng.random(99);
+        if(!AbstractDungeon.player.hasPower(RiverOfNotesPower.POWER_ID))
+        {
+            if (seed < 35) return new AttackNote();//35%
+            else if (seed < 60) return new DefendNote();//25%
+            else if (seed < 74) return new DebuffNote();//14%
+            else if (seed < 93) return new DrawNote();//19%
+            else return new ArtifactNote();//7%
+        }else
+        {
+            if(seed<25) return new AttackNote();//25%
+            else if(seed<45) return new DefendNote();//20%
+            else if(seed<54) return new StarryNote();//9%
+            else if(seed<74) return new DrawNote();//21%
+            else if(seed<91) return new DebuffNote();//17%
+            else return new ArtifactNote();//8%
+        }
     }
 
     public static void GenerateRandomBasicNoteBottom()
@@ -223,5 +237,40 @@ public abstract class AbstractNote extends AbstractOrb
     public void triggerEvokeAnimation()
     {
         AbstractDungeon.effectsQueue.add(new NoteTriggeredEffect(this.cX - 48.0F, this.cY - 48.0F, this.img, this.scale, this.c.cpy()));
+    }
+
+    public static int GetNoteTypeCountThisTurn()
+    {
+        return CountNoteType(AbstractDungeon.actionManager.orbsChanneledThisTurn);
+    }
+
+    public static int CountNoteType(ArrayList<AbstractOrb> notes)
+    {
+        boolean AttackPlayed=false;
+        boolean DefendPlayed=false;
+        boolean DrawPlayed=false;
+        boolean DebuffPlayed=false;
+        boolean ArtifactPlayed=false;
+        boolean StarryPlayed=false;
+        boolean GhostPlayed=false;
+        for (AbstractOrb orb : notes)
+        {
+            if (orb instanceof AttackNote) AttackPlayed = true;
+            else if (orb instanceof DefendNote) DefendPlayed = true;
+            else if (orb instanceof DrawNote) DrawPlayed = true;
+            else if (orb instanceof DebuffNote) DebuffPlayed = true;
+            else if (orb instanceof ArtifactNote) ArtifactPlayed = true;
+            else if (orb instanceof StarryNote) StarryPlayed = true;
+            else if (orb instanceof GhostNote) GhostPlayed = true;
+        }
+        int cnt = 0;
+        if (AttackPlayed) cnt++;
+        if (DefendPlayed) cnt++;
+        if (DrawPlayed) cnt++;
+        if (DebuffPlayed) cnt++;
+        if (ArtifactPlayed) cnt++;
+        if (StarryPlayed) cnt++;
+        if (GhostPlayed) cnt++;
+        return cnt;
     }
 }

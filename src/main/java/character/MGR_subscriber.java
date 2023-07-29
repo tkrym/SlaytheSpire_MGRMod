@@ -9,6 +9,11 @@ import card.RARE.*;
 import card.COMMON.OneUp;
 import card.RARE.Hallucination;
 import card.BASIC.Peek;
+import card.COMMON.Frighten;
+import card.TEST.EchoPhantom;
+import card.TEST.IntertwinedTimbres;
+import card.UNCOMMON.RiverOfNotes;
+import card.RARE.LightUpTheStage;
 import card.UNCOMMON.SummoningCharm;
 import card.COMMON.Dexterous;
 import card.RARE.Salivate;
@@ -34,7 +39,7 @@ import card.UNCOMMON.Swallow;
 import card.UNCOMMON.SongOfSubmersion;
 import card.COMMON.Chorus;
 import card.UNCOMMON.Futariboshi;
-import card.COMMON.Kimitomitahosizora;
+import card.UNCOMMON.Kimitomitahosizora;
 import card.UNCOMMON.StarryDrift;
 import card.UNCOMMON.Yazyuutokasu;
 import card.UNCOMMON.TheForsaken;
@@ -209,7 +214,6 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         this.cardsToAdd.add(new Strike_MGR());
         this.cardsToAdd.add(new Defend_MGR());
         this.cardsToAdd.add(new AttackTied());
-        this.cardsToAdd.add(new CrispEnding());
         this.cardsToAdd.add(new Lullaby());
         this.cardsToAdd.add(new EastOfTimeline());
         this.cardsToAdd.add(new GazeOfOthers());
@@ -239,7 +243,6 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         this.cardsToAdd.add(new ResonanceForm());
         this.cardsToAdd.add(new TheForsaken());
         this.cardsToAdd.add(new MaguroCleave());
-        this.cardsToAdd.add(new EnergeticStarting());
         this.cardsToAdd.add(new StarryDrift());
         this.cardsToAdd.add(new Futariboshi());
         this.cardsToAdd.add(new Kimitomitahosizora());
@@ -262,7 +265,6 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         this.cardsToAdd.add(new Drown());
         this.cardsToAdd.add(new ReconvertingCharm());
         this.cardsToAdd.add(new DragonClaw());
-        this.cardsToAdd.add(new QuickShooting());
         this.cardsToAdd.add(new AccurateShooting());
         this.cardsToAdd.add(new Siren());
         this.cardsToAdd.add(new EndOfSanity());
@@ -274,6 +276,11 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         this.cardsToAdd.add(new SummoningCharm());
         this.cardsToAdd.add(new SunDescending());
         this.cardsToAdd.add(new FourEyes());
+        this.cardsToAdd.add(new Frighten());
+        this.cardsToAdd.add(new RiverOfNotes());
+        this.cardsToAdd.add(new LightUpTheStage());
+        this.cardsToAdd.add(new EchoPhantom());
+        this.cardsToAdd.add(new IntertwinedTimbres());
     }
     @Override
     public void receiveEditRelics()

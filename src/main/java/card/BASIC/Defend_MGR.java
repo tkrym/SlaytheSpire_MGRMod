@@ -20,7 +20,7 @@ public class Defend_MGR extends AbstractMGRCard {
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG = "img/card/"+ID.substring(4)+".png";
     private static final int COST = 1;
-    private static final int BLOCK = 5;
+    private static final int BLOCK = 4;
     private static final int PLUS_BLOCK = 1;
     public Defend_MGR() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.SKILL,

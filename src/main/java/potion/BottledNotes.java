@@ -41,7 +41,7 @@ public class BottledNotes extends AbstractPotion{
 
     @Override
     public int getPotency(int ascensionLevel) {
-        return 8;
+        return 10;
     }
 
     @Override

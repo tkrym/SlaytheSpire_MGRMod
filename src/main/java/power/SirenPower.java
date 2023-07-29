@@ -39,7 +39,7 @@ public class SirenPower extends AbstractPower
     public void atEndOfTurn(boolean isPlayer)
     {
         int BlockSum = 0;
-        AbstractPlayer p=AbstractDungeon.player;
+        AbstractPlayer p = AbstractDungeon.player;
         for (AbstractMonster m : AbstractDungeon.getMonsters().monsters)
             if (!m.isDeadOrEscaped())
             {
@@ -50,15 +50,15 @@ public class SirenPower extends AbstractPower
                         Msum += Math.abs(power.amount);
                         BlockSum++;
                     }
-                addToBot(new DamageAction(m, new DamageInfo(p, Msum,
-                        DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.NONE));
+                if (Msum > 0) addToBot(new DamageAction(m, new DamageInfo(p, Msum, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.NONE));
             }
-        for(AbstractPower power:p.powers)
-            if(power.type.equals(PowerType.DEBUFF))
+        for (AbstractPower power : p.powers)
+            if (power.type.equals(PowerType.DEBUFF))
                 BlockSum++;
         this.flashWithoutSound();
-        addToBot(new GainBlockAction(p,BlockSum*this.amount));
+        addToBot(new GainBlockAction(p, BlockSum * this.amount));
     }
-        @Override
-        public void updateDescription () {this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];}
+
+    @Override
+    public void updateDescription() {this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];}
 }

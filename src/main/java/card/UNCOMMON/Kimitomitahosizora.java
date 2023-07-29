@@ -1,4 +1,4 @@
-package card.COMMON;
+package card.UNCOMMON;
 
 import action.KimitomitahosizoraAction;
 import card.AbstractMGRCard;
@@ -26,6 +26,7 @@ public class Kimitomitahosizora extends AbstractMGRCard
                 AbstractCardEnum.MGR_COLOR, AbstractCard.CardRarity.UNCOMMON, CardTarget.SELF);
         this.baseMagicNumber = MAGIC;
         this.magicNumber = this.baseMagicNumber;
+        this.IsStarryCard=true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m)

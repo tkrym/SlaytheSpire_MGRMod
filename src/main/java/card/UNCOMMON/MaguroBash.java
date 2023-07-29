@@ -24,9 +24,9 @@ public class MaguroBash extends AbstractMGRCard {
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String IMG = "img/card/"+ID.substring(4)+".png";
     private static final int COST = 2;
-    private static final int DMG = 10;
+    private static final int DMG = 12;
     private static final int PLUS_DMG = 4;
-    private static final int MAGIC = 6;
+    private static final int MAGIC = 7;
     private static final int PLUS_MAGIC = 2;
     public MaguroBash() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.ATTACK,

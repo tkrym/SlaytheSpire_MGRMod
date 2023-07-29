@@ -27,13 +27,6 @@ public class TinyOrchestraPower extends AbstractPower
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
-    private boolean AttackPlayed;
-    private boolean DefendPlayed;
-    private boolean DrawPlayed;
-    private boolean DebuffPlayed;
-    private boolean ArtifactPlayed;
-    private boolean StarryPlayed;
-    private boolean GhostPlayed;
 
     public TinyOrchestraPower(int amount)
     {
@@ -45,56 +38,20 @@ public class TinyOrchestraPower extends AbstractPower
         this.img = new Texture(IMG);
     }
 
-    private int CountType()
-    {
-        int cnt = 0;
-        if (AttackPlayed) cnt++;
-        if (DefendPlayed) cnt++;
-        if (DrawPlayed) cnt++;
-        if (DebuffPlayed) cnt++;
-        if (ArtifactPlayed) cnt++;
-        if (StarryPlayed) cnt++;
-        if (GhostPlayed) cnt++;
-        return cnt;
-    }
-
-
     @Override
     public void atEndOfTurn(boolean isPlayer)
     {
-        UpdateNoteTypeCount();
-        if (CountType() > 0)
+        int cnt=AbstractNote.GetNoteTypeCountThisTurn();
+        if (cnt > 0)
         {
             flashWithoutSound();
-            addToBot(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(CountType() * this.amount, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+            addToBot(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(cnt * this.amount, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.BLUNT_LIGHT));
         }
-        AttackPlayed = false;
-        DefendPlayed = false;
-        DrawPlayed = false;
-        DebuffPlayed = false;
-        ArtifactPlayed = false;
-        StarryPlayed = false;
-        GhostPlayed = false;
-        updateDescription();
     }
-
-    public void UpdateNoteTypeCount()
-    {
-        for (AbstractOrb orb : AbstractDungeon.actionManager.orbsChanneledThisTurn)
-            if (orb instanceof AttackNote) AttackPlayed = true;
-            else if (orb instanceof DefendNote) DefendPlayed = true;
-            else if (orb instanceof DrawNote) DrawPlayed = true;
-            else if (orb instanceof DebuffNote) DebuffPlayed = true;
-            else if (orb instanceof ArtifactNote) ArtifactPlayed = true;
-            else if (orb instanceof StarryNote) StarryPlayed = true;
-            else if (orb instanceof GhostNote) GhostPlayed = true;
-        updateDescription();
-    }
-
 
     @Override
     public void updateDescription()
     {
-        this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1] + CountType() + DESCRIPTIONS[2];
+        this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1] + AbstractNote.GetNoteTypeCountThisTurn() + DESCRIPTIONS[2];
     }
 }

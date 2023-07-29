@@ -22,10 +22,10 @@ public class SunDescending extends AbstractMGRCard
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG = "img/card/" + ID.substring(4) + ".png";
     private static final int COST = -2;
-    private static final int MAGIC = 8;
+    private static final int MAGIC = 7;
     private static final int PLUS_MAGIC = -1;
-    private static final int DMG = 20;
-    private static final int PLUS_DMG = 6;
+    private static final int DMG = 21;
+    private static final int PLUS_DMG = 5;
 
     public SunDescending()
     {
@@ -60,6 +60,14 @@ public class SunDescending extends AbstractMGRCard
 
     @Override
     public void triggerOnOtherCardPlayed(AbstractCard c) { DecCounter();}
+
+    @Override
+    public void triggerOnManualDiscard()
+    {
+        DecCounter();
+        DecCounter();
+        DecCounter();
+    }
 
     private void DecCounter()
     {

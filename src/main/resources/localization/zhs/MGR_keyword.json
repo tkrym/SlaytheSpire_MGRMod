@@ -56,21 +56,63 @@
   },
   {
     "NAMES": [
+      "攻击音符"
+    ],
+    "DESCRIPTION": "对随机敌人造成伤害。"
+  },
+  {
+    "NAMES": [
+      "防御音符"
+    ],
+    "DESCRIPTION": "获得格挡。"
+  },
+  {
+    "NAMES": [
+      "抽牌音符"
+    ],
+    "DESCRIPTION": "抽牌。"
+  },
+  {
+    "NAMES": [
+      "debuff音符"
+    ],
+    "DESCRIPTION": "给予所有敌人 #y虚弱 与 #y易伤 。"
+  },
+  {
+    "NAMES": [
+      "人工音符"
+    ],
+    "DESCRIPTION": "获得 #y人工制品 。"
+  },
+  {
+    "NAMES": [
       "幽灵音符"
     ],
-    "DESCRIPTION": "给予 #y无实体 。"
+    "DESCRIPTION": "获得 #y无实体 。"
   },
   {
     "NAMES": [
       "星空音符"
     ],
-    "DESCRIPTION": "给予能量。不受 #y强音 影响。"
+    "DESCRIPTION": "获得能量。不受 #y强音 影响。"
   },
   {
     "NAMES": [
       "星空"
     ],
-    "DESCRIPTION": "本牌对应的 #y音符 为 #y星空音符 。"
+    "DESCRIPTION": "本牌对应的音符为 #y星空音符 。"
+  },
+  {
+    "NAMES": [
+      "视作状态"
+    ],
+    "DESCRIPTION": "本牌对应的音符为 #ydebuff音符 。"
+  },
+  {
+    "NAMES": [
+      "视作能力"
+    ],
+    "DESCRIPTION": "本牌对应的音符为 #y抽牌音符 。"
   },
   {
     "NAMES": [

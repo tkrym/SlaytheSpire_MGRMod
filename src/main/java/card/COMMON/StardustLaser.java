@@ -33,6 +33,7 @@ public class StardustLaser extends AbstractMGRCard {
         this.magicNumber=this.baseMagicNumber;
         this.baseDamage=DMG;
         this.isMultiDamage=true;
+        this.IsStarryCard=true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

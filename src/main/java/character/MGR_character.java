@@ -170,7 +170,7 @@ public class MGR_character extends CustomPlayer{
                 AbstractDungeon.actionManager.orbsChanneledThisCombat.add(orbToSet);
                 AbstractDungeon.actionManager.orbsChanneledThisTurn.add(orbToSet);
                 if(this.hasPower(TinyOrchestraPower.POWER_ID))
-                    ((TinyOrchestraPower)this.getPower(TinyOrchestraPower.POWER_ID)).UpdateNoteTypeCount();
+                    ((TinyOrchestraPower)this.getPower(TinyOrchestraPower.POWER_ID)).updateDescription();
                 (orbToSet).applyFocus();
                 if(index==this.orbs.size()-1)
                 {

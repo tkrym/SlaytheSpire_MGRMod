@@ -1,5 +1,6 @@
 package card.UNCOMMON;
 
+import action.ChristmasGiftAction;
 import card.AbstractMGRCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.GainGoldAction;
@@ -18,9 +19,15 @@ public class ChristmasGift extends AbstractMGRCard {
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG = "img/card/"+ID.substring(4)+".png";
-    private static final int COST = 3;
-    private static final int MAGIC = 25;
-    private static final int PLUS_MAGIC = 10;
+    private static final int COST = 2;
+    private static final int MAGIC = 20;
+    private static final int PLUS_MAGIC = 5;
+    public static final int PRO_POTION=42;
+    public static final int PRO_GOLD=43;
+    public static final int PRO_CARD=15;
+    public static final int PRO_POTION_UPGRADED=37;
+    public static final int PRO_GOLD_UPGRADED=38;
+    public static final int PRO_CARD_UPGRADED=25;
     public ChristmasGift() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.SKILL,
                 AbstractCardEnum.MGR_COLOR, CardRarity.UNCOMMON, CardTarget.SELF);
@@ -31,14 +38,7 @@ public class ChristmasGift extends AbstractMGRCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new AbstractGameAction() {
-            @Override
-            public void update() {
-                AbstractDungeon.effectList.add(new RainingGoldEffect(ChristmasGift.this.magicNumber*4, true));
-                this.addToTop(new GainGoldAction(ChristmasGift.this.magicNumber));
-                this.isDone=true;
-            }
-        });
+        addToBot(new ChristmasGiftAction(this.magicNumber,this.upgraded));
     }
 
     public AbstractCard makeCopy() { return new ChristmasGift(); }
@@ -47,6 +47,8 @@ public class ChristmasGift extends AbstractMGRCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeMagicNumber(PLUS_MAGIC);
+            this.rawDescription=UPGRADE_DESCRIPTION;
+            initializeDescription();
         }
     }
 }

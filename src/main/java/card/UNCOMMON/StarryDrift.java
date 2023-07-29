@@ -26,6 +26,7 @@ public class StarryDrift extends AbstractMGRCard
                 AbstractCardEnum.MGR_COLOR, CardRarity.UNCOMMON, CardTarget.SELF);
         this.baseMagicNumber = MAGIC;
         this.magicNumber = this.baseMagicNumber;
+        this.IsStarryCard=true;
     }
 
     @Override

@@ -29,7 +29,7 @@ public class DefendNote extends AbstractNote {
         this.ID = ORB_ID;
         this.img = ImageMaster.loadImage("img/note/Defend.png");
         this.name = orbString.NAME;
-        this.baseEvokeAmount = 1;
+        this.baseEvokeAmount = 2;
         this.evokeAmount = this.baseEvokeAmount;
         this.channelAnimTimer = 0.5f;
         this.angle = MathUtils.random(360.0f);
