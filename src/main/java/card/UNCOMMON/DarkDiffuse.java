@@ -24,17 +24,18 @@ public class DarkDiffuse extends AbstractMGRCard {
     public static final String ID = "MGR:DarkDiffuse";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG = "img/card/"+ID.substring(4)+".png";
     private static final int COST = 1;
     private static final int DMG = 6;
-    private static final int PLUS_DMG = 3;
+    private static final int PLUS_DMG = 4;
     public DarkDiffuse() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.ATTACK,
                 AbstractCardEnum.MGR_COLOR, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY);
         this.baseDamage = DMG;
         this.isMultiDamage = true;
-        ExhaustiveField.ExhaustiveFields.baseExhaustive.set(this, 2);
-        ExhaustiveField.ExhaustiveFields.exhaustive.set(this, 2);
+        /*ExhaustiveField.ExhaustiveFields.baseExhaustive.set(this, 2);
+        ExhaustiveField.ExhaustiveFields.exhaustive.set(this, 2);*/
     }
 
     public void use(AbstractPlayer p, AbstractMonster m)
@@ -44,12 +45,13 @@ public class DarkDiffuse extends AbstractMGRCard {
         for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
             if (mo.hasPower(GazePower.POWER_ID)) {
                 int amt = mo.getPower(GazePower.POWER_ID).amount>>1;
+                if(amt<=0) continue;
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(mo, p, new StrengthPower(mo, -amt), -amt));
                 if (!mo.hasPower("Artifact"))
                     AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(mo, p, new GainStrengthPower(mo, amt), amt));
             }
         }
-        UpdateExhaustiveDescription();
+        //UpdateExhaustiveDescription();
     }
 
     public AbstractCard makeCopy() { return new DarkDiffuse(); }
@@ -58,6 +60,10 @@ public class DarkDiffuse extends AbstractMGRCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeDamage(PLUS_DMG);
+            /*ExhaustiveField.ExhaustiveFields.baseExhaustive.set(this, 3);
+            ExhaustiveField.ExhaustiveFields.exhaustive.set(this, 3);
+            this.rawDescription=UPGRADE_DESCRIPTION;
+            initializeDescription();*/
         }
     }
 }

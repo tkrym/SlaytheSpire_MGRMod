@@ -136,17 +136,17 @@ public abstract class AbstractNote extends AbstractOrb
         if(!AbstractDungeon.player.hasPower(RiverOfNotesPower.POWER_ID))
         {
             if (seed < 35) return new AttackNote();//35%
-            else if (seed < 60) return new DefendNote();//25%
-            else if (seed < 74) return new DebuffNote();//14%
+            else if (seed < 65) return new DefendNote();//30%
+            else if (seed < 74) return new DebuffNote();//9%
             else if (seed < 93) return new DrawNote();//19%
             else return new ArtifactNote();//7%
         }else
         {
-            if(seed<25) return new AttackNote();//25%
-            else if(seed<45) return new DefendNote();//20%
-            else if(seed<54) return new StarryNote();//9%
-            else if(seed<74) return new DrawNote();//21%
-            else if(seed<91) return new DebuffNote();//17%
+            if(seed<27) return new AttackNote();//27%
+            else if(seed<50) return new DefendNote();//23%
+            else if(seed<60) return new StarryNote();//10%
+            else if(seed<78) return new DrawNote();//18%
+            else if(seed<92) return new DebuffNote();//14%
             else return new ArtifactNote();//8%
         }
     }

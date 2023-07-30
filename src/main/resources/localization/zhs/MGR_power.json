@@ -183,16 +183,18 @@
       " 个基本音符。"
     ]
   },  
-    "Cushion": {
-    "NAME": "缓冲",
+    "MGR:HakkeroChargedPower": {
+    "NAME": "充能完毕",
     "DESCRIPTIONS": [
-      "下一次受到的伤害减少 #b50 %。"
+      "每打出一张牌，生成 #b",
+      " 个 #y攻击音符 。"
     ]
   },  
-    "HNSSupport": {
-    "NAME": "HNS支援",
+    "MGR:HakkeroChargePower": {
+    "NAME": "八卦炉充能",
     "DESCRIPTIONS": [
-      "亲友的母亲HNS的支援，每回合获得 #b1 点力量，对所有敌人造成 #b10 点伤害。"
+      "下回合开始时获得 #b",
+      " 层 #y临时强音 与 #y充能完毕 。"
     ]
   },   
     "BrakingArmorPower": {

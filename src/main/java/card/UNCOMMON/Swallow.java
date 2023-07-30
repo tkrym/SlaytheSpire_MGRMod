@@ -27,7 +27,7 @@ public class Swallow extends AbstractMGRCard {
     private static final int COST = 1;
     private static final int DMG = 6;
     private static final int PLUS_DMG = 3;
-    private static final int MAGIC = 3;
+    private static final int MAGIC = 2;
     private static final int PLUS_MAGIC = 1;
     public Swallow() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.ATTACK,

@@ -34,6 +34,16 @@ public class FourEyesPower extends AbstractPower
         }
     }
 
+    public static void Trigger(AbstractCreature target,int amount)
+    {
+        if(AbstractDungeon.player.hasPower(POWER_ID))
+        {
+            AbstractPower power=AbstractDungeon.player.getPower(POWER_ID);
+            power.flashWithoutSound();
+            AbstractDungeon.actionManager.addToTop(new ApplyGazeAction(target,amount*power.amount));
+        }
+    }
+
     @Override
     public void updateDescription()
     {

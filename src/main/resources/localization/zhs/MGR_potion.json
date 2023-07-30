@@ -17,8 +17,7 @@
     "NAME": "强音药水",
     "DESCRIPTIONS": [
       "获得 #b",
-      " 点 #y强音 ，失去 #b",
-      " 点 #y力量 和 #y敏捷 。"
+      " 点 #y强音。"
     ]
   },
   "MGR:ShiningEssence": {

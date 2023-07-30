@@ -5,6 +5,7 @@ import card.AbstractMGRCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.actions.common.DiscardAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -23,9 +24,9 @@ public class StardustLaser extends AbstractMGRCard {
     public static final String IMG = "img/card/"+ID.substring(4)+".png";
     private static final int COST = 1;
     public static final int MAGIC = 1;
-    public static final int PLUS_MAGIC = 1;
+    //public static final int PLUS_MAGIC = 1;
     public static final int DMG = 7;
-    public static final int PLUS_DMG = 2;
+    public static final int PLUS_DMG = 3;
     public StardustLaser() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.ATTACK,
                 AbstractCardEnum.MGR_COLOR, CardRarity.COMMON, CardTarget.ALL_ENEMY);
@@ -38,9 +39,10 @@ public class StardustLaser extends AbstractMGRCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new SFXAction("ATTACK_DEFECT_BEAM"));
+        addToBot(new DiscardAction(p,p,1,false));
         addToBot(new VFXAction(p, new SweepingBeamEffect(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY, AbstractDungeon.player.flipHorizontal), 0.2f));
         addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.FIRE));
-        addToBot(new StardustLaserAction(this.magicNumber));
+        //addToBot(new StardustLaserAction(this.magicNumber));
     }
 
     public AbstractCard makeCopy() { return new StardustLaser(); }
@@ -48,7 +50,6 @@ public class StardustLaser extends AbstractMGRCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeMagicNumber(PLUS_MAGIC);
             this.upgradeDamage(PLUS_DMG);
             initializeDescription();
         }

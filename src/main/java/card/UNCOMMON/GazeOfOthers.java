@@ -57,7 +57,10 @@ public class GazeOfOthers extends AbstractMGRCard {
 
     private int GetAdditionalBlock(AbstractMonster m)
     {
-        return this.upgraded?calculateBLOCKAll():calculateBLOCK(m);
+        int amt=this.upgraded?calculateBLOCKAll():calculateBLOCK(m);
+        if(this.upgraded&&amt>30) amt=30;
+        else if(!this.upgraded&&amt>20) amt=20;
+        return amt;
     }
 
     private void BLOCKdisplay(int BLOCK) {

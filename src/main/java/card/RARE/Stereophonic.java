@@ -1,5 +1,6 @@
 package card.RARE;
 
+import action.ChannelNoteAction;
 import card.AbstractMGRCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -12,6 +13,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
+import note.AttackNote;
 import path.AbstractCardEnum;
 import power.StereoPlusPower;
 import power.HarmonyFormPower;
@@ -25,7 +27,8 @@ public class Stereophonic extends AbstractMGRCard
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG = "img/card/" + ID.substring(4) + ".png";
     private static final int COST = 1;
-    private static final int MAGIC = 2;
+    private static final int MAGIC = 3;
+    private static final int PLUS_MAGIC = 1;
 
     public Stereophonic()
     {
@@ -48,12 +51,13 @@ public class Stereophonic extends AbstractMGRCard
             if (p.hasPower(StereoPower.POWER_ID))
                 this.addToBot(new RemoveSpecificPowerAction(p, p, StereoPower.POWER_ID));
             this.addToBot(new ApplyPowerAction(p, p, new StereoPlusPower(p)));
-            for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters)
+            /*for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters)
             {
                 if (mo.isDeadOrEscaped()) continue;
                 AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(mo, p, new VulnerablePower(mo, this.magicNumber, false), this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
-            }
+            }*/
         }
+        for(int i=1;i<=this.magicNumber;i++) addToBot(new ChannelNoteAction(new AttackNote()));
     }
 
     public AbstractCard makeCopy() {return new Stereophonic();}
@@ -63,6 +67,7 @@ public class Stereophonic extends AbstractMGRCard
         if (!this.upgraded)
         {
             this.upgradeName();
+            this.upgradeMagicNumber(PLUS_MAGIC);
             this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }

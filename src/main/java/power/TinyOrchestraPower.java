@@ -50,6 +50,11 @@ public class TinyOrchestraPower extends AbstractPower
     }
 
     @Override
+    public void atStartOfTurn() {
+        updateDescription();
+    }
+
+    @Override
     public void updateDescription()
     {
         this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1] + AbstractNote.GetNoteTypeCountThisTurn() + DESCRIPTIONS[2];

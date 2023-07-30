@@ -22,10 +22,10 @@ public class SunDescending extends AbstractMGRCard
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG = "img/card/" + ID.substring(4) + ".png";
     private static final int COST = -2;
-    private static final int MAGIC = 7;
+    private static final int MAGIC = 8;
     private static final int PLUS_MAGIC = -1;
-    private static final int DMG = 21;
-    private static final int PLUS_DMG = 5;
+    private static final int DMG = 24;
+    private static final int PLUS_DMG = 3;
 
     public SunDescending()
     {
@@ -45,6 +45,8 @@ public class SunDescending extends AbstractMGRCard
         super.applyPowers();
         this.damage = this.baseDamage;
         this.isDamageModified = false;
+        this.magicNumber=this.baseMagicNumber;
+        this.isMagicNumberModified=false;
     }
 
     @Override
@@ -53,10 +55,15 @@ public class SunDescending extends AbstractMGRCard
         super.calculateCardDamage(m);
         this.damage = this.baseDamage;
         this.isDamageModified = false;
+        this.magicNumber=this.baseMagicNumber;
+        this.isMagicNumberModified=false;
     }
 
     @Override
-    public void didDiscard() { DecCounter();}
+    public void didDiscard()
+    {
+        if(AbstractDungeon.player.hand.contains(this)) DecCounter();
+    }
 
     @Override
     public void triggerOnOtherCardPlayed(AbstractCard c) { DecCounter();}
@@ -71,20 +78,23 @@ public class SunDescending extends AbstractMGRCard
 
     private void DecCounter()
     {
-        this.magicNumber--;
-        if (this.magicNumber <= 0)
+        this.baseMagicNumber--;
+        if (this.baseMagicNumber <= 0)
         {
-            this.magicNumber = this.baseMagicNumber;
+            this.baseMagicNumber = this.GetMagic();
             this.superFlash(Color.GREEN.cpy());
             addToTop(new WaitAction(0.1f));
             addToTop(new DamageAllEnemiesAction(AbstractDungeon.player, this.baseDamage, DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.NONE));
         }
-        if(this.magicNumber!=this.baseMagicNumber) this.isMagicNumberModified=true;
+        this.magicNumber=this.baseMagicNumber;
+        this.isMagicNumberModified=false;
         initializeDescription();
     }
 
     @Override
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {return false;}
+
+    private int GetMagic(){return this.upgraded?(MAGIC+PLUS_MAGIC):MAGIC;}
 
     public AbstractCard makeCopy() {return new SunDescending();}
 

@@ -56,8 +56,8 @@
   },
     "MGR:GazeOfOthers":{
     "NAME":"他人的视线",
-    "DESCRIPTION": "获得 !B! 点格挡。额外获得等同于目标 mgr:注视 层数的格挡。",
-    "UPGRADE_DESCRIPTION": "获得 !B! 点格挡。额外获得等同于所有敌人 mgr:注视 层数总和的格挡。",
+    "DESCRIPTION": "获得 !B! 点格挡。额外获得等同于目标 mgr:注视 层数（至多20）的格挡。",
+    "UPGRADE_DESCRIPTION": "获得 !B! 点格挡。额外获得等同于所有敌人 mgr:注视 层数总和（至多30）的格挡。",
     "EXTENDED_DESCRIPTION": [
       " NL （额外获得 ",
        " 点格挡）"
@@ -79,8 +79,8 @@
   },
     "MGR:Stereophonic":{
     "NAME":"立体声",
-    "DESCRIPTION": "你的 mgr:音符 会对所有敌人造成伤害。",
-    "UPGRADE_DESCRIPTION": "你的 mgr:音符 会对所有敌人造成伤害且受易伤加成。 NL 给予所有敌人 !M! 层 易伤 。"
+    "DESCRIPTION": "你的 mgr:攻击音符 会对所有敌人造成伤害。 NL 生成 !M! 个 *攻击音符 。",
+    "UPGRADE_DESCRIPTION": "你的 mgr:攻击音符 会对所有敌人造成伤害且受易伤加成。 NL 生成 !M! 个 *攻击音符 。"
   },
     "MGR:AdjustTempo":{
     "NAME":"节奏调节",
@@ -93,8 +93,9 @@
   },
 	"MGR:ScaryGlare": {
 	"NAME":"恐怖瞪视",
-	"DESCRIPTION": "造成 !D! 点伤害，给予 !M! 层 mgr:注视 。 NL 目标每有3层注视，多给予1层。"
-  },
+	"DESCRIPTION": "造成 !D! 点伤害，给予 !M! 层 mgr:注视 。 NL 目标每有3层注视，多给予1层。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，给予 !M! 层 mgr:注视 。 NL 目标每有2层注视，多给予1层。"
+    },
     "MGR:IndifferentLook": {
     "NAME": "冷眼旁观",
     "DESCRIPTION": "每当你给予或触发 mgr:注视 时，获得 !M! 点格挡。"
@@ -106,7 +107,7 @@
     "MGR:Obakenoukenerai": {
     "NAME": "拍鬼怪的马屁☆",
     "DESCRIPTION": " 生成 !M! 个 mgr:幽灵音符 。 NL  消耗 。 虚无 。",
-    "UPGRADE_DESCRIPTION":" 生成 !M! 个 mgr:幽灵音符 。 NL  mgr:老大哥形态 ：再生成 !M! 个。 NL 消耗 。"
+    "UPGRADE_DESCRIPTION":" 生成 !M! 个 mgr:幽灵音符 。 NL  mgr:老大哥形态 ：再生成 !M! 个。 NL 消耗 。 虚无 。"
   },
     "MGR:AlternateSinging": {
     "NAME": "交替演唱",
@@ -141,7 +142,8 @@
   },
     "MGR:DarkDiffuse":{
     "NAME":"黑暗扩散",
-    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 所有敌人失去 mgr:注视 层数一半的力量一回合。 消耗性 2"
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 所有敌人失去 mgr:注视 层数一半的力量一回合。",
+    "UPGRADE_DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 所有敌人失去 mgr:注视 层数一半的力量一回合。 消耗性 3"
   },
     "MGR:Hallucination":{
     "NAME":"迷幻",
@@ -205,7 +207,7 @@
   },
     "MGR:StardustLaser":{
     "NAME":"星屑镭射",
-    "DESCRIPTION": " mgr:星空 。 NL 对所有敌人造成 !D! 点伤害。选择丢弃至多 !M! 张牌，生成等量的 mgr:星空音符 。"
+    "DESCRIPTION": " mgr:星空 。 NL 丢弃一张牌，对所有敌人造成 !D! 点伤害。"
   },
     "MGR:Kimitomitahosizora":{
     "NAME":"曾与你见过的星空",
@@ -214,8 +216,8 @@
   },
     "MGR:Futariboshi":{
     "NAME":"两个人的星☆",
-    "DESCRIPTION": " mgr:星空 。 NL 清空你的 mgr:计数器 ，生成等量的 mgr:星空音符 。",
-    "UPGRADE_DESCRIPTION": "mgr:星空 。 NL 清空你的 mgr:计数器 ，生成等量的 mgr:星空音符 。再生成 !M! 个。"
+    "DESCRIPTION": " mgr:星空 。 NL 清空你的 mgr:计数器 ，生成等量的 mgr:星空音符 。 消耗 。",
+    "UPGRADE_DESCRIPTION": "mgr:星空 。 NL 清空你的 mgr:计数器 ，生成等量的 mgr:星空音符 。"
   },
     "MGR:DizzyAndGiddy":{
     "NAME":"头晕目眩",
@@ -231,10 +233,10 @@
   },
     "MGR:Nocturnal":{
     "NAME":"夜行",
-    "DESCRIPTION": "将一张随机诅咒加入弃牌堆。 NL 你的抽牌堆、弃牌堆与手牌中每有一张诅咒，对所有敌人造成一次 !D! 点伤害。"
+    "DESCRIPTION": "将一张随机诅咒加入弃牌堆。 NL 你的抽牌堆、弃牌堆、消耗堆与手牌中每有一张诅咒，对所有敌人造成一次 !D! 点伤害。"
   },
     "MGR:TheCursed":{
-    "NAME":"被诅咒者",
+    "NAME":"诅咒随身",
     "DESCRIPTION": "将一张随机诅咒加入抽牌堆。 NL 抽到 诅咒 时抽 !M! 张牌并生成一个 mgr:人工音符 。",
     "UPGRADE_DESCRIPTION": " 固有 。将一张随机诅咒加入抽牌堆。 NL 抽到 诅咒 时抽 !M! 张牌并生成一个 mgr:人工音符 。"
   },
@@ -244,8 +246,8 @@
   },
     "MGR:MetalGear":{
     "NAME":"合金装备",
-    "DESCRIPTION": "失去2点敏捷，获得 !M! 层 #y金属化 与 #y多层护甲 。 NL mgr:老大哥形态 ：额外获得2层。 消耗 。",
-    "UPGRADE_DESCRIPTION": "失去3点敏捷，获得 !M! 层 #y金属化 与 #y多层护甲 。 NL mgr:老大哥形态 ：额外获得3层。 消耗 。"
+    "DESCRIPTION": "失去2点敏捷，获得 !M! 层 *金属化 与 *多层护甲 。 NL mgr:老大哥形态 ：额外获得2层。 消耗 。",
+    "UPGRADE_DESCRIPTION": "失去3点敏捷，获得 !M! 层 *金属化 与 *多层护甲 。 NL mgr:老大哥形态 ：额外获得3层。 消耗 。"
     },
     "MGR:Marionette":{
     "NAME":"提线木偶",
@@ -253,7 +255,7 @@
   },
     "MGR:FieryPerformance":{
     "NAME":"激奏",
-    "DESCRIPTION": "抽牌直到手牌有 !M! 张。 NL 然后，消耗手中所有的状态与诅咒牌。"
+    "DESCRIPTION": "抽牌直到手牌有 !M! 张，丢弃费用最低的手牌。"
   },
     "MGR:ChristmasGift":{
     "NAME":"圣诞礼物",
@@ -333,7 +335,7 @@
     "MGR:Dexterous":{
     "NAME":"灵巧",
     "DESCRIPTION": "获得 !B! 点格挡。 NL mgr:尾音 ：抽 !M! 张牌。 NL mgr:起音 ：下回合获得 [E] 。",
-    "UPGRADE_DESCRIPTION": "获得 !B! 点格挡。 NL mgr:尾音 ：生成 !M! 个 *抽牌 mgr:音符 。 NL mgr:起音 ：下回合生成 !M! 个 mgr:星空音符 。"
+    "UPGRADE_DESCRIPTION": "获得 !B! 点格挡。 NL mgr:尾音 ：抽 !M! 张牌。 NL mgr:起音 ：下回合获得 [E] [E] 。"
   },
     "MGR:Salivate":{
     "NAME":"垂涎",
@@ -345,7 +347,7 @@
   },
     "MGR:SunDescending":{
     "NAME":"日影西斜",
-    "DESCRIPTION": "无法被打出 。 mgr:视作能力 。 NL 该牌在你手牌中时，你每打出或丢弃 !M! 张牌， 对所有敌人造成 !D! 点伤害。 NL 被丢弃时计数减少3"
+    "DESCRIPTION": "无法被打出 。 mgr:视作能力 。 NL 该牌在你手牌中时，你每打出或丢弃 !M! 张牌， 对所有敌人造成 !D! 点伤害。 NL 被丢弃时计数减少3。"
   },
     "MGR:FourEyes":{
     "NAME":"四目",
@@ -361,63 +363,43 @@
   },
     "MGR:LightUpTheStage":{
     "NAME":"点亮舞台",
-    "DESCRIPTION": "对随机敌人造成 !D! 点伤害并生成一个 mgr:攻击音符 !M! 次。 NL 每当被打出，增加伤害4点 NL 每当被丢弃，增加次数1次",
-    "UPGRADE_DESCRIPTION": "对随机敌人造成 !D! 点伤害并生成一个 mgr:攻击音符 !M! 次。 NL 每当被打出，增加伤害5点 NL 每当被丢弃，增加次数1次"
+    "DESCRIPTION": "对随机敌人造成 !D! 点伤害 !M! 次。 NL 每当被打出，增加伤害3点；每当被丢弃，增加次数2次。",
+    "UPGRADE_DESCRIPTION": "对随机敌人造成 !D! 点伤害 !M! 次。 NL 每当被打出，增加伤害3点；每当被丢弃，增加次数2次。"
   },
     "MGR:EchoPhantom":{
     "NAME":"回声幻影",
-    "DESCRIPTION": "丢弃所有手牌，生成对应的音符。其中每有一种音符，抽一张牌。",
+    "DESCRIPTION": "抽一张牌，丢弃一张牌，将弃牌堆中一张牌的复制放在抽牌堆顶。 NL mgr:老大哥形态 ：再将一张复制置入手牌。 消耗 。",
 	"UPGRADE_DESCRIPTION": "丢弃所有手牌，生成对应的音符。其中每有一种音符，抽一张牌。 NL 再多抽一张。"
   },
     "MGR:IntertwinedTimbres":{
     "NAME":"音色交织",
     "DESCRIPTION": "随机生成 !M! 个 mgr:基本音符 。 NL 本回合每生成过一种音符，获得 !B! 点格挡。"
   },
-    "Converging":{
-    "NAME":"合击",
-    "DESCRIPTION": "消耗一层 diyusi支援 ， NL 获得 !B! 点格挡， NL 选择 !M! 种附件支援 NL 消耗 。",
-    "EXTENDED_DESCRIPTION": [
-	"我没有 diyusi支援。",
-	""
-	]
+    "MGR:RoundRobin":{
+    "NAME":"轮转",
+    "DESCRIPTION": "获得 !B! 点格挡。 NL 将弃牌堆中的 !M! 张牌置于抽牌堆底。 NL mgr:老大哥形态 ：改为置于抽牌堆顶。"
   },
-    "HazardSign":{
-    "NAME":"危险标识",
-    "DESCRIPTION": "消耗一层 siyudi支援 NL 选择 !M! 种危险标识。",
-    "EXTENDED_DESCRIPTION": [
-	"我没有 siyudi支援。",
-	""
-	]
+    "MGR:TheEyeBehind":{
+    "NAME":"后背之眼",
+    "DESCRIPTION": "使目标的所有负面状态增加1层。对于 mgr:注视 ，改为增加 !M! 层。 消耗 。",
+    "UPGRADE_DESCRIPTION": "使目标的所有负面状态增加2层。对于 mgr:注视 ，改为增加 !M! 层。 消耗 。"
   },
-    "Deathmatch":{
-    "NAME":"死斗",
-    "DESCRIPTION": "只能在有 diyusi支援 和 siyudi支援 的时候打出。 NL 在本回合结束后，额外获得一回合。 NL 消耗",
-	"UPGRADE_DESCRIPTION": "只能在有 diyusi支援 和 siyudi支援 的时候打出。 NL 在本回合结束后，额外获得一回合。",
-    "EXTENDED_DESCRIPTION": [
-	"我没有 diyusi支援 或 siyudi支援。",
-	""
-	]
+    "MGR:StarrySkyObservation":{
+    "NAME":"星空观察",
+    "DESCRIPTION": " mgr:星空 。 NL 丢弃所有手牌，抽 !M! 张牌。每丢弃一张星空牌，下回合开始时生成一个 mgr:星空音符 。"
   },
-    "Sharpness":{
-    "NAME":"锋利刀刃",
-    "DESCRIPTION": "所有 斩击类 伤害有20%的几率造成 流血 。",
-    "UPGRADE_DESCRIPTION": "固有 NL 所有斩击类伤害有20%的几率造成 流血 。"
+    "MGR:HakkeroCharge":{
+    "NAME":"八卦炉充能",
+    "DESCRIPTION": "下回合开始时获得一层 *临时 mgr:强音 ，且每打出一张牌生成一个 mgr:攻击音符 。 消耗 。",
+    "UPGRADE_DESCRIPTION": "下回合开始时获得一层 *临时 mgr:强音 ，且每打出一张牌生成一个 mgr:攻击音符 。 NL 保留 。 消耗 。"
+    },
+    "MGR:RapidClaw":{
+    "NAME":"急速爪击",
+    "DESCRIPTION": "造成 !D! 点伤害并生成一个 mgr:攻击音符 。 NL mgr:起音 ：将一张基础伤害减少 !M! （不小于0）的复制加入手牌。 消耗 。"
   },
-    "Snipe":{
-    "NAME":"狙击",
-    "DESCRIPTION": "射击类 NL 消耗 !M! 层支援，造成 !D! 点伤害。",
-    "EXTENDED_DESCRIPTION": [
-	"我没有足够的支援。",
-	""
-	]
-  },
-    "Completed":{
-    "NAME":"任务完成",
-    "DESCRIPTION": "只能在有 diyusi支援 的时候打出，获得 !M! 层支援，抽两张牌 NL 消耗 。",
-    "EXTENDED_DESCRIPTION": [
-	"我没有 diyusi支援 。",
-	""
-	]
+    "MGR:FatalShooting":{
+    "NAME":"决死枪击",
+    "DESCRIPTION": "造成 !D! 点伤害，本回合生成的每个 mgr:音符 使伤害提高 !M! 点。结束你的回合。 NL mgr:老大哥形态 ：费用为0。"
   },
     "Intercept":{
     "NAME":"迎击",

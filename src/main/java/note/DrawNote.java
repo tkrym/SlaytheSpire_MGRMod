@@ -9,7 +9,9 @@ import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DarkOrbEvokeAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -22,6 +24,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.ArtifactPower;
 import com.megacrit.cardcrawl.powers.FocusPower;
 import com.megacrit.cardcrawl.vfx.combat.*;
+import effect.NoteAboveCreatureEffect;
 
 public class DrawNote extends AbstractNote {
     public static final String ORB_ID = "MGR:Draw";
@@ -49,7 +52,10 @@ public class DrawNote extends AbstractNote {
     }
 
     public void myEvoke() {
-        AbstractDungeon.actionManager.addToTop(new DrawCardAction(AbstractDungeon.player,this.evokeAmount));
+        if(this.evokeAmount<=0) return;
+        AbstractPlayer p=AbstractDungeon.player;
+        AbstractDungeon.actionManager.addToTop(new DrawCardAction(p,this.evokeAmount));
+        AbstractDungeon.actionManager.addToTop(new VFXAction(new NoteAboveCreatureEffect(p.hb.cX - p.animX, p.hb.cY + p.hb.height / 2.0F - p.animY, this.img), Settings.ACTION_DUR_XFAST));
     }
 
     public void playChannelSFX() {

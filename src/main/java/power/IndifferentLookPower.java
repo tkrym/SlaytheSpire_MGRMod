@@ -38,6 +38,13 @@ public class IndifferentLookPower extends AbstractPower implements OnApplyGazeHo
         addToBot(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, this.amount,true));
     }
 
+    public static void Trigger(int amount)
+    {
+        if(AbstractDungeon.player.hasPower(POWER_ID))
+            ((IndifferentLookPower)AbstractDungeon.player.getPower(POWER_ID)).OnApplyGaze(null,amount);
+    }
+
+
     @Override
     public void OnGazeTriggered(AbstractCreature m, int amount) {
         flashWithoutSound();

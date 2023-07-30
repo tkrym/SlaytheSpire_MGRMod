@@ -28,9 +28,11 @@ public class LightUpTheStage extends AbstractMGRCard
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG = "img/card/" + ID.substring(4) + ".png";
     private static final int COST = 1;
-    private static final int DMG = 5;
-    private static final int PLUS_DMG = 2;
-    private static final int MAGIC = 2;
+    private static final int DMG = 4;
+    private static final int MAGIC = 3;
+    private static final int PLUS_MAGIC = 1;
+    private static final int INC_DMG = 3;
+    private static final int UPGRADE_INC_DMG=3;
 
     public LightUpTheStage()
     {
@@ -44,18 +46,20 @@ public class LightUpTheStage extends AbstractMGRCard
     public void use(AbstractPlayer p, AbstractMonster m)
     {
         addToBot(new VFXAction(new SpotlightEffect(), (Settings.FAST_MODE?0.2f:0.5f)));
+        this.magicNumber=this.baseMagicNumber;
         for(int i=1;i<=this.magicNumber;i++)
         {
             addToBot(new DamageRandomEnemyAction(new DamageInfo(p, this.damage, this.damageTypeForTurn),
                     AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-            addToBot(new ChannelNoteAction(new AttackNote()));
+            //addToBot(new ChannelNoteAction(new AttackNote()));
         }
-        this.baseDamage+=this.upgraded?5:4;
+        this.baseDamage+=this.upgraded?UPGRADE_INC_DMG:INC_DMG;
     }
 
     @Override
     public void triggerOnManualDiscard()
     {
+        this.baseMagicNumber++;
         this.baseMagicNumber++;
         this.magicNumber=this.baseMagicNumber;
     }
@@ -65,7 +69,8 @@ public class LightUpTheStage extends AbstractMGRCard
         if (!this.upgraded)
         {
             this.upgradeName();
-            this.upgradeDamage(PLUS_DMG);
+            //this.upgradeDamage(PLUS_DMG);
+            this.upgradeMagicNumber(PLUS_MAGIC);
             this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }

@@ -3,8 +3,10 @@ package note;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -14,6 +16,7 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.OrbStrings;
 import com.megacrit.cardcrawl.powers.ArtifactPower;
 import com.megacrit.cardcrawl.vfx.combat.PlasmaOrbPassiveEffect;
+import effect.NoteAboveCreatureEffect;
 import effect.NotePassiveEffect;
 
 public class StarryNote extends AbstractNote {
@@ -46,8 +49,11 @@ public class StarryNote extends AbstractNote {
         this.description = orbString.DESCRIPTION[0]+this.evokeAmount+orbString.DESCRIPTION[1];
     }
 
-    public void myEvoke() {
+    public void myEvoke()
+    {
+        AbstractPlayer p=AbstractDungeon.player;
         AbstractDungeon.actionManager.addToTop(new GainEnergyAction(this.evokeAmount));
+        AbstractDungeon.actionManager.addToTop(new VFXAction(new NoteAboveCreatureEffect(p.hb.cX - p.animX, p.hb.cY + p.hb.height / 2.0F - p.animY, this.img), Settings.ACTION_DUR_XFAST));
     }
 
     @Override

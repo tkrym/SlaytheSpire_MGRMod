@@ -27,6 +27,7 @@ public class Futariboshi extends AbstractMGRCard {
         this.baseMagicNumber = MAGIC;
         this.magicNumber=this.baseMagicNumber;
         this.IsStarryCard=true;
+        this.exhaust=true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -37,7 +38,7 @@ public class Futariboshi extends AbstractMGRCard {
                 {
                     MGR_character mp=(MGR_character)AbstractDungeon.player;
                     int myCounter=mp.counter;
-                    if(Futariboshi.this.upgraded) myCounter+=Futariboshi.MAGIC;
+                    //if(Futariboshi.this.upgraded) myCounter+=Futariboshi.MAGIC;
                     mp.inccounter(-myCounter);
                     for(int i=1;i<=myCounter;i++)
                         addToTop(new ChannelNoteAction(new StarryNote()));
@@ -52,6 +53,7 @@ public class Futariboshi extends AbstractMGRCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
+            this.exhaust=false;
             this.rawDescription=UPGRADE_DESCRIPTION;
             initializeDescription();
         }

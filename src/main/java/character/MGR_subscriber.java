@@ -10,15 +10,19 @@ import card.COMMON.OneUp;
 import card.RARE.Hallucination;
 import card.BASIC.Peek;
 import card.COMMON.Frighten;
-import card.TEST.EchoPhantom;
-import card.TEST.IntertwinedTimbres;
+import card.TEST.HakkeroCharge;
+import card.TEST.RoundRobin;
+import card.TEST.StarrySkyObservation;
+import card.TEST.TheEyeBehind;
+import card.UNCOMMON.EchoPhantom;
+import card.COMMON.IntertwinedTimbres;
 import card.UNCOMMON.RiverOfNotes;
 import card.RARE.LightUpTheStage;
 import card.UNCOMMON.SummoningCharm;
 import card.COMMON.Dexterous;
 import card.RARE.Salivate;
 import card.UNCOMMON.SunDescending;
-import card.UNCOMMON.MyReflection;
+import card.COMMON.MyReflection;
 import card.RARE.VocalPreparation;
 import card.UNCOMMON.Bewildered;
 import card.RARE.ResonanceForm;
@@ -281,6 +285,10 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         this.cardsToAdd.add(new LightUpTheStage());
         this.cardsToAdd.add(new EchoPhantom());
         this.cardsToAdd.add(new IntertwinedTimbres());
+        this.cardsToAdd.add(new RoundRobin());
+        this.cardsToAdd.add(new TheEyeBehind());
+        this.cardsToAdd.add(new StarrySkyObservation());
+        this.cardsToAdd.add(new HakkeroCharge());
     }
     @Override
     public void receiveEditRelics()

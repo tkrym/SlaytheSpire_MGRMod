@@ -4,10 +4,12 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
@@ -19,6 +21,7 @@ import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.vfx.combat.DarkOrbActivateEffect;
 import com.megacrit.cardcrawl.vfx.combat.DarkOrbPassiveEffect;
+import effect.NoteAboveCreatureEffect;
 
 import java.util.Iterator;
 
@@ -49,11 +52,13 @@ public class DebuffNote extends AbstractNote {
 
     public void myEvoke()
     {
+        if(this.evokeAmount<=0) return;
         AbstractCreature p=AbstractDungeon.player;
         for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
             if(mo.isDeadOrEscaped()) continue;
             AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(mo, p, new VulnerablePower(mo, this.evokeAmount, false), this.evokeAmount, true, AbstractGameAction.AttackEffect.NONE));
             AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(mo, p, new WeakPower(mo, this.evokeAmount, false), this.evokeAmount, true, AbstractGameAction.AttackEffect.NONE));
+            AbstractDungeon.actionManager.addToTop(new VFXAction(new NoteAboveCreatureEffect(mo.hb.cX - mo.animX, mo.hb.cY + mo.hb.height / 2.0F - mo.animY, this.img), Settings.ACTION_DUR_XFAST));
         }
     }
 

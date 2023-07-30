@@ -29,7 +29,7 @@ public class FortePotion extends AbstractPotion{
     @Override
     public void initializeData() {
         this.potency = getPotency();
-        this.description = potionStrings.DESCRIPTIONS[0] + this.potency*2 + potionStrings.DESCRIPTIONS[1]+this.potency+potionStrings.DESCRIPTIONS[2];
+        this.description = potionStrings.DESCRIPTIONS[0] + this.potency + potionStrings.DESCRIPTIONS[1];
         this.tips.clear();
         this.tips.add(new PowerTip(this.name, this.description));
     }
@@ -37,10 +37,10 @@ public class FortePotion extends AbstractPotion{
     @Override
     public void use(AbstractCreature target) {
         if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
-            AbstractCreature p = AbstractDungeon.player;
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p,new StrengthPower(p,-this.potency),-this.potency));
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p,new DexterityPower(p,-this.potency),-this.potency));
-            AbstractDungeon.actionManager.addToBottom(new ApplyForteAction(this.potency*2));
+            //AbstractCreature p = AbstractDungeon.player;
+            //AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p,new StrengthPower(p,-this.potency),-this.potency));
+            //AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p,new DexterityPower(p,-this.potency),-this.potency));
+            AbstractDungeon.actionManager.addToBottom(new ApplyForteAction(this.potency));
         }
     }
 

@@ -38,8 +38,8 @@ public class FieryPerformance extends AbstractMGRCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ExpertiseAction(p,this.magicNumber));
-        //addToBot(new DiscardLeastCostAction(2));
-        addToBot(new AbstractGameAction() {
+        addToBot(new DiscardLeastCostAction(1));
+        /*addToBot(new AbstractGameAction() {
             @Override
             public void update()
             {
@@ -51,7 +51,7 @@ public class FieryPerformance extends AbstractMGRCard {
                     }
                 this.isDone=true;
             }
-        });
+        });*/
     }
 
     public AbstractCard makeCopy() { return new FieryPerformance(); }

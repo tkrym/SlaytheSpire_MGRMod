@@ -12,7 +12,7 @@ public class WitchHat extends CustomRelic{
     public static final String ID = "MGR:WitchHat";
     private static final String IMG = "img/relic/"+ID.substring(4)+".png";
     private static final String OUTLINE = "img/relic/outline/"+ID.substring(4)+".png";
-    private static final int THRESHOLD1=75;
+    private static final int THRESHOLD1=70;
     private static final int THRESHOLD2=40;
 
     public WitchHat() {
@@ -34,6 +34,7 @@ public class WitchHat extends CustomRelic{
                 }
                 if(HPProportion<=THRESHOLD2)
                     addToBot(new ChannelNoteAction(new DefendNote()));
+                addToBot(new ChannelNoteAction(new DefendNote()));
                 this.isDone = true;
             }
         });

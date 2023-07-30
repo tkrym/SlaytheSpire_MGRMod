@@ -28,11 +28,12 @@ public class ScaryGlare extends AbstractMGRCard
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String IMG = "img/card/" + ID.substring(4) + ".png";
     private static final int COST = 1;
-    private static final int DMG = 4;
+    private static final int DMG = 5;
     private static final int PLUS_DMG = 2;
     private static final int MAGIC = 5;
-    private static final int PLUS_MAGIC = 3;
+    private static final int PLUS_MAGIC = 2;
     private static final int GazeRatio = 3;
+    private static final int UPGRADE_GazeRatio = 2;
 
     public ScaryGlare()
     {
@@ -55,7 +56,7 @@ public class ScaryGlare extends AbstractMGRCard
         super.calculateCardDamage(m);
         this.magicNumber = this.baseMagicNumber;
         if (m.hasPower(GazePower.POWER_ID))
-            this.magicNumber += Math.floor(((float) m.getPower(GazePower.POWER_ID).amount) / ((float) GazeRatio));
+            this.magicNumber += Math.floor(((float) m.getPower(GazePower.POWER_ID).amount) / ((float) (this.upgraded?UPGRADE_GazeRatio:GazeRatio)));
         this.isMagicNumberModified = this.magicNumber != this.baseMagicNumber;
     }
 
@@ -76,6 +77,8 @@ public class ScaryGlare extends AbstractMGRCard
             this.upgradeName();
             this.upgradeDamage(PLUS_DMG);
             this.upgradeMagicNumber(PLUS_MAGIC);
+            this.rawDescription= cardStrings.UPGRADE_DESCRIPTION;
+            initializeDescription();
         }
     }
 }

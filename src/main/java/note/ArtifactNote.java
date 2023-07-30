@@ -3,6 +3,7 @@ package note;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -13,6 +14,7 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.OrbStrings;
 import com.megacrit.cardcrawl.powers.ArtifactPower;
 import com.megacrit.cardcrawl.vfx.combat.*;
+import effect.NoteAboveCreatureEffect;
 
 public class ArtifactNote extends AbstractNote {
     public static final String ORB_ID = "MGR:Artifact";
@@ -42,8 +44,10 @@ public class ArtifactNote extends AbstractNote {
     }
 
     public void myEvoke() {
+        if(this.evokeAmount<=0) return;
         AbstractCreature p=AbstractDungeon.player;
         AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(p, p, new ArtifactPower(p, this.evokeAmount), this.evokeAmount,true));
+        AbstractDungeon.actionManager.addToTop(new VFXAction(new NoteAboveCreatureEffect(p.hb.cX - p.animX, p.hb.cY + p.hb.height / 2.0F - p.animY, this.img), Settings.ACTION_DUR_XFAST));
     }
 
     public void playChannelSFX() {

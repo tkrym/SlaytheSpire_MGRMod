@@ -21,6 +21,7 @@ import hook.OnChordHook;
 import hook.OnGazeTriggeredHook;
 import power.GazePower;
 import power.SalivatePower;
+import relic.BloodshotEyeball;
 import relic.Sunglasses;
 
 public class GazeLoseHpAction extends AbstractGameAction
@@ -67,6 +68,7 @@ public class GazeLoseHpAction extends AbstractGameAction
                 }
                 p.amount -= MathUtils.ceil(dec*(float)p.amount);
                 p.flashWithoutSound();
+                if(p.amount<1&&AbstractDungeon.player.hasRelic(BloodshotEyeball.ID)) p.amount=1;
                 if (p.amount <= 0) this.target.powers.remove(p);
                 else p.updateDescription();
                 for (AbstractPower power : AbstractDungeon.player.powers)

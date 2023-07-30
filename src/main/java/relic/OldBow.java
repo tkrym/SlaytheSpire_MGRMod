@@ -37,8 +37,8 @@ public class OldBow extends CustomRelic{
         {
             this.counter=0;
             this.flash();
-            addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
-            addToTop(new DrawCardAction(1));
+            addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+            addToBot(new DrawCardAction(1));
         }
     }
 

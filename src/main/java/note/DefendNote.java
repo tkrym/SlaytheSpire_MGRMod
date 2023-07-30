@@ -3,10 +3,13 @@ package note;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.defect.LightningOrbEvokeAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
@@ -16,6 +19,7 @@ import com.megacrit.cardcrawl.vfx.combat.FrostOrbActivateEffect;
 import com.megacrit.cardcrawl.vfx.combat.FrostOrbPassiveEffect;
 import com.megacrit.cardcrawl.vfx.combat.LightningOrbActivateEffect;
 import com.megacrit.cardcrawl.vfx.combat.LightningOrbPassiveEffect;
+import effect.NoteAboveCreatureEffect;
 
 public class DefendNote extends AbstractNote {
     public static final String ORB_ID = "MGR:Defend";
@@ -45,7 +49,10 @@ public class DefendNote extends AbstractNote {
 
     public void myEvoke()
     {
-        AbstractDungeon.actionManager.addToTop(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, this.evokeAmount,true));
+        if(this.evokeAmount<=0) return;
+        AbstractPlayer p=AbstractDungeon.player;
+        AbstractDungeon.actionManager.addToTop(new GainBlockAction(p, p, this.evokeAmount,true));
+        AbstractDungeon.actionManager.addToTop(new VFXAction(new NoteAboveCreatureEffect(p.hb.cX - p.animX, p.hb.cY + p.hb.height / 2.0F - p.animY, this.img), Settings.ACTION_DUR_XFAST));
     }
 
     public void playChannelSFX() {
