@@ -26,21 +26,22 @@ public class CounterPanel extends AbstractPanel {
     private Hitbox CounterHB;
     public static final UIStrings Counter_UIString;
     public static final String[] Counter_MSG;
-    private float fontScale = 1.0F;
+    private final float OriginFontScale = 0.9F;
+    private float fontScale = OriginFontScale;
 
     public CounterPanel() {
         super(Counter_X, Counter_Y, CounterHB_WIDTH, CounterHB_HEIGHT, Counter_X, Counter_Y, (Texture)null, true);
         this.CounterHB = new Hitbox(Counter_X, Counter_Y, CounterHB_WIDTH, CounterHB_HEIGHT);
     }
 
-    public void EnlargeFontScale() {this.fontScale=2.0f;}
+    public void EnlargeFontScale() {this.fontScale=OriginFontScale*2.0f;}
 
     public void updatePositions() {
         super.updatePositions();
         if (!this.isHidden) {
             this.CounterHB.update();
-            if (fontScale != 1.0F) {
-                fontScale = MathHelper.scaleLerpSnap(fontScale, 1.0F);
+            if (fontScale != OriginFontScale) {
+                fontScale = MathHelper.scaleLerpSnap(fontScale, OriginFontScale);
             }
         }
     }

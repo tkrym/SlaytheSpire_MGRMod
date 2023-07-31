@@ -89,7 +89,7 @@
     "MGR:StageWarmUp":{
     "NAME":"舞台预热",
     "DESCRIPTION": "获得 !M! 层 mgr:强音 。",
-    "UPGRADE_DESCRIPTION": "获得 !M! 层 mgr:强音 。 mgr:老大哥形态 ：再获得 1 层。 保留 。"
+    "UPGRADE_DESCRIPTION": "获得 !M! 层 mgr:强音 。 mgr:开眼 ：再获得 1 层。 保留 。"
   },
 	"MGR:ScaryGlare": {
 	"NAME":"恐怖瞪视",
@@ -107,7 +107,7 @@
     "MGR:Obakenoukenerai": {
     "NAME": "拍鬼怪的马屁☆",
     "DESCRIPTION": " 生成 !M! 个 mgr:幽灵音符 。 NL  消耗 。 虚无 。",
-    "UPGRADE_DESCRIPTION":" 生成 !M! 个 mgr:幽灵音符 。 NL  mgr:老大哥形态 ：再生成 !M! 个。 NL 消耗 。 虚无 。"
+    "UPGRADE_DESCRIPTION":" 生成 !M! 个 mgr:幽灵音符 。 NL  mgr:开眼 ：再生成 !M! 个。 NL 消耗 。 虚无 。"
   },
     "MGR:AlternateSinging": {
     "NAME": "交替演唱",
@@ -129,7 +129,7 @@
   },
     "MGR:MaguroAssault":{
     "NAME":"金枪鱼强袭",
-    "DESCRIPTION": "造成 !D! 点伤害。本回合中每触发过一次 mgr:和弦 ，伤害增加 !M! 。 NL  mgr:起音 或 mgr:尾音 ：伤害翻倍  NL  mgr:老大哥形态 ：伤害翻倍 "
+    "DESCRIPTION": "造成 !D! 点伤害。本回合中每触发过一次 mgr:和弦 ，伤害增加 !M! 。 NL  mgr:起音 或 mgr:尾音 ：伤害翻倍  NL  mgr:开眼 ：伤害翻倍 "
   },
     "MGR:Rehearsal":{
     "NAME":"预演",
@@ -147,12 +147,12 @@
   },
     "MGR:Hallucination":{
     "NAME":"迷幻",
-    "DESCRIPTION": "将你的随机负面状态转移给目标。 NL mgr:老大哥形态 ：改为所有负面状态。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "将你的随机负面状态转移给目标。 NL mgr:老大哥形态 ：改为所有负面状态。 NL 保留 。 消耗 。"
+    "DESCRIPTION": "将你的随机负面状态转移给目标。 NL mgr:开眼 ：改为所有负面状态。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "将你的随机负面状态转移给目标。 NL mgr:开眼 ：改为所有负面状态。 NL 保留 。 消耗 。"
   },
     "MGR:Peek":{
     "NAME":"窥视",
-    "DESCRIPTION": "给予 !M! 层注视。 NL mgr:老大哥形态 ：再给予一次。"
+    "DESCRIPTION": "给予 !M! 层注视。 NL mgr:开眼 ：再给予一次。"
   },
     "MGR:GazeFromTheShadow":{
     "NAME":"阴影中的视线",
@@ -197,8 +197,8 @@
   },
     "MGR:Chorus":{
     "NAME":"合唱队",
-    "DESCRIPTION": "随机生成 !M! 个 mgr:基本音符 。 NL mgr:起音 ：再生成1个。",
-    "UPGRADE_DESCRIPTION": "随机生成 !M! 个 mgr:基本音符 。 NL mgr:起音 ：再生成2个。"
+    "DESCRIPTION": "mgr:即兴 !M! 。 NL mgr:起音 ：再生成1个。",
+    "UPGRADE_DESCRIPTION": "mgr:即兴 !M! 。 NL mgr:起音 ：再生成2个。"
   },
     "MGR:StarryDrift":{
     "NAME":"星空飘浮",
@@ -246,8 +246,8 @@
   },
     "MGR:MetalGear":{
     "NAME":"合金装备",
-    "DESCRIPTION": "失去2点敏捷，获得 !M! 层 *金属化 与 *多层护甲 。 NL mgr:老大哥形态 ：额外获得2层。 消耗 。",
-    "UPGRADE_DESCRIPTION": "失去3点敏捷，获得 !M! 层 *金属化 与 *多层护甲 。 NL mgr:老大哥形态 ：额外获得3层。 消耗 。"
+    "DESCRIPTION": "失去2点敏捷，获得 !M! 层 *金属化 与 *多层护甲 。 NL mgr:开眼 ：额外获得2层。 消耗 。",
+    "UPGRADE_DESCRIPTION": "失去3点敏捷，获得 !M! 层 *金属化 与 *多层护甲 。 NL mgr:开眼 ：额外获得3层。 消耗 。"
     },
     "MGR:Marionette":{
     "NAME":"提线木偶",
@@ -255,7 +255,7 @@
   },
     "MGR:FieryPerformance":{
     "NAME":"激奏",
-    "DESCRIPTION": "抽牌直到手牌有 !M! 张，丢弃费用最低的手牌。"
+    "DESCRIPTION": "抽牌直到手牌有 !M! 张。随机丢弃一张费用最低的手牌。"
   },
     "MGR:ChristmasGift":{
     "NAME":"圣诞礼物",
@@ -277,7 +277,7 @@
   },
     "MGR:NowhereToHide":{
     "NAME":"无处可逃",
-    "DESCRIPTION": "对所有敌人造成 !D! 点伤害并给予 !M! 层 mgr:注视 。 NL mgr:老大哥形态 ：再使所有敌人的 *注视 层数增加一半。"
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害并给予 !M! 层 mgr:注视 。 NL mgr:开眼 ：再使所有敌人的 *注视 层数增加一半。"
   },
     "MGR:Drown":{
     "NAME":"溺水",
@@ -285,7 +285,7 @@
   },
     "MGR:ReconvertingCharm":{
     "NAME":"回溯魔法",
-    "DESCRIPTION": "造成 !D! 点伤害。将你打出的上 !M! 张未消耗的牌移回手牌。 NL mgr:老大哥形态 ：获得这些牌的 mgr:临时复制 。"
+    "DESCRIPTION": "造成 !D! 点伤害。将你打出的上 !M! 张未消耗的牌移回手牌。 NL mgr:开眼 ：获得这些牌的 mgr:临时复制 。"
   },
     "MGR:DragonClaw":{
     "NAME":"龙爪",
@@ -310,8 +310,8 @@
   },
     "MGR:VocalPreparation":{
     "NAME":"演唱准备",
-    "DESCRIPTION": "生成 !M! 个 mgr:防御音符 。将一张 *高潮！ 加入弃牌堆。 NL mgr:老大哥形态 ：改为抽牌堆。消耗 。",
-    "UPGRADE_DESCRIPTION": "生成 !M! 个 mgr:防御音符 。将一张 *高潮！ *+ 加入弃牌堆。 NL mgr:老大哥形态 ：改为抽牌堆。 保留 。 消耗 。"
+    "DESCRIPTION": "生成 !M! 个 mgr:防御音符 。将一张 *高潮！ 加入弃牌堆。 NL mgr:开眼 ：改为抽牌堆。消耗 。",
+    "UPGRADE_DESCRIPTION": "生成 !M! 个 mgr:防御音符 。将一张 *高潮！ *+ 加入弃牌堆。 NL mgr:开眼 ：改为抽牌堆。 保留 。 消耗 。"
   },
     "MGR:Climax":{
     "NAME":"高潮！",
@@ -343,7 +343,7 @@
   },
     "MGR:SummoningCharm":{
     "NAME":"召唤魔法",
-    "DESCRIPTION": "从抽牌堆中将随机一张费用最高的牌置入手牌。它在本回合费用减少 [E] 。 消耗"
+    "DESCRIPTION": "从抽牌堆中将随机一张费用最高的牌置入手牌。它在本场战斗中费用减少 [E] 。 消耗"
   },
     "MGR:SunDescending":{
     "NAME":"日影西斜",
@@ -355,11 +355,11 @@
   },
     "MGR:Frighten":{
     "NAME":"吓唬",
-    "DESCRIPTION": "造成 !D! 点伤害，给予2层 易伤 。 NL 如果目标已有易伤，改为给予 !M! 层 mgr:注视 。"
+    "DESCRIPTION": "造成 !D! 点伤害，给予2层 易伤 。 NL 如果目标已有易伤，再给予 !M! 层 mgr:注视 。"
   },
     "MGR:RiverOfNotes":{
     "NAME":"音符之河",
-    "DESCRIPTION": "随机生成的 mgr:基本音符 略微变得更好，且可能获得 mgr:星空音符 。 NL 回合开始时，随机生成 !M! 个基本音符。"
+    "DESCRIPTION": " mgr:即兴 生成的 mgr:基本音符 略微变得更好，且可能获得 mgr:星空音符 。 NL 回合开始时，*即兴 !M! 。"
   },
     "MGR:LightUpTheStage":{
     "NAME":"点亮舞台",
@@ -368,16 +368,16 @@
   },
     "MGR:EchoPhantom":{
     "NAME":"回声幻影",
-    "DESCRIPTION": "抽一张牌，丢弃一张牌，将弃牌堆中一张牌的复制放在抽牌堆顶。 NL mgr:老大哥形态 ：再将一张复制置入手牌。 消耗 。",
+    "DESCRIPTION": "抽一张牌，丢弃一张牌，将弃牌堆中一张牌的复制放在抽牌堆顶。 NL mgr:开眼 ：再将一张复制置入手牌。 消耗 。",
 	"UPGRADE_DESCRIPTION": "丢弃所有手牌，生成对应的音符。其中每有一种音符，抽一张牌。 NL 再多抽一张。"
   },
     "MGR:IntertwinedTimbres":{
     "NAME":"音色交织",
-    "DESCRIPTION": "随机生成 !M! 个 mgr:基本音符 。 NL 本回合每生成过一种音符，获得 !B! 点格挡。"
+    "DESCRIPTION": "mgr:即兴 !M! 。 NL 本回合每生成过一种音符，获得 !B! 点格挡。"
   },
     "MGR:RoundRobin":{
     "NAME":"轮转",
-    "DESCRIPTION": "获得 !B! 点格挡。 NL 将弃牌堆中的 !M! 张牌置于抽牌堆底。 NL mgr:老大哥形态 ：改为置于抽牌堆顶。"
+    "DESCRIPTION": "获得 !B! 点格挡。 NL 将弃牌堆中的 !M! 张牌置于抽牌堆底。 NL mgr:开眼 ：改为置于抽牌堆顶。"
   },
     "MGR:TheEyeBehind":{
     "NAME":"后背之眼",
@@ -395,11 +395,11 @@
     },
     "MGR:RapidClaw":{
     "NAME":"急速爪击",
-    "DESCRIPTION": "造成 !D! 点伤害并生成一个 mgr:攻击音符 。 NL mgr:起音 ：将一张基础伤害减少 !M! （不小于0）的复制加入手牌。 消耗 。"
+    "DESCRIPTION": "造成 !D! 点伤害并生成一个 mgr:攻击音符 。 NL mgr:起音 ：若基础伤害不小于 !M! ，将一张基础伤害减少 !M! 的复制加入手牌。 消耗 。"
   },
-    "MGR:FatalShooting":{
-    "NAME":"决死枪击",
-    "DESCRIPTION": "造成 !D! 点伤害，本回合生成的每个 mgr:音符 使伤害提高 !M! 点。结束你的回合。 NL mgr:老大哥形态 ：费用为0。"
+    "MGR:FinisherShooting":{
+    "NAME":"终结枪击",
+    "DESCRIPTION": "造成 !D! 点伤害，本回合生成的每个 mgr:音符 使伤害提高 !M! 点。结束你的回合。 NL mgr:开眼 ：费用为0。"
   },
     "Intercept":{
     "NAME":"迎击",

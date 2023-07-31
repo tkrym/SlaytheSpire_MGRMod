@@ -39,9 +39,8 @@ public class Frighten extends AbstractMGRCard
     {
         addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn),
                 AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-        if(!m.hasPower(VulnerablePower.POWER_ID))
-            addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m,2,false),2));
-        else addToBot(new ApplyGazeAction(m,this.magicNumber));
+        addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m,2,false),2));
+        if(m.hasPower(VulnerablePower.POWER_ID)) addToBot(new ApplyGazeAction(m,this.magicNumber));
     }
 
     public AbstractCard makeCopy() {return new Frighten();}

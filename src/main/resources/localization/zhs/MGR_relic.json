@@ -37,7 +37,7 @@
     "NAME": "电幕",
     "FLAVOR": "老大哥在看着你。",
     "DESCRIPTIONS": [
-      "战斗开始时，进入 #ymgr:老大哥形态 。"
+      "战斗开始时，进入 #ymgr:开眼 。"
     ]
   },
   "MGR:LittleAngel": {
@@ -100,7 +100,7 @@
     "NAME": "1",
     "FLAVOR": "1",
     "DESCRIPTIONS": [
-      "每当你进入 #ymgr:老大哥形态 ，获得 [E] 并抽 #b",
+      "每当你进入 #ymgr:开眼 ，获得 [E] 并抽 #b",
       " 张牌。"
     ]
   }

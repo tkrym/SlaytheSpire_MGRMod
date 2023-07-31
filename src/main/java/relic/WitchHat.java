@@ -12,8 +12,8 @@ public class WitchHat extends CustomRelic{
     public static final String ID = "MGR:WitchHat";
     private static final String IMG = "img/relic/"+ID.substring(4)+".png";
     private static final String OUTLINE = "img/relic/outline/"+ID.substring(4)+".png";
-    private static final int THRESHOLD1=70;
-    private static final int THRESHOLD2=40;
+    private static final int THRESHOLD1=67;
+    private static final int THRESHOLD2=33;
 
     public WitchHat() {
         super(ID, ImageMaster.loadImage(IMG), ImageMaster.loadImage(OUTLINE), RelicTier.UNCOMMON, LandingSound.MAGICAL);

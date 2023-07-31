@@ -49,6 +49,7 @@ public class SummoningCharmAction extends AbstractGameAction
     {
         if (AbstractDungeon.player.hand.size() <= 9)
         {
+            if(c.cost>0) c.cost--;
             c.setCostForTurn(c.costForTurn - 1);
             AbstractDungeon.player.drawPile.removeCard(c);
             AbstractDungeon.player.hand.addToHand(c);

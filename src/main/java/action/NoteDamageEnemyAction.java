@@ -44,7 +44,7 @@ public class NoteDamageEnemyAction extends AbstractGameAction {
                 if (!m.isDeadOrEscaped() && !m.halfDead) {
                     DamageInfo info=new DamageInfo(source,AbstractNote.applyVulnerable(m, this.amount), DamageInfo.DamageType.THORNS);
                     addToTop(new DamageAction(m, info, AttackEffect.NONE, true));
-                    addToTop(new VFXAction(new NoteAboveCreatureEffect(m.hb.cX - m.animX, m.hb.cY + m.hb.height / 2.0F - m.animY, AttackNoteIMG,m.hb.height*0.3f,m.hb.height*1.4f,2.5f), Settings.ACTION_DUR_XFAST));
+                    addToTop(new VFXAction(new NoteAboveCreatureEffect(m.hb.cX - m.animX, m.hb.cY + m.hb.height / 2.0F - m.animY, AttackNoteIMG,m.hb.height*0.3f,m.hb.height*1.4f,2.5f), Settings.ACTION_DUR_XFAST/2.0f));
                 }
             }
         }
