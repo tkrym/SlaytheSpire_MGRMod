@@ -1,50 +1,41 @@
 package card.UNCOMMON;
 
-import action.ApplyForteAction;
 import card.AbstractMGRCard;
-import character.MGR_character;
-import com.badlogic.gdx.graphics.Color;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import path.AbstractCardEnum;
+import power.BurnsRedPower;
+import power.TheForsakenPower;
 
-public class StageWarmUp extends AbstractMGRCard {
-    public static final String ID = "MGR:StageWarmUp";
+public class BurnsRed extends AbstractMGRCard {
+    public static final String ID = "MGR:BurnsRed";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG = "img/card/"+ID.substring(4)+".png";
-    private static final int COST = 1;
-    private static final int MAGIC = 1;
-    public StageWarmUp() {
+    private static final int COST = 2;
+    public static final int MAGIC = 1;
+    public BurnsRed() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.POWER,
                 AbstractCardEnum.MGR_COLOR, CardRarity.UNCOMMON, CardTarget.SELF);
-        this.baseMagicNumber = MAGIC;
+        this.baseMagicNumber=MAGIC;
         this.magicNumber=this.baseMagicNumber;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ApplyForteAction(this.magicNumber));
-        if(this.upgraded&&MGR_character.BigBrotherStanceCheck())
-            AbstractDungeon.actionManager.addToBottom(new ApplyForteAction(1));
+        addToBot(new ApplyPowerAction(p,p,new BurnsRedPower(this.magicNumber),this.magicNumber));
     }
 
-    public AbstractCard makeCopy() { return new StageWarmUp(); }
+    public AbstractCard makeCopy() { return new BurnsRed(); }
 
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.rawDescription=UPGRADE_DESCRIPTION;
-            initializeDescription();
+            this.upgradeBaseCost(1);
         }
-    }
-
-    @Override
-    public void triggerOnGlowCheck() {
-        if(this.upgraded) triggerOnGlowCheck_BigBrother();
     }
 }

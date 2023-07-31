@@ -33,7 +33,7 @@ public class GazeLoseHpAction extends AbstractGameAction
         this.target = target;
         this.source = AbstractDungeon.player;
         this.actionType = ActionType.DAMAGE;
-        this.duration = DURATION;
+        this.duration = Settings.ACTION_DUR_XFAST;
     }
 
     public void update()
@@ -52,6 +52,7 @@ public class GazeLoseHpAction extends AbstractGameAction
                 this.amount = p.amount;
                 if (this.target.currentHealth > 0)
                 {
+                    p.flashWithoutSound();
                     this.target.damage(new DamageInfo(this.source, this.amount, DamageType.HP_LOSS));
                     if (AbstractDungeon.player.hasPower(SalivatePower.POWER_ID) && (this.target.isDying || this.target.currentHealth <= 0) && !this.target.halfDead && !this.target.hasPower(MinionPower.POWER_ID))
                     {
@@ -67,7 +68,6 @@ public class GazeLoseHpAction extends AbstractGameAction
                     AbstractDungeon.player.getRelic(Sunglasses.ID).flash();
                 }
                 p.amount -= MathUtils.ceil(dec*(float)p.amount);
-                p.flashWithoutSound();
                 if(p.amount<1&&AbstractDungeon.player.hasRelic(BloodshotEyeball.ID)) p.amount=1;
                 if (p.amount <= 0) this.target.powers.remove(p);
                 else p.updateDescription();

@@ -21,14 +21,15 @@ public class LittleAngel extends CustomRelic{
 
     @Override
     public void atTurnStartPostDraw() {
-        final int OriginCount= (int) AbstractDungeon.player.hand.group.stream().filter(c->c.type==AbstractCard.CardType.SKILL&&c.cost!=-2).count();
+        final int OriginCount= (int) AbstractDungeon.player.hand.group.stream().filter(c->c.type==AbstractCard.CardType.SKILL/*&&c.cost!=-2*/).count();
         addToBot(new AbstractGameAction() {
             @Override
             public void update() {
-                if(AbstractDungeon.player.hand.group.stream().filter(c->c.type==AbstractCard.CardType.SKILL&&c.cost!=-2).count()-OriginCount<= LittleAngel.DrawThreshold)
+                int amt= (int) (AbstractDungeon.player.hand.group.stream().filter(c->c.type==AbstractCard.CardType.SKILL/*&&c.cost!=-2*/).count()-OriginCount);
+                if(amt< LittleAngel.DrawThreshold)
                 {
                     LittleAngel.this.flash();
-                    addToTop(new DrawCardAction(LittleAngel.MAGIC));
+                    addToTop(new DrawCardAction(LittleAngel.MAGIC*(LittleAngel.DrawThreshold-amt)));
                     addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, LittleAngel.this));
                 }
                 this.isDone=true;

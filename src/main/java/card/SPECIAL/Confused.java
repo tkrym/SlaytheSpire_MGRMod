@@ -32,6 +32,9 @@ public class Confused extends AbstractMGRCard {
 
     public AbstractCard makeCopy() { return new Confused(); }
 
+    @Override
+    public boolean canUpgrade(){ return !this.upgraded;}
+
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();

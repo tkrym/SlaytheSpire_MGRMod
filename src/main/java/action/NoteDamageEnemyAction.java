@@ -36,7 +36,7 @@ public class NoteDamageEnemyAction extends AbstractGameAction {
             {
                 DamageInfo info=new DamageInfo(source,AbstractNote.applyVulnerable(m, this.amount), DamageInfo.DamageType.THORNS);
                 addToTop(new DamageAction(m, info, AttackEffect.NONE, true));
-                addToTop(new VFXAction(new NoteAboveCreatureEffect(m.hb.cX - this.source.animX, m.hb.cY + m.hb.height / 3.0F - m.animY, AttackNoteIMG), Settings.ACTION_DUR_XFAST));
+                addToTop(new VFXAction(new NoteAboveCreatureEffect(m.hb.cX - this.source.animX, m.hb.cY + m.hb.height / 3.0F - m.animY, AttackNoteIMG), Settings.ACTION_DUR_XFAST/2.0f));
             }
         } else
         {

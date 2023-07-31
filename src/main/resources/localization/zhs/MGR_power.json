@@ -179,28 +179,37 @@
     "MGR:RiverOfNotesPower": {
     "NAME": "音符之河",
     "DESCRIPTIONS": [
-      "随机生成的 #y基本音符 略微变得更好，且可能获得星空音符。回合开始时，随机生成 #b",
-      " 个基本音符。"
+      " #y即兴 的 #y基本音符 略微变好，且可能获得星空音符。回合开始时， #y即兴 #b",
+      " 。"
     ]
   },  
     "MGR:HakkeroChargedPower": {
-    "NAME": "充能完毕",
+    "NAME": "八卦炉充能完毕",
     "DESCRIPTIONS": [
       "每打出一张牌，生成 #b",
       " 个 #y攻击音符 。"
     ]
   },  
     "MGR:HakkeroChargePower": {
-    "NAME": "八卦炉充能",
+    "NAME": "八卦炉充能中...",
     "DESCRIPTIONS": [
       "下回合开始时获得 #b",
-      " 层 #y临时强音 与 #y充能完毕 。"
+      " 层 #y八卦炉充能完毕 。"
     ]
-  },   
-    "BrakingArmorPower": {
-    "NAME": "制动装甲",
+  },
+    "MGR:HakkeroChargePlusPower": {
+    "NAME": "八卦炉充能中...",
     "DESCRIPTIONS": [
-      "每回合获得等同呼叫数的格挡。"
+      "下回合开始时获得 #b",
+      " 层 #y临时强音 与 #b",
+      " 层 #y八卦炉充能完毕 。"
+    ]
+  },
+  "MGR:BurnsRedPower": {
+    "NAME": "赤灼",
+    "DESCRIPTIONS": [
+      "每打出一张技能牌，生成 #b",
+      " 个 #y攻击音符 。"
     ]
   },     
     "QuickCallPower": {

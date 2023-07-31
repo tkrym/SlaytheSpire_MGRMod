@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import path.AbstractCardEnum;
+import power.GazePower;
 
 public class Frighten extends AbstractMGRCard
 {
@@ -21,9 +22,9 @@ public class Frighten extends AbstractMGRCard
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String IMG = "img/card/" + ID.substring(4) + ".png";
     private static final int COST = 1;
-    private static final int DMG = 5;
+    private static final int DMG = 6;
     private static final int PLUS_DMG = 2;
-    private static final int MAGIC = 5;
+    private static final int MAGIC = 6;
     private static final int PLUS_MAGIC = 2;
 
     public Frighten()
@@ -39,7 +40,7 @@ public class Frighten extends AbstractMGRCard
     {
         addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn),
                 AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-        addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m,2,false),2));
+        if(m.hasPower(GazePower.POWER_ID)) addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m,2,false),2));
         if(m.hasPower(VulnerablePower.POWER_ID)) addToBot(new ApplyGazeAction(m,this.magicNumber));
     }
 

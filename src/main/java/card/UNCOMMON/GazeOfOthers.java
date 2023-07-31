@@ -21,7 +21,7 @@ public class GazeOfOthers extends AbstractMGRCard {
     private String DESC;
     public static final String IMG = "img/card/"+ID.substring(4)+".png";
     private static final int COST = 1;
-    private static final int BLOCK = 4;
+    private static final int BLOCK = 6;
     private static final int PLUS_BLOCK = 2;
     private static final int MAGIC = 1;
     public GazeOfOthers() {
@@ -58,8 +58,8 @@ public class GazeOfOthers extends AbstractMGRCard {
     private int GetAdditionalBlock(AbstractMonster m)
     {
         int amt=this.upgraded?calculateBLOCKAll():calculateBLOCK(m);
-        if(this.upgraded&&amt>30) amt=30;
-        else if(!this.upgraded&&amt>20) amt=20;
+        /*if(this.upgraded&&amt>30) amt=30;
+        else if(!this.upgraded&&amt>20) amt=20;*/
         return amt;
     }
 

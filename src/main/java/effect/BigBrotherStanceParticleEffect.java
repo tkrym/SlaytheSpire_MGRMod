@@ -25,7 +25,6 @@ public class BigBrotherStanceParticleEffect extends AbstractGameEffect
 
     public BigBrotherStanceParticleEffect(int index)
     {
-        this.scale = Settings.scale;
         this.img = ImageMaster.EYE_ANIM_0;
         this.scale = 1.0F;
         this.startingDuration = MathUtils.random(1.0F, 1.5F);
@@ -34,25 +33,27 @@ public class BigBrotherStanceParticleEffect extends AbstractGameEffect
         this.dur_div2 = this.duration / 2.0F;
         this.target = AbstractDungeon.player;
         this.color = new Color(MathUtils.random(0.0F, 0.2F), MathUtils.random(0.75F, 0.95F), MathUtils.random(0.9F, 1.0F), 0.0F);
-        //this.color = new Color(MathUtils.random(0.15F, 0.25F), MathUtils.random(0.5F, 0.7F), MathUtils.random(0.7F, 0.9F), 0.0F);
-        this.x = this.target.hb.cX + (index - 2.5f) * this.target.hb.width*0.4f;
-        this.x += MathUtils.random(-5.0F * Settings.scale, 5.0f * Settings.scale);
-        this.y = this.target.hb.cY+this.target.hb.height*0.2f;
-        this.y += MathUtils.random(3.0F * Settings.scale,-3.0F * Settings.scale);
-        this.renderBehind = false;
-        if(index==1) this.rotation=-20.0f;
-        else if(index==2) this.rotation=-7.0f;
-        else if(index==3) this.rotation=7.0f;
-        else if(index==4) this.rotation=20.0f;
-        else this.rotation=MathUtils.random(12.0F, 6.0F)*(this.x>this.target.hb.cX?-1:1);
-        this.rotation+=MathUtils.random(-1.0f,1.0f);
-        this.x -= (float) this.img.packedWidth / 2.0F;
-        this.y -= (float) this.img.packedHeight / 2.0F;
+        if(this.target==null) this.isDone=true;
+        else
+        {
+            this.x = this.target.hb.cX + (index - 2.5f) * this.target.hb.width * 0.4f;
+            this.x += MathUtils.random(-5.0F * Settings.scale, 5.0f * Settings.scale);
+            this.y = this.target.hb.cY + this.target.hb.height * 0.2f;
+            this.y += MathUtils.random(3.0F * Settings.scale, -3.0F * Settings.scale);
+            this.renderBehind = false;
+            if (index == 1) this.rotation = -20.0f;
+            else if (index == 2) this.rotation = -7.0f;
+            else if (index == 3) this.rotation = 7.0f;
+            else if (index == 4) this.rotation = 20.0f;
+            else this.rotation = MathUtils.random(12.0F, 6.0F) * (this.x > this.target.hb.cX ? -1 : 1);
+            this.rotation += MathUtils.random(-1.0f, 1.0f);
+            this.x -= (float) this.img.packedWidth / 2.0F;
+            this.y -= (float) this.img.packedHeight / 2.0F;
+        }
     }
 
     public BigBrotherStanceParticleEffect(AbstractCreature target)
     {
-        this.scale = Settings.scale;
         this.img = ImageMaster.EYE_ANIM_0;
         this.scale = MathUtils.random(1.0F, 1.5F);
         this.startingDuration = this.scale + 0.8F;
@@ -61,18 +62,17 @@ public class BigBrotherStanceParticleEffect extends AbstractGameEffect
         this.dur_div2 = this.duration / 2.0F;
         this.target = target;
         this.color = new Color(MathUtils.random(0.0F, 0.2F), MathUtils.random(0.75F, 0.95F), MathUtils.random(0.9F, 1.0F), 0.0F);
-        //this.color = new Color(MathUtils.random(0.15F, 0.25F), MathUtils.random(0.5F, 0.7F), MathUtils.random(0.7F, 0.9F), 0.0F);
-        this.x = this.target.hb.cX + MathUtils.random(-this.target.hb.width / 2.0F - 50.0F * Settings.scale, this.target.hb.width / 2.0F + 50.0F * Settings.scale);
-        this.y = this.target.hb.cY + MathUtils.random(-this.target.hb.height / 2.0F + 10.0F * Settings.scale, this.target.hb.height / 2.0F - 20.0F * Settings.scale);
-        this.renderBehind = MathUtils.randomBoolean();
-        this.rotation = MathUtils.random(12.0F, 6.0F);
-        if (this.x > this.target.hb.cX)
+        if(this.target==null) this.isDone=true;
+        else
         {
-            this.rotation = -this.rotation;
+            this.x = this.target.hb.cX + MathUtils.random(-this.target.hb.width / 2.0F - 50.0F * Settings.scale, this.target.hb.width / 2.0F + 50.0F * Settings.scale);
+            this.y = this.target.hb.cY + MathUtils.random(-this.target.hb.height / 2.0F + 10.0F * Settings.scale, this.target.hb.height / 2.0F - 20.0F * Settings.scale);
+            this.renderBehind = MathUtils.randomBoolean();
+            this.rotation = MathUtils.random(12.0F, 6.0F);
+            if (this.x > this.target.hb.cX) this.rotation = -this.rotation;
+            this.x -= (float) this.img.packedWidth / 2.0F;
+            this.y -= (float) this.img.packedHeight / 2.0F;
         }
-
-        this.x -= (float) this.img.packedWidth / 2.0F;
-        this.y -= (float) this.img.packedHeight / 2.0F;
     }
 
     public void update()

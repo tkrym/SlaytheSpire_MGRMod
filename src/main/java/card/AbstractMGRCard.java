@@ -38,7 +38,7 @@ public abstract class AbstractMGRCard extends CustomCard {
 
     public void UpdateExhaustiveDescription()
     {
-        if(this.purgeOnUse) return;
+        if(this.purgeOnUse||this.exhaust) return;
         this.rawDescription=this.rawDescription.substring(0,this.rawDescription.length()-1)+ ExhaustiveField.ExhaustiveFields.exhaustive.get(this);
         initializeDescription();
     }

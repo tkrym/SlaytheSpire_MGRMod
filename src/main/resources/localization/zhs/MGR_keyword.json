@@ -3,7 +3,7 @@
     "NAMES": [
       "计数器"
     ],
-    "DESCRIPTION": "达到一定数量后，进入 #y老大哥形态 。"
+    "DESCRIPTION": "达到一定数量后，进入 #y开眼 。"
   },
   {
     "NAMES": [
@@ -128,8 +128,8 @@
   },
   {
     "NAMES": [
-      "improvise",
-      "即兴"
+      "即兴",
+      "improvise"
     ],
     "DESCRIPTION": "以一定概率生成五种 #y基本音符 中的一个。"
   }

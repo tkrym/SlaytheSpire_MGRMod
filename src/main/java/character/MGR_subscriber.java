@@ -25,7 +25,7 @@ import card.RARE.Salivate;
 import card.UNCOMMON.SunDescending;
 import card.COMMON.MyReflection;
 import card.RARE.VocalPreparation;
-import card.UNCOMMON.Bewildered;
+import card.UNCOMMON.Romp;
 import card.RARE.ResonanceForm;
 import card.COMMON.Nocturnal;
 import card.COMMON.Marionette;
@@ -242,11 +242,10 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         this.cardsToAdd.add(new Peek());
         this.cardsToAdd.add(new Hallucination());
         this.cardsToAdd.add(new GazeFromTheShadow());
-        this.cardsToAdd.add(new Bewildered());
+        this.cardsToAdd.add(new Romp());
         this.cardsToAdd.add(new Yazyuutokasu());
         this.cardsToAdd.add(new Obakenoukenerai());
         this.cardsToAdd.add(new ResonanceForm());
-        this.cardsToAdd.add(new TheForsaken());
         this.cardsToAdd.add(new MaguroCleave());
         this.cardsToAdd.add(new StarryDrift());
         this.cardsToAdd.add(new Futariboshi());
@@ -291,6 +290,7 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         this.cardsToAdd.add(new StarrySkyObservation());
         this.cardsToAdd.add(new HakkeroCharge());
         this.cardsToAdd.add(new RapidClaw());
+        this.cardsToAdd.add(new BurnsRed());
     }
     @Override
     public void receiveEditRelics()
