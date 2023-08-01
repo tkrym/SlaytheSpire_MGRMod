@@ -25,6 +25,7 @@ import com.megacrit.cardcrawl.vfx.BobEffect;
 import com.megacrit.cardcrawl.vfx.combat.FrostOrbPassiveEffect;
 import effect.NotePassiveEffect;
 import effect.NoteTriggeredEffect;
+import patch.EnergyFontPatch;
 import power.*;
 
 import java.util.ArrayList;
@@ -84,7 +85,7 @@ public abstract class AbstractNote extends AbstractOrb
     protected void renderText(SpriteBatch sb)
     {
         if (!(this instanceof EmptyNoteSlot))
-            FontHelper.renderFontCentered(sb, FontHelper.cardEnergyFont_L, Integer.toString(this.evokeAmount),
+            FontHelper.renderFontCentered(sb, EnergyFontPatch.energyNumFontMGR, Integer.toString(this.evokeAmount),
                     this.cX + NUM_X_OFFSET, this.cY + this.bobEffect.y / 2.0F + NUM_Y_OFFSET, this.c, this.fontScale);
     }
 

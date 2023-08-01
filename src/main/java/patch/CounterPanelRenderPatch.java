@@ -3,12 +3,11 @@ package patch;
 import character.MGR_character;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.*;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.OverlayMenu;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.core.OverlayMenu;
 
-public class CounterPanelPatches {
+public class CounterPanelRenderPatch
+{
 
     @SpirePatch(clz = OverlayMenu.class, method = "update")
     public static class updatePatch {

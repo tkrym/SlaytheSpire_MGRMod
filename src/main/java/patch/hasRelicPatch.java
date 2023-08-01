@@ -9,13 +9,13 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import java.util.Objects;
 
 public class hasRelicPatch {
-    @SpirePatch(clz=AbstractPlayer.class, method = "hasRelic")
+    /*@SpirePatch(clz=AbstractPlayer.class, method = "hasRelic")
     public static class hasRelicResurrect {
         @SpireInsertPatch(rloc = 0)
         public static SpireReturn Insert(AbstractPlayer p, String targetID) {
             //return !(p instanceof MGR_character) || (!Objects.equals(targetID, "Blue Candle") && !Objects.equals(targetID, "Medical Kit")) ? SpireReturn.Continue() : SpireReturn.Return(true);
             return SpireReturn.Continue();
         }
-    }
+    }*/
 }
 

@@ -17,39 +17,52 @@ import hook.OnManualDiscardHook;
 import javax.swing.*;
 import java.util.Objects;
 
-public class ManualDiscardPatch {
+public class ManualDiscardPatch
+{
 
     public static void triggerManualDiscard(AbstractCard c)
     {
-        for(AbstractPower power:AbstractDungeon.player.powers)
-            if(power instanceof OnManualDiscardHook)
-                ((OnManualDiscardHook)power).OnManualDiscard(c);
+        for (AbstractPower power : AbstractDungeon.player.powers)
+            if (power instanceof OnManualDiscardHook)
+                ((OnManualDiscardHook) power).OnManualDiscard(c);
     }
-    @SpirePatch(clz= DiscardAction.class, method = "update")
-    public static class triggerManualDiscardHook1 {
-        @SpireInsertPatch(loc = 55,localvars={"c"})
-        public static void Insert(DiscardAction __instance,boolean ___endTurn, AbstractCard c) {
-            if(!___endTurn) triggerManualDiscard(c);
+
+    @SpirePatch(clz = DiscardAction.class, method = "update")
+    public static class triggerManualDiscardHook1
+    {
+        @SpireInsertPatch(loc = 55, localvars = {"c"})
+        public static void Insert(DiscardAction __instance, boolean ___endTurn, AbstractCard c)
+        {
+            if (!___endTurn) triggerManualDiscard(c);
         }
     }
-    @SpirePatch(clz= DiscardAction.class, method = "update")
-    public static class triggerManualDiscardHook2 {
-        @SpireInsertPatch(locs = {70,97},localvars={"c"})
-        public static void Insert(DiscardAction __instance,AbstractCard c) {
+
+    @SpirePatch(clz = DiscardAction.class, method = "update")
+    public static class triggerManualDiscardHook2
+    {
+        @SpireInsertPatch(locs = {70, 97}, localvars = {"c"})
+        public static void Insert(DiscardAction __instance, AbstractCard c)
+        {
             triggerManualDiscard(c);
         }
     }
-    @SpirePatch(clz= DiscardSpecificCardAction.class, method = "update")
-    public static class triggerManualDiscardHook3 {
+
+    @SpirePatch(clz = DiscardSpecificCardAction.class, method = "update")
+    public static class triggerManualDiscardHook3
+    {
         @SpireInsertPatch(loc = 37)
-        public static void Insert(DiscardSpecificCardAction __instance,AbstractCard ___targetCard) {
+        public static void Insert(DiscardSpecificCardAction __instance, AbstractCard ___targetCard)
+        {
             triggerManualDiscard(___targetCard);
         }
     }
-    @SpirePatch(clz= GamblingChipAction.class, method = "update")
-    public static class triggerManualDiscardHook4 {
-        @SpireInsertPatch(loc = 57,localvars={"c"})
-        public static void Insert(GamblingChipAction __instance,AbstractCard c) {
+
+    @SpirePatch(clz = GamblingChipAction.class, method = "update")
+    public static class triggerManualDiscardHook4
+    {
+        @SpireInsertPatch(loc = 57, localvars = {"c"})
+        public static void Insert(GamblingChipAction __instance, AbstractCard c)
+        {
             triggerManualDiscard(c);
         }
     }
