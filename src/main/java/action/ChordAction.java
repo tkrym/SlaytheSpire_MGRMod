@@ -20,18 +20,21 @@ import java.util.Iterator;
 
 public class ChordAction extends AbstractGameAction
 {
-    public ChordAction() {
+    public ChordAction()
+    {
         this.actionType = ActionType.SPECIAL;
-        this.startDuration= Settings.ACTION_DUR_FAST;
-        this.duration=this.startDuration;
+        this.startDuration = Settings.ACTION_DUR_FAST;
+        this.duration = this.startDuration;
     }
-    public void update() {
-        if(!(AbstractDungeon.player instanceof MGR_character))
+
+    public void update()
+    {
+        if (!(AbstractDungeon.player instanceof MGR_character))
         {
             this.isDone = true;
             return;
         }
-        if(this.duration==this.startDuration)
+        if (this.duration == this.startDuration)
         {
             MGR_character p = (MGR_character) AbstractDungeon.player;
             ArrayList<AbstractNote> notes = new ArrayList<>();
@@ -45,13 +48,13 @@ public class ChordAction extends AbstractGameAction
                     ((OnChordHook) power).OnChord(notes);
                 }
             }
-            for (AbstractRelic relic : p.relics)
+            /*for (AbstractRelic relic : p.relics)
             {
                 if (relic instanceof OnChordHook)
                 {
                     ((OnChordHook) relic).OnChord(notes);
                 }
-            }
+            }*/
             for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters)
             {
                 if (!m.isDeadOrEscaped() && m.hasPower(GazePower.POWER_ID))

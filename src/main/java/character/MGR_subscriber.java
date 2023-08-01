@@ -291,6 +291,7 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         this.cardsToAdd.add(new HakkeroCharge());
         this.cardsToAdd.add(new RapidClaw());
         this.cardsToAdd.add(new BurnsRed());
+        this.cardsToAdd.add(new TheBurningSun());
     }
     @Override
     public void receiveEditRelics()
@@ -315,7 +316,7 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         this.relicsToAdd.add(new MiniMicrophone());
         this.relicsToAdd.add(new YourExclusiveStage());
         this.relicsToAdd.add(new WitchHat());
-        this.relicsToAdd.add(new FriendsSpirit());
+        //this.relicsToAdd.add(new FriendsSpirit());
         this.relicsToAdd.add(new Fumo());
     }
 

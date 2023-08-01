@@ -9,8 +9,8 @@
   "MGR:PortableAnvil": {
     "NAME": "便携熔炉",
     "DESCRIPTIONS": [
-      "随机升级 #b",
-      " 张牌，优先升级高稀有度的卡牌。"
+      "随机升级卡组中的 #b",
+      " 张牌，高稀有度的卡牌有更大概率被升级。"
     ]
   },
   "MGR:FortePotion": {

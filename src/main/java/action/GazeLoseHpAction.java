@@ -74,9 +74,9 @@ public class GazeLoseHpAction extends AbstractGameAction
                 for (AbstractPower power : AbstractDungeon.player.powers)
                     if (power instanceof OnGazeTriggeredHook)
                         ((OnGazeTriggeredHook) power).OnGazeTriggered(target, this.amount);
-                for (AbstractRelic relic : AbstractDungeon.player.relics)
+                /*for (AbstractRelic relic : AbstractDungeon.player.relics)
                     if (relic instanceof OnGazeTriggeredHook)
-                        ((OnGazeTriggeredHook) relic).OnGazeTriggered(target, this.amount);
+                        ((OnGazeTriggeredHook) relic).OnGazeTriggered(target, this.amount);*/
                 if (AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead())
                 {
                     AbstractDungeon.actionManager.clearPostCombatActions();

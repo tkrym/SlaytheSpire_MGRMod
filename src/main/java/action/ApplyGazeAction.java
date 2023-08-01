@@ -22,9 +22,9 @@ public class ApplyGazeAction extends AbstractGameAction {
         for(AbstractPower power:AbstractDungeon.player.powers)
             if(power instanceof OnApplyGazeHook)
                 ((OnApplyGazeHook)power).OnApplyGaze(target,this.amount);
-        for (AbstractRelic relic : AbstractDungeon.player.relics)
+        /*for (AbstractRelic relic : AbstractDungeon.player.relics)
             if (relic instanceof OnApplyGazeHook)
-                ((OnApplyGazeHook) relic).OnApplyGaze(target,this.amount);
+                ((OnApplyGazeHook) relic).OnApplyGaze(target,this.amount);*/
         this.isDone=true;
     }
 }

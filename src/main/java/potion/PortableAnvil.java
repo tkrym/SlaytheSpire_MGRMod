@@ -39,7 +39,7 @@ public class PortableAnvil extends AbstractPotion{
 
     @Override
     public void use(AbstractCreature target) {
-        for(int i=0;i<this.potency;++i)
+        for(int i=1;i<=this.potency;++i)
         {
             ArrayList<AbstractCard> upgradableCards_RARE = new ArrayList<>();
             ArrayList<AbstractCard> upgradableCards_UNCOMMON = new ArrayList<>();
@@ -58,15 +58,20 @@ public class PortableAnvil extends AbstractPotion{
                     }
                 }
             }
-            ArrayList<AbstractCard> upgradableCards;
-            if(!upgradableCards_RARE.isEmpty()) upgradableCards=upgradableCards_RARE;
+            ArrayList<AbstractCard> upgradableCards=new ArrayList<>();
+            for(AbstractCard c:upgradableCards_RARE) for(int j=1;j<=4;j++) upgradableCards.add(c);
+            for(AbstractCard c:upgradableCards_UNCOMMON) for(int j=1;j<=2;j++) upgradableCards.add(c);
+            for(AbstractCard c:upgradableCards_SPECIAL) for(int j=1;j<=2;j++) upgradableCards.add(c);
+            for(AbstractCard c:upgradableCards_COMMON) for(int j=1;j<=1;j++) upgradableCards.add(c);
+            for(AbstractCard c:upgradableCards_BASIC) for(int j=1;j<=1;j++) upgradableCards.add(c);
+            /*if(!upgradableCards_RARE.isEmpty()) upgradableCards=upgradableCards_RARE;
             else if(!upgradableCards_UNCOMMON.isEmpty()) upgradableCards=upgradableCards_UNCOMMON;
             else if(!upgradableCards_SPECIAL.isEmpty()) upgradableCards=upgradableCards_SPECIAL;
             else if(!upgradableCards_COMMON.isEmpty()) upgradableCards=upgradableCards_COMMON;
             else if(!upgradableCards_BASIC.isEmpty()) upgradableCards=upgradableCards_BASIC;
-            else continue;
-            Collections.shuffle(upgradableCards, new Random(AbstractDungeon.miscRng.randomLong()));
+            else continue;*/
             if (!upgradableCards.isEmpty()) {
+                Collections.shuffle(upgradableCards, new Random(AbstractDungeon.miscRng.randomLong()));
                 upgradableCards.get(0).upgrade();
                 AbstractDungeon.player.bottledCardUpgradeCheck(upgradableCards.get(0));
                 AbstractDungeon.topLevelEffects.add(new ShowCardBrieflyEffect(upgradableCards.get(0).makeStatEquivalentCopy(), ((((float) Settings.WIDTH) / 2.0f) - (AbstractCard.IMG_WIDTH / 2.0f)) - (20.0f * Settings.scale)+AbstractCard.IMG_WIDTH*i, ((float) Settings.HEIGHT) / 2.0f));

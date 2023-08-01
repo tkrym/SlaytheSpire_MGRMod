@@ -48,7 +48,7 @@
     "MGR:CrispEnding":{
     "NAME":"(Deprecated)轻快尾音",
     "DESCRIPTION": "造成 !D! 点伤害。 NL 尾音：抽 !M! 张牌。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。生成一个 mgr:攻击音符 。 NL 尾音：抽 !M! 张牌。"
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。生成1个 mgr:攻击音符 。 NL 尾音：抽 !M! 张牌。"
   },
     "MGR:EastOfTimeline":{
     "NAME":"时间线之东☆",
@@ -175,8 +175,8 @@
   },
     "MGR:Yazyuutokasu":{
     "NAME":"野兽化",
-    "DESCRIPTION": "回合抽牌后，随机丢弃一张费用最低的手牌，将一张 *困惑 置入手牌。",
-    "UPGRADE_DESCRIPTION": "回合抽牌后，随机丢弃一张费用最低的手牌，将一张 *困惑+ 置入手牌。"
+    "DESCRIPTION": "回合抽牌后，随机丢弃一张费用最低的手牌，将1张 *困惑 置入手牌。",
+    "UPGRADE_DESCRIPTION": "回合抽牌后，随机丢弃一张费用最低的手牌，将1张 *困惑+ 置入手牌。"
   },
     "MGR:TheForsaken":{
     "NAME":"(Deprecated)被遗忘者",
@@ -207,12 +207,12 @@
   },
     "MGR:StardustLaser":{
     "NAME":"星屑镭射",
-    "DESCRIPTION": " mgr:星空 。 NL 丢弃一张牌，对所有敌人造成 !D! 点伤害。"
+    "DESCRIPTION": " mgr:星空 。 NL 丢弃1张牌，对所有敌人造成 !D! 点伤害。"
   },
     "MGR:Kimitomitahosizora":{
     "NAME":"曾与你见过的星空",
-    "DESCRIPTION": " mgr:星空 。 NL 预见 !M! ，该预见的丢弃视为从手牌中丢弃。 NL 如果丢弃了至少3张牌，生成一个 mgr:星空音符 。",
-    "UPGRADE_DESCRIPTION": " mgr:星空 。 NL 预见 !M! ，该预见的丢弃视为从手牌中丢弃。 NL 如果丢弃了至少4张牌，生成一个 mgr:星空音符 。"
+    "DESCRIPTION": " mgr:星空 。 NL 预见 !M! ，该预见的丢弃视为从手牌中丢弃。 NL 如果丢弃了至少3张牌，生成1个 mgr:星空音符 。",
+    "UPGRADE_DESCRIPTION": " mgr:星空 。 NL 预见 !M! ，该预见的丢弃视为从手牌中丢弃。 NL 如果丢弃了至少4张牌，生成1个 mgr:星空音符 。"
   },
     "MGR:Futariboshi":{
     "NAME":"两个人的星☆",
@@ -264,7 +264,7 @@
   },
     "MGR:BroomStrike":{
     "NAME":"扫把打击",
-    "DESCRIPTION": "造成 !D! 点伤害并生成一个 mgr:攻击音符 。 NL 若本回合触发过 mgr:和弦 ，再获得 !B! 点格挡并生成一个 mgr:防御音符 。"
+    "DESCRIPTION": "造成 !D! 点伤害并生成1个 mgr:攻击音符 。 NL 若本回合触发过 mgr:和弦 ，再获得 !B! 点格挡并生成1个 mgr:防御音符 。"
   },
     "MGR:Shatter":{
     "NAME":"破碎",
@@ -395,7 +395,7 @@
     },
     "MGR:RapidClaw":{
     "NAME":"急速爪击",
-    "DESCRIPTION": "造成 !D! 点伤害并生成一个 mgr:攻击音符 。 NL mgr:起音 ：若基础伤害不小于 !M! ，将一张基础伤害减少 !M! 的复制加入手牌。 消耗 。"
+    "DESCRIPTION": "造成 !D! 点伤害并生成1个 mgr:攻击音符 。 NL mgr:起音 ：若基础伤害不小于 !M! ，将一张基础伤害减少 !M! 的复制加入手牌。 消耗 。"
   },
     "MGR:BurnsRed":{
     "NAME":"赤灼",
@@ -405,22 +405,8 @@
     "NAME":"终结枪击",
     "DESCRIPTION": "造成 !D! 点伤害，本回合生成的每个 mgr:音符 使伤害提高 !M! 点。结束你的回合。 NL mgr:开眼 ：费用为0。"
   },
-    "HighAndDry":{
-    "NAME":"孤立无援",
-    "DESCRIPTION": "获得 !B! 点格挡，如果呼叫数小于3，获得 [E] ,抽一张牌"
-  },
-    "Quest":{
-    "NAME":"探寻",
-    "DESCRIPTION": "每回合消耗 !M! 层 支援 ，选择一个随机亲友支援。"
-  },
-  "SlashOfKatana": {
-    "NAME": "拔刀一闪",
-    "DESCRIPTION": "斩击类 NL 造成 !D! 点伤害。 NL 若这是本回合打出的第一张攻击牌，则抽一张牌。",
-    "UPGRADE_DESCRIPTION": "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
-    "EXTENDED_DESCRIPTION": [
-      " NL （最后使用的攻击卡 : ",
-      " ）。",
-      " NL （你本回合还没有使用过攻击卡。）"
-    ]
+    "MGR:TheBurningSun":{
+    "NAME":"烈日",
+    "DESCRIPTION": "抽1张牌。 NL 消耗至多 !M! 张手牌，生成对应的 mgr:基本音符 并抽等量的牌。"
   }
 }
