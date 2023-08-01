@@ -44,7 +44,7 @@ public class TheBurningSunAction extends AbstractGameAction {
             for (AbstractCard c : AbstractDungeon.handCardSelectScreen.selectedCards.group)
             {
                 p.hand.moveToExhaustPile(c);
-                AbstractNote.GenerateNoteTop(c);
+                //AbstractNote.GenerateNoteTop(c);
             }
             CardCrawlGame.dungeon.checkForPactAchievement();
             AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;

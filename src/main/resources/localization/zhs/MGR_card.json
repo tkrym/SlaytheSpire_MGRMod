@@ -407,6 +407,6 @@
   },
     "MGR:TheBurningSun":{
     "NAME":"烈日",
-    "DESCRIPTION": "抽1张牌。 NL 消耗至多 !M! 张手牌，生成对应的 mgr:基本音符 并抽等量的牌。"
+    "DESCRIPTION": "抽1张牌。 NL 消耗至多 !M! 张手牌，抽等量的牌。"
   }
 }
