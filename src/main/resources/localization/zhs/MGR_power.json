@@ -128,10 +128,10 @@
     ]
   },  
     "MGR:NextTurnStarryNotePower": {
-    "NAME": "下回合星空音符",
+    "NAME": "下回合能量音符",
     "DESCRIPTIONS": [
       "在下回合开始时，生成 #b",
-      " 个 #y星空音符 。"
+      " 个 #y能量音符 。"
     ]
   },  
     "MGR:SirenPower": {
@@ -179,7 +179,7 @@
     "MGR:RiverOfNotesPower": {
     "NAME": "音符之河",
     "DESCRIPTIONS": [
-      " #y即兴 的 #y基本音符 略微变好，且可能获得星空音符。回合开始时， #y即兴 #b",
+      " #y即兴 的 #y基本音符 略微变好，且可能获得能量音符。回合开始时， #y即兴 #b",
       " 。"
     ]
   },  

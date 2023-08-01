@@ -14,37 +14,43 @@ import com.megacrit.cardcrawl.vfx.RelicAboveCreatureEffect;
 import effect.NoteAboveCreatureEffect;
 import note.AbstractNote;
 
-public class NoteDamageEnemyAction extends AbstractGameAction {
+public class NoteDamageEnemyAction extends AbstractGameAction
+{
     private boolean HitAll;
-    private static final Texture AttackNoteIMG= ImageMaster.loadImage("img/note/Attack.png");
+    private static final Texture AttackNoteIMG = ImageMaster.loadImage("img/note/Attack.png");
 
-    public NoteDamageEnemyAction(int amount,boolean HitAll) {
+    public NoteDamageEnemyAction(int amount, boolean HitAll)
+    {
         this.actionType = AbstractGameAction.ActionType.DAMAGE;
         this.attackEffect = AttackEffect.NONE;
-        this.HitAll=HitAll;
-        this.source=AbstractDungeon.player;
-        this.amount=amount;
+        this.HitAll = HitAll;
+        this.source = AbstractDungeon.player;
+        this.amount = amount;
     }
 
     @Override
-    public void update() {
+    public void update()
+    {
         //float speedTime = Settings.FAST_MODE?0.0F:0.05F;
         if (!this.HitAll)
         {
             AbstractCreature m = AbstractDungeon.getRandomMonster();
             if (m != null)
             {
-                DamageInfo info=new DamageInfo(source,AbstractNote.applyVulnerable(m, this.amount), DamageInfo.DamageType.THORNS);
+                DamageInfo info = new DamageInfo(source, AbstractNote.applyVulnerable(m, this.amount), DamageInfo.DamageType.THORNS);
                 addToTop(new DamageAction(m, info, AttackEffect.NONE, true));
-                addToTop(new VFXAction(new NoteAboveCreatureEffect(m.hb.cX - this.source.animX, m.hb.cY + m.hb.height / 3.0F - m.animY, AttackNoteIMG), Settings.ACTION_DUR_XFAST/2.0f));
+                addToTop(new VFXAction(new NoteAboveCreatureEffect(m.hb.cX - m.animX, m.hb.cY + m.hb.height / 2.0F - m.animY, AttackNoteIMG, 20.0f*Settings.scale,80.0f*Settings.scale, 0.5f), Settings.ACTION_DUR_XFAST / 2.0f));
             }
-        } else
+        }
+        else
         {
-            for (AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
-                if (!m.isDeadOrEscaped() && !m.halfDead) {
-                    DamageInfo info=new DamageInfo(source,AbstractNote.applyVulnerable(m, this.amount), DamageInfo.DamageType.THORNS);
+            for (AbstractMonster m : AbstractDungeon.getMonsters().monsters)
+            {
+                if (!m.isDeadOrEscaped() && !m.halfDead)
+                {
+                    DamageInfo info = new DamageInfo(source, AbstractNote.applyVulnerable(m, this.amount), DamageInfo.DamageType.THORNS);
                     addToTop(new DamageAction(m, info, AttackEffect.NONE, true));
-                    addToTop(new VFXAction(new NoteAboveCreatureEffect(m.hb.cX - m.animX, m.hb.cY + m.hb.height / 2.0F - m.animY, AttackNoteIMG,m.hb.height*0.3f,m.hb.height*1.4f,2.5f), Settings.ACTION_DUR_XFAST/2.0f));
+                    addToTop(new VFXAction(new NoteAboveCreatureEffect(m.hb.cX - m.animX, m.hb.cY + m.hb.height / 2.0F - m.animY, AttackNoteIMG, 20.0f*Settings.scale,80.0f*Settings.scale, 0.5f), Settings.ACTION_DUR_XFAST / 2.0f));
                 }
             }
         }

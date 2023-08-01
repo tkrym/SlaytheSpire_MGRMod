@@ -61,7 +61,7 @@ public class MGR_character extends CustomPlayer
     private static final int ASCENSION_MAX_HP_LOSS = 7;
     public static final Color MyColor = CardHelper.getColor(255, 160, 0);
     public static final Color myBuleColor = new Color(1339620607);//
-    //    public static final Color YuhColor = CardHelper.getColor(255, 200, 80);
+    //    public static final Color YUHColor = CardHelper.getColor(255, 200, 80);
     public int ChordTriggeredThisTurn;
     public int counter;
     public int counter_min;

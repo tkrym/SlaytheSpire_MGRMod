@@ -10,7 +10,7 @@
   "KimitomitahosizoraAction": {
     "TEXT": [
       "选择任意张牌丢弃。如果至少选择了",
-      "张，生成一个星空音符。"
+      "张，生成一个能量音符。"
     ]
   },
   "DizzyAndGiddyAction": {
@@ -29,7 +29,7 @@
   "StardustLaserAction": {
     "TEXT": [
       "丢弃，至多",
-      "张。生成等量的星空音符。"
+      "张。生成等量的能量音符。"
     ]
   },
   "EchoPhantomAction": {

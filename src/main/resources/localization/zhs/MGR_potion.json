@@ -21,7 +21,7 @@
     ]
   },
   "MGR:ShiningEssence": {
-    "NAME": "闪耀精华",
+    "NAME": "瞳中辉",
     "DESCRIPTIONS": [
       "本场战斗中，将你的 #y计数器 上限减少 #b",
       " （不会低于下限加一），并立即填满它。"

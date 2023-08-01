@@ -20,6 +20,7 @@ import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
 import com.megacrit.cardcrawl.powers.IntangiblePower;
 import com.megacrit.cardcrawl.vfx.combat.PlasmaOrbPassiveEffect;
 import effect.NoteAboveCreatureEffect;
+import effect.NotePassiveEffect;
 import power.HarmonyFormPower;
 import power.ResonanceFormPower;
 
@@ -40,7 +41,7 @@ public class GhostNote extends AbstractNote {
         this.angle = MathUtils.random(360.0f);
         this.channelAnimTimer = 0.5f;
         this.forterate=5;
-        myColor= CardHelper.getColor(187,247,143);
+        myColor= CardHelper.getColor(154,237,237);
         updateDescription();
     }
 
@@ -66,10 +67,9 @@ public class GhostNote extends AbstractNote {
 
     @Override
     public void render(SpriteBatch sb) {
-        float scale=1+MathUtils.sin(this.angle)*0.1F+0.1F;
-        float alphascale=2.0F+MathUtils.sin(this.angle*2)*1.0F;
+        float scale=1+MathUtils.sin(this.angle*1.5f)*0.2F+0.35F;
         this.shineColor=this.c.cpy();
-        this.shineColor.a = this.c.a / alphascale;
+        this.shineColor.a = this.c.a / scale;
         sb.setBlendFunction(770, 771);
         sb.setColor(this.shineColor);
         sb.draw(this.img, this.cX - 48.0f, (this.cY - 48.0f) + this.bobEffect.y*0.5F, 48.0f, 48.0f, 96.0f, 96.0f, this.scale*scale, this.scale*scale, 0.0f, 0, 0, 96, 96, false, false);

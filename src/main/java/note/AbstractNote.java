@@ -200,7 +200,7 @@ public abstract class AbstractNote extends AbstractOrb
         updateDescription();
         this.angle += Gdx.graphics.getDeltaTime() * 2.0f;
         this.vfxTimer -= Gdx.graphics.getDeltaTime();
-        if (!(this instanceof EmptyNoteSlot) && this.vfxTimer < 0.0f)
+        if (!(this instanceof EmptyNoteSlot)&&!(this instanceof GhostNote) && this.vfxTimer < 0.0f)
         {
             AbstractDungeon.effectList.add(new NotePassiveEffect(this.cX, this.cY, this.myColor.cpy()));
             if (MathUtils.randomBoolean())

@@ -132,7 +132,7 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         BaseMod.addPotion(FortePotion.class, mybluecolor.cpy(), mybluecolor.cpy(), mybluecolor.cpy(), FortePotion.POTION_ID, ModClassEnum.MGR);
         BaseMod.addPotion(BottledNotes.class, mybluecolor.cpy(), mybluecolor.cpy(),new Color(1.0F,0.72F,0.19F,1.0F),BottledNotes.POTION_ID,ModClassEnum.MGR);
         BaseMod.addPotion(PortableAnvil.class, Color.WHITE.cpy(), Color.WHITE.cpy(), Color.WHITE.cpy(), PortableAnvil.POTION_ID);
-        BaseMod.addPotion(ShiningEssence.class, Color.GOLD.cpy(),CardHelper.getColor(214,186,38),null,ShiningEssence.POTION_ID,ModClassEnum.MGR);
+        BaseMod.addPotion(ShiningEssence.class, CardHelper.getColor(28,206,227),CardHelper.getColor(53,150,159),null,ShiningEssence.POTION_ID,ModClassEnum.MGR);
         BaseMod.addPotion(Doping.class,Color.WHITE.cpy(),Color.WHITE.cpy(),Color.WHITE.cpy(),Doping.POTION_ID);
         UnlockAscensionLevel();
         for(AbstractCard card:cardsToAdd)
@@ -234,7 +234,6 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         this.cardsToAdd.add(new MaguroAssault());
         this.cardsToAdd.add(new MaguroBash());
         this.cardsToAdd.add(new Unison());
-        this.cardsToAdd.add(new OneUp());
         this.cardsToAdd.add(new Rehearsal());
         this.cardsToAdd.add(new AlternateSinging());
         this.cardsToAdd.add(new WaitingForFood());

@@ -37,7 +37,7 @@ public class StarryNote extends AbstractNote {
         this.angle = MathUtils.random(360.0f);
         this.channelAnimTimer = 0.5f;
         this.forterate=999;
-        myColor= CardHelper.getColor(89,248,255);
+        myColor= CardHelper.getColor(237,78,189);
         updateDescription();
     }
 
@@ -56,7 +56,7 @@ public class StarryNote extends AbstractNote {
         AbstractDungeon.actionManager.addToTop(new VFXAction(new NoteAboveCreatureEffect(p.hb.cX - p.animX, p.hb.cY + p.hb.height / 2.0F - p.animY, this.img), Settings.ACTION_DUR_XFAST));
     }
 
-    @Override
+   /* @Override
     public void updateAnimation()
     {
         super.updateAnimation();
@@ -65,7 +65,7 @@ public class StarryNote extends AbstractNote {
             AbstractDungeon.effectList.add(new PlasmaOrbPassiveEffect(this.cX, this.cY));
             this.myvfxtimer = MathUtils.random(vfxIntervalMin, vfxIntervalMax);
         }
-    }
+    }*/
 
     public void playChannelSFX() {
         CardCrawlGame.sound.play("ORB_PLASMA_CHANNEL", 0.1f);
