@@ -85,7 +85,7 @@ public abstract class AbstractNote extends AbstractOrb
     protected void renderText(SpriteBatch sb)
     {
         if (!(this instanceof EmptyNoteSlot))
-            FontHelper.renderFontCentered(sb, EnergyFontPatch.energyNumFontMGR, Integer.toString(this.evokeAmount),
+            FontHelper.renderFontCentered(sb, EnergyFontPatch.energyNumFontMGR_blue, Integer.toString(this.evokeAmount),
                     this.cX + NUM_X_OFFSET, this.cY + this.bobEffect.y / 2.0F + NUM_Y_OFFSET, this.c, this.fontScale);
     }
 
@@ -100,7 +100,7 @@ public abstract class AbstractNote extends AbstractOrb
 
     public static AbstractNote GetCorrespondingNote(AbstractCard c)
     {
-        if (c instanceof AbstractMGRCard&&((AbstractMGRCard)c).IsStarryCard) return new StarryNote();
+        if (c instanceof AbstractMGRCard && ((AbstractMGRCard) c).IsStarryCard) return new StarryNote();
         else if (c instanceof Marionette) return new DebuffNote();
         AbstractNote note;
         switch (c.type)
@@ -134,20 +134,21 @@ public abstract class AbstractNote extends AbstractOrb
     public static AbstractNote GetRandomBasicNote()
     {
         int seed = AbstractDungeon.cardRandomRng.random(99);
-        if(!AbstractDungeon.player.hasPower(RiverOfNotesPower.POWER_ID))
+        if (!AbstractDungeon.player.hasPower(RiverOfNotesPower.POWER_ID))
         {
             if (seed < 35) return new AttackNote();//35%
             else if (seed < 65) return new DefendNote();//30%
             else if (seed < 74) return new DebuffNote();//9%
             else if (seed < 93) return new DrawNote();//19%
             else return new ArtifactNote();//7%
-        }else
+        }
+        else
         {
-            if(seed<27) return new AttackNote();//27%
-            else if(seed<50) return new DefendNote();//23%
-            else if(seed<60) return new StarryNote();//10%
-            else if(seed<78) return new DrawNote();//18%
-            else if(seed<92) return new DebuffNote();//14%
+            if (seed < 27) return new AttackNote();//27%
+            else if (seed < 50) return new DefendNote();//23%
+            else if (seed < 60) return new StarryNote();//10%
+            else if (seed < 78) return new DrawNote();//18%
+            else if (seed < 92) return new DebuffNote();//14%
             else return new ArtifactNote();//8%
         }
     }
@@ -161,16 +162,18 @@ public abstract class AbstractNote extends AbstractOrb
 
     public void onEvoke()
     {
+        this.applyForte();
         this.TriggerEvokeEffect();
         if (!(this instanceof EmptyNoteSlot)) LAB01Check();
     }
 
     public void TriggerEvokeEffect()
     {
-        myEvoke();
-        if (AbstractDungeon.player.hasPower(HarmonyFormPower.POWER_ID))
-            for (int i = 1; i <= AbstractDungeon.player.getPower(HarmonyFormPower.POWER_ID).amount; i++)
-                myEvoke();
+        int sum = 1;
+        AbstractPlayer p = AbstractDungeon.player;
+        if (p.hasPower(HarmonyFormPower.POWER_ID) && (this.equals(p.orbs.get(0)) || this.equals(p.orbs.get(p.maxOrbs - 1))))
+            sum += p.getPower(HarmonyFormPower.POWER_ID).amount;
+        for (int i = 1; i <= sum; i++) myEvoke();
     }
 
 
@@ -200,7 +203,7 @@ public abstract class AbstractNote extends AbstractOrb
         updateDescription();
         this.angle += Gdx.graphics.getDeltaTime() * 2.0f;
         this.vfxTimer -= Gdx.graphics.getDeltaTime();
-        if (!(this instanceof EmptyNoteSlot)&&!(this instanceof GhostNote) && this.vfxTimer < 0.0f)
+        if (!(this instanceof EmptyNoteSlot) && !(this instanceof GhostNote) && this.vfxTimer < 0.0f)
         {
             AbstractDungeon.effectList.add(new NotePassiveEffect(this.cX, this.cY, this.myColor.cpy()));
             if (MathUtils.randomBoolean())
@@ -247,13 +250,13 @@ public abstract class AbstractNote extends AbstractOrb
 
     public static int CountNoteType(ArrayList<AbstractOrb> notes)
     {
-        boolean AttackPlayed=false;
-        boolean DefendPlayed=false;
-        boolean DrawPlayed=false;
-        boolean DebuffPlayed=false;
-        boolean ArtifactPlayed=false;
-        boolean StarryPlayed=false;
-        boolean GhostPlayed=false;
+        boolean AttackPlayed = false;
+        boolean DefendPlayed = false;
+        boolean DrawPlayed = false;
+        boolean DebuffPlayed = false;
+        boolean ArtifactPlayed = false;
+        boolean StarryPlayed = false;
+        boolean GhostPlayed = false;
         for (AbstractOrb orb : notes)
         {
             if (orb instanceof AttackNote) AttackPlayed = true;

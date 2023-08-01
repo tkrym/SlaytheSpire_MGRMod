@@ -74,8 +74,8 @@
   },
     "MGR:HarmonyForm":{
     "NAME":"和声形态",
-    "DESCRIPTION": " mgr:音符 的效果额外触发一次。 虚无 。",
-    "UPGRADE_DESCRIPTION": " mgr:音符 的效果额外触发一次。"
+    "DESCRIPTION": "最左边与最右边的 mgr:音符 效果额外生效一次。 虚无 。",
+    "UPGRADE_DESCRIPTION": "最左边与最右边的 mgr:音符 效果额外生效一次。"
   },
     "MGR:Stereophonic":{
     "NAME":"立体声",

@@ -44,7 +44,7 @@
     "MGR:HarmonyForm": {
     "NAME": "和声形态",
     "DESCRIPTIONS": [
-      " #y音符 的效果额外触发 #b",
+      "最左边与最右边的 #y音符 效果额外生效 #b",
       " 次。"
     ]
   }, 

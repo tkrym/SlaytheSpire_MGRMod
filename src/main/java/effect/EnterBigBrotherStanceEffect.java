@@ -27,7 +27,7 @@ public class EnterBigBrotherStanceEffect extends AbstractGameEffect
     {
         this.img = ImageMaster.EYE_ANIM_0;
         this.scale = 5.0F;
-        this.startingDuration = 1.0f;
+        this.startingDuration = 1.3f;
         this.duration = 0;
         this.scale *= Settings.scale;
         this.target = AbstractDungeon.player;

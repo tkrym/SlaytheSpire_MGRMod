@@ -15,6 +15,7 @@ import com.megacrit.cardcrawl.helpers.*;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.ui.panels.AbstractPanel;
+import patch.EnergyFontPatch;
 
 public class CounterPanel extends AbstractPanel {
     private static final String CounterPanelUI="img/UI/CounterPanelUI.png";
@@ -55,7 +56,7 @@ public class CounterPanel extends AbstractPanel {
             this.CounterHB.render(sb);
             sb.draw(CounterBG, this.CounterHB.x, this.CounterHB.y, this.CounterHB.width, this.CounterHB.height);
             String Counter_String = p.counter + "/" + p.counter_max;
-            BitmapFont PanelFont=AbstractDungeon.player.getEnergyNumFont();
+            BitmapFont PanelFont= EnergyFontPatch.energyNumFontMGR_blue;
             PanelFont.getData().setScale(fontScale);
             FontHelper.renderFontCentered(sb, PanelFont, Counter_String, this.CounterHB.cX, this.CounterHB.cY, new Color(1.0F, 1.0F, 1.0F, 1.0F));
             if (this.CounterHB.hovered && !AbstractDungeon.isScreenUp && AbstractDungeon.getMonsters() != null && !AbstractDungeon.getMonsters().areMonstersDead()) {

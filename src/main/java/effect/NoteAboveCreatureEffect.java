@@ -50,7 +50,7 @@ public class NoteAboveCreatureEffect extends AbstractGameEffect {
     public void render(SpriteBatch sb) {
         float scale=0.8f+this.ratio*this.ScaleSpeed;
         Color tmpColor=this.color.cpy();
-        tmpColor.a=this.color.a*(1-this.ratio*0.7f);
+        tmpColor.a=this.color.a*(0.5f+this.ratio*0.5f);
         sb.setBlendFunction(770, 771);
         sb.setColor(tmpColor);
         sb.draw(this.img, this.x-48.0F, this.y-48.0F+this.offsetY, 48.0f, 48.0f, 96.0f, 96.0f, this.scale*scale, this.scale*scale, 0.0f, 0, 0, 96, 96, false, false);

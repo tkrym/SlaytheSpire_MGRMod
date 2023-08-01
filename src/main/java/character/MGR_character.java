@@ -51,8 +51,8 @@ public class MGR_character extends CustomPlayer
     private static final String MGR_CORPSE = "img/character/fallen.png";
     private static final String MGR_STAND = "img/character/stand.png";
     private static final String[] ORB_TEXTURES = new String[]{"img/UI/EPanel/layer5.png", "img/UI/EPanel/layer4.png", "img/UI/EPanel/layer3.png", "img/UI/EPanel/layer2.png", "img/UI/EPanel/layer1.png", "img/UI/EPanel/layer0.png", "img/UI/EPanel/layer5d.png", "img/UI/EPanel/layer4d.png", "img/UI/EPanel/layer3d.png", "img/UI/EPanel/layer2d.png", "img/UI/EPanel/layer1d.png"};
-    private static final String ORB_VFX = "img/UI/energyBlueVFX.png";
-    private static final float[] LAYER_SPEED = new float[]{-40.0F, -32.0F, 20.0F, -20.0F, 0.0F, -10.0F, -8.0F, 5.0F, -5.0F, 0.0F};
+    private static final String ORB_VFX = "img/UI/energyRefreshVFX.png";
+    private static final float[] LAYER_SPEED = new float[]{-60.0F, 60.0F, -40.0F, 60.0F, 360.0F};
     private static final int STARTING_HP = 66;
     private static final int MAX_HP = 66;
     private static final int CARD_DRAW = 5;
@@ -133,7 +133,7 @@ public class MGR_character extends CustomPlayer
 
     public int getAscensionMaxHPLoss() {return ASCENSION_MAX_HP_LOSS;}
 
-    public BitmapFont getEnergyNumFont() {return EnergyFontPatch.energyNumFontMGR;}
+    public BitmapFont getEnergyNumFont() {return EnergyFontPatch.energyNumFontMGR_orange;}
 
     public void doCharSelectScreenSelectEffect()
     {

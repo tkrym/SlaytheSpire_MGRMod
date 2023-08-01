@@ -24,7 +24,8 @@ import java.lang.reflect.Method;
 
 public class EnergyFontPatch
 {
-    public static BitmapFont energyNumFontMGR;
+    public static BitmapFont energyNumFontMGR_blue;
+    public static BitmapFont energyNumFontMGR_orange;
 
     @SpirePatch(clz = FontHelper.class, method = "initialize")
     public static class EnergyFontMGRPatch
@@ -33,7 +34,9 @@ public class EnergyFontPatch
         public static void Insert(FreeTypeFontGenerator.FreeTypeFontParameter ___param)
         {
             ___param.borderColor = CardHelper.getColor(62, 146, 156);
-            energyNumFontMGR = FontHelper.prepFont(36.0F, true);
+            energyNumFontMGR_blue = FontHelper.prepFont(36.0F, true);
+            ___param.borderColor = CardHelper.getColor(208, 132, 34);
+            energyNumFontMGR_orange = FontHelper.prepFont(36.0F, true);
         }
     }
 }
