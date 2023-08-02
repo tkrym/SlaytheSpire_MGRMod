@@ -46,7 +46,7 @@ public class BigBrotherStanceParticleEffect extends AbstractGameEffect
             else if (index == 3) this.rotation = 7.0f;
             else if (index == 4) this.rotation = 20.0f;
             else this.rotation = MathUtils.random(12.0F, 6.0F) * (this.x > this.target.hb.cX ? -1 : 1);
-            this.rotation += MathUtils.random(-1.0f, 1.0f);
+            this.rotation += MathUtils.random(-2.0f, 2.0f);
             this.x -= (float) this.img.packedWidth / 2.0F;
             this.y -= (float) this.img.packedHeight / 2.0F;
         }
