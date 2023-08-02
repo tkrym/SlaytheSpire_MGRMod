@@ -3,6 +3,7 @@ package character;
 
 import action.*;
 import card.BASIC.Lullaby;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import basemod.abstracts.CustomPlayer;
@@ -17,6 +18,7 @@ import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.orbs.*;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.stances.NeutralStance;
+import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -29,11 +31,17 @@ import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
+import com.megacrit.cardcrawl.vfx.scene.DefectVictoryEyesEffect;
+import com.megacrit.cardcrawl.vfx.scene.DefectVictoryNumberEffect;
+import com.megacrit.cardcrawl.vfx.scene.IroncladVictoryFlameEffect;
+import com.megacrit.cardcrawl.vfx.scene.SlowFireParticleEffect;
+import effect.MGRVictoryEffect;
 import patch.EnergyFontPatch;
 import path.ModClassEnum;
 import path.AbstractCardEnum;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import note.*;
@@ -69,6 +77,7 @@ public class MGR_character extends CustomPlayer
     public static final int counter_max_master = 4;
     public static CounterPanel myCounterPanel = new CounterPanel();
     private static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString("MGR:character");
+    private float VictoryEffectTimer = 0.0f;
 
     public MGR_character(String name)
     {
@@ -161,12 +170,11 @@ public class MGR_character extends CustomPlayer
     @Override
     public void channelOrb(AbstractOrb orbToSet)
     {
-        if (orbToSet instanceof EmptyOrbSlot || orbToSet instanceof EmptyNoteSlot)
-            return;
-        else if (this.maxOrbs <= 0 || !(orbToSet instanceof AbstractNote))
-        {
+        if (orbToSet instanceof EmptyOrbSlot || orbToSet instanceof EmptyNoteSlot) return;
+        else if (!(orbToSet instanceof AbstractNote))
             AbstractDungeon.effectList.add(new ThoughtBubble(this.dialogX, this.dialogY, 3.0F, CardCrawlGame.languagePack.getTutorialString("MGR:exception").TEXT[1], true));
-        }
+        else if (this.maxOrbs <= 0)
+            AbstractDungeon.effectList.add(new ThoughtBubble(this.dialogX, this.dialogY, 3.0F, MSG[4], true));
         else
         {
             int index = -1;
@@ -351,4 +359,25 @@ public class MGR_character extends CustomPlayer
 
     @Override
     public void applyStartOfTurnRelics() {this.ChordTriggeredThisTurn = 0; super.applyStartOfTurnRelics();}
+
+    public void updateVictoryVfx(ArrayList<AbstractGameEffect> effects)
+    {
+        boolean foundEyeVfx = false;
+        for (AbstractGameEffect e : effects)
+            if (e instanceof MGRVictoryEffect)
+            {
+                foundEyeVfx = true;
+                break;
+            }
+        if (!foundEyeVfx) effects.add(new MGRVictoryEffect());
+        this.VictoryEffectTimer -= Gdx.graphics.getDeltaTime();
+        if (this.VictoryEffectTimer < 0.0f)
+        {
+            effects.add(new SlowFireParticleEffect());
+            effects.add(new SlowFireParticleEffect());
+            effects.add(new SlowFireParticleEffect());
+            effects.add(new SlowFireParticleEffect());
+            this.VictoryEffectTimer = 0.1f;
+        }
+    }
 }
