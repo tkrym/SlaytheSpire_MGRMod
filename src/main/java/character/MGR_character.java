@@ -122,8 +122,9 @@ public class MGR_character extends CustomPlayer
     public List<CutscenePanel> getCutscenePanels()
     {
         List<CutscenePanel> panels = new ArrayList<>();
-        panels.add(new CutscenePanel("img/victory/VictoryPart1.png", "ATTACK_FIRE"));
-        panels.add(new CutscenePanel("img/victory/VictoryPart2.png", "WHEEL"));
+        panels.add(new CutscenePanel("img/victory/VictoryPart1.png", "BLOCK_GAIN_1"));
+        panels.add(new CutscenePanel("img/victory/VictoryPart2.png"));
+        panels.add(new CutscenePanel("img/victory/VictoryPart3.png", "HEAL_3"));
         return panels;
     }
 

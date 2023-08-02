@@ -20,21 +20,25 @@ import patch.EnergyFontPatch;
 public class CounterPanel extends AbstractPanel
 {
     private static final String CounterPanelUI = "img/UI/CounterPanelUI.png";
+    private static final String CounterPanelUIBG = "img/UI/CounterPanelUIBG.png";
     public static float CounterHB_HEIGHT = 144.0F * Settings.scale;
     public static float CounterHB_WIDTH = 144.0F * Settings.scale;
     public static float Counter_X = 880.0F * Settings.scale;
     public static float Counter_Y = 800.0F * Settings.scale;
     public static Texture CounterBG = ImageMaster.loadImage(CounterPanelUI);
+    public static Texture CounterBGBG = ImageMaster.loadImage(CounterPanelUIBG);
     private Hitbox CounterHB;
     public static final UIStrings Counter_UIString = CardCrawlGame.languagePack.getUIString("MGR:CounterPanel");
     public static final String[] Counter_MSG = Counter_UIString.TEXT;
     private final float OriginFontScale = 0.9F;
     private float fontScale = OriginFontScale;
+    private float angle;
 
     public CounterPanel()
     {
         super(Counter_X, Counter_Y, CounterHB_WIDTH, CounterHB_HEIGHT, Counter_X, Counter_Y, (Texture) null, true);
         this.CounterHB = new Hitbox(Counter_X, Counter_Y, CounterHB_WIDTH, CounterHB_HEIGHT);
+        this.angle=0.0f;
     }
 
     public void EnlargeFontScale() {this.fontScale = OriginFontScale * 2.0f;}
@@ -50,6 +54,7 @@ public class CounterPanel extends AbstractPanel
                 fontScale = MathHelper.scaleLerpSnap(fontScale, OriginFontScale);
             }
         }
+        this.angle+=Gdx.graphics.getDeltaTime();
     }
 
     public void render(SpriteBatch sb)
@@ -57,10 +62,19 @@ public class CounterPanel extends AbstractPanel
         if (!(AbstractDungeon.player instanceof MGR_character))
             return;
         MGR_character p = (MGR_character) AbstractDungeon.player;
-        sb.setColor(Color.WHITE);
         if (!this.isHidden)
         {
             this.CounterHB.render(sb);
+            float scale = 1 + MathUtils.sin(this.angle*1.5f) * 0.05F + 0.05F;
+            Color c=Color.WHITE.cpy();
+            c.a=c.a*0.8f/(3*scale-2.0f);
+            sb.setColor(c);
+            sb.setBlendFunction(770, 1);
+            float deltaX=this.CounterHB.width*(scale-1.0f)/2.0f;
+            float deltaY=this.CounterHB.height*(scale-1.0f)/2.0f;
+            sb.draw(CounterBGBG, this.CounterHB.x-deltaX, this.CounterHB.y-deltaY, this.CounterHB.width*scale, this.CounterHB.height*scale);
+            sb.setColor(Color.WHITE);
+            sb.setBlendFunction(770, 771);
             sb.draw(CounterBG, this.CounterHB.x, this.CounterHB.y, this.CounterHB.width, this.CounterHB.height);
             String Counter_String = p.counter + "/" + p.counter_max;
             BitmapFont PanelFont = EnergyFontPatch.energyNumFontMGR_blue;
