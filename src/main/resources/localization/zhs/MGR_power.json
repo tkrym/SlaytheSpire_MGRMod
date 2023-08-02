@@ -173,7 +173,7 @@
     "NAME": "四目",
     "DESCRIPTIONS": [
       "每当你给予负面状态（不包括注视）时，额外给予 #b",
-      " 倍的 mgr:注视 。"
+      " 倍的注视 。"
     ]
   }, 
     "MGR:RiverOfNotesPower": {

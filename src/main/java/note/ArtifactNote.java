@@ -32,7 +32,7 @@ public class ArtifactNote extends AbstractNote {
         this.evokeAmount = this.baseEvokeAmount;
         this.angle = 0.0F;
         this.channelAnimTimer = 0.5f;
-        this.forterate=3;
+        this.forterate=4;
         this.angle = MathUtils.random(360.0f);
         myColor= CardHelper.getColor(249,228,5);
         updateDescription();

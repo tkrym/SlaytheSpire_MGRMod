@@ -21,7 +21,7 @@ public class AccurateShooting extends AbstractMGRCard {
     public static final String IMG = "img/card/"+ID.substring(4)+".png";
     private static final int COST = 2;
     private static final int DMG = 12;
-    private static final int PLUS_DMG = 3;
+    private static final int PLUS_DMG = 4;
     public AccurateShooting() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.ATTACK,
                 AbstractCardEnum.MGR_COLOR, CardRarity.COMMON, CardTarget.ENEMY);

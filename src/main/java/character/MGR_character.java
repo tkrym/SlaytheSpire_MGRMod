@@ -67,7 +67,7 @@ public class MGR_character extends CustomPlayer
     private static final int STARTING_GOLD = 99;
     private static final int HAND_SIZE = 4;
     private static final int ASCENSION_MAX_HP_LOSS = 7;
-    public static final Color MyColor = CardHelper.getColor(255, 160, 0);
+    public static final Color MyColor = CardHelper.getColor(255, 110, 0);
     public static final Color myBuleColor = new Color(1339620607);//
     //    public static final Color YUHColor = CardHelper.getColor(255, 200, 80);
     public int ChordTriggeredThisTurn;
@@ -219,13 +219,14 @@ public class MGR_character extends CustomPlayer
     @Override
     public void useCard(AbstractCard c, AbstractMonster m, int e)
     {
+        boolean dt = c.dontTriggerOnUseCard;
         super.useCard(c, m, e);
         AbstractDungeon.actionManager.addToBottom(new AbstractGameAction()
         {
             @Override
             public void update()
             {
-                if (!c.dontTriggerOnUseCard)
+                if (!dt)
                 {
                     if (c.type.equals(AbstractCard.CardType.POWER) && AbstractDungeon.player.hasPower(FolkRhymesPower.POWER_ID))
                         ((FolkRhymesPower) AbstractDungeon.player.getPower(FolkRhymesPower.POWER_ID)).Trigger();
@@ -242,8 +243,7 @@ public class MGR_character extends CustomPlayer
 
     public void EvokeAll()
     {
-        //for(int i=1;i<=3;i++) AbstractDungeon.actionManager.addToTop(new WaitAction(0.1F));
-        for (int i = 0; i < this.orbs.size(); ++i)
+        for (int i = this.orbs.size() - 1; i >= 0; --i)
         {
             this.orbs.get(i).triggerEvokeAnimation();
             this.orbs.get(i).onEvoke();
@@ -377,7 +377,8 @@ public class MGR_character extends CustomPlayer
             effects.add(new SlowFireParticleEffect());
             effects.add(new SlowFireParticleEffect());
             effects.add(new SlowFireParticleEffect());
-            this.VictoryEffectTimer = 0.1f;
+            effects.add(new SlowFireParticleEffect());
+            this.VictoryEffectTimer = 0.12f;
         }
     }
 }

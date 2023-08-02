@@ -93,7 +93,7 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
     public static final String CARD_ENERGY_ORB = "img/UI/energyOrb.png";
     private static final String MY_CHARACTER_BUTTON = "img/select/button.png";
     private static final String MY_CHARACTER_PORTRAIT = "img/select/figure.png";
-    public static final Color MyColor = CardHelper.getColor(255, 160, 0);
+    public static final Color MyColor = CardHelper.getColor(255, 110, 0);
     private ArrayList<AbstractCard> cardsToAdd = new ArrayList<>();
     private ArrayList<AbstractRelic> relicsToAdd = new ArrayList<>();
     private AbstractCard LastCardPlayed;

@@ -17,8 +17,8 @@ public class GazeFromTheShadow extends AbstractMGRCard {
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG = "img/card/"+ID.substring(4)+".png";
     private static final int COST = 1;
-    private static final int MAGIC = 4;
-    private static final int PLUS_MAGIC = 2;
+    private static final int MAGIC = 3;
+    private static final int PLUS_MAGIC = 1;
     public GazeFromTheShadow() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.SKILL,
                 AbstractCardEnum.MGR_COLOR, CardRarity.UNCOMMON, CardTarget.ENEMY);

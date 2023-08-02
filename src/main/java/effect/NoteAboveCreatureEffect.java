@@ -29,7 +29,7 @@ public class NoteAboveCreatureEffect extends AbstractGameEffect {
     {
         this.img=img;
         this.effectDuration=0.3F;
-        if(AbstractDungeon.player.hasPower(HarmonyFormPower.POWER_ID)) this.effectDuration=0.15f;
+        if(AbstractDungeon.player.hasPower(HarmonyFormPower.POWER_ID)) this.effectDuration=0.2f;
         this.duration=this.effectDuration;
         this.x=x;
         this.y=y;

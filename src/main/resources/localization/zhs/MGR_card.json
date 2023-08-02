@@ -56,8 +56,8 @@
   },
     "MGR:GazeOfOthers":{
     "NAME":"他人的视线",
-    "DESCRIPTION": "获得 !B! 点格挡。额外获得等同于目标 mgr:注视 层数的格挡。",
-    "UPGRADE_DESCRIPTION": "获得 !B! 点格挡。额外获得等同于所有敌人 mgr:注视 层数总和的格挡。",
+    "DESCRIPTION": "获得 !B! 点格挡。额外获得等同于目标 mgr:注视 层数一半的格挡。",
+    "UPGRADE_DESCRIPTION": "获得 !B! 点格挡。额外获得等同于所有敌人 mgr:注视 层数总和一半的格挡。",
     "EXTENDED_DESCRIPTION": [
       " NL （额外获得 ",
        " 点格挡）"
@@ -106,8 +106,8 @@
   },
     "MGR:Obakenoukenerai": {
     "NAME": "拍鬼怪的马屁☆",
-    "DESCRIPTION": " 生成 !M! 个 mgr:幽灵音符 。 NL  消耗 。 虚无 。",
-    "UPGRADE_DESCRIPTION":" 生成 !M! 个 mgr:幽灵音符 。 NL  mgr:开眼 ：再生成 !M! 个。 NL 消耗 。 虚无 。"
+    "DESCRIPTION": " 生成 !M! 个 mgr:幽灵音符 。 NL  消耗 。",
+    "UPGRADE_DESCRIPTION":" 生成 !M! 个 mgr:幽灵音符 。 NL  mgr:开眼 ：再生成 !M! 个。 NL 消耗 。"
   },
     "MGR:AlternateSinging": {
     "NAME": "交替演唱",
@@ -124,8 +124,8 @@
   },
     "MGR:Unison":{
     "NAME":"齐唱",
-    "DESCRIPTION": "最左边的 mgr:音符 效果翻倍。",
-    "UPGRADE_DESCRIPTION": "最右边的 mgr:音符 效果翻倍。"
+    "DESCRIPTION": "mgr:起音 ：最右边的 mgr:音符 效果翻倍。 NL mgr:尾音 ：最左边的 mgr:音符 效果翻倍。",
+    "UPGRADE_DESCRIPTION": "mgr:起音 ：最右边的 mgr:音符 效果翻倍。 NL mgr:尾音 ：最左边的 mgr:音符 效果翻倍。 NL 保留 。"
   },
     "MGR:MaguroAssault":{
     "NAME":"金枪鱼强袭",
@@ -142,7 +142,7 @@
   },
     "MGR:DarkDiffuse":{
     "NAME":"黑暗扩散",
-    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 所有敌人失去 mgr:注视 层数一半的力量一回合。",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 敌人每有一种负面状态，本回合失去 !M! 点力量。",
     "UPGRADE_DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 所有敌人失去 mgr:注视 层数一半的力量一回合。 消耗性 3"
   },
     "MGR:Hallucination":{
@@ -156,7 +156,7 @@
   },
     "MGR:GazeFromTheShadow":{
     "NAME":"阴影中的视线",
-    "DESCRIPTION": "选择一个敌人。本场战斗中，在它的每个回合开始时，给予 !M! 层 mgr:注视 。 消耗 。"
+    "DESCRIPTION": "选择一个敌人，在它的每个回合开始时，给予 !M! 层 mgr:注视 。 NL 消耗 。"
   },
     "MGR:ResonanceForm":{
     "NAME":"共鸣形态",
@@ -211,8 +211,8 @@
   },
     "MGR:Kimitomitahosizora":{
     "NAME":"曾与你见过的星空",
-    "DESCRIPTION": " mgr:星空 。 NL 预见 !M! ，该预见的丢弃视为从手牌中丢弃。 NL 如果丢弃了至少3张牌，生成1个 mgr:能量音符 。",
-    "UPGRADE_DESCRIPTION": " mgr:星空 。 NL 预见 !M! ，该预见的丢弃视为从手牌中丢弃。 NL 如果丢弃了至少4张牌，生成1个 mgr:能量音符 。"
+    "DESCRIPTION": " mgr:星空 。 NL 预见 !M! ，该预见的丢弃视为从手牌中丢弃。 NL 如果丢弃了至少4张牌，生成1个 mgr:能量音符 。",
+    "UPGRADE_DESCRIPTION": " mgr:星空 。 NL 预见 !M! ，该预见的丢弃视为从手牌中丢弃。 NL 如果丢弃了至少5张牌，生成1个 mgr:能量音符 。"
   },
     "MGR:Futariboshi":{
     "NAME":"两个人的星☆",
@@ -246,8 +246,8 @@
   },
     "MGR:MetalGear":{
     "NAME":"合金装备",
-    "DESCRIPTION": "失去2点敏捷，获得 !M! 层 *金属化 与 *多层护甲 。 NL mgr:开眼 ：额外获得2层。 消耗 。",
-    "UPGRADE_DESCRIPTION": "失去3点敏捷，获得 !M! 层 *金属化 与 *多层护甲 。 NL mgr:开眼 ：额外获得3层。 消耗 。"
+    "DESCRIPTION": "失去3点敏捷，获得 !M! 层 *金属化 与 *多层护甲 。 NL mgr:开眼 ：额外获得2层。 消耗 。",
+    "UPGRADE_DESCRIPTION": "失去4点敏捷，获得 !M! 层 *金属化 与 *多层护甲 。 NL mgr:开眼 ：额外获得3层。 消耗 。"
     },
     "MGR:Marionette":{
     "NAME":"提线木偶",
@@ -368,7 +368,7 @@
   },
     "MGR:EchoPhantom":{
     "NAME":"回声幻影",
-    "DESCRIPTION": "抽 !M! 张牌，丢弃 !M! 张牌，将弃牌堆中 !M! 张牌的复制放在抽牌堆顶。 NL mgr:开眼 ：再将 !M! 张复制置入手牌。 消耗 。",
+    "DESCRIPTION": "丢弃 !M! 张牌，将弃牌堆中 !M! 张牌的复制放在抽牌堆顶。 NL mgr:开眼 ：再将 !M! 张复制置入手牌。 消耗 。",
 	"UPGRADE_DESCRIPTION": "丢弃所有手牌，生成对应的音符。其中每有一种音符，抽一张牌。 NL 再多抽一张。"
   },
     "MGR:IntertwinedTimbres":{
@@ -407,6 +407,6 @@
   },
     "MGR:TheBurningSun":{
     "NAME":"烈日",
-    "DESCRIPTION": "抽1张牌。 NL 消耗至多 !M! 张手牌，抽等量的牌。"
+    "DESCRIPTION": "抽!M!张牌。 NL 消耗至多2张手牌，抽等量的牌。 NL mgr:开眼 ：再获得被消耗的牌的 mgr:临时复制 。"
   }
 }

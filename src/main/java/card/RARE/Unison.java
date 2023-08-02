@@ -1,6 +1,8 @@
 package card.RARE;
 
 import card.AbstractMGRCard;
+import character.MGR_character;
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -27,17 +29,23 @@ public class Unison extends AbstractMGRCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if(!this.upgraded)
-            this.addToBot(new ApplyPowerAction(p,p,new UnisonLeft(p,1),1));
-        else
-            this.addToBot(new ApplyPowerAction(p,p,new UnisonRight(p,1),1));
+        if(MGR_character.EndingCheck()) addToBot(new ApplyPowerAction(p,p,new UnisonLeft(p,this.magicNumber),this.magicNumber));
+        if(MGR_character.StartingCheck()) addToBot(new ApplyPowerAction(p,p,new UnisonRight(p,this.magicNumber),this.magicNumber));
     }
 
     public AbstractCard makeCopy() { return new Unison(); }
 
+    @Override
+    public void triggerOnGlowCheck()
+    {
+        if(MGR_character.EndingCheck()||MGR_character.StartingCheck()) this.glowColor=AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+        else this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+    }
+
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
+            this.selfRetain=true;
             this.rawDescription=UPGRADE_DESCRIPTION;
             initializeDescription();
         }

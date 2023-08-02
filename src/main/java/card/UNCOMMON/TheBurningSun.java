@@ -3,6 +3,7 @@ package card.UNCOMMON;
 import action.KimitomitahosizoraAction;
 import action.TheBurningSunAction;
 import card.AbstractMGRCard;
+import character.MGR_character;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -18,7 +19,7 @@ public class TheBurningSun extends AbstractMGRCard
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String IMG = "img/card/" + ID.substring(4) + ".png";
     private static final int COST = 1;
-    public static final int MAGIC = 2;
+    public static final int MAGIC = 1;
     public static final int PLUS_MAGIC = 1;
 
     public TheBurningSun()
@@ -31,11 +32,14 @@ public class TheBurningSun extends AbstractMGRCard
 
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        addToBot(new DrawCardAction(1));
-        addToBot(new TheBurningSunAction(this.magicNumber));
+        addToBot(new DrawCardAction(this.magicNumber));
+        addToBot(new TheBurningSunAction(2, MGR_character.BigBrotherStanceCheck()));
     }
 
     public AbstractCard makeCopy() {return new TheBurningSun();}
+
+    @Override
+    public void triggerOnGlowCheck(){triggerOnGlowCheck_BigBrother();}
 
     public void upgrade()
     {

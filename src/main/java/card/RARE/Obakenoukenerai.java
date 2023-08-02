@@ -20,14 +20,13 @@ public class Obakenoukenerai extends AbstractMGRCard {
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG = "img/card/"+ID.substring(4)+".png";
     public static final String UPGRADED_IMG = "img/card/"+ID.substring(4)+"Upgraded"+".png";
-    private static final int COST = 1;
+    private static final int COST = 2;
     private static final int MAGIC = 1;
     public Obakenoukenerai() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.SKILL,
                 AbstractCardEnum.MGR_COLOR, CardRarity.RARE, CardTarget.SELF);
         this.baseMagicNumber=MAGIC;
         this.magicNumber=this.baseMagicNumber;
-        this.isEthereal=true;
         this.exhaust=true;
     }
 

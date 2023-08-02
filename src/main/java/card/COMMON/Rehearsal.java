@@ -36,10 +36,10 @@ public class Rehearsal extends AbstractMGRCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            //this.upgradeMagicNumber(PLUS_MAGIC);
-            this.exhaust=false;
-            this.rawDescription=UPGRADE_DESCRIPTION;
-            initializeDescription();
+            this.upgradeMagicNumber(PLUS_MAGIC);
+            //this.exhaust=false;
+            //this.rawDescription=UPGRADE_DESCRIPTION;
+            //initializeDescription();
         }
     }
 }

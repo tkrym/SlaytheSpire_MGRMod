@@ -11,41 +11,47 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect;
 import note.AbstractNote;
 import patch.ManualDiscardPatch;
 
-public class TheBurningSunAction extends AbstractGameAction {
-    public static String[] TEXT=CardCrawlGame.languagePack.getUIString("TheBurningSunAction").TEXT;
-    public TheBurningSunAction(int amount)
+public class TheBurningSunAction extends AbstractGameAction
+{
+    public static String[] TEXT = CardCrawlGame.languagePack.getUIString("TheBurningSunAction").TEXT;
+    private boolean B;
+
+    public TheBurningSunAction(int amount, boolean B)
     {
         this.amount = amount;
+        this.B = B;
         this.actionType = ActionType.EXHAUST;
-        this.startDuration=Settings.ACTION_DUR_XFAST;
-        this.duration= this.startDuration;
+        this.startDuration = Settings.ACTION_DUR_XFAST;
+        this.duration = this.startDuration;
     }
+
     public void update()
     {
-        AbstractPlayer p=AbstractDungeon.player;
-        if (AbstractDungeon.getMonsters().areMonstersBasicallyDead()||p.hand.size()<=0||this.amount<=0)
+        AbstractPlayer p = AbstractDungeon.player;
+        if (AbstractDungeon.getMonsters().areMonstersBasicallyDead() || p.hand.size() <= 0 || this.amount <= 0)
         {
             this.isDone = true;
             return;
         }
         if (this.duration == this.startDuration)
         {
-            AbstractDungeon.handCardSelectScreen.open(TEXT[0], this.amount, true, true);
+            AbstractDungeon.handCardSelectScreen.open(this.B ? TEXT[1] : TEXT[0], this.amount, true, true);
             p.hand.applyPowers();
             this.tickDuration();
             return;
         }
         if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved)
         {
-            addToTop(new DrawCardAction(AbstractDungeon.handCardSelectScreen.selectedCards.size()));
             for (AbstractCard c : AbstractDungeon.handCardSelectScreen.selectedCards.group)
             {
                 p.hand.moveToExhaustPile(c);
-                //AbstractNote.GenerateNoteTop(c);
+                if (this.B) addToTop(new TemporaryDuplicationAction(c));
             }
+            addToTop(new DrawCardAction(AbstractDungeon.handCardSelectScreen.selectedCards.size()));
             CardCrawlGame.dungeon.checkForPactAchievement();
             AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
         }

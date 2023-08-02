@@ -34,7 +34,7 @@ public class EchoPhantom extends AbstractMGRCard
 
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        addToBot(new DrawCardAction(this.magicNumber));
+        //addToBot(new DrawCardAction(this.magicNumber));
         addToBot(new DiscardAction(p,p,this.magicNumber,false));
         boolean B=MGR_character.BigBrotherStanceCheck();
         addToBot(new AbstractGameAction() {

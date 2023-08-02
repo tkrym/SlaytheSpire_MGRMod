@@ -20,10 +20,8 @@ public class TemporaryDuplicationAction extends AbstractGameAction
     {
         this.actionType = ActionType.CARD_MANIPULATION;
         this.c = card.makeStatEquivalentCopy();
-        if (this.c.type != AbstractCard.CardType.CURSE && this.c.type != AbstractCard.CardType.STATUS && AbstractDungeon.player.hasPower("MasterRealityPower"))
-        {
+        if (this.c.canUpgrade() && AbstractDungeon.player.hasPower("MasterRealityPower"))
             this.c.upgrade();
-        }
         this.c.setCostForTurn(0);
         this.c.exhaust = true;
         this.c.isEthereal = true;
@@ -33,7 +31,7 @@ public class TemporaryDuplicationAction extends AbstractGameAction
 
     public void update()
     {
-        if (AbstractDungeon.player.hand.size()  >= 10)
+        if (AbstractDungeon.player.hand.size() >= 10)
         {
             AbstractDungeon.player.createHandIsFullDialog();
             addToDiscard();
