@@ -59,10 +59,6 @@ public class AttackNote extends AbstractNote {
         AbstractDungeon.actionManager.addToTop(new NoteDamageEnemyAction(this.evokeAmount,hasStereo));
     }
 
-    public void playChannelSFX() {
-        CardCrawlGame.sound.play("ORB_LIGHTNING_CHANNEL", 0.1f);
-    }
-
     public AbstractNote makeCopy() {
         return new AttackNote();
     }

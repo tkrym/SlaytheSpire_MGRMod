@@ -28,7 +28,7 @@ public class UnknownCreature extends CustomRelic{
     private boolean ShowReward=false;
 
     public UnknownCreature() {
-        super(ID, ImageMaster.loadImage(IMG), ImageMaster.loadImage(OUTLINE), RelicTier.BOSS, LandingSound.MAGICAL);
+        super(ID, ImageMaster.loadImage(IMG), ImageMaster.loadImage(OUTLINE), RelicTier.BOSS, LandingSound.FLAT);
     }
 
     public void onEquip() {

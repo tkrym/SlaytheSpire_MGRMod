@@ -4,9 +4,9 @@
   "author_list": [
     "MGRSK"
   ],
-  "description": "Adds MGR(Hirasawa meguru) as a new character.\n 这是测试版本，并非任何形式的会发布的版本；如有疑问、Bug汇报或是设计、平衡相关建议请联系作者QQ1960385817。",
+  "description": "Adds MGR(Hirasawa meguru) from Cookie☆ as a new character. \nContact me if there is any problem via: \nDiscord@mgrsk \nTwitter@mgrsk1960385817",
   "dependencies": ["basemod", "stslib"],
   "version": "1.0.0",
-  "sts_version": "01-01-2023",
+  "sts_version": "12-18-2022",
   "credits": "Lovely meguru and all those who created for her."
 }

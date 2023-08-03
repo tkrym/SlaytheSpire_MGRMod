@@ -1,5 +1,6 @@
 package action;
 
+import card.COMMON.Marionette;
 import card.COMMON.StardustLaser;
 import card.COMMON.StarrySkyObservation;
 import card.RARE.Obakenoukenerai;
@@ -65,7 +66,11 @@ public class SummoningCharmActionNew extends AbstractGameAction
         if (note instanceof AttackNote)
             c = AbstractDungeon.returnTrulyRandomCardInCombat(AbstractCard.CardType.ATTACK).makeCopy();
         else if (note instanceof DefendNote)
+        {
             c = AbstractDungeon.returnTrulyRandomCardInCombat(AbstractCard.CardType.SKILL).makeCopy();
+            while (c instanceof Marionette)
+                c = AbstractDungeon.returnTrulyRandomCardInCombat(AbstractCard.CardType.SKILL).makeCopy();
+        }
         else if (note instanceof DrawNote)
             c = AbstractDungeon.returnTrulyRandomCardInCombat(AbstractCard.CardType.POWER).makeCopy();
         else if (note instanceof DebuffNote) c = GetRandomStatusCard();
@@ -97,6 +102,7 @@ public class SummoningCharmActionNew extends AbstractGameAction
         cards.add(new Burn());
         cards.add(new Slimed());
         cards.add(new Confused());
+        cards.add(new Marionette());
         return cards.get(AbstractDungeon.cardRandomRng.random(cards.size() - 1));
     }
 }

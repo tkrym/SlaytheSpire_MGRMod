@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -22,10 +23,10 @@ public class SunDescending extends AbstractMGRCard
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG = "img/card/" + ID.substring(4) + ".png";
     private static final int COST = -2;
-    private static final int MAGIC = 8;
-    private static final int PLUS_MAGIC = -1;
-    private static final int DMG = 24;
-    private static final int PLUS_DMG = 3;
+    private static final int MAGIC = 3;
+    private static final int PLUS_MAGIC = 1;
+    private static final int DMG = 6;
+    private static final int PLUS_DMG = 2;
 
     public SunDescending()
     {
@@ -34,6 +35,7 @@ public class SunDescending extends AbstractMGRCard
         this.baseMagicNumber = MAGIC;
         this.magicNumber = this.baseMagicNumber;
         this.baseDamage = DMG;
+        this.isMultiDamage=true;
     }
 
     @Override
@@ -42,59 +44,39 @@ public class SunDescending extends AbstractMGRCard
     @Override
     public void applyPowers()
     {
-        super.applyPowers();
         this.damage = this.baseDamage;
         this.isDamageModified = false;
-        this.magicNumber=this.baseMagicNumber;
-        this.isMagicNumberModified=false;
     }
 
     @Override
     public void calculateCardDamage(AbstractMonster m)
     {
-        super.calculateCardDamage(m);
         this.damage = this.baseDamage;
         this.isDamageModified = false;
-        this.magicNumber=this.baseMagicNumber;
-        this.isMagicNumberModified=false;
     }
 
     @Override
     public void didDiscard()
     {
-        if(AbstractDungeon.player.hand.contains(this)) DecCounter();
+        this.baseDamage+=this.magicNumber;
+        this.applyPowers();
     }
-
-    @Override
-    public void triggerOnOtherCardPlayed(AbstractCard c) { DecCounter();}
 
     @Override
     public void triggerOnManualDiscard()
     {
-        DecCounter();
-        DecCounter();
-        DecCounter();
-    }
-
-    private void DecCounter()
-    {
-        this.baseMagicNumber--;
-        if (this.baseMagicNumber <= 0)
-        {
-            this.baseMagicNumber = this.GetMagic();
-            this.superFlash(Color.GREEN.cpy());
-            addToTop(new WaitAction(0.1f));
-            addToTop(new DamageAllEnemiesAction(AbstractDungeon.player, this.baseDamage, DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.NONE));
-        }
-        this.magicNumber=this.baseMagicNumber;
-        this.isMagicNumberModified=false;
+        addToTop(new WaitAction(0.1f));
+        this.superFlash(Color.GREEN.cpy());
+        addToTop(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(this.baseDamage, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+        this.baseDamage=GetDMG();
+        this.applyPowers();
         initializeDescription();
     }
 
     @Override
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {return false;}
 
-    private int GetMagic(){return this.upgraded?(MAGIC+PLUS_MAGIC):MAGIC;}
+    private int GetDMG(){return this.upgraded?(DMG+PLUS_DMG):DMG;}
 
     public AbstractCard makeCopy() {return new SunDescending();}
 

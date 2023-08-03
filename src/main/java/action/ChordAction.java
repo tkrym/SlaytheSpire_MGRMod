@@ -4,6 +4,7 @@ import character.MGR_character;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -42,26 +43,12 @@ public class ChordAction extends AbstractGameAction
                 if (orb instanceof AbstractNote)
                     notes.add((AbstractNote) orb);
             for (AbstractPower power : p.powers)
-            {
                 if (power instanceof OnChordHook)
-                {
                     ((OnChordHook) power).OnChord(notes);
-                }
-            }
-            /*for (AbstractRelic relic : p.relics)
-            {
-                if (relic instanceof OnChordHook)
-                {
-                    ((OnChordHook) relic).OnChord(notes);
-                }
-            }*/
             for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters)
-            {
                 if (!m.isDeadOrEscaped() && m.hasPower(GazePower.POWER_ID))
-                {
                     ((OnChordHook) m.getPower(GazePower.POWER_ID)).OnChord(notes);
-                }
-            }
+            CardCrawlGame.sound.play("MGR:Chord",0.2f);
             p.inccounter(1);
             MGR_character.IncChordCount(1);
             p.EvokeAll();

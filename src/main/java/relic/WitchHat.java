@@ -16,7 +16,7 @@ public class WitchHat extends CustomRelic{
     private static final int THRESHOLD2=33;
 
     public WitchHat() {
-        super(ID, ImageMaster.loadImage(IMG), ImageMaster.loadImage(OUTLINE), RelicTier.UNCOMMON, LandingSound.MAGICAL);
+        super(ID, ImageMaster.loadImage(IMG), ImageMaster.loadImage(OUTLINE), RelicTier.UNCOMMON, LandingSound.FLAT);
     }
 
     public String getUpdatedDescription() { return this.DESCRIPTIONS[0]+THRESHOLD1+this.DESCRIPTIONS[1]+THRESHOLD2+this.DESCRIPTIONS[2]; }

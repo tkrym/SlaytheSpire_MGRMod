@@ -1,4 +1,4 @@
-package card.TEST;
+package card.COMMON;
 
 import action.ChannelNoteAction;
 import card.AbstractMGRCard;
@@ -10,7 +10,6 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import note.AttackNote;
@@ -23,10 +22,10 @@ public class RapidClaw extends AbstractMGRCard {
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG = "img/card/"+ID.substring(4)+".png";
     private static final int COST = 0;
-    private static final int DMG = 5;
-    private static final int PLUS_DMG = 1;
+    private static final int DMG = 4;
+    private static final int PLUS_DMG = 2;
     private static final int MAGIC = 2;
-    private static final int PLUS_MAGIC = -1;
+    //private static final int PLUS_MAGIC = -1;
     public RapidClaw() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.ATTACK,
                 AbstractCardEnum.MGR_COLOR, CardRarity.COMMON, CardTarget.ENEMY);
@@ -39,7 +38,7 @@ public class RapidClaw extends AbstractMGRCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
         addToBot(new ChannelNoteAction(new AttackNote()));
-        if(MGR_character.StartingCheck()&&this.baseDamage>=this.baseMagicNumber)
+        if(MGR_character.StartingCheck()||MGR_character.EndingCheck()&&this.baseDamage>=this.baseMagicNumber)
         {
             AbstractCard newCard=this.makeStatEquivalentCopy();
             newCard.baseDamage-=this.baseMagicNumber;
@@ -48,7 +47,12 @@ public class RapidClaw extends AbstractMGRCard {
     }
 
     @Override
-    public void triggerOnGlowCheck(){triggerOnGlowCheck_Starting();}
+    public void triggerOnGlowCheck()
+    {
+        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+        if(MGR_character.StartingCheck()||MGR_character.EndingCheck())
+            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+    }
 
     public AbstractCard makeCopy() { return new RapidClaw(); }
 
@@ -56,7 +60,7 @@ public class RapidClaw extends AbstractMGRCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeDamage(PLUS_DMG);
-            this.upgradeMagicNumber(PLUS_MAGIC);
+            //this.upgradeMagicNumber(PLUS_MAGIC);
         }
     }
 }

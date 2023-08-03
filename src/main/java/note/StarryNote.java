@@ -56,21 +56,6 @@ public class StarryNote extends AbstractNote {
         AbstractDungeon.actionManager.addToTop(new VFXAction(new NoteAboveCreatureEffect(p.hb.cX - p.animX, p.hb.cY + p.hb.height / 2.0F - p.animY, this.img), Settings.ACTION_DUR_XFAST));
     }
 
-   /* @Override
-    public void updateAnimation()
-    {
-        super.updateAnimation();
-        this.myvfxtimer -= Gdx.graphics.getDeltaTime();
-        if (this.myvfxtimer< 0.0f) {
-            AbstractDungeon.effectList.add(new PlasmaOrbPassiveEffect(this.cX, this.cY));
-            this.myvfxtimer = MathUtils.random(vfxIntervalMin, vfxIntervalMax);
-        }
-    }*/
-
-    public void playChannelSFX() {
-        CardCrawlGame.sound.play("ORB_PLASMA_CHANNEL", 0.1f);
-    }
-
     public AbstractNote makeCopy() {
         return new StarryNote();
     }

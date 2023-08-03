@@ -16,7 +16,7 @@ public class BloodshotEyeball extends CustomRelic{
     private static final int TIMES = 3;
 
     public BloodshotEyeball() {
-        super(ID, ImageMaster.loadImage(IMG), ImageMaster.loadImage(OUTLINE), RelicTier.UNCOMMON, LandingSound.FLAT);
+        super(ID, ImageMaster.loadImage(IMG), ImageMaster.loadImage(OUTLINE), RelicTier.UNCOMMON, LandingSound.CLINK);
     }
 
     public String getUpdatedDescription() { return this.DESCRIPTIONS[0]+MAGIC+this.DESCRIPTIONS[1]+TIMES+this.DESCRIPTIONS[2]; }

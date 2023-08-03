@@ -65,7 +65,7 @@ public class CounterPanel extends AbstractPanel
         if (!this.isHidden)
         {
             this.CounterHB.render(sb);
-            float scale = 1 + MathUtils.sin(this.angle*1.5f) * 0.08F + 0.08F;
+            float scale = 1 + MathUtils.sin(this.angle*1.5f) * 0.075F + 0.075F;
             Color c=Color.WHITE.cpy();
             c.a=c.a*0.8f/(3*scale-2.0f);
             sb.setColor(c);

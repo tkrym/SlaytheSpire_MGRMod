@@ -6,11 +6,10 @@ import basemod.interfaces.*;
 import card.BASIC.*;
 import card.COMMON.*;
 import card.RARE.*;
-import card.COMMON.OneUp;
 import card.RARE.Hallucination;
 import card.BASIC.Peek;
 import card.COMMON.Frighten;
-import card.TEST.RapidClaw;
+import card.COMMON.RapidClaw;
 import card.UNCOMMON.HakkeroCharge;
 import card.COMMON.RoundRobin;
 import card.COMMON.StarrySkyObservation;
@@ -47,10 +46,8 @@ import card.UNCOMMON.Futariboshi;
 import card.UNCOMMON.Kimitomitahosizora;
 import card.UNCOMMON.StarryDrift;
 import card.UNCOMMON.Yazyuutokasu;
-import card.UNCOMMON.TheForsaken;
 import card.UNCOMMON.GazeFromTheShadow;
 import card.UNCOMMON.DarkDiffuse;
-import card.UNCOMMON.WaitingForFood;
 import card.COMMON.Rehearsal;
 import card.COMMON.AlternateSinging;
 import card.UNCOMMON.*;
@@ -114,6 +111,10 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
     public void receiveAddAudio() {
         BaseMod.addAudio("MGR:CharSelect", "audio/MGR_charselect.ogg");
         BaseMod.addAudio("MGR:MasterSpark", "audio/MGR_masterspark.wav");
+        BaseMod.addAudio("MGR:NoteChannel", "audio/NoteChannel.ogg");
+        BaseMod.addAudio("MGR:Chord", "audio/Chord.ogg");
+        BaseMod.addAudio("MGR:Gaze", "audio/Gaze.ogg");
+        BaseMod.addAudio("MGR:souraze", "audio/souraze.wav");
     }
 
     @Override
@@ -127,13 +128,13 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
     public void receivePostInitialize()
     {
         Texture badge = ImageMaster.loadImage(MOD_BADGE);
-        BaseMod.registerModBadge(badge, "MGRMod", "MGRSK", "COOKIE mod MGR.ver", new ModPanel());
+        BaseMod.registerModBadge(badge, "MGRMod", "MGRSK", "MGRMod", new ModPanel());
         Color mybluecolor=MGR_character.myBuleColor;
         BaseMod.addPotion(FortePotion.class, mybluecolor.cpy(), mybluecolor.cpy(), mybluecolor.cpy(), FortePotion.POTION_ID, ModClassEnum.MGR);
         BaseMod.addPotion(BottledNotes.class, mybluecolor.cpy(), mybluecolor.cpy(),new Color(1.0F,0.72F,0.19F,1.0F),BottledNotes.POTION_ID,ModClassEnum.MGR);
-        BaseMod.addPotion(PortableAnvil.class, Color.WHITE.cpy(), Color.WHITE.cpy(), Color.WHITE.cpy(), PortableAnvil.POTION_ID);
+        BaseMod.addPotion(PortableAnvil.class, Color.WHITE.cpy(), Color.WHITE.cpy(), Color.WHITE.cpy(), PortableAnvil.POTION_ID,ModClassEnum.MGR);
         BaseMod.addPotion(ShiningEssence.class, CardHelper.getColor(28,206,227),CardHelper.getColor(53,150,159),null,ShiningEssence.POTION_ID,ModClassEnum.MGR);
-        BaseMod.addPotion(Doping.class,Color.WHITE.cpy(),Color.WHITE.cpy(),Color.WHITE.cpy(),Doping.POTION_ID);
+        BaseMod.addPotion(Doping.class,Color.WHITE.cpy(),Color.WHITE.cpy(),Color.WHITE.cpy(),Doping.POTION_ID,ModClassEnum.MGR);
         UnlockAscensionLevel();
         for(AbstractCard card:cardsToAdd)
             UnlockTracker.markCardAsSeen(card.cardID);

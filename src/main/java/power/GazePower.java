@@ -48,7 +48,7 @@ public class GazePower extends AbstractPower implements OnChordHook, HealthBarRe
 
     @Override
     public void playApplyPowerSfx() {
-        CardCrawlGame.sound.play("POWER_POISON", 0.05f);
+        CardCrawlGame.sound.play("MGR:Gaze", 0.05f);
     }
 
     @Override

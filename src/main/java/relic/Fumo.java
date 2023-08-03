@@ -16,7 +16,7 @@ public class Fumo extends CustomRelic{
     private static final int MAGIC = 1;
 
     public Fumo() {
-        super(ID, ImageMaster.loadImage(IMG), ImageMaster.loadImage(OUTLINE), RelicTier.UNCOMMON, LandingSound.HEAVY);
+        super(ID, ImageMaster.loadImage(IMG), ImageMaster.loadImage(OUTLINE), RelicTier.UNCOMMON, LandingSound.FLAT);
     }
 
     @Override

@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
@@ -192,6 +193,11 @@ public abstract class AbstractNote extends AbstractOrb
     }
 
     public abstract AbstractNote makeCopy();
+
+    public void playChannelSFX()
+    {
+        CardCrawlGame.sound.play("MGR:NoteChannel", 0.2f);
+    }
 
     @Override
     public void updateAnimation()

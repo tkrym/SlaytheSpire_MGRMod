@@ -16,7 +16,7 @@ public class LittleAngel extends CustomRelic{
     public static final int DrawThreshold = 2;
 
     public LittleAngel() {
-        super(ID, ImageMaster.loadImage(IMG), ImageMaster.loadImage(OUTLINE), RelicTier.RARE, LandingSound.CLINK);
+        super(ID, ImageMaster.loadImage(IMG), ImageMaster.loadImage(OUTLINE), RelicTier.RARE, LandingSound.MAGICAL);
     }
 
     @Override

@@ -25,7 +25,7 @@ public class StardustLaser extends AbstractMGRCard {
     private static final int COST = 1;
     public static final int MAGIC = 1;
     //public static final int PLUS_MAGIC = 1;
-    public static final int DMG = 7;
+    public static final int DMG = 6;
     public static final int PLUS_DMG = 3;
     public StardustLaser() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.ATTACK,

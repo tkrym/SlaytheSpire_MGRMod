@@ -58,10 +58,6 @@ public class DrawNote extends AbstractNote {
         AbstractDungeon.actionManager.addToTop(new VFXAction(new NoteAboveCreatureEffect(p.hb.cX - p.animX, p.hb.cY + p.hb.height / 2.0F - p.animY, this.img), Settings.ACTION_DUR_XFAST));
     }
 
-    public void playChannelSFX() {
-        CardCrawlGame.sound.play("ORB_DARK_CHANNEL", 0.1f);
-    }
-
     public AbstractNote makeCopy() {
         return new DrawNote();
     }

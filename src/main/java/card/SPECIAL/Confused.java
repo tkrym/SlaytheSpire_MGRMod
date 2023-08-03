@@ -3,6 +3,7 @@ package card.SPECIAL;
 import basemod.abstracts.CustomCard;
 import card.AbstractMGRCard;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -27,6 +28,7 @@ public class Confused extends AbstractMGRCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
+        addToBot(new SFXAction("MGR:souraze"));
         addToBot(new DrawCardAction(this.magicNumber));
     }
 

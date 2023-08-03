@@ -52,7 +52,8 @@ public class GazeLoseHpAction extends AbstractGameAction
                 this.amount = p.amount;
                 if (this.target.currentHealth > 0)
                 {
-                    p.flashWithoutSound();
+                    p.flash();
+                    p.playApplyPowerSfx();
                     this.target.damage(new DamageInfo(this.source, this.amount, DamageType.HP_LOSS));
                     if (AbstractDungeon.player.hasPower(SalivatePower.POWER_ID) && (this.target.isDying || this.target.currentHealth <= 0) && !this.target.halfDead && !this.target.hasPower(MinionPower.POWER_ID))
                     {
@@ -74,9 +75,6 @@ public class GazeLoseHpAction extends AbstractGameAction
                 for (AbstractPower power : AbstractDungeon.player.powers)
                     if (power instanceof OnGazeTriggeredHook)
                         ((OnGazeTriggeredHook) power).OnGazeTriggered(target, this.amount);
-                /*for (AbstractRelic relic : AbstractDungeon.player.relics)
-                    if (relic instanceof OnGazeTriggeredHook)
-                        ((OnGazeTriggeredHook) relic).OnGazeTriggered(target, this.amount);*/
                 if (AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead())
                 {
                     AbstractDungeon.actionManager.clearPostCombatActions();

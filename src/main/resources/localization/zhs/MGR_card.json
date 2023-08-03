@@ -233,12 +233,12 @@
   },
     "MGR:Nocturnal":{
     "NAME":"夜行",
-    "DESCRIPTION": "将一张随机诅咒加入弃牌堆。 NL 你的抽牌堆、弃牌堆、消耗堆与手牌中每有一张诅咒，对所有敌人造成一次 !D! 点伤害。"
+    "DESCRIPTION": "将一张随机 *诅咒 加入弃牌堆。 NL 你的抽牌堆、弃牌堆、消耗堆与手牌中每有一张 *诅咒 ，对所有敌人造成一次 !D! 点伤害。"
   },
     "MGR:TheCursed":{
     "NAME":"诅咒随身",
-    "DESCRIPTION": "将一张随机诅咒加入抽牌堆。 NL 抽到 诅咒 时抽 !M! 张牌并生成一个 mgr:人工音符 。",
-    "UPGRADE_DESCRIPTION": " 固有 。将一张随机诅咒加入抽牌堆。 NL 抽到 诅咒 时抽 !M! 张牌并生成一个 mgr:人工音符 。"
+    "DESCRIPTION": "将一张随机 *诅咒 加入抽牌堆。 NL 抽到 *诅咒 时抽 !M! 张牌并生成一个 mgr:人工音符 。",
+    "UPGRADE_DESCRIPTION": " 固有 。将一张随机 *诅咒 加入抽牌堆。 NL 抽到 *诅咒 时抽 !M! 张牌并生成一个 mgr:人工音符 。"
   },
     "MGR:TinyOrchestra":{
     "NAME":"微型乐团",
@@ -251,7 +251,7 @@
     },
     "MGR:Marionette":{
     "NAME":"提线木偶",
-    "DESCRIPTION": " 不能被打出 。 mgr:视作状态 。 NL 被消耗或丢弃时，所有敌人失去 !M! 点力量一回合，并生成一个 mgr:debuff音符 。"
+    "DESCRIPTION": "mgr:视作状态 。所有敌人失去 !M! 点力量一回合。 NL 被丢弃时，触发打出时的效果。 NL 消耗 。"
   },
     "MGR:FieryPerformance":{
     "NAME":"激奏",
@@ -342,13 +342,13 @@
     "DESCRIPTION": "每当你通过 mgr:注视 杀死一名 *非爪牙 的敌人，获得 !M! 点最大生命。"
   },
     "MGR:SummoningCharm":{
-    "NAME":"现状还原",
-    "DESCRIPTION": "移除你的所有音符 ，对每个音符，将随机一张对应的卡加入手牌。 消耗 。",
-    "UPGRADE_DESCRIPTION": "移除你的所有音符 ，对每个音符，将 *升级过 的随机一张对应的卡加入手牌。 消耗 。"
+    "NAME":"还原魔法",
+    "DESCRIPTION": "移除你的所有音符，将每个音符对应的一张随机卡加入手牌。 消耗 。",
+    "UPGRADE_DESCRIPTION": "移除你的所有音符，将每个音符对应的一张 *升级过 的随机卡加入手牌。 消耗 。"
   },
     "MGR:SunDescending":{
-    "NAME":"日影西斜",
-    "DESCRIPTION": "无法被打出 。 mgr:视作能力 。 NL 该牌在你手牌中时，你每打出或丢弃 !M! 张牌， 对所有敌人造成 !D! 点伤害。 NL 被丢弃时计数减少3。"
+    "NAME":"日时计",
+    "DESCRIPTION": "无法被打出 。 NL 你每丢弃一张牌，将该牌的伤害增加 !M! 。 NL 被丢弃时，对所有敌人造成 !D! 点伤害，并重置该伤害。"
   },
     "MGR:FourEyes":{
     "NAME":"四目",
@@ -396,19 +396,19 @@
     },
     "MGR:RapidClaw":{
     "NAME":"急速爪击",
-    "DESCRIPTION": "造成 !D! 点伤害并生成1个 mgr:攻击音符 。 NL mgr:起音 ：若基础伤害不小于 !M! ，将一张基础伤害减少 !M! 的复制加入手牌。 消耗 。"
+    "DESCRIPTION": "造成 !D! 点伤害并生成1个 mgr:攻击音符 。 NL mgr:起音 或 mgr:尾音 ：若基础伤害不小于 !M! ，将一张基础伤害减少 !M! 的复制加入手牌。 消耗 。"
   },
     "MGR:BurnsRed":{
     "NAME":"赤灼",
     "DESCRIPTION": "每打出一张技能牌，生成 !M! 个 mgr:攻击音符 。"
   },
     "MGR:FinisherShooting":{
-    "NAME":"终结枪击",
+    "NAME":"(Deprecated)终结枪击",
     "DESCRIPTION": "造成 !D! 点伤害，本回合生成的每个 mgr:音符 使伤害提高 !M! 点。结束你的回合。 NL mgr:开眼 ：费用为0。"
   },
     "MGR:TheBurningSun":{
     "NAME":"烈日",
-    "DESCRIPTION": "抽!M!张牌。 NL 消耗至多2张手牌，抽等量的牌。 NL mgr:开眼 ：再获得被消耗的牌的 mgr:临时复制 。"
+    "DESCRIPTION": "抽1张牌。 NL 消耗至多 !M! 张手牌，抽等量的牌。 NL mgr:开眼 ：再获得被消耗的牌的 mgr:临时复制 。"
   },
   "MGR:FullScaleOffensive":{
     "NAME":"全面进攻",

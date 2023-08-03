@@ -62,10 +62,6 @@ public class DebuffNote extends AbstractNote {
         }
     }
 
-    public void playChannelSFX() {
-        CardCrawlGame.sound.play("ORB_DARK_CHANNEL", 0.1f);
-    }
-
     public AbstractNote makeCopy() {
         return new DebuffNote();
     }

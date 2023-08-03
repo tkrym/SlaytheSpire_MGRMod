@@ -4,6 +4,7 @@ import action.ChannelNoteAction;
 import action.TemporaryDuplicationAction;
 import character.MGR_character;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -38,7 +39,7 @@ public class Doping extends AbstractPotion
     public void initializeData()
     {
         this.potency = getPotency();
-        this.description = potionStrings.DESCRIPTIONS[0] + this.potency + potionStrings.DESCRIPTIONS[1];
+        this.description = potionStrings.DESCRIPTIONS[0] + this.potency + potionStrings.DESCRIPTIONS[1]+(this.potency>>1)+potionStrings.DESCRIPTIONS[2];
         this.tips.clear(); this.tips.add(new PowerTip(this.name, this.description));
     }
 
@@ -71,6 +72,7 @@ public class Doping extends AbstractPotion
                     this.isDone=true;
                 }
             });
+            addToBot(new GainEnergyAction(this.potency>>1));
         }
     }
 
@@ -84,7 +86,7 @@ public class Doping extends AbstractPotion
     {
         if (AbstractDungeon.player.hand.size() <= 9)
         {
-            c.setCostForTurn(c.costForTurn - 1);
+            //c.setCostForTurn(c.costForTurn - 1);
             AbstractDungeon.player.drawPile.removeCard(c);
             AbstractDungeon.player.hand.addToHand(c);
             c.lighten(false);

@@ -76,7 +76,7 @@
     "NAME": "只属于你的舞台",
     "FLAVOR": "于此刻响彻世界。",
     "DESCRIPTIONS": [
-      "你的 #ymgr:计数器 不会低于 #b1 。 NL 回合开始时， #ymgr:即兴 #b3 。"
+      "替换 #b迷你麦克风 。 NL 你的 #ymgr:计数器 不会低于 #b1 。 NL 回合开始时， #ymgr:即兴 #b3 。"
     ]
   },
   "MGR:WitchHat": {
@@ -96,12 +96,11 @@
       " 次 #ymgr:和弦 ，生成 #y攻击 、 #y防御 #ymgr:音符 各一个。"
     ]
   },
-  "MGR:1Spirit": {
-    "NAME": "1",
-    "FLAVOR": "1",
+  "MGR:ClosedEye": {
+    "NAME": "紧闭之目",
+    "FLAVOR": "123。",
     "DESCRIPTIONS": [
-      "每当你进入 #ymgr:开眼 ，获得 [E] 并抽 #b",
-      " 张牌。"
+      "每回合开始获得 [E] 。 NL 进入 #y开眼 时不再获得 [E] 与抽牌。"
     ]
   }
 }
