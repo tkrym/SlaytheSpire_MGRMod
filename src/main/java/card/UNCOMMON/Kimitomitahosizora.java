@@ -31,7 +31,7 @@ public class Kimitomitahosizora extends AbstractMGRCard
 
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        addToBot(new KimitomitahosizoraAction(this.magicNumber, this.upgraded?5:4));
+        addToBot(new KimitomitahosizoraAction(this.magicNumber, this.upgraded?4:3));
     }
 
     public AbstractCard makeCopy() {return new Kimitomitahosizora();}

@@ -236,7 +236,7 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         this.cardsToAdd.add(new Unison());
         this.cardsToAdd.add(new Rehearsal());
         this.cardsToAdd.add(new AlternateSinging());
-        this.cardsToAdd.add(new WaitingForFood());
+        this.cardsToAdd.add(new FullScaleOffensive());
         this.cardsToAdd.add(new DarkDiffuse());
         this.cardsToAdd.add(new Peek());
         this.cardsToAdd.add(new Hallucination());

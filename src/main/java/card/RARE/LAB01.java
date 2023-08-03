@@ -33,7 +33,7 @@ public class LAB01 extends AbstractMGRCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        for(AbstractNote note:this.RecordNotes) note.TriggerEvokeEffect();
+        for(AbstractNote note:this.RecordNotes) note.myEvoke();
     }
 
     @Override

@@ -74,7 +74,7 @@ public class GhostNote extends AbstractNote {
         sb.setBlendFunction(770, 771);
         sb.setColor(this.shineColor);
         sb.draw(this.img, this.cX - 48.0f, (this.cY - 48.0f) + this.bobEffect.y*0.5F, 48.0f, 48.0f, 96.0f, 96.0f, this.scale*scale, this.scale*scale, 0.0f, 0, 0, 96, 96, false, false);
-        if(AbstractDungeon.player!=null&&AbstractDungeon.player.hasPower(HarmonyFormPower.POWER_ID))
+        if(AbstractDungeon.player.hasPower(HarmonyFormPower.POWER_ID)&&this.StartOrEnd())
         {
             Color tmpColor=this.shineColor.cpy();
             tmpColor.a/=2;

@@ -162,20 +162,17 @@ public abstract class AbstractNote extends AbstractOrb
 
     public void onEvoke()
     {
+        if (this instanceof EmptyNoteSlot) return;
         this.applyForte();
-        this.TriggerEvokeEffect();
-        if (!(this instanceof EmptyNoteSlot)) LAB01Check();
-    }
-
-    public void TriggerEvokeEffect()
-    {
         int sum = 1;
-        AbstractPlayer p = AbstractDungeon.player;
-        if (p.hasPower(HarmonyFormPower.POWER_ID) && (this.equals(p.orbs.get(0)) || this.equals(p.orbs.get(p.maxOrbs - 1))))
-            sum += p.getPower(HarmonyFormPower.POWER_ID).amount;
-        for (int i = 1; i <= sum; i++) myEvoke();
+        if (AbstractDungeon.player.hasPower(HarmonyFormPower.POWER_ID) && this.StartOrEnd())
+            sum += AbstractDungeon.player.getPower(HarmonyFormPower.POWER_ID).amount;
+        for (int i = 1; i <= sum; i++)
+        {
+            myEvoke();
+            LAB01Check();
+        }
     }
-
 
     public void LAB01Check()
     {
@@ -223,7 +220,7 @@ public abstract class AbstractNote extends AbstractOrb
         sb.setColor(this.shineColor);
         sb.draw(this.img, this.cX - 48.0f, (this.cY - 48.0f) + this.bobEffect.y * 0.5F, 48.0f, 48.0f, 96.0f, 96.0f,
                 this.scale * scale, this.scale * scale, 0.0f, 0, 0, 96, 96, false, false);
-        if (AbstractDungeon.player != null && AbstractDungeon.player.hasPower(HarmonyFormPower.POWER_ID))
+        if (AbstractDungeon.player.hasPower(HarmonyFormPower.POWER_ID) && this.StartOrEnd())
         {
             Color tmpColor = this.shineColor.cpy();
             tmpColor.a /= 2;
@@ -242,6 +239,13 @@ public abstract class AbstractNote extends AbstractOrb
     {
         AbstractDungeon.effectsQueue.add(new NoteTriggeredEffect(this.cX - 48.0F, this.cY - 48.0F, this.img, this.scale, this.c.cpy()));
     }
+
+    public boolean StartOrEnd()
+    {
+        AbstractPlayer p = AbstractDungeon.player;
+        return this.equals(p.orbs.get(0)) || this.equals(p.orbs.get(p.orbs.size() - 1));
+    }
+
 
     public static int GetNoteTypeCountThisTurn()
     {

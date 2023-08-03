@@ -137,7 +137,7 @@
     "UPGRADE_DESCRIPTION": "抽 !M! 张牌。 NL 生成这些牌对应的 mgr:基本音符 。"
   },
     "MGR:WaitingForFood":{
-    "NAME":"等待进食",
+    "NAME":"(Deprecated)等待进食",
     "DESCRIPTION": "获得 !B! 点格挡。 NL 若你在本场战斗中失去过生命，改为恢复 !M! 点生命并 消耗 。"
   },
     "MGR:DarkDiffuse":{
@@ -169,9 +169,9 @@
     "UPGRADE_DESCRIPTION": "抽 !M! 张牌。 NL 保留 。 消耗 。"
   },
     "MGR:Romp":{
-    "NAME":"活蹦乱跳",
-    "DESCRIPTION": "获得 !B! 点格挡。 NL 将 !M! 张 *困惑 置入手牌。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "获得 !B! 点格挡。 NL 将 !M! 张 *困惑+ 置入手牌。 NL 消耗 。"
+    "NAME":"雀跃",
+    "DESCRIPTION": "将 !M! 张 *困惑 置入手牌。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "将 !M! 张 *困惑+ 置入手牌。 NL 消耗 。"
   },
     "MGR:Yazyuutokasu":{
     "NAME":"野兽化",
@@ -211,8 +211,8 @@
   },
     "MGR:Kimitomitahosizora":{
     "NAME":"曾与你见过的星空",
-    "DESCRIPTION": " mgr:星空 。 NL 预见 !M! ，该预见的丢弃视为从手牌中丢弃。 NL 如果丢弃了至少4张牌，生成1个 mgr:能量音符 。",
-    "UPGRADE_DESCRIPTION": " mgr:星空 。 NL 预见 !M! ，该预见的丢弃视为从手牌中丢弃。 NL 如果丢弃了至少5张牌，生成1个 mgr:能量音符 。"
+    "DESCRIPTION": " mgr:星空 。 NL 预见 !M! ，该预见的丢弃视为从手牌中丢弃。 NL 如果丢弃了至少3张牌，生成1个 mgr:能量音符 。",
+    "UPGRADE_DESCRIPTION": " mgr:星空 。 NL 预见 !M! ，该预见的丢弃视为从手牌中丢弃。 NL 如果丢弃了至少4张牌，生成1个 mgr:能量音符 。"
   },
     "MGR:Futariboshi":{
     "NAME":"两个人的星☆",
@@ -342,8 +342,9 @@
     "DESCRIPTION": "每当你通过 mgr:注视 杀死一名 *非爪牙 的敌人，获得 !M! 点最大生命。"
   },
     "MGR:SummoningCharm":{
-    "NAME":"召唤魔法",
-    "DESCRIPTION": "从抽牌堆中将随机一张费用最高的牌置入手牌。它在本回合费用减少 [E] 。 消耗"
+    "NAME":"现状还原",
+    "DESCRIPTION": "移除你的所有音符 ，对每个音符，将随机一张对应的卡加入手牌。 消耗 。",
+    "UPGRADE_DESCRIPTION": "移除你的所有音符 ，对每个音符，将 *升级过 的随机一张对应的卡加入手牌。 消耗 。"
   },
     "MGR:SunDescending":{
     "NAME":"日影西斜",
@@ -376,17 +377,17 @@
     "DESCRIPTION": "mgr:即兴 !M! 。 NL 本回合每生成过一种音符，获得 !B! 点格挡。"
   },
     "MGR:RoundRobin":{
-    "NAME":"轮转",
+    "NAME":"反身",
     "DESCRIPTION": "获得 !B! 点格挡。 NL 将弃牌堆中的 !M! 张牌置于抽牌堆底。 NL mgr:开眼 ：改为置于抽牌堆顶。"
   },
     "MGR:TheEyeBehind":{
     "NAME":"后背之眼",
-    "DESCRIPTION": "使目标的所有负面状态增加1层。对于 mgr:注视 ，改为增加 !M! 层。 消耗 。",
-    "UPGRADE_DESCRIPTION": "使目标的所有负面状态增加2层。对于 mgr:注视 ，改为增加 !M! 层。 消耗 。"
+    "DESCRIPTION": "使目标的所有负面状态增加1层。对于 mgr:注视 ，改为增加 !M! 层。 NL mgr:开眼 ：再增加1层。 消耗 。",
+    "UPGRADE_DESCRIPTION": "使目标的所有负面状态增加2层。对于 mgr:注视 ，改为增加 !M! 层。 NL mgr:开眼 ：再增加2层。 消耗 。"
   },
     "MGR:StarrySkyObservation":{
     "NAME":"星空观察",
-    "DESCRIPTION": " mgr:星空 。 NL 丢弃所有手牌，抽 !M! 张牌。每丢弃一张星空牌，下回合开始时生成一个 mgr:能量音符 。"
+    "DESCRIPTION": " mgr:星空 。 NL 预见 !M! 。 NL 丢弃所有手牌，抽 !M! 张牌。"
   },
     "MGR:HakkeroCharge":{
     "NAME":"八卦炉充能",
@@ -408,5 +409,9 @@
     "MGR:TheBurningSun":{
     "NAME":"烈日",
     "DESCRIPTION": "抽!M!张牌。 NL 消耗至多2张手牌，抽等量的牌。 NL mgr:开眼 ：再获得被消耗的牌的 mgr:临时复制 。"
+  },
+  "MGR:FullScaleOffensive":{
+    "NAME":"全面进攻",
+    "DESCRIPTION": "丢弃所有 *非攻击 牌，每张生成 !M! 个 mgr:攻击音符 。"
   }
 }

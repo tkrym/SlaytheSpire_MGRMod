@@ -2,6 +2,7 @@ package card.COMMON;
 
 import action.IncDebuffAction;
 import card.AbstractMGRCard;
+import character.MGR_character;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -30,10 +31,15 @@ public class TheEyeBehind extends AbstractMGRCard
 
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        addToBot(new IncDebuffAction(m,this.upgraded?2:1,this.magicNumber));
+        int amt=this.upgraded?2:1;
+        addToBot(new IncDebuffAction(m,amt,this.magicNumber));
+        if(MGR_character.BigBrotherStanceCheck()) addToBot(new IncDebuffAction(m,amt,amt));
     }
 
     public AbstractCard makeCopy() {return new TheEyeBehind();}
+
+    @Override
+    public void triggerOnGlowCheck(){triggerOnGlowCheck_BigBrother();}
 
     public void upgrade()
     {

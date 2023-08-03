@@ -18,13 +18,13 @@ public class Romp extends AbstractMGRCard {
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG = "img/card/"+ID.substring(4)+".png";
     private static final int COST = 1;
-    private static final int BLOCK = 6;
-    private static final int PLUS_BLOCK = 2;
+    /*private static final int BLOCK = 6;
+    private static final int PLUS_BLOCK = 2;*/
     private static final int MAGIC = 2;
     public Romp() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.SKILL,
                 AbstractCardEnum.MGR_COLOR, CardRarity.UNCOMMON, CardTarget.SELF);
-        this.baseBlock = BLOCK;
+        //this.baseBlock = BLOCK;
         this.baseMagicNumber=MAGIC;
         this.magicNumber=this.baseMagicNumber;
         this.cardsToPreview=new Confused();
@@ -32,7 +32,7 @@ public class Romp extends AbstractMGRCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new GainBlockAction(p, p, this.block));
+        //addToBot(new GainBlockAction(p, p, this.block));
         AbstractCard newCard=new Confused();
         if(this.upgraded) newCard.upgrade();
         addToBot(new MakeTempCardInHandAction(newCard,this.magicNumber));
@@ -44,7 +44,7 @@ public class Romp extends AbstractMGRCard {
     {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBlock(PLUS_BLOCK);
+            //this.upgradeBlock(PLUS_BLOCK);
             this.rawDescription=UPGRADE_DESCRIPTION;
             this.cardsToPreview.upgrade();
             initializeDescription();

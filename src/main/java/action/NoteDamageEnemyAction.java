@@ -22,7 +22,6 @@ public class NoteDamageEnemyAction extends AbstractGameAction
     public NoteDamageEnemyAction(int amount, boolean HitAll)
     {
         this.actionType = AbstractGameAction.ActionType.DAMAGE;
-        this.attackEffect = AttackEffect.NONE;
         this.HitAll = HitAll;
         this.source = AbstractDungeon.player;
         this.amount = amount;
@@ -38,7 +37,7 @@ public class NoteDamageEnemyAction extends AbstractGameAction
             if (m != null)
             {
                 DamageInfo info = new DamageInfo(source, AbstractNote.applyVulnerable(m, this.amount), DamageInfo.DamageType.THORNS);
-                addToTop(new DamageAction(m, info, AttackEffect.NONE, true));
+                addToTop(new DamageAction(m, info, GetEffect(info.base), true));
                 addToTop(new VFXAction(new NoteAboveCreatureEffect(m.hb.cX - m.animX, m.hb.cY + m.hb.height / 2.0F - m.animY, AttackNoteIMG, 20.0f*Settings.scale,80.0f*Settings.scale, 0.5f), Settings.ACTION_DUR_XFAST / 2.0f));
             }
         }
@@ -49,12 +48,19 @@ public class NoteDamageEnemyAction extends AbstractGameAction
                 if (!m.isDeadOrEscaped() && !m.halfDead)
                 {
                     DamageInfo info = new DamageInfo(source, AbstractNote.applyVulnerable(m, this.amount), DamageInfo.DamageType.THORNS);
-                    addToTop(new DamageAction(m, info, AttackEffect.NONE, true));
-                    addToTop(new VFXAction(new NoteAboveCreatureEffect(m.hb.cX - m.animX, m.hb.cY + m.hb.height / 2.0F - m.animY, AttackNoteIMG, 20.0f*Settings.scale,80.0f*Settings.scale, 0.5f), Settings.ACTION_DUR_XFAST / 2.0f));
+                    addToTop(new DamageAction(m, info, GetEffect(info.base), true));
+                    addToTop(new VFXAction(new NoteAboveCreatureEffect(m.hb.cX - m.animX, m.hb.cY + m.hb.height / 2.0F - m.animY, AttackNoteIMG, 20.0f*Settings.scale,80.0f*Settings.scale, 0.5f), Settings.ACTION_DUR_XFAST / 3.0f));
                 }
             }
         }
-        //this.addToTop(new SFXAction("ORB_LIGHTNING_EVOKE"));
         this.isDone = true;
     }
+
+    private AttackEffect GetEffect(int dmg)
+    {
+        if(dmg<=4) return AttackEffect.BLUNT_LIGHT;
+        else if(dmg<=10) return AttackEffect.BLUNT_HEAVY;
+        else return AttackEffect.FIRE;
+    }
+
 }

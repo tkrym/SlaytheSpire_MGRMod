@@ -22,7 +22,7 @@ public class MaguroAssault extends AbstractMGRCard {
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String IMG = "img/card/"+ID.substring(4)+".png";
     private static final int COST = 1;
-    private static final int DMG = 6;
+    private static final int DMG = 8;
     private static final int PLUS_DMG = 2;
     private static final int MAGIC = 2;
     private static final int PLUS_MAGIC = 1;
@@ -39,7 +39,7 @@ public class MaguroAssault extends AbstractMGRCard {
     {
         int finaldamage=this.damage;
         boolean NoteCheck=MGR_character.EndingCheck()||MGR_character.StartingCheck();
-        boolean BigBrotherCheck=MGR_character.BigBrotherStanceCheck();
+        boolean BigBrotherCheck=MGR_character.InBigBrotherStance();
         if(BigBrotherCheck&&NoteCheck)
         {
             addToBot(new VFXAction(new ViolentAttackEffect(m.hb.cX, m.hb.cY, myColorRed)));
@@ -48,6 +48,7 @@ public class MaguroAssault extends AbstractMGRCard {
         }else if(BigBrotherCheck) addToBot(new DamageAction(m, new DamageInfo(p, finaldamage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
         else if(NoteCheck) addToBot(new DamageAction(m, new DamageInfo(p, finaldamage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
         else addToBot(new DamageAction(m, new DamageInfo(p, finaldamage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+        MGR_character.BigBrotherStanceCheck();
     }
 
     public AbstractCard makeCopy() { return new MaguroAssault(); }

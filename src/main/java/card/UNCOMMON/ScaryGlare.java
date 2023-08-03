@@ -28,10 +28,10 @@ public class ScaryGlare extends AbstractMGRCard
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String IMG = "img/card/" + ID.substring(4) + ".png";
     private static final int COST = 1;
-    private static final int DMG = 5;
-    private static final int PLUS_DMG = 2;
-    private static final int MAGIC = 5;
-    private static final int PLUS_MAGIC = 2;
+    private static final int DMG = 4;
+    private static final int PLUS_DMG = 1;
+    private static final int MAGIC = 4;
+    private static final int PLUS_MAGIC = 1;
     private static final int GazeRatio = 3;
     private static final int UPGRADE_GazeRatio = 2;
 

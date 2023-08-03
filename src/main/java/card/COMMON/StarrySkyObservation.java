@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DiscardAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.utility.ScryAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -32,17 +33,8 @@ public class StarrySkyObservation extends AbstractMGRCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new AbstractGameAction() {
-            @Override
-            public void update()
-            {
-                for(AbstractCard c:AbstractDungeon.player.hand.group)
-                    if(c instanceof AbstractMGRCard&&((AbstractMGRCard)c).IsStarryCard)
-                        addToBot(new ApplyPowerAction(p,p,new NextTurnStarryNotePower(1),1));
-                addToTop(new DiscardAction(AbstractDungeon.player, AbstractDungeon.player, AbstractDungeon.player.hand.size(), false));
-                this.isDone = true;
-            }
-        });
+        addToBot(new ScryAction(this.magicNumber));
+        addToBot(new DiscardAction(p,p,p.hand.size(),true));
         addToBot(new DrawCardAction(this.magicNumber));
     }
 

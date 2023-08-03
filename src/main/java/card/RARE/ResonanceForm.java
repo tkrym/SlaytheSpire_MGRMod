@@ -19,7 +19,7 @@ public class ResonanceForm extends AbstractMGRCard
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG = "img/card/" + ID.substring(4) + ".png";
     private static final int COST = 3;
-    public static int MAGIC = 13;
+    public static int MAGIC = 14;
 
     public ResonanceForm()
     {
