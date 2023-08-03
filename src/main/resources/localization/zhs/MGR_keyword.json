@@ -33,7 +33,7 @@
     "NAMES": [
       "基本音符"
     ],
-    "DESCRIPTION": "包括 #y攻击 、 #y防御 、 #y抽牌 、 #yDebuff 、 #y人工 五种，对应 #y攻击 、 #y技能 、 #y能力 、 #y状态 与 #y诅咒 牌。"
+    "DESCRIPTION": "包括 #y攻击 、 #y防御 、 #y抽牌 、 #y负面 、 #y人工 五种，对应 #y攻击 、 #y技能 、 #y能力 、 #y状态 与 #y诅咒 牌。"
   },
   {
     "NAMES": [
@@ -74,7 +74,7 @@
   },
   {
     "NAMES": [
-      "debuff音符"
+      "负面音符"
     ],
     "DESCRIPTION": "给予所有敌人 #y虚弱 与 #y易伤 。"
   },
@@ -106,7 +106,7 @@
     "NAMES": [
       "视作状态"
     ],
-    "DESCRIPTION": "本牌对应的音符为 #ydebuff音符 。"
+    "DESCRIPTION": "本牌对应的音符为 #y负面音符 。"
   },
   {
     "NAMES": [

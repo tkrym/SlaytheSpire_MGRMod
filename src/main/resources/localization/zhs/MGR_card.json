@@ -65,8 +65,8 @@
   },
     "MGR:GazeLock":{
     "NAME":"视线之锁",
-    "DESCRIPTION": "给予!M! 层虚弱与易伤，再施加等于其负面状态（不包括注视）层数总和的 mgr:注视 。 消耗性 2",
-    "UPGRADE_DESCRIPTION": "给予!M! 层虚弱与易伤，再施加等于其负面状态（不包括注视）层数总和的 mgr:注视 。"
+    "DESCRIPTION": "给予!M! 层虚弱与易伤，再施加等于其 *负面 状态（不包括注视）层数总和的 mgr:注视 。 消耗性 2",
+    "UPGRADE_DESCRIPTION": "给予!M! 层虚弱与易伤，再施加等于其 *负面 状态（不包括注视）层数总和的 mgr:注视 。"
   },
     "MGR:LAB01":{
     "NAME":"LAB=01☆",
@@ -142,13 +142,13 @@
   },
     "MGR:DarkDiffuse":{
     "NAME":"黑暗扩散",
-    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 敌人每有一种负面状态，本回合失去 !M! 点力量。",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 敌人每有一种 *负面 状态，本回合失去 !M! 点力量。",
     "UPGRADE_DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 所有敌人失去 mgr:注视 层数一半的力量一回合。 消耗性 3"
   },
     "MGR:Hallucination":{
     "NAME":"迷幻",
-    "DESCRIPTION": "将你的随机负面状态转移给目标。 NL mgr:开眼 ：改为所有负面状态。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "将你的随机负面状态转移给目标。 NL mgr:开眼 ：改为所有负面状态。 NL 保留 。 消耗 。"
+    "DESCRIPTION": "将你的随机 *负面 状态转移给目标。 NL mgr:开眼 ：改为所有 *负面 状态。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "将你的随机 *负面 状态转移给目标。 NL mgr:开眼 ：改为所有 *负面 状态。 NL 保留 。 消耗 。"
   },
     "MGR:Peek":{
     "NAME":"窥视",
@@ -247,7 +247,7 @@
     "MGR:MetalGear":{
     "NAME":"合金装备",
     "DESCRIPTION": "失去3点敏捷，获得 !M! 层 *金属化 与 *多层护甲 。 NL mgr:开眼 ：额外获得2层。 消耗 。",
-    "UPGRADE_DESCRIPTION": "失去4点敏捷，获得 !M! 层 *金属化 与 *多层护甲 。 NL mgr:开眼 ：额外获得3层。 消耗 。"
+    "UPGRADE_DESCRIPTION": "失去3点敏捷，获得 !M! 层 *金属化 与 *多层护甲 。 NL mgr:开眼 ：额外获得3层。 消耗 。"
     },
     "MGR:Marionette":{
     "NAME":"提线木偶",
@@ -294,7 +294,7 @@
   },
     "MGR:FrenziedDragonBite":{
     "NAME":"龙咬",
-    "DESCRIPTION": "使目标的所有负面状态层数翻倍。 NL 然后，造成层数总和 !M! 倍的伤害。 NL 消耗 。"
+    "DESCRIPTION": "使目标的所有 *负面 状态层数翻倍。 NL 然后，造成层数总和 !M! 倍的伤害。 NL 消耗 。"
   },
     "MGR:QuickShooting":{
     "NAME":"(Deprecated)快速射击",
@@ -306,7 +306,7 @@
   },
     "MGR:Siren":{
     "NAME":"塞壬☆",
-    "DESCRIPTION": "回合结束时，所有敌人的受到其负面状态层数总和的伤害，且场上每有一种负面状态就获得 !M! 点格挡。"
+    "DESCRIPTION": "回合结束时，所有敌人的受到其 *负面 状态层数总和的伤害，且场上每有一种 *负面 状态就获得 !M! 点格挡。"
   },
     "MGR:VocalPreparation":{
     "NAME":"演唱准备",
@@ -348,11 +348,11 @@
   },
     "MGR:SunDescending":{
     "NAME":"日时计",
-    "DESCRIPTION": "无法被打出 。 NL 你每丢弃一张牌，将该牌的伤害增加 !M! 。 NL 被丢弃时，对所有敌人造成 !D! 点伤害，并重置该伤害。"
+    "DESCRIPTION": " 不能被打出 。 NL 被消耗或丢弃时，对所有敌人造成 !D! 点伤害并重置。每消耗或丢弃一张其他牌，伤害增加 !M! 。"
   },
     "MGR:FourEyes":{
     "NAME":"四目",
-    "DESCRIPTION": "每当你给予负面状态（不包括注视）时，额外给予 !M! 倍的 mgr:注视 。"
+    "DESCRIPTION": "每当你给予 *负面 状态（不包括注视）时，额外给予 !M! 倍的 mgr:注视 。"
   },
     "MGR:Frighten":{
     "NAME":"吓唬",
@@ -382,8 +382,8 @@
   },
     "MGR:TheEyeBehind":{
     "NAME":"后背之眼",
-    "DESCRIPTION": "使目标的所有负面状态增加1层。对于 mgr:注视 ，改为增加 !M! 层。 NL mgr:开眼 ：再增加1层。 消耗 。",
-    "UPGRADE_DESCRIPTION": "使目标的所有负面状态增加2层。对于 mgr:注视 ，改为增加 !M! 层。 NL mgr:开眼 ：再增加2层。 消耗 。"
+    "DESCRIPTION": "使目标的所有 *负面 状态增加1层。对于 mgr:注视 ，改为增加 !M! 层。 NL mgr:开眼 ：再增加1层。 消耗 。",
+    "UPGRADE_DESCRIPTION": "使目标的所有 *负面 状态增加2层。对于 mgr:注视 ，改为增加 !M! 层。 NL mgr:开眼 ：再增加2层。 消耗 。"
   },
     "MGR:StarrySkyObservation":{
     "NAME":"星空观察",

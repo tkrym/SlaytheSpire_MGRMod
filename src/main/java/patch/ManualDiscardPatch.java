@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import hook.OnExhaustCardHook;
 import hook.OnManualDiscardHook;
 
 import javax.swing.*;
@@ -20,11 +21,17 @@ import java.util.Objects;
 public class ManualDiscardPatch
 {
 
-    public static void triggerManualDiscard(AbstractCard c)
+    public static void triggerManualDiscard(AbstractCard card)
     {
         for (AbstractPower power : AbstractDungeon.player.powers)
             if (power instanceof OnManualDiscardHook)
-                ((OnManualDiscardHook) power).OnManualDiscard(c);
+                ((OnManualDiscardHook) power).OnManualDiscard(card);
+        for (AbstractCard c : AbstractDungeon.player.hand.group)
+            if (c instanceof OnManualDiscardHook) ((OnManualDiscardHook) c).OnManualDiscard(card);
+        for (AbstractCard c : AbstractDungeon.player.drawPile.group)
+            if (c instanceof OnManualDiscardHook) ((OnManualDiscardHook) c).OnManualDiscard(card);
+        for (AbstractCard c : AbstractDungeon.player.discardPile.group)
+            if (c instanceof OnManualDiscardHook) ((OnManualDiscardHook) c).OnManualDiscard(card);
     }
 
     @SpirePatch(clz = DiscardAction.class, method = "update")

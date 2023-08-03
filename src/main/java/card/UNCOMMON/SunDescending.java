@@ -13,9 +13,11 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import hook.OnExhaustCardHook;
+import hook.OnManualDiscardHook;
 import path.AbstractCardEnum;
 
-public class SunDescending extends AbstractMGRCard
+public class SunDescending extends AbstractMGRCard implements OnExhaustCardHook, OnManualDiscardHook
 {
     public static final String ID = "MGR:SunDescending";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -23,7 +25,7 @@ public class SunDescending extends AbstractMGRCard
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG = "img/card/" + ID.substring(4) + ".png";
     private static final int COST = -2;
-    private static final int MAGIC = 3;
+    private static final int MAGIC = 2;
     private static final int PLUS_MAGIC = 1;
     private static final int DMG = 6;
     private static final int PLUS_DMG = 2;
@@ -35,7 +37,7 @@ public class SunDescending extends AbstractMGRCard
         this.baseMagicNumber = MAGIC;
         this.magicNumber = this.baseMagicNumber;
         this.baseDamage = DMG;
-        this.isMultiDamage=true;
+        this.isMultiDamage = true;
     }
 
     @Override
@@ -56,11 +58,20 @@ public class SunDescending extends AbstractMGRCard
     }
 
     @Override
-    public void didDiscard()
+    public void OnExhaustCard(AbstractCard c) {this.OnManualDiscard(c);}
+
+    @Override
+    public void OnManualDiscard(AbstractCard c)
     {
-        this.baseDamage+=this.magicNumber;
-        this.applyPowers();
+        if (!c.equals(this))
+        {
+            this.baseDamage += this.magicNumber;
+            this.applyPowers();
+            initializeDescription();
+        }
     }
+
+    public void triggerOnExhaust() {this.triggerOnManualDiscard();}
 
     @Override
     public void triggerOnManualDiscard()
@@ -68,7 +79,7 @@ public class SunDescending extends AbstractMGRCard
         addToTop(new WaitAction(0.1f));
         this.superFlash(Color.GREEN.cpy());
         addToTop(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(this.baseDamage, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.BLUNT_HEAVY));
-        this.baseDamage=GetDMG();
+        this.baseDamage = GetDMG();
         this.applyPowers();
         initializeDescription();
     }
@@ -76,7 +87,7 @@ public class SunDescending extends AbstractMGRCard
     @Override
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {return false;}
 
-    private int GetDMG(){return this.upgraded?(DMG+PLUS_DMG):DMG;}
+    private int GetDMG() {return this.upgraded ? (DMG + PLUS_DMG) : DMG;}
 
     public AbstractCard makeCopy() {return new SunDescending();}
 
@@ -89,4 +100,5 @@ public class SunDescending extends AbstractMGRCard
             this.upgradeMagicNumber(PLUS_MAGIC);
         }
     }
+
 }

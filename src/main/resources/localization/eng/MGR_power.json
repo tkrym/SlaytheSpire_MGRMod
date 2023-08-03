@@ -11,7 +11,7 @@
     "DESCRIPTIONS": [
       "每当你触发 #y和弦 时，失去 #b",
       " 点生命并减少 #b",
-      " 层。"
+      " %的层数。"
     ]
   },
   	"MGR:Stereo": {
@@ -44,7 +44,7 @@
     "MGR:HarmonyForm": {
     "NAME": "和声形态",
     "DESCRIPTIONS": [
-      " #y音符 的效果额外触发 #b",
+      "最左边与最右边的 #y音符 效果额外生效 #b",
       " 次。"
     ]
   }, 
@@ -74,16 +74,16 @@
     "MGR:YazyuutokasuPower": {
     "NAME": "野兽化",
     "DESCRIPTIONS": [
-      "回合开始时，丢弃 #b",
-      " 张牌，然后将 #b",
+      "回合抽牌后，随机丢弃 #b",
+      " 张费用最低的手牌，然后将 #b",
       " 张 #y困惑 置入手牌。"
     ]
   },
     "MGR:YazyuutokasuPlusPower": {
     "NAME": "野兽化+",
     "DESCRIPTIONS": [
-      "回合开始时，丢弃 #b",
-      " 张牌，然后将 #b",
+      "回合抽牌后，随机丢弃 #b",
+      " 张费用最低的手牌，然后将 #b",
       " 张 #y困惑+ 置入手牌。"
     ]
   },
@@ -112,17 +112,18 @@
     ]
   },  
     "MGR:TheCursedPower": {
-    "NAME": "诅咒抽牌",
+    "NAME": "被诅咒？",
     "DESCRIPTIONS": [
-      "打出 #y诅咒 时，抽 #b",
-      " 张牌。"
+      "抽到 #y诅咒 时，抽 #b",
+      " 张牌并生成 #b",
+      " 个 #y人工音符 。"
     ]
   }, 
     "MGR:TinyOrchestraPower": {
     "NAME": "微型乐团",
     "DESCRIPTIONS": [
-      "回合结束时，你在本回合每使用过一种类型的卡牌，对所有敌人造成 #b",
-      " 点伤害。如果至少使用过三种，下回合多抽一张牌。 NL 本回合已使用 #b",
+      "回合结束时，你在本回合每生成过一种类型的 #y音符 ，对所有敌人造成 #b",
+      " 点伤害。 NL 本回合已生成 #b",
       " 种。"
     ]
   },  
@@ -133,64 +134,82 @@
       " 个 #y能量音符 。"
     ]
   },  
-    "KNNSupport": {
-    "NAME": "KNN支援",
+    "MGR:SirenPower": {
+    "NAME": "塞壬",
     "DESCRIPTIONS": [
-      "当你要被杀死时，免除这次伤害并回复最大生命值的 #b10 %，失去这个支援。"
+      "回合结束时，所有敌人的受到其负面状态层数总和的伤害，且场上每有一种负面状态就获得 #b",
+      " 点格挡。"
     ]
   },  
-    "BloodPower": {
-    "NAME": "流血",
+    "MGR:ClimaxPower": {
+    "NAME": "高潮！",
     "DESCRIPTIONS": [
-      "每回合损失层数生命，受到射击伤害时 #b50 %的几率增加一层。"
+      "本回合生成 #y音符 时，额外生成 #b",
+      " 个。"
     ]
   },  
-    "SharpnessPower": {
-    "NAME": "锋利",
+    "MGR:FolkRhymesPower": {
+    "NAME": "弹奏民谣",
     "DESCRIPTIONS": [
-      "所有斩击类伤害有 #b20 %的几率造成流血。"
+      "打出能力牌时不再产生抽牌音符，改为产生 #b",
+      " 个防御音符 。"
     ]
   },
-    "KingdomOfWalkersPower": {
-    "NAME": "步行者天国",
+    "MGR:LoseFortePower": {
+    "NAME": "失去强音",
     "DESCRIPTIONS": [
-      "每回合获得 #b8 点格挡。"
+      "回合结束时，失去 #b",
+      " 层 #y强音 。"
     ]
   },  
-    "CyclingByBikePower": {
-    "NAME": "自行车骑行",
+    "MGR:SalivatePower": {
+    "NAME": "垂涎",
     "DESCRIPTIONS": [
-      "每回合多抽两张牌。"
+      "每当你通过 #y注视 杀死一名 #y非爪牙 的敌人，获得 #b",
+      " 点最大生命。"
     ]
   },   
-    "MotorVehicleAttentionPower": {
-    "NAME": "机动车注意",
+    "MGR:FourEyesPower": {
+    "NAME": "四目",
     "DESCRIPTIONS": [
-      "阻止下次受到的生命值损伤。"
+      "每当你给予负面状态（不包括注视）时，额外给予 #b",
+      " 倍的注视 。"
     ]
   }, 
-    "Komugiko": {
-    "NAME": "小麦粉的支援",
+    "MGR:RiverOfNotesPower": {
+    "NAME": "音符之河",
     "DESCRIPTIONS": [
-      "每回合获得一层 缓冲 。"
+      " #y即兴 的 #y基本音符 略微变好，且可能获得能量音符。回合开始时， #y即兴 #b",
+      " 。"
     ]
   },  
-    "Cushion": {
-    "NAME": "缓冲",
+    "MGR:HakkeroChargedPower": {
+    "NAME": "八卦炉充能完毕",
     "DESCRIPTIONS": [
-      "下一次受到的伤害减少 #b50 %。"
+      "每打出一张牌，生成 #b",
+      " 个 #y攻击音符 。"
     ]
   },  
-    "HNSSupport": {
-    "NAME": "HNS支援",
+    "MGR:HakkeroChargePower": {
+    "NAME": "八卦炉充能中...",
     "DESCRIPTIONS": [
-      "亲友的母亲HNS的支援，每回合获得 #b1 点力量，对所有敌人造成 #b10 点伤害。"
+      "下回合开始时获得 #b",
+      " 层 #y八卦炉充能完毕 。"
     ]
-  },   
-    "BrakingArmorPower": {
-    "NAME": "制动装甲",
+  },
+    "MGR:HakkeroChargePlusPower": {
+    "NAME": "八卦炉充能中...",
     "DESCRIPTIONS": [
-      "每回合获得等同呼叫数的格挡。"
+      "下回合开始时获得 #b",
+      " 层 #y临时强音 与 #b",
+      " 层 #y八卦炉充能完毕 。"
+    ]
+  },
+  "MGR:BurnsRedPower": {
+    "NAME": "赤灼",
+    "DESCRIPTIONS": [
+      "每打出一张技能牌，生成 #b",
+      " 个 #y攻击音符 。"
     ]
   },     
     "QuickCallPower": {
