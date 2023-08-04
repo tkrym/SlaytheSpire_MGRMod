@@ -3,6 +3,7 @@ package card.UNCOMMON;
 import action.EchoPhantomAction;
 import card.AbstractMGRCard;
 import character.MGR_character;
+import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.ExhaustiveField;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DiscardAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
@@ -35,15 +36,8 @@ public class EchoPhantom extends AbstractMGRCard
     public void use(AbstractPlayer p, AbstractMonster m)
     {
         addToBot(new DiscardAction(p,p,this.magicNumber,false));
-        boolean B=MGR_character.BigBrotherStanceCheck();
-        addToBot(new AbstractGameAction() {
-            @Override
-            public void update()
-            {
-                addToBot(new EchoPhantomAction(EchoPhantom.this.magicNumber,B));
-                this.isDone=true;
-            }
-        });
+        addToBot(new EchoPhantomAction(EchoPhantom.this.magicNumber,MGR_character.BigBrotherStanceCheck()));
+        if(this.upgraded) UpdateExhaustiveDescription();
     }
 
     public AbstractCard makeCopy() {return new EchoPhantom();}
@@ -56,9 +50,11 @@ public class EchoPhantom extends AbstractMGRCard
         if (!this.upgraded)
         {
             this.upgradeName();
-            this.upgradeBaseCost(0);
-            //this.rawDescription=UPGRADE_DESCRIPTION;
-            //initializeDescription();
+            this.exhaust=false;
+            ExhaustiveField.ExhaustiveFields.baseExhaustive.set(this, 2);
+            ExhaustiveField.ExhaustiveFields.exhaustive.set(this, 2);
+            this.rawDescription=UPGRADE_DESCRIPTION;
+            initializeDescription();
         }
     }
 }

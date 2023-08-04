@@ -375,7 +375,7 @@
     "MGR:EchoPhantom":{
     "NAME":"回声幻影",
     "DESCRIPTION": "丢弃 !M! 张牌，将弃牌堆中 !M! 张牌的复制放在抽牌堆顶。 NL mgr:开眼 ：再将 !M! 张复制置入手牌。 消耗 。",
-	"UPGRADE_DESCRIPTION": "丢弃所有手牌，生成对应的音符。其中每有一种音符，抽一张牌。 NL 再多抽一张。"
+	"UPGRADE_DESCRIPTION": "丢弃 !M! 张牌，将弃牌堆中 !M! 张牌的复制放在抽牌堆顶。 NL mgr:开眼 ：再将 !M! 张复制置入手牌。 消耗性 2"
   },
     "MGR:IntertwinedTimbres":{
     "NAME":"音色交织",
