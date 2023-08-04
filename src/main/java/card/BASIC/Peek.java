@@ -18,7 +18,7 @@ public class Peek extends AbstractMGRCard {
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String IMG = "img/card/"+ID.substring(4)+".png";
     private static final int COST = 1;
-    private static final int MAGIC = 6;
+    private static final int MAGIC = 5;
     private static final int PLUS_MAGIC = 3;
     public Peek() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.SKILL,

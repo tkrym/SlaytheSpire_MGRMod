@@ -38,50 +38,42 @@ public class GazeLoseHpAction extends AbstractGameAction
 
     public void update()
     {
-        if (AbstractDungeon.getCurrRoom().phase != RoomPhase.COMBAT)
+        this.tickDuration();
+        if (this.isDone)
         {
-            this.isDone = true;
-        }
-        else
-        {
-            this.tickDuration();
-            if (this.isDone)
+            AbstractPower p = this.target.getPower(GazePower.POWER_ID);
+            if (p == null) return;
+            this.amount = p.amount;
+            if (this.target.currentHealth > 0)
             {
-                AbstractPower p = this.target.getPower(GazePower.POWER_ID);
-                if (p == null) return;
-                this.amount = p.amount;
-                if (this.target.currentHealth > 0)
+                p.flash();
+                p.playApplyPowerSfx();
+                this.target.damage(new DamageInfo(this.source, this.amount, DamageType.HP_LOSS));
+                if (AbstractDungeon.player.hasPower(SalivatePower.POWER_ID) && (this.target.isDying || this.target.currentHealth <= 0) && !this.target.halfDead && !this.target.hasPower(MinionPower.POWER_ID))
                 {
-                    p.flash();
-                    p.playApplyPowerSfx();
-                    this.target.damage(new DamageInfo(this.source, this.amount, DamageType.HP_LOSS));
-                    if (AbstractDungeon.player.hasPower(SalivatePower.POWER_ID) && (this.target.isDying || this.target.currentHealth <= 0) && !this.target.halfDead && !this.target.hasPower(MinionPower.POWER_ID))
-                    {
-                        addToTop(new WaitAction(0.1f));
-                        addToTop(new VFXAction(AbstractDungeon.player, new BiteEffect(this.target.hb.cX, this.target.hb.cY - (40.0f * Settings.scale), Color.SCARLET.cpy()), 0.1f, true));
-                        AbstractDungeon.player.increaseMaxHp(AbstractDungeon.player.getPower(SalivatePower.POWER_ID).amount, false);
-                    }
-                }
-                float dec = ((float)GazePower.DecreaseAmount)/100.0f;
-                if (AbstractDungeon.player.hasRelic(Sunglasses.ID))
-                {
-                    dec = ((float)Sunglasses.SunglassesNumber)/100.0f;
-                    AbstractDungeon.player.getRelic(Sunglasses.ID).flash();
-                }
-                p.amount -= MathUtils.ceil(dec*(float)p.amount);
-                if(p.amount<1&&AbstractDungeon.player.hasRelic(BloodshotEyeball.ID)) p.amount=1;
-                if (p.amount <= 0) this.target.powers.remove(p);
-                else p.updateDescription();
-                for (AbstractPower power : AbstractDungeon.player.powers)
-                    if (power instanceof OnGazeTriggeredHook)
-                        ((OnGazeTriggeredHook) power).OnGazeTriggered(target, this.amount);
-                if (AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead())
-                {
-                    AbstractDungeon.actionManager.clearPostCombatActions();
-                    return;
+                    addToTop(new WaitAction(0.1f));
+                    addToTop(new VFXAction(AbstractDungeon.player, new BiteEffect(this.target.hb.cX, this.target.hb.cY - (40.0f * Settings.scale), Color.SCARLET.cpy()), 0.1f, true));
+                    AbstractDungeon.player.increaseMaxHp(AbstractDungeon.player.getPower(SalivatePower.POWER_ID).amount, false);
                 }
             }
-
+            float dec = ((float) GazePower.DecreaseAmount) / 100.0f;
+            if (AbstractDungeon.player.hasRelic(Sunglasses.ID))
+            {
+                dec = ((float) Sunglasses.SunglassesNumber) / 100.0f;
+                AbstractDungeon.player.getRelic(Sunglasses.ID).flash();
+            }
+            p.amount -= MathUtils.ceil(dec * (float) p.amount);
+            if (p.amount < 1 && AbstractDungeon.player.hasRelic(BloodshotEyeball.ID)) p.amount = 1;
+            if (p.amount <= 0) this.target.powers.remove(p);
+            else p.updateDescription();
+            for (AbstractPower power : AbstractDungeon.player.powers)
+                if (power instanceof OnGazeTriggeredHook)
+                    ((OnGazeTriggeredHook) power).OnGazeTriggered(target, this.amount);
+            if (AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead())
+            {
+                AbstractDungeon.actionManager.clearPostCombatActions();
+                return;
+            }
         }
     }
 }

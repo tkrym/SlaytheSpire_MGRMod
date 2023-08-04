@@ -4,6 +4,7 @@ import action.ApplyForteAction;
 import action.MyReflectionAction;
 import card.AbstractMGRCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.ExhaustAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -19,7 +20,7 @@ public class MyReflection extends AbstractMGRCard
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG = "img/card/" + ID.substring(4) + ".png";
     private static final int COST = 0;
-    private static final int MAGIC = 2;
+    private static final int MAGIC = 1;
     private static final int PLUS_MAGIC = 1;
 
     public MyReflection()
@@ -32,6 +33,7 @@ public class MyReflection extends AbstractMGRCard
 
     public void use(AbstractPlayer p, AbstractMonster m)
     {
+        addToBot(new ExhaustAction(1,false,false));
         addToBot(new MyReflectionAction(this.magicNumber));
     }
 

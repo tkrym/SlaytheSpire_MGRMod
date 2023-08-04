@@ -59,7 +59,7 @@ public class NoteDamageEnemyAction extends AbstractGameAction
     private AttackEffect GetEffect(int dmg)
     {
         if(dmg<=4) return AttackEffect.BLUNT_LIGHT;
-        else if(dmg<=10) return AttackEffect.BLUNT_HEAVY;
+        else if(dmg<=8) return AttackEffect.BLUNT_HEAVY;
         else return AttackEffect.FIRE;
     }
 

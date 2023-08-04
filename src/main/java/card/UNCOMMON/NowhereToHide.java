@@ -1,11 +1,13 @@
 package card.UNCOMMON;
 
 import action.ApplyGazeAction;
+import action.GazeLoseHpAction;
 import card.AbstractMGRCard;
 import character.MGR_character;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -23,9 +25,9 @@ public class NowhereToHide extends AbstractMGRCard {
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String IMG = "img/card/"+ID.substring(4)+".png";
     private static final int COST = 2;
-    private static final int DMG = 7;
+    private static final int DMG = 8;
     private static final int PLUS_DMG = 2;
-    private static final int MAGIC = 7;
+    private static final int MAGIC = 8;
     private static final int PLUS_MAGIC = 2;
     public NowhereToHide() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.ATTACK,
@@ -49,8 +51,12 @@ public class NowhereToHide extends AbstractMGRCard {
                 @Override
                 public void update() {
                     for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-                        if (!mo.isDeadOrEscaped()&&mo.hasPower(GazePower.POWER_ID)&&mo.getPower(GazePower.POWER_ID).amount>=2)
-                            addToTop(new ApplyGazeAction(mo, mo.getPower(GazePower.POWER_ID).amount>>1));
+                        if (!mo.isDeadOrEscaped())
+                        {
+                            addToTop(new GazeLoseHpAction(mo));
+                            addToTop(new WaitAction(0.1f));
+                            addToTop(new GazeLoseHpAction(mo));
+                        }
                     }
                     this.isDone=true;
                 }

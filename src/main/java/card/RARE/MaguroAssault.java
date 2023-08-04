@@ -45,8 +45,8 @@ public class MaguroAssault extends AbstractMGRCard {
             addToBot(new VFXAction(new ViolentAttackEffect(m.hb.cX, m.hb.cY, myColorRed)));
             for(int i=0;i<10;i++) addToBot(new VFXAction(new StarBounceEffect(m.hb.cX, m.hb.cY)));
             addToBot(new DamageAction(m, new DamageInfo(p, finaldamage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
-        }else if(BigBrotherCheck) addToBot(new DamageAction(m, new DamageInfo(p, finaldamage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
-        else if(NoteCheck) addToBot(new DamageAction(m, new DamageInfo(p, finaldamage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+        }else if(BigBrotherCheck) addToBot(new DamageAction(m, new DamageInfo(p, finaldamage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+        else if(NoteCheck) addToBot(new DamageAction(m, new DamageInfo(p, finaldamage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
         else addToBot(new DamageAction(m, new DamageInfo(p, finaldamage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
         MGR_character.BigBrotherStanceCheck();
     }

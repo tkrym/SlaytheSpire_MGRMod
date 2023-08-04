@@ -74,8 +74,8 @@
   },
     "MGR:HarmonyForm":{
     "NAME":"和声形态",
-    "DESCRIPTION": "最左边与最右边的 mgr:音符 效果额外生效一次。 虚无 。",
-    "UPGRADE_DESCRIPTION": "最左边与最右边的 mgr:音符 效果额外生效一次。"
+    "DESCRIPTION": "最左边与最右边的 mgr:音符 额外触发一次。 虚无 。",
+    "UPGRADE_DESCRIPTION": "最左边与最右边的 mgr:音符 额外触发一次。"
   },
     "MGR:Stereophonic":{
     "NAME":"立体声",
@@ -122,10 +122,15 @@
     "NAME": "金枪鱼重击",
     "DESCRIPTION": "造成 !D! 点伤害。本回合中每触发过一次 mgr:和弦 ，伤害增加 !M! 。"
   },
-    "MGR:Unison":{
-    "NAME":"齐唱",
+    "MGR:(Deprecated)Unison":{
+    "NAME":"(Deprecated)齐唱",
     "DESCRIPTION": "mgr:起音 ：最右边的 mgr:音符 效果翻倍。 NL mgr:尾音 ：最左边的 mgr:音符 效果翻倍。",
     "UPGRADE_DESCRIPTION": "mgr:起音 ：最右边的 mgr:音符 效果翻倍。 NL mgr:尾音 ：最左边的 mgr:音符 效果翻倍。 NL 保留 。"
+  },
+    "MGR:Unison":{
+    "NAME":"齐唱",
+    "DESCRIPTION": "你每打出一张牌， mgr:即兴 !M! 。",
+    "UPGRADE_DESCRIPTION": " 固有 。 NL 你每打出一张牌， mgr:即兴 !M! 。"
   },
     "MGR:MaguroAssault":{
     "NAME":"金枪鱼强袭",
@@ -152,7 +157,7 @@
   },
     "MGR:Peek":{
     "NAME":"窥视",
-    "DESCRIPTION": "给予 !M! 层注视。 NL mgr:开眼 ：再给予一次。"
+    "DESCRIPTION": "给予 !M! 层 mgr:注视 。 NL mgr:开眼 ：再给予一次。"
   },
     "MGR:GazeFromTheShadow":{
     "NAME":"阴影中的视线",
@@ -197,8 +202,8 @@
   },
     "MGR:Chorus":{
     "NAME":"合唱队",
-    "DESCRIPTION": "mgr:即兴 !M! 。 NL mgr:起音 ：再生成1个。",
-    "UPGRADE_DESCRIPTION": "mgr:即兴 !M! 。 NL mgr:起音 ：再生成2个。"
+    "DESCRIPTION": "mgr:即兴 !M! 。 NL mgr:起音 ：再 mgr:即兴 1 。",
+    "UPGRADE_DESCRIPTION": "mgr:即兴 !M! 。 NL mgr:起音 ：再 mgr:即兴 2 。"
   },
     "MGR:StarryDrift":{
     "NAME":"星空飘浮",
@@ -277,7 +282,7 @@
   },
     "MGR:NowhereToHide":{
     "NAME":"无处可逃",
-    "DESCRIPTION": "对所有敌人造成 !D! 点伤害并给予 !M! 层 mgr:注视 。 NL mgr:开眼 ：再使所有敌人的 *注视 层数增加一半。"
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害并给予 !M! 层 mgr:注视 。 NL mgr:开眼 ：立即触发 *注视 2次。"
   },
     "MGR:Drown":{
     "NAME":"溺水",
@@ -323,9 +328,9 @@
     "DESCRIPTION": "本场战斗中，将当前手牌的耗能变为0。 NL 每减费一张牌，向弃牌堆中加入一张 *晕眩 。 NL 消耗 。"
   },
     "MGR:MyReflection":{
-    "NAME":"我的镜像",
-    "DESCRIPTION": "消耗手中随机费用最低的牌，使手中随机费用最高的牌本回合费用减少 [E] [E] 。",
-    "UPGRADE_DESCRIPTION": "消耗手中随机费用最低的牌，使手中随机费用最高的牌本回合费用减少 [E] [E] [E] 。"
+    "NAME":"镜中身",
+    "DESCRIPTION": "消耗一张牌，使手中随机费用最高的牌本回合费用减少 [E] 。",
+    "UPGRADE_DESCRIPTION": "消耗一张牌，使手中随机费用最高的牌本回合费用减少 [E] [E] 。"
   },
     "MGR:FolkRhymes":{
     "NAME":"民谣",
@@ -408,10 +413,10 @@
   },
     "MGR:TheBurningSun":{
     "NAME":"烈日",
-    "DESCRIPTION": "抽1张牌。 NL 消耗至多 !M! 张手牌，抽等量的牌。 NL mgr:开眼 ：再获得被消耗的牌的 mgr:临时复制 。"
+    "DESCRIPTION": "消耗至多 !M! 张手牌，抽等量的牌。 NL mgr:开眼 ：再获得被消耗的牌的 mgr:临时复制 。"
   },
   "MGR:FullScaleOffensive":{
-    "NAME":"全面进攻",
+    "NAME":"总攻",
     "DESCRIPTION": "丢弃所有 *非攻击 牌，每张生成 !M! 个 mgr:攻击音符 。"
   }
 }

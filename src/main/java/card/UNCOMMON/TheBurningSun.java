@@ -32,7 +32,7 @@ public class TheBurningSun extends AbstractMGRCard
 
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        addToBot(new DrawCardAction(1));
+        //addToBot(new DrawCardAction(1));
         addToBot(new TheBurningSunAction(this.magicNumber, MGR_character.BigBrotherStanceCheck()));
     }
 

@@ -5,6 +5,7 @@ import action.GazeLockAction;
 import card.AbstractMGRCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DiscardAction;
 import com.megacrit.cardcrawl.actions.common.DiscardSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -31,8 +32,8 @@ public class FullScaleOffensive extends AbstractMGRCard
 
     public FullScaleOffensive()
     {
-        super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.SKILL,
-                AbstractCardEnum.MGR_COLOR, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.ATTACK,
+                AbstractCardEnum.MGR_COLOR, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY);
         this.baseMagicNumber = MAGIC;
         this.magicNumber = this.baseMagicNumber;
     }

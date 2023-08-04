@@ -74,8 +74,8 @@
   },
     "MGR:HarmonyForm":{
     "NAME":"和声形态",
-    "DESCRIPTION": "最左边与最右边的 mgr:音符 效果额外生效一次。 虚无 。",
-    "UPGRADE_DESCRIPTION": "最左边与最右边的 mgr:音符 效果额外生效一次。"
+    "DESCRIPTION": "最左边与最右边的 mgr:音符 额外触发一次。 虚无 。",
+    "UPGRADE_DESCRIPTION": "最左边与最右边的 mgr:音符 额外触发一次。"
   },
     "MGR:Stereophonic":{
     "NAME":"立体声",
@@ -122,10 +122,15 @@
     "NAME": "金枪鱼重击",
     "DESCRIPTION": "造成 !D! 点伤害。本回合中每触发过一次 mgr:和弦 ，伤害增加 !M! 。"
   },
-    "MGR:Unison":{
-    "NAME":"齐唱",
+    "MGR:(Deprecated)Unison":{
+    "NAME":"(Deprecated)齐唱",
     "DESCRIPTION": "mgr:起音 ：最右边的 mgr:音符 效果翻倍。 NL mgr:尾音 ：最左边的 mgr:音符 效果翻倍。",
     "UPGRADE_DESCRIPTION": "mgr:起音 ：最右边的 mgr:音符 效果翻倍。 NL mgr:尾音 ：最左边的 mgr:音符 效果翻倍。 NL 保留 。"
+  },
+    "MGR:Unison":{
+    "NAME":"齐唱",
+    "DESCRIPTION": "你每打出一张牌， mgr:即兴 !M! 。",
+    "UPGRADE_DESCRIPTION": " 固有 。 NL 你每打出一张牌， mgr:即兴 !M! 。"
   },
     "MGR:MaguroAssault":{
     "NAME":"金枪鱼强袭",
@@ -152,7 +157,7 @@
   },
     "MGR:Peek":{
     "NAME":"窥视",
-    "DESCRIPTION": "给予 !M! 层注视。 NL mgr:开眼 ：再给予一次。"
+    "DESCRIPTION": "给予 !M! 层 mgr:注视 。 NL mgr:开眼 ：再给予一次。"
   },
     "MGR:GazeFromTheShadow":{
     "NAME":"阴影中的视线",
@@ -348,7 +353,7 @@
   },
     "MGR:SunDescending":{
     "NAME":"日时计",
-    "DESCRIPTION": "无法被打出 。 NL 你每丢弃一张牌，将该牌的伤害增加 !M! 。 NL 被丢弃时，对所有敌人造成 !D! 点伤害，并重置该伤害。"
+    "DESCRIPTION": " 不能被打出 。 NL 被消耗或丢弃时，对所有敌人造成 !D! 点伤害并重置。每消耗或丢弃一张其他牌，伤害增加 !M! 。"
   },
     "MGR:FourEyes":{
     "NAME":"四目",
@@ -411,7 +416,7 @@
     "DESCRIPTION": "抽1张牌。 NL 消耗至多 !M! 张手牌，抽等量的牌。 NL mgr:开眼 ：再获得被消耗的牌的 mgr:临时复制 。"
   },
   "MGR:FullScaleOffensive":{
-    "NAME":"全面进攻",
+    "NAME":"总攻",
     "DESCRIPTION": "丢弃所有 *非攻击 牌，每张生成 !M! 个 mgr:攻击音符 。"
   }
 }

@@ -13,30 +13,33 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Random;
 
-public class MyReflectionAction extends AbstractGameAction {
+public class MyReflectionAction extends AbstractGameAction
+{
     public MyReflectionAction(int amount)
     {
         this.amount = amount;
         this.actionType = ActionType.EXHAUST;
     }
-    public void update() {
-        AbstractPlayer p=AbstractDungeon.player;
-        if (AbstractDungeon.getMonsters().areMonstersBasicallyDead()||p.hand.size()==0)
+
+    public void update()
+    {
+        AbstractPlayer p = AbstractDungeon.player;
+        if (AbstractDungeon.getMonsters().areMonstersBasicallyDead() || p.hand.size() == 0)
         {
-            this.isDone=true;
+            this.isDone = true;
             return;
         }
-        ArrayList<AbstractCard> cards=new ArrayList<>(p.hand.group);
-        Collections.shuffle(cards,new Random(AbstractDungeon.miscRng.randomLong()));
+        ArrayList<AbstractCard> cards = new ArrayList<>(p.hand.group);
+        Collections.shuffle(cards, new Random(AbstractDungeon.miscRng.randomLong()));
         cards.sort(Comparator.comparingInt(c -> c.costForTurn));
-        if(!cards.isEmpty()) addToTop(new ExhaustSpecificCardAction(cards.get(0),p.hand));
-        if(cards.size()>1)
+        //if(!cards.isEmpty()) addToTop(new ExhaustSpecificCardAction(cards.get(0),p.hand));
+        if (!cards.isEmpty())
         {
-            AbstractCard c=cards.get(cards.size()-1);
-            c.setCostForTurn(c.costForTurn-this.amount);
+            AbstractCard c = cards.get(cards.size() - 1);
+            c.setCostForTurn(c.costForTurn - this.amount);
             c.superFlash(Color.GOLD.cpy());
         }
-        this.isDone=true;
+        this.isDone = true;
     }
 }
 

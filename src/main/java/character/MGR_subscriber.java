@@ -1,7 +1,11 @@
 package character;
 
+import action.MGRTutorialAction;
 import basemod.BaseMod;
+import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
+import basemod.ModToggleButton;
+import basemod.eventUtil.AddEventParams;
 import basemod.interfaces.*;
 import card.BASIC.*;
 import card.COMMON.*;
@@ -54,30 +58,34 @@ import card.UNCOMMON.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.CardHelper;
-import com.megacrit.cardcrawl.helpers.ImageMaster;
-import com.megacrit.cardcrawl.helpers.Prefs;
-import com.megacrit.cardcrawl.helpers.SaveHelper;
+import com.megacrit.cardcrawl.helpers.*;
 import com.megacrit.cardcrawl.localization.*;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.relics.*;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import path.AbstractCardEnum;
 import path.ModClassEnum;
 import relic.*;
 import potion.*;
+import ui.MGRTutorial;
 
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Properties;
+import java.util.function.Consumer;
 
 @SpireInitializer
-public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscriber,EditCardsSubscriber,EditStringsSubscriber,EditKeywordsSubscriber,PostInitializeSubscriber,OnCardUseSubscriber,OnStartBattleSubscriber,PostBattleSubscriber,AddAudioSubscriber,PostDungeonInitializeSubscriber{
+public class MGR_subscriber implements EditCharactersSubscriber, EditRelicsSubscriber, EditCardsSubscriber, EditStringsSubscriber, EditKeywordsSubscriber, PostInitializeSubscriber, OnCardUseSubscriber, OnStartBattleSubscriber, PostBattleSubscriber, AddAudioSubscriber, PostDungeonInitializeSubscriber
+{
     private static final String MOD_BADGE = "img/UI/MGR_badge.png";
     private static final String ATTACK_CC = "img/512/MGR_attack_s.png";
     private static final String SKILL_CC = "img/512/MGR_skill_s.png";
@@ -93,22 +101,56 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
     public static final Color MyColor = CardHelper.getColor(255, 110, 0);
     private ArrayList<AbstractCard> cardsToAdd = new ArrayList<>();
     private ArrayList<AbstractRelic> relicsToAdd = new ArrayList<>();
+    private ArrayList<AbstractRelic> relicsToAdd_SHARED = new ArrayList<>();
     private AbstractCard LastCardPlayed;
+    public static Properties CustomSettings = new Properties();
+    public static boolean AddCustomObjects = false;
+    public static final String AddCustomObjectsString = "AddCustomObjects";
+    public static boolean EnableTutorial = true;
+    public static final String EnableTutorialString = "EnableTutorial";
+    public static boolean UnlockA20 = false;
+    public static final String UnlockA20String = "UnlockA20";
+    public static boolean BanRelics = false;
+    public static final String BanRelicsString = "BanRelics";
 
-    public MGR_subscriber() {
+
+    public MGR_subscriber()
+    {
         BaseMod.subscribe(this);
-        BaseMod.addColor(AbstractCardEnum.MGR_COLOR, MyColor, MyColor, MyColor, MyColor, MyColor, MyColor, MyColor, ATTACK_CC, SKILL_CC, POWER_CC, ENERGY_ORB_CC, ATTACK_CC_PORTRAIT, SKILL_CC_PORTRAIT,POWER_CC_PORTRAIT, ENERGY_ORB_CC_PORTRAIT, CARD_ENERGY_ORB);
+        BaseMod.addColor(AbstractCardEnum.MGR_COLOR, MyColor, MyColor, MyColor, MyColor, MyColor, MyColor, MyColor, ATTACK_CC, SKILL_CC, POWER_CC, ENERGY_ORB_CC, ATTACK_CC_PORTRAIT, SKILL_CC_PORTRAIT, POWER_CC_PORTRAIT, ENERGY_ORB_CC_PORTRAIT, CARD_ENERGY_ORB);
+        LoadConfig();
+    }
+
+    private void LoadConfig()
+    {
+        CustomSettings.setProperty(AddCustomObjectsString, "FALSE");
+        CustomSettings.setProperty(EnableTutorialString, "TRUE");
+        CustomSettings.setProperty(UnlockA20String, "FALSE");
+        CustomSettings.setProperty(BanRelicsString, "FALSE");
+        try
+        {
+            SpireConfig config = new SpireConfig("MGRMod", "CustomSettings", CustomSettings);
+            config.load();
+            UnlockA20 = config.getBool(UnlockA20String);
+            AddCustomObjects = config.getBool(AddCustomObjectsString);
+            BanRelics = config.getBool(BanRelicsString);
+            EnableTutorial = config.getBool(EnableTutorialString);
+        } catch (Exception ignored) {}
     }
 
     @Override
-    public void receiveEditCharacters() {
+    public void receiveEditCharacters()
+    {
         BaseMod.addCharacter(new MGR_character("MGR"), MY_CHARACTER_BUTTON, MY_CHARACTER_PORTRAIT, ModClassEnum.MGR);
     }
-    public static void initialize() {
+
+    public static void initialize()
+    {
         new MGR_subscriber();
     }
 
-    public void receiveAddAudio() {
+    public void receiveAddAudio()
+    {
         BaseMod.addAudio("MGR:CharSelect", "audio/MGR_charselect.ogg");
         BaseMod.addAudio("MGR:MasterSpark", "audio/MGR_masterspark.wav");
         BaseMod.addAudio("MGR:NoteChannel", "audio/NoteChannel.ogg");
@@ -118,80 +160,142 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
     }
 
     @Override
-    public void receiveEditCards() {
+    public void receiveEditCards()
+    {
         loadCardsToAdd();
-        for (AbstractCard card : this.cardsToAdd) {
+        for (AbstractCard card : this.cardsToAdd)
+        {
             BaseMod.addCard(card);
         }
+    }
+
+    private ModPanel PrepareModPanel()
+    {
+        TutorialStrings CustomSettingsStrings = CardCrawlGame.languagePack.getTutorialString("MGR:CustomSettings");
+        ModPanel settingsPanel = new ModPanel();
+        ModLabeledToggleButton UnlockA20Button = new ModLabeledToggleButton(CustomSettingsStrings.TEXT[0], 400.0f, 750.0f, Settings.CREAM_COLOR, FontHelper.charDescFont, UnlockA20, settingsPanel, modLabel -> {}, button ->
+        {
+            UnlockA20 = button.enabled;
+            try
+            {
+                if (UnlockA20) UnlockAscensionLevel();
+                SpireConfig config = new SpireConfig("MGRMod", "CustomSettings", CustomSettings);
+                config.setBool(UnlockA20String, UnlockA20);
+                config.save();
+            } catch (Exception ignored) {}
+        });
+        ModLabeledToggleButton AddCustomObjectsButton = new ModLabeledToggleButton(CustomSettingsStrings.TEXT[1], 400.0f, 700.0f, Settings.CREAM_COLOR, FontHelper.charDescFont, AddCustomObjects, settingsPanel, modLabel -> {}, button ->
+        {
+            AddCustomObjects = button.enabled;
+            try
+            {
+                SpireConfig config = new SpireConfig("MGRMod", "CustomSettings", CustomSettings);
+                config.setBool(AddCustomObjectsString, AddCustomObjects);
+                config.save();
+            } catch (Exception ignored) {}
+        });
+        ModLabeledToggleButton BanRelicsButton = new ModLabeledToggleButton(CustomSettingsStrings.TEXT[2], 400.0f, 650.0f, Settings.CREAM_COLOR, FontHelper.charDescFont, BanRelics, settingsPanel, modLabel -> {}, button ->
+        {
+            BanRelics = button.enabled;
+            try
+            {
+                SpireConfig config = new SpireConfig("MGRMod", "CustomSettings", CustomSettings);
+                config.setBool(BanRelicsString, BanRelics);
+                config.save();
+            } catch (Exception ignored) {}
+        });
+        ModLabeledToggleButton EnableTutorialButton = new ModLabeledToggleButton(CustomSettingsStrings.TEXT[3], 400.0F, 600.0F, Settings.CREAM_COLOR, FontHelper.charDescFont, EnableTutorial, settingsPanel, (label) -> {}, button ->
+        {
+            EnableTutorial = button.enabled;
+            try
+            {
+                SpireConfig config = new SpireConfig("MGRMod", "CustomSettings", CustomSettings);
+                config.setBool(EnableTutorialString, EnableTutorial);
+                config.save();
+            } catch (Exception ignored) {}
+        });
+        settingsPanel.addUIElement(UnlockA20Button);
+        settingsPanel.addUIElement(AddCustomObjectsButton);
+        settingsPanel.addUIElement(BanRelicsButton);
+        settingsPanel.addUIElement(EnableTutorialButton);
+        return settingsPanel;
     }
 
     public void receivePostInitialize()
     {
         Texture badge = ImageMaster.loadImage(MOD_BADGE);
-        BaseMod.registerModBadge(badge, "MGRMod", "MGRSK", "MGRMod", new ModPanel());
-        Color mybluecolor=MGR_character.myBuleColor;
+        BaseMod.registerModBadge(badge, "MGRMod", "MGRSK", "MGRMod", PrepareModPanel());
+        Color mybluecolor = MGR_character.myBuleColor;
         BaseMod.addPotion(FortePotion.class, mybluecolor.cpy(), mybluecolor.cpy(), mybluecolor.cpy(), FortePotion.POTION_ID, ModClassEnum.MGR);
-        BaseMod.addPotion(BottledNotes.class, mybluecolor.cpy(), mybluecolor.cpy(),new Color(1.0F,0.72F,0.19F,1.0F),BottledNotes.POTION_ID,ModClassEnum.MGR);
-        BaseMod.addPotion(PortableAnvil.class, Color.WHITE.cpy(), Color.WHITE.cpy(), Color.WHITE.cpy(), PortableAnvil.POTION_ID,ModClassEnum.MGR);
-        BaseMod.addPotion(ShiningEssence.class, CardHelper.getColor(28,206,227),CardHelper.getColor(53,150,159),null,ShiningEssence.POTION_ID,ModClassEnum.MGR);
-        BaseMod.addPotion(Doping.class,Color.WHITE.cpy(),Color.WHITE.cpy(),Color.WHITE.cpy(),Doping.POTION_ID,ModClassEnum.MGR);
-        UnlockAscensionLevel();
-        for(AbstractCard card:cardsToAdd)
-            UnlockTracker.markCardAsSeen(card.cardID);
+        BaseMod.addPotion(BottledNotes.class, mybluecolor.cpy(), mybluecolor.cpy(), new Color(1.0F, 0.72F, 0.19F, 1.0F), BottledNotes.POTION_ID, ModClassEnum.MGR);
+        BaseMod.addPotion(ShiningEssence.class, CardHelper.getColor(28, 206, 227), CardHelper.getColor(53, 150, 159), null, ShiningEssence.POTION_ID, ModClassEnum.MGR);
+        if (!AddCustomObjects)
+        {
+            BaseMod.addPotion(Doping.class, Color.WHITE.cpy(), Color.WHITE.cpy(), Color.WHITE.cpy(), Doping.POTION_ID, ModClassEnum.MGR);
+            BaseMod.addPotion(PortableAnvil.class, Color.WHITE.cpy(), Color.WHITE.cpy(), Color.WHITE.cpy(), PortableAnvil.POTION_ID, ModClassEnum.MGR);
+        }
+        else
+        {
+            BaseMod.addPotion(Doping.class, Color.WHITE.cpy(), Color.WHITE.cpy(), Color.WHITE.cpy(), Doping.POTION_ID);
+            BaseMod.addPotion(PortableAnvil.class, Color.WHITE.cpy(), Color.WHITE.cpy(), Color.WHITE.cpy(), PortableAnvil.POTION_ID);
+        }
+        for (AbstractCard card : cardsToAdd) UnlockTracker.markCardAsSeen(card.cardID);
+        if (UnlockA20) UnlockAscensionLevel();
     }
 
     private void UnlockAscensionLevel()
     {
-        Prefs p=SaveHelper.getPrefs("MGR");
+        Prefs p = SaveHelper.getPrefs("MGR");
         if (p.getInteger("WIN_COUNT", 0) == 0) p.putInteger("WIN_COUNT", 1);
         if (p.getInteger("BOSS_KILL", 0) == 0) p.putInteger("BOSS_KILL", 1);
-        if (p.getInteger("ASCENSION_LEVEL",0) != 20 )
+        if (p.getInteger("ASCENSION_LEVEL", 0) != 20)
         {
             p.putInteger("ASCENSION_LEVEL", 20);
-            p.putInteger("LAST_ASCENSION_LEVEL", 0);
+            p.putInteger("LAST_ASCENSION_LEVEL", 20);
         }
         p.flush();
     }
 
     @Override
-    public void receiveEditKeywords() {
-        String keywordsPath=getStringPath()+"MGR_keyword.json";
+    public void receiveEditKeywords()
+    {
+        String keywordsPath = getStringPath() + "MGR_keyword.json";
         Gson gson = new Gson();
         Keyword[] keywords = gson.fromJson(loadJson(keywordsPath), Keyword[].class);
-        if (keywords != null) {
-            for (Keyword keyword : keywords) {
+        if (keywords != null)
+            for (Keyword keyword : keywords)
                 BaseMod.addKeyword("mgr", keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
-            }
-        }
     }
 
     private String getStringPath()
     {
         String StringPath;
-        switch (Settings.language) {
-            case ZHS: StringPath = "localization/zhs/"; break;
-            default: StringPath = "localization/eng/";
+        switch (Settings.language)
+        {
+            case ZHS:
+                StringPath = "localization/zhs/"; break;
+            default:
+                StringPath = "localization/eng/";
         }
         return StringPath;
     }
 
-    private static String loadJson(String jsonPath) {
-        return Gdx.files.internal(jsonPath).readString(String.valueOf(StandardCharsets.UTF_8));
-    }
+    private static String loadJson(String jsonPath) {return Gdx.files.internal(jsonPath).readString(String.valueOf(StandardCharsets.UTF_8));}
 
     @Override
-    public void receiveEditStrings() {
-        String StringPath=getStringPath();
-        String  relic=StringPath+"MGR_relic.json",
-                card=StringPath+"MGR_card.json",
-                power=StringPath+"MGR_power.json",
-                potion=StringPath+"MGR_potion.json",
-                event=StringPath+"MGR_event.json",
-                orb=StringPath+"MGR_orb.json",
-                ui=StringPath+"MGR_ui.json",
-                stance=StringPath+"MGR_stance.json",
-                tutorial=StringPath+"MGR_tutorial.json",
-                character=StringPath+"MGR_character.json";
+    public void receiveEditStrings()
+    {
+        String StringPath = getStringPath();
+        String relic = StringPath + "MGR_relic.json",
+                card = StringPath + "MGR_card.json",
+                power = StringPath + "MGR_power.json",
+                potion = StringPath + "MGR_potion.json",
+                event = StringPath + "MGR_event.json",
+                orb = StringPath + "MGR_orb.json",
+                ui = StringPath + "MGR_ui.json",
+                stance = StringPath + "MGR_stance.json",
+                tutorial = StringPath + "MGR_tutorial.json",
+                character = StringPath + "MGR_character.json";
 
         String relicStrings = loadJson(relic);
         BaseMod.loadCustomStrings(RelicStrings.class, relicStrings);
@@ -215,7 +319,8 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         BaseMod.loadCustomStrings(CharacterStrings.class, characterStrings);
     }
 
-    private void loadCardsToAdd() {
+    private void loadCardsToAdd()
+    {
         this.cardsToAdd.clear();
         this.cardsToAdd.add(new Strike_MGR());
         this.cardsToAdd.add(new Defend_MGR());
@@ -293,12 +398,20 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
         this.cardsToAdd.add(new BurnsRed());
         this.cardsToAdd.add(new TheBurningSun());
     }
+
     @Override
     public void receiveEditRelics()
     {
         loadRelicsToAdd();
-        for (AbstractRelic relic : this.relicsToAdd) {
-            BaseMod.addRelicToCustomPool(relic,AbstractCardEnum.MGR_COLOR);
+        for (AbstractRelic relic : this.relicsToAdd)
+        {
+            BaseMod.addRelicToCustomPool(relic, AbstractCardEnum.MGR_COLOR);
+            UnlockTracker.markRelicAsSeen(relic.relicId);
+        }
+        for (AbstractRelic relic : this.relicsToAdd_SHARED)
+        {
+            if (!AddCustomObjects) BaseMod.addRelicToCustomPool(relic, AbstractCardEnum.MGR_COLOR);
+            else RelicLibrary.add(relic);
             UnlockTracker.markRelicAsSeen(relic.relicId);
         }
     }
@@ -306,46 +419,60 @@ public class MGR_subscriber implements EditCharactersSubscriber,EditRelicsSubscr
     private void loadRelicsToAdd()
     {
         this.relicsToAdd.clear();
-        this.relicsToAdd.add(new UnknownCreature());
+        this.relicsToAdd_SHARED.clear();
+        this.relicsToAdd_SHARED.add(new UnknownCreature());
         this.relicsToAdd.add(new Sunglasses());
         this.relicsToAdd.add(new OldBow());
         this.relicsToAdd.add(new Telescreen());
         this.relicsToAdd.add(new BloodshotEyeball());
-        this.relicsToAdd.add(new LittleAngel());
-        this.relicsToAdd.add(new Maguroyaki());
+        this.relicsToAdd_SHARED.add(new LittleAngel());
+        this.relicsToAdd_SHARED.add(new Maguroyaki());
         this.relicsToAdd.add(new MiniMicrophone());
         this.relicsToAdd.add(new YourExclusiveStage());
         this.relicsToAdd.add(new WitchHat());
-        //this.relicsToAdd.add(new FriendsSpirit());
+        this.relicsToAdd_SHARED.add(new FriendsSpirit());
         this.relicsToAdd.add(new Fumo());
+        this.relicsToAdd.add(new Voracious());
     }
 
     @Override
-    public void receiveCardUsed(AbstractCard c) {
-        if(!c.purgeOnUse&&!c.dontTriggerOnUseCard)
+    public void receiveCardUsed(AbstractCard c)
+    {
+        if (!c.purgeOnUse && !c.dontTriggerOnUseCard)
         {
-            if(LastCardPlayed==null&&c instanceof EastOfTimeline)
-                EastOfTimeline.IncMist(c.uuid,1);
-            LastCardPlayed=c;
+            if (LastCardPlayed == null && c instanceof EastOfTimeline)
+                EastOfTimeline.IncMist(c.uuid, 1);
+            LastCardPlayed = c;
         }
     }
 
     @Override
-    public void receiveOnBattleStart(AbstractRoom abstractRoom) {
-        LastCardPlayed=null;
+    public void receiveOnBattleStart(AbstractRoom abstractRoom)
+    {
+        LastCardPlayed = null;
+        if (AbstractDungeon.player instanceof MGR_character && EnableTutorial)
+            AbstractDungeon.actionManager.addToBottom(new MGRTutorialAction());
     }
 
     @Override
-    public void receivePostBattle(AbstractRoom abstractRoom) {
-        if(LastCardPlayed!=null&&LastCardPlayed instanceof EastOfTimeline)
-            EastOfTimeline.IncMist(LastCardPlayed.uuid,1);
+    public void receivePostBattle(AbstractRoom abstractRoom)
+    {
+        if (LastCardPlayed != null && LastCardPlayed instanceof EastOfTimeline)
+            EastOfTimeline.IncMist(LastCardPlayed.uuid, 1);
     }
 
     @Override
-    public void receivePostDungeonInitialize() {
-        if(AbstractDungeon.player instanceof MGR_character)
+    public void receivePostDungeonInitialize()
+    {
+        if (AbstractDungeon.player instanceof MGR_character)
         {
-            AbstractDungeon.bossRelicPool.remove("Snecko Eye");
+            AbstractDungeon.bossRelicPool.remove(SneckoEye.ID);
+            AbstractDungeon.bossRelicPool.remove(TinyHouse.ID);
+            if (BanRelics)
+            {
+                AbstractDungeon.shopRelicPool.remove(MedicalKit.ID);
+                AbstractDungeon.uncommonRelicPool.remove(BlueCandle.ID);
+            }
         }
     }
 }

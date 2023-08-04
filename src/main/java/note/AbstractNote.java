@@ -73,13 +73,13 @@ public abstract class AbstractNote extends AbstractOrb
     public void applyForte()
     {
         myApplyForte();
-        AbstractPlayer p = AbstractDungeon.player;
+        /*AbstractPlayer p = AbstractDungeon.player;
         int sum = 1;
         if (p.hasPower(UnisonLeft.POWER_ID) && this.equals(p.orbs.get(0)))
             sum += p.getPower(UnisonLeft.POWER_ID).amount;
         if (p.hasPower(UnisonRight.POWER_ID) && this.equals(p.orbs.get(p.maxOrbs - 1)))
             sum += p.getPower(UnisonRight.POWER_ID).amount;
-        this.evokeAmount *= sum;
+        this.evokeAmount *= sum;*/
     }
 
     @Override

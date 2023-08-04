@@ -44,7 +44,7 @@
     "MGR:HarmonyForm": {
     "NAME": "和声形态",
     "DESCRIPTIONS": [
-      "最左边与最右边的 #y音符 效果额外生效 #b",
+      "最左边与最右边的 #y音符 额外触发 #b",
       " 次。"
     ]
   }, 
@@ -212,12 +212,11 @@
       " 个 #y攻击音符 。"
     ]
   },     
-    "QuickCallPower": {
-    "NAME": "失联",
+    "MGR:UnisonPower": {
+    "NAME": "齐唱",
     "DESCRIPTIONS": [
-      "下 #b",
-	  " 回合失去 #r",
-      " 层呼叫。"
+      "每当你打出一张牌， #y即兴 #b",
+      " 。"
     ]
   },      
     "CallPfGunfirePower": {
