@@ -21,7 +21,7 @@ public class Lullaby extends AbstractMGRCard {
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG = "img/card/"+ID.substring(4)+".png";
     private static final int COST = 2;
-    private static final int BLOCK = 8;
+    private static final int BLOCK = 9;
     private static final int PLUS_BLOCK = 2;
     private static final int MAGIC = 3;
     private boolean AffectSelf=true;

@@ -32,13 +32,13 @@ public class TheBurningSunAction extends AbstractGameAction
     public void update()
     {
         AbstractPlayer p = AbstractDungeon.player;
-        if (AbstractDungeon.getMonsters().areMonstersBasicallyDead() || p.hand.size() <= 0 || this.amount <= 0)
-        {
-            this.isDone = true;
-            return;
-        }
         if (this.duration == this.startDuration)
         {
+            if (AbstractDungeon.getMonsters().areMonstersBasicallyDead() || p.hand.size() <= 0 || this.amount <= 0)
+            {
+                this.isDone = true;
+                return;
+            }
             AbstractDungeon.handCardSelectScreen.open(this.B ? TEXT[1] : TEXT[0], this.amount, true, true);
             p.hand.applyPowers();
             this.tickDuration();
@@ -54,6 +54,8 @@ public class TheBurningSunAction extends AbstractGameAction
             addToTop(new DrawCardAction(AbstractDungeon.handCardSelectScreen.selectedCards.size()));
             CardCrawlGame.dungeon.checkForPactAchievement();
             AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
+            AbstractDungeon.player.hand.refreshHandLayout();
+            AbstractDungeon.player.hand.applyPowers();
         }
         this.tickDuration();
     }

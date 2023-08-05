@@ -21,8 +21,8 @@ public class GazeOfOthers extends AbstractMGRCard {
     private String DESC;
     public static final String IMG = "img/card/"+ID.substring(4)+".png";
     private static final int COST = 1;
-    private static final int BLOCK = 6;
-    private static final int PLUS_BLOCK = 2;
+    private static final int BLOCK = 5;
+    private static final int PLUS_BLOCK = 1;
     private static final int MAGIC = 1;
     public GazeOfOthers() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.SKILL,
@@ -57,8 +57,9 @@ public class GazeOfOthers extends AbstractMGRCard {
 
     private int GetAdditionalBlock(AbstractMonster m)
     {
-        int amt=this.upgraded?calculateBLOCKAll():calculateBLOCK(m);
-        return amt>>1;
+        //int amt=this.upgraded?calculateBLOCKAll():calculateBLOCK(m);
+        int amt=calculateBLOCK(m);
+        return this.upgraded?amt:(amt>>1);
     }
 
     private void BLOCKdisplay(int BLOCK) {
@@ -79,22 +80,12 @@ public class GazeOfOthers extends AbstractMGRCard {
         BLOCKdisplay(BLOCK);
     }
 
-    @Override
-    public void applyPowers()
-    {
-        super.applyPowers();
-        if(this.upgraded)
-            BLOCKdisplay(calculateBLOCKAll());
-    }
-
-
     public AbstractCard makeCopy() { return new GazeOfOthers(); }
 
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeBlock(PLUS_BLOCK);
-            this.target=CardTarget.ALL_ENEMY;
             DESC=UPGRADE_DESCRIPTION;
             this.rawDescription=DESC;
             initializeDescription();

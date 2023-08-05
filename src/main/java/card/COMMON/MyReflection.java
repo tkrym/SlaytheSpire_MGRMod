@@ -29,6 +29,7 @@ public class MyReflection extends AbstractMGRCard
                 AbstractCardEnum.MGR_COLOR, CardRarity.COMMON, CardTarget.SELF);
         this.baseMagicNumber = MAGIC;
         this.magicNumber = this.baseMagicNumber;
+        this.exhaust=true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m)

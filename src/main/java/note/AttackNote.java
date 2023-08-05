@@ -5,6 +5,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
@@ -12,6 +13,7 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.OrbStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.vfx.combat.LightningOrbPassiveEffect;
+import power.BurnsRedPower;
 import power.StereoPlusPower;
 import power.HarmonyFormPower;
 import power.StereoPower;
@@ -57,6 +59,7 @@ public class AttackNote extends AbstractNote {
     {
         boolean hasStereo=AbstractDungeon.player.hasPower(StereoPower.POWER_ID)||AbstractDungeon.player.hasPower(StereoPlusPower.POWER_ID);
         AbstractDungeon.actionManager.addToTop(new NoteDamageEnemyAction(this.evokeAmount,hasStereo));
+        if(AbstractDungeon.player.hasPower(BurnsRedPower.POWER_ID)) AbstractDungeon.actionManager.addToTop(new GainBlockAction(AbstractDungeon.player,this.evokeAmount>>1));
     }
 
     public AbstractNote makeCopy() {

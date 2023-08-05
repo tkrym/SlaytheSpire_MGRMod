@@ -32,6 +32,8 @@ public class ManualDiscardPatch
             if (c instanceof OnManualDiscardHook) ((OnManualDiscardHook) c).OnManualDiscard(card);
         for (AbstractCard c : AbstractDungeon.player.discardPile.group)
             if (c instanceof OnManualDiscardHook) ((OnManualDiscardHook) c).OnManualDiscard(card);
+        /*for (AbstractCard c : AbstractDungeon.handCardSelectScreen.selectedCards.group)
+            if (c instanceof OnManualDiscardHook) ((OnManualDiscardHook) c).OnManualDiscard(card);*/
     }
 
     @SpirePatch(clz = DiscardAction.class, method = "update")

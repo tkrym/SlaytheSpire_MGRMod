@@ -1,9 +1,11 @@
 package card.RARE;
 
 import card.AbstractMGRCard;
+import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import note.AbstractNote;
@@ -45,8 +47,10 @@ public class LAB01 extends AbstractMGRCard
     @Override
     public void onRetained()
     {
+        if(this.isEthereal) addToBot(new ExhaustSpecificCardAction(this, AbstractDungeon.player.hand));
         this.RetainCounter++;
-        this.selfRetain = this.RetainCounter < this.magicNumber;
+        this.selfRetain = this.RetainCounter < this.baseMagicNumber;
+        applyPowers();
         //this.addToBot(new TalkAction(true,this.name+"||"+this.RetainCounter+"||"+this.selfRetain,2.0F,2.0F));
     }
 
@@ -56,6 +60,7 @@ public class LAB01 extends AbstractMGRCard
         this.RetainCounter = 0;
         this.selfRetain = true;
         this.RecordNotes.clear();
+        this.applyPowers();
     }
 
     public void AddNote(AbstractNote note) {this.RecordNotes.add(note);}
@@ -67,6 +72,15 @@ public class LAB01 extends AbstractMGRCard
         newCard.RecordNotes = new ArrayList<>(this.RecordNotes);
         return newCard;
     }
+
+    @Override
+    public void applyPowers()
+    {
+        this.magicNumber=this.baseMagicNumber-this.RetainCounter;
+        if(this.magicNumber<0) this.magicNumber=0;
+        this.isMagicNumberModified= this.magicNumber!=this.baseMagicNumber;
+    }
+
 
     public void upgrade()
     {

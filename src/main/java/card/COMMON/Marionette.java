@@ -32,6 +32,7 @@ public class Marionette extends AbstractMGRCard
                 AbstractCardEnum.MGR_COLOR, CardRarity.COMMON, CardTarget.ALL_ENEMY);
         this.baseMagicNumber = MAGIC;
         this.magicNumber = this.baseMagicNumber;
+        this.exhaust=true;
     }
 
     @Override

@@ -14,6 +14,7 @@ public class AlternateSinging extends AbstractMGRCard {
     public static final String ID = "MGR:AlternateSinging";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG = "img/card/"+ID.substring(4)+".png";
     private static final int COST = 1;
     private static final int BLOCK = 3;
@@ -28,7 +29,10 @@ public class AlternateSinging extends AbstractMGRCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new AlternateSingingAction(this.block,AbstractDungeon.player.filledOrbCount(),AbstractDungeon.player.maxOrbs-AbstractDungeon.player.filledOrbCount()));
+        int fullnum=p.filledOrbCount();
+        int emptynum=p.maxOrbs-fullnum;
+        if(!this.upgraded) addToBot(new AlternateSingingAction(this.block,fullnum,emptynum));
+        else addToBot(new AlternateSingingAction(this.block,emptynum,fullnum));
     }
 
     public AbstractCard makeCopy() { return new AlternateSinging(); }
@@ -37,6 +41,8 @@ public class AlternateSinging extends AbstractMGRCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeBlock(PLUS_BLOCK);
+            this.rawDescription=UPGRADE_DESCRIPTION;
+            initializeDescription();
         }
     }
 }

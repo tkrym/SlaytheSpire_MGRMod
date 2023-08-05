@@ -208,8 +208,7 @@
   "MGR:BurnsRedPower": {
     "NAME": "赤灼",
     "DESCRIPTIONS": [
-      "每打出一张技能牌，生成 #b",
-      " 个 #y攻击音符 。"
+      "你的 #y攻击音符 也会给予你一半的 #y格挡 。"
     ]
   },     
     "MGR:UnisonPower": {
@@ -217,76 +216,6 @@
     "DESCRIPTIONS": [
       "每当你打出一张牌， #y即兴 #b",
       " 。"
-    ]
-  },      
-    "CallPfGunfirePower": {
-    "NAME": "枪声呼叫",
-    "DESCRIPTIONS": [
-      "每打出两张射击类牌，获得 #b1 层呼叫。",
-	  "每打出两张射击类牌，获得 #b2 层呼叫。"
-    ]
-  },   
-    "AccurationPower": {
-    "NAME": "精准",
-    "DESCRIPTIONS": [
-      "射击类伤害提高 #b30% "
-    ]
-  },     
-    "SZPower": {
-    "NAME": "SZ支援",
-    "DESCRIPTIONS": [
-      "每回合将一张攻击牌加入手牌中，这张牌在本回合耗能变为 #b0 ."
-    ]
-  },     
-    "LianZhao": {
-    "NAME": "连招",
-    "DESCRIPTIONS": [
-      "斩击类伤害提高 #b",
-	  " %，打出非斩击类后消失"
-    ]
-  },      
-    "Precise": {
-    "NAME": "瞄准",
-    "DESCRIPTIONS": [
-      "射击类有 #b",
-	  " %，的几率暴击，造成3倍伤害。打出非射击类或暴击后消失"
-    ]
-  },       
-    "NoDIYUSI": {
-    "NAME": "支援禁止",
-    "DESCRIPTIONS": [
-      "无法获得 #rDIYUSI支援 "
-    ]
-  },       
-    "Inparty": {
-    "NAME": "车内银趴",
-    "DESCRIPTIONS": [
-      "损失 呼叫 数的生命 "
-    ]
-  },   
-    "MilkPower": {
-    "NAME": "牛乳",
-    "DESCRIPTIONS": [
-      "下一回合移除所有身上DEBUFF"
-    ]
-  }, 
-    "SeekPower": {
-    "NAME": "索敌",
-    "DESCRIPTIONS": [
-      "下一次射击类的伤害翻倍"
-    ]
-  },
-    "BeerBeerPower": {
-    "NAME": "啤酒！啤酒！",
-    "DESCRIPTIONS": [
-      "每获得一次格挡，追加获得3点格挡。"
-    ]
-  },
-    "WWWWWWWWWWWWWWW": {
-    "NAME": "WWWWWWWWWWW",
-    "DESCRIPTIONS": [
-      "WWWWWWWWWWW",
-      "WWWWWWWWWWW"
     ]
   }
 }

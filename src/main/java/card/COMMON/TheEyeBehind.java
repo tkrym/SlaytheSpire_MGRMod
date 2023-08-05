@@ -19,7 +19,7 @@ public class TheEyeBehind extends AbstractMGRCard
     public static final String IMG = "img/card/" + ID.substring(4) + ".png";
     private static final int COST = 0;
     private static final int MAGIC = 4;
-    private static final int PLUS_MAGIC = 2;
+    private static final int PLUS_MAGIC = 3;
 
     public TheEyeBehind()
     {
@@ -31,7 +31,7 @@ public class TheEyeBehind extends AbstractMGRCard
 
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        int amt=this.upgraded?2:1;
+        int amt=this.upgraded?1:1;
         addToBot(new IncDebuffAction(m,amt,this.magicNumber));
         if(MGR_character.BigBrotherStanceCheck()) addToBot(new IncDebuffAction(m,amt,amt));
     }

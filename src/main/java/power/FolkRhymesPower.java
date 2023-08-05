@@ -3,6 +3,7 @@ package power;
 import action.ChannelNoteAction;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -35,6 +36,7 @@ public class FolkRhymesPower extends AbstractPower{
         flashWithoutSound();
         for(int i=1;i<=this.amount;i++)
             addToBot(new ChannelNoteAction(new DefendNote()));
+        addToBot(new GainBlockAction(AbstractDungeon.player,this.amount));
     }
 
 }

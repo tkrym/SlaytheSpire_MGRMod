@@ -2,6 +2,7 @@ package power;
 
 import action.ChannelNoteAction;
 import com.badlogic.gdx.graphics.Texture;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -32,7 +33,15 @@ public class UnisonPower extends AbstractPower
     @Override
     public void onUseCard(AbstractCard c, UseCardAction action)
     {
-        for(int i=1;i<=this.amount;i++) AbstractNote.GenerateRandomBasicNoteBottom();
+        for(int i=1;i<=this.amount;i++)
+            addToBot(new AbstractGameAction() {
+                @Override
+                public void update()
+                {
+                    AbstractNote.GenerateRandomBasicNoteBottom();
+                    this.isDone=true;
+                }
+            });
     }
 
     @Override

@@ -18,9 +18,9 @@ public class Unison extends AbstractMGRCard {
     public static final String ID = "MGR:Unison";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-    //public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
+    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG = "img/card/"+ID.substring(4)+".png";
-    private static final int COST = 2;
+    private static final int COST = 1;
     private static final int MAGIC = 1;
     public Unison() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.POWER,
@@ -40,7 +40,9 @@ public class Unison extends AbstractMGRCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBaseCost(1);
+            this.isInnate=true;
+            this.rawDescription=UPGRADE_DESCRIPTION;
+            initializeDescription();
         }
     }
 }

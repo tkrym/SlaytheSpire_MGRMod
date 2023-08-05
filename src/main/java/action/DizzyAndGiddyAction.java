@@ -1,5 +1,6 @@
 package action;
 
+import card.UNCOMMON.SunDescending;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
@@ -10,6 +11,8 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import note.AbstractNote;
 import patch.ManualDiscardPatch;
+
+import java.util.Comparator;
 
 public class DizzyAndGiddyAction extends AbstractGameAction {
     public static String[] TEXT=CardCrawlGame.languagePack.getUIString("DizzyAndGiddyAction").TEXT;
@@ -41,11 +44,12 @@ public class DizzyAndGiddyAction extends AbstractGameAction {
         }
         if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved)
         {
-            if(AbstractDungeon.handCardSelectScreen.selectedCards.group.size()>=this.DrawThreshold)
-                addToTop(new DrawCardAction(this.DrawAmount));
+            AbstractDungeon.handCardSelectScreen.selectedCards.group.sort(Comparator.comparingInt(c->(c instanceof SunDescending)?-1:1));
+            if(AbstractDungeon.handCardSelectScreen.selectedCards.size()>=this.DrawThreshold) addToTop(new DrawCardAction(this.DrawAmount));
             for (AbstractCard c : AbstractDungeon.handCardSelectScreen.selectedCards.group)
             {
                 p.hand.moveToDiscardPile(c);
+                //System.out.println(c.name);
                 ManualDiscardPatch.triggerManualDiscard(c);
                 AbstractNote.GenerateNoteTop(c);
                 c.triggerOnManualDiscard();

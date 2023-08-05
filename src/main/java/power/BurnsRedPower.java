@@ -24,11 +24,14 @@ public class BurnsRedPower extends AbstractPower
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = AbstractDungeon.player;
-        this.amount = amount;
+        //this.amount = amount;
         updateDescription();
         this.img = new Texture(IMG);
     }
 
+    @Override
+    public void stackPower(int amt){}
+/*
     @Override
     public void onUseCard(AbstractCard c, UseCardAction action)
     {
@@ -37,8 +40,8 @@ public class BurnsRedPower extends AbstractPower
             for (int i = 1; i <= this.amount; i++)
                 addToBot(new ChannelNoteAction(new AttackNote()));
         }
-    }
+    }*/
 
     @Override
-    public void updateDescription() {this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];}
+    public void updateDescription() {this.description = DESCRIPTIONS[0];}
 }

@@ -57,7 +57,7 @@
     "MGR:GazeOfOthers":{
     "NAME":"他人的视线",
     "DESCRIPTION": "获得 !B! 点格挡。额外获得等同于目标 mgr:注视 层数一半的格挡。",
-    "UPGRADE_DESCRIPTION": "获得 !B! 点格挡。额外获得等同于所有敌人 mgr:注视 层数总和一半的格挡。",
+    "UPGRADE_DESCRIPTION": "获得 !B! 点格挡。额外获得等同于目标 mgr:注视 层数的格挡。",
     "EXTENDED_DESCRIPTION": [
       " NL （额外获得 ",
        " 点格挡）"
@@ -111,7 +111,8 @@
   },
     "MGR:AlternateSinging": {
     "NAME": "交替演唱",
-    "DESCRIPTION": "每有一个 mgr:音符 ，抽 !M! 张牌。 NL 每有一个 *空 mgr:音符槽 ，获得 !B! 点格挡。"
+    "DESCRIPTION": "每有一个 mgr:音符 ，抽 !M! 张牌。 NL 每有一个 *空 mgr:音符槽 ，获得 !B! 点格挡。",
+    "UPGRADE_DESCRIPTION": "每有一个 *空 mgr:音符槽 ，抽 !M! 张牌。 NL 每有一个 mgr:音符 ，获得 !B! 点格挡。"
   },
     "MGR:OneUp": {
     "NAME": "(Deprecated)+1",
@@ -329,13 +330,13 @@
   },
     "MGR:MyReflection":{
     "NAME":"镜中身",
-    "DESCRIPTION": "消耗一张牌，使手中随机费用最高的牌本回合费用减少 [E] 。",
-    "UPGRADE_DESCRIPTION": "消耗一张牌，使手中随机费用最高的牌本回合费用减少 [E] [E] 。"
+    "DESCRIPTION": "消耗一张牌，使手中随机费用最高的牌本回合费用减少 [E] 。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "消耗一张牌，使手中随机费用最高的牌本回合费用减少 [E] [E] 。 NL 消耗 。"
   },
     "MGR:FolkRhymes":{
     "NAME":"民谣",
-    "DESCRIPTION": "打出能力牌时不再产生 mgr:抽牌音符 ，改为产生 !M! 个 mgr:防御音符 。",
-    "UPGRADE_DESCRIPTION": " 固有 。 NL 打出能力牌时不再产生 mgr:抽牌音符 ，改为产生 !M! 个 mgr:防御音符 。"
+    "DESCRIPTION": "打出能力牌时不再产生 mgr:抽牌音符 ，改为产生 !M! 个 mgr:防御音符 并获得 !M! 点格挡。",
+    "UPGRADE_DESCRIPTION": " 固有 。 NL 打出能力牌时不再产生 mgr:抽牌音符 ，改为产生 !M! 个 mgr:防御音符 并获得 !M! 点格挡。"
   },
     "MGR:Dexterous":{
     "NAME":"灵巧",
@@ -357,7 +358,7 @@
   },
     "MGR:FourEyes":{
     "NAME":"四目",
-    "DESCRIPTION": "每当你给予 *负面 状态（不包括注视）时，额外给予 !M! 倍的 mgr:注视 。"
+    "DESCRIPTION": "每当你使敌人增加 *负面 状态（不包括注视）时，额外给予增加层数 !M! 倍的 mgr:注视 。"
   },
     "MGR:Frighten":{
     "NAME":"吓唬",
@@ -388,7 +389,7 @@
     "MGR:TheEyeBehind":{
     "NAME":"后背之眼",
     "DESCRIPTION": "使目标的所有 *负面 状态增加1层。对于 mgr:注视 ，改为增加 !M! 层。 NL mgr:开眼 ：再增加1层。 消耗 。",
-    "UPGRADE_DESCRIPTION": "使目标的所有 *负面 状态增加2层。对于 mgr:注视 ，改为增加 !M! 层。 NL mgr:开眼 ：再增加2层。 消耗 。"
+    "UPGRADE_DESCRIPTION": "使目标的所有 *负面 状态增加1层。对于 mgr:注视 ，改为增加 !M! 层。 NL mgr:开眼 ：再增加1层。 消耗 。"
   },
     "MGR:StarrySkyObservation":{
     "NAME":"星空观察",
@@ -405,7 +406,7 @@
   },
     "MGR:BurnsRed":{
     "NAME":"赤灼",
-    "DESCRIPTION": "每打出一张技能牌，生成 !M! 个 mgr:攻击音符 。"
+    "DESCRIPTION": "你的 mgr:攻击音符 也会给予你一半的 格挡 。"
   },
     "MGR:FinisherShooting":{
     "NAME":"(Deprecated)终结枪击",
