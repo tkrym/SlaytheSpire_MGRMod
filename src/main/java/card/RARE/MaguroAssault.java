@@ -22,8 +22,8 @@ public class MaguroAssault extends AbstractMGRCard {
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String IMG = "img/card/"+ID.substring(4)+".png";
     private static final int COST = 1;
-    private static final int DMG = 7;
-    private static final int PLUS_DMG = 1;
+    private static final int DMG = 6;
+    private static final int PLUS_DMG = 2;
     private static final int MAGIC = 2;
     private static final int PLUS_MAGIC = 1;
     private static final Color myColorRed=new Color(1.0F,0.25F,0.0F,1.0F);
@@ -38,7 +38,7 @@ public class MaguroAssault extends AbstractMGRCard {
     public void use(AbstractPlayer p, AbstractMonster m)
     {
         int finaldamage=this.damage;
-        boolean NoteCheck=MGR_character.EndingCheck()||MGR_character.StartingCheck();
+        boolean NoteCheck=MGR_character.EndingCheck();
         boolean BigBrotherCheck=MGR_character.InBigBrotherStance();
         if(BigBrotherCheck&&NoteCheck)
         {
@@ -57,7 +57,7 @@ public class MaguroAssault extends AbstractMGRCard {
         int realBaseDamage = this.baseDamage;
         this.baseDamage += this.magicNumber*MGR_character.GetChordCount();
         super.calculateCardDamage(m);
-        boolean NoteCheck=MGR_character.EndingCheck()||MGR_character.StartingCheck();
+        boolean NoteCheck=MGR_character.EndingCheck();
         boolean BigBrotherCheck=MGR_character.InBigBrotherStance();
         if(NoteCheck) this.damage*=2;
         if(BigBrotherCheck) this.damage*=2;
@@ -69,7 +69,7 @@ public class MaguroAssault extends AbstractMGRCard {
         int realBaseDamage = this.baseDamage;
         this.baseDamage += this.magicNumber*MGR_character.GetChordCount();
         super.applyPowers();
-        boolean NoteCheck=MGR_character.EndingCheck()||MGR_character.StartingCheck();
+        boolean NoteCheck=MGR_character.EndingCheck();
         boolean BigBrotherCheck=MGR_character.InBigBrotherStance();
         if(NoteCheck) this.damage*=2;
         if(BigBrotherCheck) this.damage*=2;
@@ -80,7 +80,7 @@ public class MaguroAssault extends AbstractMGRCard {
     @Override
     public void triggerOnGlowCheck()
     {
-        boolean NoteCheck=MGR_character.EndingCheck()||MGR_character.StartingCheck();
+        boolean NoteCheck=MGR_character.EndingCheck();
         boolean BigBrotherCheck=MGR_character.InBigBrotherStance();
         if(NoteCheck&&BigBrotherCheck) this.glowColor=myColorRed.cpy();
         else if(NoteCheck) this.glowColor=AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();

@@ -46,6 +46,8 @@ import java.util.List;
 
 import note.*;
 import power.FolkRhymesPower;
+import power.StereoPlusPower;
+import power.StereoPower;
 import power.TinyOrchestraPower;
 import relic.YourExclusiveStage;
 import stance.BigBrotherStance;
@@ -178,6 +180,8 @@ public class MGR_character extends CustomPlayer
             AbstractDungeon.effectList.add(new ThoughtBubble(this.dialogX, this.dialogY, 3.0F, MSG[4], true));
         else
         {
+            if ((this.hasPower(StereoPower.POWER_ID) || this.hasPower(StereoPlusPower.POWER_ID)) && orbToSet instanceof DefendNote)
+                orbToSet = new AttackNote();
             int index = -1;
             for (int i = 0; i < this.orbs.size(); ++i)
                 if (this.orbs.get(i) instanceof EmptyNoteSlot)
@@ -198,7 +202,7 @@ public class MGR_character extends CustomPlayer
                 if (index == this.orbs.size() - 1)
                 {
                     AbstractDungeon.actionManager.addToTop(new ChordAction());
-                    AbstractDungeon.actionManager.addToTop(new WaitAction(0.1F));
+                    AbstractDungeon.actionManager.addToTop(new WaitAction(0.05F));
                 }
             }
             else

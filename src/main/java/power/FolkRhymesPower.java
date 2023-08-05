@@ -34,8 +34,8 @@ public class FolkRhymesPower extends AbstractPower{
     public void Trigger()
     {
         flashWithoutSound();
-        for(int i=1;i<=this.amount;i++)
-            addToBot(new ChannelNoteAction(new DefendNote()));
+        /*for(int i=1;i<=this.amount;i++)
+            addToBot(new ChannelNoteAction(new DefendNote()));*/
         addToBot(new GainBlockAction(AbstractDungeon.player,this.amount));
     }
 

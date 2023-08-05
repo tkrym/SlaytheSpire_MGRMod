@@ -4,6 +4,7 @@ import action.ChannelNoteAction;
 import basemod.abstracts.CustomRelic;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -30,8 +31,8 @@ public class WitchHat extends CustomRelic
     public void atTurnStart()
     {
         addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, WitchHat.this));
-        addToBot(new ChannelNoteAction(new DefendNote()));
-        if (AbstractDungeon.player.isBloodied) addToBot(new ChannelNoteAction(new DefendNote()));
+        addToBot(new GainBlockAction(AbstractDungeon.player,2));
+        if (AbstractDungeon.player.isBloodied) addToBot(new GainBlockAction(AbstractDungeon.player,2));
     }
 
     @Override

@@ -17,13 +17,13 @@
   	"MGR:Stereo": {
     "NAME": "立体声",
     "DESCRIPTIONS": [
-      " #y音符 对所有敌人造成伤害。"
+      "将你生成的 #y防御音符 替换为 #y攻击音符 ，它们会额外给予你伤害值一半的格挡"
     ]
   },
   	"MGR:StereoPlus": {
     "NAME": "立体声+",
     "DESCRIPTIONS": [
-      " #y音符 对所有敌人造成伤害，并且受 #y易伤 加成。"
+      "将你生成的 #y防御音符 替换为 #y攻击音符 ，它们会额外给予你伤害值一半的格挡，且该伤害受 #y易伤 加成。"
     ]
   },
   	"MGR:IndifferentLook": {
@@ -151,8 +151,8 @@
     "MGR:FolkRhymesPower": {
     "NAME": "弹奏民谣",
     "DESCRIPTIONS": [
-      "打出能力牌时不再产生抽牌音符，改为产生 #b",
-      " 个防御音符 。"
+      "打出能力牌时不再产生抽牌音符，改为获得 #b",
+      " 点格挡。"
     ]
   },
     "MGR:LoseFortePower": {
@@ -208,7 +208,7 @@
   "MGR:BurnsRedPower": {
     "NAME": "赤灼",
     "DESCRIPTIONS": [
-      "你的 #y攻击音符 也会给予你一半的 #y格挡 。"
+      "#y攻击音符 能伤害所有敌人。"
     ]
   },     
     "MGR:UnisonPower": {

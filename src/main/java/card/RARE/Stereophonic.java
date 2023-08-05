@@ -26,16 +26,16 @@ public class Stereophonic extends AbstractMGRCard
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG = "img/card/" + ID.substring(4) + ".png";
-    private static final int COST = 1;
-    private static final int MAGIC = 2;
-    private static final int PLUS_MAGIC = 1;
+    private static final int COST = 2;
+    //private static final int MAGIC = 2;
+    //private static final int PLUS_MAGIC = 1;
 
     public Stereophonic()
     {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.POWER,
                 AbstractCardEnum.MGR_COLOR, CardRarity.RARE, CardTarget.SELF);
-        this.baseMagicNumber = MAGIC;
-        this.magicNumber = this.baseMagicNumber;
+        //this.baseMagicNumber = MAGIC;
+        //this.magicNumber = this.baseMagicNumber;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m)
@@ -57,7 +57,7 @@ public class Stereophonic extends AbstractMGRCard
                 AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(mo, p, new VulnerablePower(mo, this.magicNumber, false), this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
             }*/
         }
-        for(int i=1;i<=this.magicNumber;i++) addToBot(new ChannelNoteAction(new AttackNote()));
+        //for(int i=1;i<=this.magicNumber;i++) addToBot(new ChannelNoteAction(new AttackNote()));
     }
 
     public AbstractCard makeCopy() {return new Stereophonic();}
@@ -67,7 +67,7 @@ public class Stereophonic extends AbstractMGRCard
         if (!this.upgraded)
         {
             this.upgradeName();
-            this.upgradeMagicNumber(PLUS_MAGIC);
+            //this.upgradeMagicNumber(PLUS_MAGIC);
             this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }

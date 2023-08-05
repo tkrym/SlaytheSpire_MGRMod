@@ -32,8 +32,8 @@ public class MyReflectionAction extends AbstractGameAction
         ArrayList<AbstractCard> cards = new ArrayList<>(p.hand.group);
         Collections.shuffle(cards, new Random(AbstractDungeon.miscRng.randomLong()));
         cards.sort(Comparator.comparingInt(c -> c.costForTurn));
-        //if(!cards.isEmpty()) addToTop(new ExhaustSpecificCardAction(cards.get(0),p.hand));
-        if (!cards.isEmpty())
+        if(!cards.isEmpty()) addToTop(new ExhaustSpecificCardAction(cards.get(0),p.hand));
+        if (cards.size()>1)
         {
             AbstractCard c = cards.get(cards.size() - 1);
             c.setCostForTurn(c.costForTurn - this.amount);

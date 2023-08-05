@@ -45,6 +45,7 @@ public class Romp extends AbstractMGRCard {
         if (!this.upgraded) {
             this.upgradeName();
             //this.upgradeBlock(PLUS_BLOCK);
+            this.selfRetain=true;
             this.rawDescription=UPGRADE_DESCRIPTION;
             this.cardsToPreview.upgrade();
             initializeDescription();

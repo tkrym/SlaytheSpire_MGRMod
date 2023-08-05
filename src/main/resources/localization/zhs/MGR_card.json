@@ -79,8 +79,8 @@
   },
     "MGR:Stereophonic":{
     "NAME":"立体声",
-    "DESCRIPTION": "你的 mgr:攻击音符 会对所有敌人造成伤害。 NL 生成 !M! 个 *攻击音符 。",
-    "UPGRADE_DESCRIPTION": "你的 mgr:攻击音符 会对所有敌人造成伤害且受易伤加成。 NL 生成 !M! 个 *攻击音符 。"
+    "DESCRIPTION": "将你生成的 mgr:防御音符 替换为 mgr:攻击音符 ，它们会额外给予你伤害值一半的格挡。",
+    "UPGRADE_DESCRIPTION": "将你生成的 mgr:防御音符 替换为 mgr:攻击音符 ，它们会额外给予你伤害值一半的格挡，且该伤害受 易伤 加成。"
   },
     "MGR:AdjustTempo":{
     "NAME":"节奏调节",
@@ -89,7 +89,7 @@
     "MGR:StageWarmUp":{
     "NAME":"舞台预热",
     "DESCRIPTION": "获得 !M! 层 mgr:强音 。",
-    "UPGRADE_DESCRIPTION": "获得 !M! 层 mgr:强音 。 NL mgr:开眼 ：再获得 !M! 层。"
+    "UPGRADE_DESCRIPTION": "获得 !M! 层 mgr:强音 。 NL mgr:开眼 ：再将一张 *舞台预热 加入手牌。"
   },
 	"MGR:ScaryGlare": {
 	"NAME":"恐怖瞪视",
@@ -135,7 +135,7 @@
   },
     "MGR:MaguroAssault":{
     "NAME":"金枪鱼强袭",
-    "DESCRIPTION": "造成 !D! 点伤害。本回合中每触发过一次 mgr:和弦 ，伤害增加 !M! 。 NL  mgr:起音 或 mgr:尾音 ：伤害翻倍  NL  mgr:开眼 ：伤害翻倍 "
+    "DESCRIPTION": "造成 !D! 点伤害。本回合中每触发过一次 mgr:和弦 ，伤害增加 !M! 。 NL mgr:尾音 ：伤害翻倍。 NL  mgr:开眼 ：伤害翻倍。"
   },
     "MGR:Rehearsal":{
     "NAME":"预演",
@@ -177,7 +177,7 @@
     "MGR:Romp":{
     "NAME":"雀跃",
     "DESCRIPTION": "将 !M! 张 *困惑 置入手牌。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "将 !M! 张 *困惑+ 置入手牌。 NL 消耗 。"
+    "UPGRADE_DESCRIPTION": "将 !M! 张 *困惑+ 置入手牌。 NL 保留 。 消耗 。"
   },
     "MGR:Yazyuutokasu":{
     "NAME":"野兽化",
@@ -239,7 +239,7 @@
   },
     "MGR:Nocturnal":{
     "NAME":"夜行",
-    "DESCRIPTION": "将一张随机 *诅咒 加入弃牌堆。 NL 你的抽牌堆、弃牌堆、消耗堆与手牌中每有一张 *诅咒 ，对所有敌人造成一次 !D! 点伤害。"
+    "DESCRIPTION": "将一张随机 *诅咒 加入抽牌堆。 NL 你的抽牌堆、弃牌堆、消耗堆与手牌中每有一张 *诅咒 ，对所有敌人造成一次 !D! 点伤害。"
   },
     "MGR:TheCursed":{
     "NAME":"诅咒随身",
@@ -330,13 +330,13 @@
   },
     "MGR:MyReflection":{
     "NAME":"镜中身",
-    "DESCRIPTION": "消耗一张牌，使手中随机费用最高的牌本回合费用减少 [E] 。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "消耗一张牌，使手中随机费用最高的牌本回合费用减少 [E] [E] 。 NL 消耗 。"
+    "DESCRIPTION": "随机消耗一张费用最低的手牌，使随机一张费用最高的手牌本回合费用减少 [E] [E] 。",
+    "UPGRADE_DESCRIPTION": "随机消耗一张费用最低的手牌，使随机一张费用最高的手牌本回合费用减少 [E] [E] [E] 。"
   },
     "MGR:FolkRhymes":{
     "NAME":"民谣",
-    "DESCRIPTION": "打出能力牌时不再产生 mgr:抽牌音符 ，改为产生 !M! 个 mgr:防御音符 并获得 !M! 点格挡。",
-    "UPGRADE_DESCRIPTION": " 固有 。 NL 打出能力牌时不再产生 mgr:抽牌音符 ，改为产生 !M! 个 mgr:防御音符 并获得 !M! 点格挡。"
+    "DESCRIPTION": "打出能力牌时不再产生 mgr:抽牌音符 ，改为获得 !M! 点格挡。",
+    "UPGRADE_DESCRIPTION": " 固有 。 NL 打出能力牌时不再产生 mgr:抽牌音符 ，改为获得 !M! 点格挡。"
   },
     "MGR:Dexterous":{
     "NAME":"灵巧",
@@ -406,7 +406,8 @@
   },
     "MGR:BurnsRed":{
     "NAME":"赤灼",
-    "DESCRIPTION": "你的 mgr:攻击音符 也会给予你一半的 格挡 。"
+    "DESCRIPTION": "mgr:攻击音符 能伤害所有敌人。",
+    "UPGRADE_DESCRIPTION": "mgr:攻击音符 能伤害所有敌人。 NL 生成 !M! 个 *攻击音符 。"
   },
     "MGR:FinisherShooting":{
     "NAME":"(Deprecated)终结枪击",

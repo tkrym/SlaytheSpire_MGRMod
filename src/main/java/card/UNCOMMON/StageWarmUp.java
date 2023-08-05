@@ -4,6 +4,7 @@ import action.ApplyForteAction;
 import card.AbstractMGRCard;
 import character.MGR_character;
 import com.badlogic.gdx.graphics.Color;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -30,7 +31,7 @@ public class StageWarmUp extends AbstractMGRCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ApplyForteAction(this.magicNumber));
         if(this.upgraded&&MGR_character.BigBrotherStanceCheck())
-            AbstractDungeon.actionManager.addToBottom(new ApplyForteAction(1));
+            addToBot(new MakeTempCardInHandAction(new StageWarmUp(),1));
     }
 
     public AbstractCard makeCopy() { return new StageWarmUp(); }
@@ -39,6 +40,7 @@ public class StageWarmUp extends AbstractMGRCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.rawDescription=UPGRADE_DESCRIPTION;
+            this.cardsToPreview=new StageWarmUp();
             initializeDescription();
         }
     }

@@ -1,5 +1,6 @@
 package stance;
 
+import character.MGR_subscriber;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.MathUtils;
@@ -94,8 +95,11 @@ public class BigBrotherStance extends AbstractStance {
         sfxId = CardCrawlGame.sound.playAndLoop("STANCE_LOOP_DIVINITY");
         AbstractDungeon.effectsQueue.add(new BorderFlashEffect(CardHelper.getColor(0,230,245), true));
         AbstractDungeon.effectsQueue.add(new EnterBigBrotherStanceEffect());
-        AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(1));
-        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(1));
+        if(!MGR_subscriber.BanBigBrotherStanceEffect)
+        {
+            AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(1));
+            AbstractDungeon.actionManager.addToBottom(new DrawCardAction(1));
+        }
     }
 
     @Override

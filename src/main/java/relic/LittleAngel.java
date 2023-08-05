@@ -1,5 +1,6 @@
 package relic;
 import basemod.abstracts.CustomRelic;
+import card.COMMON.Marionette;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;

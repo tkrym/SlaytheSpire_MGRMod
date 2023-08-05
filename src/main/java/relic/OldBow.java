@@ -15,11 +15,11 @@ public class OldBow extends CustomRelic{
     public static final String ID = "MGR:OldBow";
     private static final String IMG = "img/relic/"+ID.substring(4)+".png";
     private static final String OUTLINE = "img/relic/outline/"+ID.substring(4)+".png";
-    private static final int MAGIC=3;
+    private static final int MAGIC=5;
 
     public OldBow() {
-        super(ID, ImageMaster.loadImage(IMG), ImageMaster.loadImage(OUTLINE), RelicTier.UNCOMMON, LandingSound.FLAT);
-        this.counter=0;
+        super(ID, ImageMaster.loadImage(IMG), ImageMaster.loadImage(OUTLINE), RelicTier.COMMON, LandingSound.FLAT);
+        this.counter=MAGIC;
     }
 
     public String getUpdatedDescription() { return this.DESCRIPTIONS[0]+MAGIC+this.DESCRIPTIONS[1]; }
@@ -32,10 +32,10 @@ public class OldBow extends CustomRelic{
 
     private void UpdateCounter()
     {
-        this.counter++;
-        if(this.counter>=MAGIC)
+        this.counter--;
+        if(this.counter<=0)
         {
-            this.counter=0;
+            this.counter=MAGIC;
             this.flash();
             addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
             addToBot(new DrawCardAction(1));

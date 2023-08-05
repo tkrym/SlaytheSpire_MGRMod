@@ -10,12 +10,14 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.relics.SpiritPoop;
 import com.megacrit.cardcrawl.rewards.RewardItem;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import note.*;
 import reward.LoseRelicReward;
 
 import java.util.*;
+import java.util.function.Consumer;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -23,7 +25,7 @@ public class UnknownCreature extends CustomRelic{
     public static final String ID = "MGR:UnknownCreature";
     private static final String IMG = "img/relic/"+ID.substring(4)+".png";
     private static final String OUTLINE = "img/relic/outline/"+ID.substring(4)+".png";
-    private static final int EatNumber=2;
+    public static final int EatNumber=2;
     private boolean HaveAte=true;
     private boolean ShowReward=false;
 
@@ -36,6 +38,7 @@ public class UnknownCreature extends CustomRelic{
         this.ShowReward=false;
         this.HaveAte=false;
     }
+
 
     @Override
     public void update() {

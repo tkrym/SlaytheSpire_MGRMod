@@ -19,28 +19,17 @@ public class BurnsRedPower extends AbstractPower
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    public BurnsRedPower(int amount)
+    public BurnsRedPower()
     {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = AbstractDungeon.player;
-        //this.amount = amount;
         updateDescription();
         this.img = new Texture(IMG);
     }
 
     @Override
     public void stackPower(int amt){}
-/*
-    @Override
-    public void onUseCard(AbstractCard c, UseCardAction action)
-    {
-        if (c.type.equals(AbstractCard.CardType.SKILL))
-        {
-            for (int i = 1; i <= this.amount; i++)
-                addToBot(new ChannelNoteAction(new AttackNote()));
-        }
-    }*/
 
     @Override
     public void updateDescription() {this.description = DESCRIPTIONS[0];}

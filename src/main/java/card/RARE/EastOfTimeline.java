@@ -24,9 +24,9 @@ public class EastOfTimeline extends AbstractMGRCard {
     public EastOfTimeline() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.SKILL,
                 AbstractCardEnum.MGR_COLOR, CardRarity.RARE, CardTarget.SELF);
-        this.baseMagicNumber=3;
+        this.baseMagicNumber=2;
         this.magicNumber=this.baseMagicNumber;
-        this.misc=3;
+        this.misc=2;
         ExhaustiveField.ExhaustiveFields.baseExhaustive.set(this, 2);
         ExhaustiveField.ExhaustiveFields.exhaustive.set(this, 2);
     }

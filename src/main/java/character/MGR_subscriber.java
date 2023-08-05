@@ -112,6 +112,8 @@ public class MGR_subscriber implements EditCharactersSubscriber, EditRelicsSubsc
     public static final String UnlockA20String = "UnlockA20";
     public static boolean BanRelics = false;
     public static final String BanRelicsString = "BanRelics";
+    public static boolean BanBigBrotherStanceEffect = false;
+    public static final String BanBigBrotherStanceEffectString = "BanBigBrotherStanceEffect";
 
 
     public MGR_subscriber()
@@ -127,6 +129,7 @@ public class MGR_subscriber implements EditCharactersSubscriber, EditRelicsSubsc
         CustomSettings.setProperty(EnableTutorialString, "TRUE");
         CustomSettings.setProperty(UnlockA20String, "FALSE");
         CustomSettings.setProperty(BanRelicsString, "FALSE");
+        CustomSettings.setProperty(BanBigBrotherStanceEffectString, "FALSE");
         try
         {
             SpireConfig config = new SpireConfig("MGRMod", "CustomSettings", CustomSettings);
@@ -135,6 +138,7 @@ public class MGR_subscriber implements EditCharactersSubscriber, EditRelicsSubsc
             AddCustomObjects = config.getBool(AddCustomObjectsString);
             BanRelics = config.getBool(BanRelicsString);
             EnableTutorial = config.getBool(EnableTutorialString);
+            BanBigBrotherStanceEffect = config.getBool(BanBigBrotherStanceEffectString);
         } catch (Exception ignored) {}
     }
 
@@ -204,7 +208,17 @@ public class MGR_subscriber implements EditCharactersSubscriber, EditRelicsSubsc
                 config.save();
             } catch (Exception ignored) {}
         });
-        ModLabeledToggleButton EnableTutorialButton = new ModLabeledToggleButton(CustomSettingsStrings.TEXT[3], 400.0F, 600.0F, Settings.CREAM_COLOR, FontHelper.charDescFont, EnableTutorial, settingsPanel, (label) -> {}, button ->
+        ModLabeledToggleButton BanBigBrotherStanceEffectButton = new ModLabeledToggleButton(CustomSettingsStrings.TEXT[3], 400.0F, 600.0F, Settings.CREAM_COLOR, FontHelper.charDescFont, BanBigBrotherStanceEffect, settingsPanel, (label) -> {}, button ->
+        {
+            BanBigBrotherStanceEffect = button.enabled;
+            try
+            {
+                SpireConfig config = new SpireConfig("MGRMod", "CustomSettings", CustomSettings);
+                config.setBool(BanBigBrotherStanceEffectString, BanBigBrotherStanceEffect);
+                config.save();
+            } catch (Exception ignored) {}
+        });
+        ModLabeledToggleButton EnableTutorialButton = new ModLabeledToggleButton(CustomSettingsStrings.TEXT[4], 400.0F, 550.0F, Settings.CREAM_COLOR, FontHelper.charDescFont, EnableTutorial, settingsPanel, (label) -> {}, button ->
         {
             EnableTutorial = button.enabled;
             try
@@ -217,6 +231,7 @@ public class MGR_subscriber implements EditCharactersSubscriber, EditRelicsSubsc
         settingsPanel.addUIElement(UnlockA20Button);
         settingsPanel.addUIElement(AddCustomObjectsButton);
         settingsPanel.addUIElement(BanRelicsButton);
+        settingsPanel.addUIElement(BanBigBrotherStanceEffectButton);
         settingsPanel.addUIElement(EnableTutorialButton);
         return settingsPanel;
     }
@@ -429,7 +444,7 @@ public class MGR_subscriber implements EditCharactersSubscriber, EditRelicsSubsc
         this.relicsToAdd_SHARED.add(new Maguroyaki());
         this.relicsToAdd.add(new MiniMicrophone());
         this.relicsToAdd.add(new YourExclusiveStage());
-        this.relicsToAdd.add(new WitchHat());
+        this.relicsToAdd_SHARED.add(new WitchHat());
         this.relicsToAdd_SHARED.add(new FriendsSpirit());
         this.relicsToAdd.add(new Fumo());
         this.relicsToAdd.add(new Voracious());
@@ -467,7 +482,7 @@ public class MGR_subscriber implements EditCharactersSubscriber, EditRelicsSubsc
         if (AbstractDungeon.player instanceof MGR_character)
         {
             AbstractDungeon.bossRelicPool.remove(SneckoEye.ID);
-            AbstractDungeon.bossRelicPool.remove(TinyHouse.ID);
+            AbstractDungeon.shopRelicPool.remove(PrismaticShard.ID);
             if (BanRelics)
             {
                 AbstractDungeon.shopRelicPool.remove(MedicalKit.ID);

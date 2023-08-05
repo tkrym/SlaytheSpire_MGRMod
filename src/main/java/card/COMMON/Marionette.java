@@ -57,7 +57,7 @@ public class Marionette extends AbstractMGRCard
                 if (!m.hasPower(ArtifactPower.POWER_ID))
                     addToBot(new ApplyPowerAction(m, AbstractDungeon.player, new GainStrengthPower(m, this.magicNumber), this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
             }
-        addToTop(new ChannelNoteAction(new DebuffNote()));
+        //addToTop(new ChannelNoteAction(new DebuffNote()));
     }
 
     @Override

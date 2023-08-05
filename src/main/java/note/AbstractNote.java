@@ -221,7 +221,7 @@ public abstract class AbstractNote extends AbstractOrb
     {
         float scale = 1 + MathUtils.sin(this.angle) * 0.05F + 0.05F;
         this.shineColor = this.c.cpy();
-        this.shineColor.a = this.c.a / scale;
+        this.shineColor.a = this.c.a / (2*scale-1);
         sb.setBlendFunction(770, 771);
         sb.setColor(this.shineColor);
         sb.draw(this.img, this.cX - 48.0f, (this.cY - 48.0f) + this.bobEffect.y * 0.5F, 48.0f, 48.0f, 96.0f, 96.0f,

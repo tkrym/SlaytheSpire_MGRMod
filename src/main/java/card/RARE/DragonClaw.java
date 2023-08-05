@@ -51,7 +51,8 @@ public class DragonClaw extends AbstractMGRCard
         DecMagicNumber();
         if(this.exhaust)
         {
-            AbstractDungeon.player.discardPile.moveToExhaustPile(this);
+            addToTop(new ExhaustSpecificCardAction(this,AbstractDungeon.player.discardPile));
+            //AbstractDungeon.player.discardPile.moveToExhaustPile(this);
             addToTop(new MakeTempCardInDiscardAction(GetMyCard(this.upgraded),1));
         }
     }

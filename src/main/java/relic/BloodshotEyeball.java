@@ -13,21 +13,22 @@ public class BloodshotEyeball extends CustomRelic{
     private static final String IMG = "img/relic/"+ID.substring(4)+".png";
     private static final String OUTLINE = "img/relic/outline/"+ID.substring(4)+".png";
     private static final int MAGIC = 3;
-    private static final int TIMES = 3;
+    private static final int TIMES = 4;
 
     public BloodshotEyeball() {
-        super(ID, ImageMaster.loadImage(IMG), ImageMaster.loadImage(OUTLINE), RelicTier.UNCOMMON, LandingSound.CLINK);
+        super(ID, ImageMaster.loadImage(IMG), ImageMaster.loadImage(OUTLINE), RelicTier.COMMON, LandingSound.CLINK);
     }
 
-    public String getUpdatedDescription() { return this.DESCRIPTIONS[0]+MAGIC+this.DESCRIPTIONS[1]+TIMES+this.DESCRIPTIONS[2]; }
+    public String getUpdatedDescription() { return this.DESCRIPTIONS[0]+MAGIC+this.DESCRIPTIONS[1]; }
 
     @Override
     public void atBattleStartPreDraw() {
         flash();
-        for(int i=1;i<=TIMES;++i) {
-            AbstractMonster monster = AbstractDungeon.getMonsters().getRandomMonster(null, true, AbstractDungeon.cardRandomRng);
-            AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(monster, this));
-            this.addToBot(new ApplyGazeAction(monster,MAGIC));
+        for(AbstractMonster mo:AbstractDungeon.getMonsters().monsters)
+        {
+            if(mo.isDeadOrEscaped()) continue;
+            addToBot(new RelicAboveCreatureAction(mo,this));
+            addToBot(new ApplyGazeAction(mo,MAGIC));
         }
     }
 

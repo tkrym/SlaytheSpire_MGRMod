@@ -29,7 +29,7 @@ public class Nocturnal extends AbstractMGRCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new MakeTempCardInDiscardAction(AbstractDungeon.returnRandomCurse().makeCopy(), 1));
+        addToBot(new MakeTempCardInDrawPileAction(AbstractDungeon.returnRandomCurse().makeCopy(), 1,true,true,false));
         addToBot(new AbstractGameAction() {
             @Override
             public void update() {
