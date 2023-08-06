@@ -21,7 +21,7 @@ public class RoundRobin extends AbstractMGRCard
     private static final int COST = 1;
     private static final int MAGIC = 2;
     private static final int PLUS_MAGIC = 1;
-    private static final int BLOCK = 8;
+    private static final int BLOCK = 7;
     private static final int PLUS_BLOCK = 1;
 
     public RoundRobin()

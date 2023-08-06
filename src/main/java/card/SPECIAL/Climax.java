@@ -42,7 +42,7 @@ public class Climax extends AbstractMGRCard
     public void use(AbstractPlayer p, AbstractMonster m)
     {
         addToBot(new ApplyForteAction(this.magicNumber));
-        addToBot(new ApplyPowerAction(p,p,new LoseFortePower(this.magicNumber),this.magicNumber));
+        //addToBot(new ApplyPowerAction(p,p,new LoseFortePower(this.magicNumber),this.magicNumber));
         addToBot(new ApplyPowerAction(p,p,new ClimaxPower(1),1));
     }
 

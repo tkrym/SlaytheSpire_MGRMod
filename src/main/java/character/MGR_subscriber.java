@@ -4,8 +4,6 @@ import action.MGRTutorialAction;
 import basemod.BaseMod;
 import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
-import basemod.ModToggleButton;
-import basemod.eventUtil.AddEventParams;
 import basemod.interfaces.*;
 import card.BASIC.*;
 import card.COMMON.*;
@@ -16,7 +14,7 @@ import card.COMMON.Frighten;
 import card.COMMON.RapidClaw;
 import card.UNCOMMON.HakkeroCharge;
 import card.COMMON.RoundRobin;
-import card.COMMON.StarrySkyObservation;
+import card.COMMON.StarryDrift;
 import card.COMMON.TheEyeBehind;
 import card.UNCOMMON.EchoPhantom;
 import card.COMMON.IntertwinedTimbres;
@@ -48,12 +46,10 @@ import card.UNCOMMON.SongOfSubmersion;
 import card.COMMON.Chorus;
 import card.UNCOMMON.Futariboshi;
 import card.UNCOMMON.Kimitomitahosizora;
-import card.UNCOMMON.StarryDrift;
 import card.UNCOMMON.Yazyuutokasu;
 import card.UNCOMMON.GazeFromTheShadow;
 import card.UNCOMMON.DarkDiffuse;
 import card.COMMON.Rehearsal;
-import card.COMMON.AlternateSinging;
 import card.UNCOMMON.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -61,7 +57,6 @@ import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -76,12 +71,10 @@ import path.AbstractCardEnum;
 import path.ModClassEnum;
 import relic.*;
 import potion.*;
-import ui.MGRTutorial;
 
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Properties;
-import java.util.function.Consumer;
 
 @SpireInitializer
 public class MGR_subscriber implements EditCharactersSubscriber, EditRelicsSubscriber, EditCardsSubscriber, EditStringsSubscriber, EditKeywordsSubscriber, PostInitializeSubscriber, OnCardUseSubscriber, OnStartBattleSubscriber, PostBattleSubscriber, AddAudioSubscriber, PostDungeonInitializeSubscriber
@@ -112,9 +105,6 @@ public class MGR_subscriber implements EditCharactersSubscriber, EditRelicsSubsc
     public static final String UnlockA20String = "UnlockA20";
     public static boolean BanRelics = false;
     public static final String BanRelicsString = "BanRelics";
-    public static boolean BanBigBrotherStanceEffect = false;
-    public static final String BanBigBrotherStanceEffectString = "BanBigBrotherStanceEffect";
-
 
     public MGR_subscriber()
     {
@@ -129,7 +119,6 @@ public class MGR_subscriber implements EditCharactersSubscriber, EditRelicsSubsc
         CustomSettings.setProperty(EnableTutorialString, "TRUE");
         CustomSettings.setProperty(UnlockA20String, "FALSE");
         CustomSettings.setProperty(BanRelicsString, "FALSE");
-        CustomSettings.setProperty(BanBigBrotherStanceEffectString, "FALSE");
         try
         {
             SpireConfig config = new SpireConfig("MGRMod", "CustomSettings", CustomSettings);
@@ -138,7 +127,6 @@ public class MGR_subscriber implements EditCharactersSubscriber, EditRelicsSubsc
             AddCustomObjects = config.getBool(AddCustomObjectsString);
             BanRelics = config.getBool(BanRelicsString);
             EnableTutorial = config.getBool(EnableTutorialString);
-            BanBigBrotherStanceEffect = config.getBool(BanBigBrotherStanceEffectString);
         } catch (Exception ignored) {}
     }
 
@@ -208,16 +196,6 @@ public class MGR_subscriber implements EditCharactersSubscriber, EditRelicsSubsc
                 config.save();
             } catch (Exception ignored) {}
         });
-        ModLabeledToggleButton BanBigBrotherStanceEffectButton = new ModLabeledToggleButton(CustomSettingsStrings.TEXT[3], 400.0F, 600.0F, Settings.CREAM_COLOR, FontHelper.charDescFont, BanBigBrotherStanceEffect, settingsPanel, (label) -> {}, button ->
-        {
-            BanBigBrotherStanceEffect = button.enabled;
-            try
-            {
-                SpireConfig config = new SpireConfig("MGRMod", "CustomSettings", CustomSettings);
-                config.setBool(BanBigBrotherStanceEffectString, BanBigBrotherStanceEffect);
-                config.save();
-            } catch (Exception ignored) {}
-        });
         ModLabeledToggleButton EnableTutorialButton = new ModLabeledToggleButton(CustomSettingsStrings.TEXT[4], 400.0F, 550.0F, Settings.CREAM_COLOR, FontHelper.charDescFont, EnableTutorial, settingsPanel, (label) -> {}, button ->
         {
             EnableTutorial = button.enabled;
@@ -231,7 +209,6 @@ public class MGR_subscriber implements EditCharactersSubscriber, EditRelicsSubsc
         settingsPanel.addUIElement(UnlockA20Button);
         settingsPanel.addUIElement(AddCustomObjectsButton);
         settingsPanel.addUIElement(BanRelicsButton);
-        settingsPanel.addUIElement(BanBigBrotherStanceEffectButton);
         settingsPanel.addUIElement(EnableTutorialButton);
         return settingsPanel;
     }
@@ -356,7 +333,7 @@ public class MGR_subscriber implements EditCharactersSubscriber, EditRelicsSubsc
         this.cardsToAdd.add(new MaguroBash());
         this.cardsToAdd.add(new Unison());
         this.cardsToAdd.add(new Rehearsal());
-        this.cardsToAdd.add(new AlternateSinging());
+        this.cardsToAdd.add(new Hush());
         this.cardsToAdd.add(new FullScaleOffensive());
         this.cardsToAdd.add(new DarkDiffuse());
         this.cardsToAdd.add(new Peek());
@@ -367,7 +344,6 @@ public class MGR_subscriber implements EditCharactersSubscriber, EditRelicsSubsc
         this.cardsToAdd.add(new Obakenoukenerai());
         this.cardsToAdd.add(new ResonanceForm());
         this.cardsToAdd.add(new MaguroCleave());
-        this.cardsToAdd.add(new StarryDrift());
         this.cardsToAdd.add(new Futariboshi());
         this.cardsToAdd.add(new Kimitomitahosizora());
         this.cardsToAdd.add(new Chorus());
@@ -391,7 +367,7 @@ public class MGR_subscriber implements EditCharactersSubscriber, EditRelicsSubsc
         this.cardsToAdd.add(new DragonClaw());
         this.cardsToAdd.add(new AccurateShooting());
         this.cardsToAdd.add(new Siren());
-        this.cardsToAdd.add(new EndOfSanity());
+        this.cardsToAdd.add(new Masterful());
         this.cardsToAdd.add(new VocalPreparation());
         this.cardsToAdd.add(new FolkRhymes());
         this.cardsToAdd.add(new MyReflection());
@@ -407,11 +383,12 @@ public class MGR_subscriber implements EditCharactersSubscriber, EditRelicsSubsc
         this.cardsToAdd.add(new IntertwinedTimbres());
         this.cardsToAdd.add(new RoundRobin());
         this.cardsToAdd.add(new TheEyeBehind());
-        this.cardsToAdd.add(new StarrySkyObservation());
+        this.cardsToAdd.add(new StarryDrift());
         this.cardsToAdd.add(new HakkeroCharge());
         this.cardsToAdd.add(new RapidClaw());
         this.cardsToAdd.add(new BurnsRed());
         this.cardsToAdd.add(new TheBurningSun());
+        this.cardsToAdd.add(new TechniqueOfRelief());
     }
 
     @Override
@@ -482,7 +459,7 @@ public class MGR_subscriber implements EditCharactersSubscriber, EditRelicsSubsc
         if (AbstractDungeon.player instanceof MGR_character)
         {
             AbstractDungeon.bossRelicPool.remove(SneckoEye.ID);
-            AbstractDungeon.shopRelicPool.remove(PrismaticShard.ID);
+            //AbstractDungeon.shopRelicPool.remove(PrismaticShard.ID);
             if (BanRelics)
             {
                 AbstractDungeon.shopRelicPool.remove(MedicalKit.ID);

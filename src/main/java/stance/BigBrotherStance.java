@@ -29,6 +29,7 @@ public class BigBrotherStance extends AbstractStance {
     public static final String STANCE_ID = "MGR:BigBrotherStance";
     private static final StanceStrings stanceString = CardCrawlGame.languagePack.getStanceString(STANCE_ID);
     private static long sfxId = -1;
+    private static boolean EnteredThisTurn=false;
     private float particleTimer3;
     private float particleTimerIndex1= MathUtils.random(0.8f, 2.0f);
     private float particleTimerIndex2= MathUtils.random(0.8f, 2.0f);
@@ -79,6 +80,7 @@ public class BigBrotherStance extends AbstractStance {
     @Override
     public void onEndOfTurn() {
         AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(NeutralStance.STANCE_ID));
+        EnteredThisTurn=false;
     }
 
     @Override
@@ -95,11 +97,12 @@ public class BigBrotherStance extends AbstractStance {
         sfxId = CardCrawlGame.sound.playAndLoop("STANCE_LOOP_DIVINITY");
         AbstractDungeon.effectsQueue.add(new BorderFlashEffect(CardHelper.getColor(0,230,245), true));
         AbstractDungeon.effectsQueue.add(new EnterBigBrotherStanceEffect());
-        if(!MGR_subscriber.BanBigBrotherStanceEffect)
+        if(true)
         {
             AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(1));
             AbstractDungeon.actionManager.addToBottom(new DrawCardAction(1));
         }
+        EnteredThisTurn=true;
     }
 
     @Override

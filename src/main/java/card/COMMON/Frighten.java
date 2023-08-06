@@ -20,12 +20,13 @@ public class Frighten extends AbstractMGRCard
     public static final String ID = "MGR:Frighten";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG = "img/card/" + ID.substring(4) + ".png";
     private static final int COST = 1;
     private static final int DMG = 4;
-    private static final int PLUS_DMG = 2;
-    private static final int MAGIC = 6;
-    private static final int PLUS_MAGIC = 2;
+    private static final int PLUS_DMG = 1;
+    private static final int MAGIC = 4;
+    private static final int PLUS_MAGIC = 1;
 
     public Frighten()
     {
@@ -40,7 +41,8 @@ public class Frighten extends AbstractMGRCard
     {
         addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn),
                 AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-        if(m.hasPower(GazePower.POWER_ID)) addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m,2,false),2));
+        int amt=this.upgraded?3:2;
+        if(m.hasPower(GazePower.POWER_ID)) addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m,amt,false),amt));
         if(m.hasPower(VulnerablePower.POWER_ID)) addToBot(new ApplyGazeAction(m,this.magicNumber));
     }
 
@@ -53,6 +55,8 @@ public class Frighten extends AbstractMGRCard
             this.upgradeName();
             this.upgradeMagicNumber(PLUS_MAGIC);
             this.upgradeDamage(PLUS_DMG);
+            this.rawDescription=UPGRADE_DESCRIPTION;
+            initializeDescription();
         }
     }
 }

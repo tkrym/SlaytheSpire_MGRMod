@@ -29,7 +29,7 @@ public class DarkDiffuse extends AbstractMGRCard
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG = "img/card/" + ID.substring(4) + ".png";
     private static final int COST = 1;
-    private static final int DMG = 7;
+    private static final int DMG = 6;
     private static final int PLUS_DMG = 2;
     private static final int MAGIC = 1;
     private static final int PLUS_MAGIC = 1;

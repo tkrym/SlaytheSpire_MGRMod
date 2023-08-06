@@ -19,7 +19,7 @@ public class Siren extends AbstractMGRCard {
     public static final String IMG = "img/card/"+ID.substring(4)+".png";
     private static final int COST = 2;
     private static final int MAGIC = 2;
-    private static final int PLUS_MAGIC = 2;
+    private static final int PLUS_MAGIC = 1;
     public Siren() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.POWER,
                 AbstractCardEnum.MGR_COLOR, CardRarity.RARE, CardTarget.SELF);

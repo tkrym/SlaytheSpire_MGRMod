@@ -1,5 +1,6 @@
 package note;
 
+import action.NoteDamageEnemyAction;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -25,6 +26,8 @@ import com.megacrit.cardcrawl.powers.ArtifactPower;
 import com.megacrit.cardcrawl.powers.FocusPower;
 import com.megacrit.cardcrawl.vfx.combat.*;
 import effect.NoteAboveCreatureEffect;
+import power.StereoPlusPower;
+import power.StereoPower;
 
 public class DrawNote extends AbstractNote {
     public static final String ORB_ID = "MGR:Draw";
@@ -55,7 +58,13 @@ public class DrawNote extends AbstractNote {
         if(this.evokeAmount<=0) return;
         AbstractPlayer p=AbstractDungeon.player;
         AbstractDungeon.actionManager.addToTop(new DrawCardAction(p,this.evokeAmount));
-        AbstractDungeon.actionManager.addToTop(new VFXAction(new NoteAboveCreatureEffect(p.hb.cX - p.animX, p.hb.cY + p.hb.height / 2.0F - p.animY, this.img), Settings.ACTION_DUR_XFAST));
+        AbstractDungeon.actionManager.addToTop(new VFXAction(new NoteAboveCreatureEffect(p.hb.cX - p.animX, p.hb.cY + p.hb.height / 2.0F - p.animY, this.img), Settings.ACTION_DUR_XFAST/1.5f));
+        boolean hasStereoPlus=AbstractDungeon.player.hasPower(StereoPlusPower.POWER_ID);
+        if(hasStereoPlus)
+        {
+            AbstractDungeon.actionManager.addToTop(new NoteDamageEnemyAction(this.evokeAmount<<1,true,this.img));
+            AbstractDungeon.actionManager.addToTop(new GainBlockAction(AbstractDungeon.player,this.evokeAmount<<1));
+        }
     }
 
     public AbstractNote makeCopy() {

@@ -4,7 +4,6 @@ import action.ChannelNoteAction;
 import card.AbstractMGRCard;
 import card.RARE.LAB01;
 import card.COMMON.Marionette;
-import card.UNCOMMON.StarryDrift;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -137,19 +136,19 @@ public abstract class AbstractNote extends AbstractOrb
         int seed = AbstractDungeon.cardRandomRng.random(99);
         if (!AbstractDungeon.player.hasPower(RiverOfNotesPower.POWER_ID))
         {
-            if (seed < 30) return new AttackNote();//30%
-            else if (seed < 65) return new DefendNote();//35%
-            else if (seed < 74) return new DebuffNote();//9%
-            else if (seed < 93) return new DrawNote();//19%
-            else return new ArtifactNote();//7%
+            if (seed < 40) return new AttackNote();//40%
+            else if (seed < 75) return new DefendNote();//35%
+            else if (seed < 83) return new DebuffNote();//8%
+            else if (seed < 95) return new DrawNote();//14%
+            else return new ArtifactNote();//5%
         }
         else
         {
-            if (seed < 20) return new AttackNote();//20%
-            else if (seed < 50) return new DefendNote();//30%
-            else if (seed < 60) return new StarryNote();//10%
-            else if (seed < 78) return new DrawNote();//18%
-            else if (seed < 92) return new DebuffNote();//14%
+            if (seed < 30) return new AttackNote();//30%
+            else if (seed < 60) return new DefendNote();//30%
+            else if (seed < 67) return new StarryNote();//7%
+            else if (seed < 82) return new DrawNote();//15%
+            else if (seed < 92) return new DebuffNote();//10%
             else return new ArtifactNote();//8%
         }
     }
@@ -157,6 +156,11 @@ public abstract class AbstractNote extends AbstractOrb
     public static void GenerateRandomBasicNoteBottom()
     {
         AbstractDungeon.actionManager.addToBottom(new ChannelNoteAction(GetRandomBasicNote()));
+    }
+
+    public static void GenerateRandomBasicNoteTop()
+    {
+        AbstractDungeon.actionManager.addToTop(new ChannelNoteAction(GetRandomBasicNote()));
     }
 
     public abstract void myEvoke();
@@ -179,17 +183,6 @@ public abstract class AbstractNote extends AbstractOrb
     {
         for (AbstractCard c : AbstractDungeon.player.hand.group)
             if (c instanceof LAB01) ((LAB01) c).AddNote(this);
-    }
-
-    public static int applyVulnerable(AbstractCreature m, int dmg)
-    {
-        int retVal = dmg;
-        if (m.hasPower(VulnerablePower.POWER_ID) && AbstractDungeon.player.hasPower(StereoPlusPower.POWER_ID))
-        {
-            retVal = (int) (m.getPower(VulnerablePower.POWER_ID).atDamageReceive((float) dmg,
-                    DamageInfo.DamageType.NORMAL));
-        }
-        return retVal;
     }
 
     public abstract AbstractNote makeCopy();

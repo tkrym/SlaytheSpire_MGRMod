@@ -38,7 +38,12 @@ public class EastOfTimeline extends AbstractMGRCard {
         this.UpdateExhaustiveDescription();
     }
 
-    public AbstractCard makeCopy() { return new EastOfTimeline(); }
+    public AbstractCard makeCopy()
+    {
+        AbstractCard newCard=new EastOfTimeline();
+        newCard.uuid=this.uuid;
+        return newCard;
+    }
 
     @Override
     public void applyPowers()

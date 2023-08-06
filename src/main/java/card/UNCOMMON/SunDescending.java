@@ -27,7 +27,7 @@ public class SunDescending extends AbstractMGRCard implements OnExhaustCardHook,
     private static final int COST = -2;
     private static final int MAGIC = 2;
     private static final int PLUS_MAGIC = 1;
-    private static final int DMG = 5;
+    private static final int DMG = 4;
     private static final int PLUS_DMG = 1;
 
     public SunDescending()

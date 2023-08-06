@@ -3,6 +3,7 @@ package action;
 import card.COMMON.QuickShooting;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.GameActionManager;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardQueueItem;
@@ -11,6 +12,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.DrawCardNextTurnPower;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect;
 import note.AbstractNote;
 import patch.ManualDiscardPatch;
@@ -51,7 +53,8 @@ public class TheBurningSunAction extends AbstractGameAction
                 p.hand.moveToExhaustPile(c);
                 if (this.B) addToTop(new TemporaryDuplicationAction(c));
             }
-            addToTop(new DrawCardAction(AbstractDungeon.handCardSelectScreen.selectedCards.size()));
+            addToTop(new ApplyPowerAction(p,p,new DrawCardNextTurnPower(p,AbstractDungeon.handCardSelectScreen.selectedCards.size())));
+            //addToTop(new DrawCardAction(AbstractDungeon.handCardSelectScreen.selectedCards.size()));
             CardCrawlGame.dungeon.checkForPactAchievement();
             AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
             AbstractDungeon.player.hand.refreshHandLayout();

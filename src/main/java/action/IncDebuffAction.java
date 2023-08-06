@@ -1,22 +1,25 @@
 package action;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.ConstrictedPower;
+import com.megacrit.cardcrawl.powers.VulnerablePower;
+import com.megacrit.cardcrawl.powers.WeakPower;
 import power.FourEyesPower;
 import power.GazePower;
 import power.IndifferentLookPower;
 
 public class IncDebuffAction extends AbstractGameAction
 {
-    private int GazeAmount;
-    public IncDebuffAction(AbstractCreature target,int amount,int GazeAmount)
+    private boolean upgraded;
+    public IncDebuffAction(AbstractCreature target,boolean upgraded)
     {
         this.source = AbstractDungeon.player;
-        this.amount=amount;
-        this.GazeAmount=GazeAmount;
+        this.upgraded=upgraded;
         this.target = target;
         this.actionType = ActionType.DEBUFF;
         this.startDuration = Settings.ACTION_DUR_XFAST;
@@ -27,22 +30,17 @@ public class IncDebuffAction extends AbstractGameAction
     {
         if (this.duration == this.startDuration && this.target != null)
         {
-            for (AbstractPower power : this.target.powers)
-                if (power.type == AbstractPower.PowerType.DEBUFF)
-                {
-                    int zf=power.amount>=0?1:-1;
-                    if (!(power instanceof GazePower))
-                    {
-                        FourEyesPower.Trigger(this.target, Math.abs(power.amount));
-                        power.stackPower(this.amount * zf);
-                    }else
-                    {
-                        IndifferentLookPower.Trigger(power.amount);
-                        power.stackPower(GazeAmount);
-                    }
-                    power.flashWithoutSound();
-                    power.updateDescription();
-                }
+            if(this.upgraded)
+            {
+                if(this.target.hasPower(ConstrictedPower.POWER_ID)) addToTop(new ApplyPowerAction(this.target, this.source, new ConstrictedPower(this.target, this.source, 2), 2, true, AbstractGameAction.AttackEffect.NONE));
+                else addToTop(new ApplyPowerAction(this.target, this.source, new ConstrictedPower(this.target, this.source, 1), 1, true, AbstractGameAction.AttackEffect.NONE));
+            }
+            if(this.target.hasPower(GazePower.POWER_ID)) addToTop(new ApplyPowerAction(this.target, this.source, new GazePower(this.target, 2), 2, true, AbstractGameAction.AttackEffect.NONE));
+            else addToTop(new ApplyPowerAction(this.target, this.source, new GazePower(this.target, 1), 1, true, AbstractGameAction.AttackEffect.NONE));
+            if(this.target.hasPower(VulnerablePower.POWER_ID)) addToTop(new ApplyPowerAction(this.target, this.source, new VulnerablePower(this.target, 2, false), 2, true, AbstractGameAction.AttackEffect.NONE));
+            else addToTop(new ApplyPowerAction(this.target, this.source, new VulnerablePower(this.target, 1, false), 1, true, AbstractGameAction.AttackEffect.NONE));
+            if(this.target.hasPower(WeakPower.POWER_ID)) addToTop(new ApplyPowerAction(this.target, this.source, new WeakPower(this.target, 2, false), 2, true, AbstractGameAction.AttackEffect.NONE));
+            else addToTop(new ApplyPowerAction(this.target, this.source, new WeakPower(this.target, 1, false), 1, true, AbstractGameAction.AttackEffect.NONE));
         }
         this.tickDuration();
     }

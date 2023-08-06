@@ -10,9 +10,14 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import hook.OnChordHook;
+import note.AbstractNote;
 import note.DefendNote;
 
-public class FolkRhymesPower extends AbstractPower{
+import java.util.ArrayList;
+
+public class FolkRhymesPower extends AbstractPower implements OnChordHook
+{
     public static final String POWER_ID = "MGR:FolkRhymesPower";
     private static final String IMG = "img/power/"+POWER_ID.substring(4)+".png";
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -31,13 +36,10 @@ public class FolkRhymesPower extends AbstractPower{
     @Override
     public void updateDescription() {this.description = DESCRIPTIONS[0]+this.amount+DESCRIPTIONS[1];}
 
-    public void Trigger()
+    @Override
+    public void OnChord(ArrayList<AbstractNote> notes)
     {
-        flashWithoutSound();
-        /*for(int i=1;i<=this.amount;i++)
-            addToBot(new ChannelNoteAction(new DefendNote()));*/
-        addToBot(new GainBlockAction(AbstractDungeon.player,this.amount));
+        addToTop(new GainBlockAction(AbstractDungeon.player,this.amount));
     }
-
 }
 

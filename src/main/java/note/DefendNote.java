@@ -1,5 +1,6 @@
 package note;
 
+import action.NoteDamageEnemyAction;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
@@ -20,6 +21,8 @@ import com.megacrit.cardcrawl.vfx.combat.FrostOrbPassiveEffect;
 import com.megacrit.cardcrawl.vfx.combat.LightningOrbActivateEffect;
 import com.megacrit.cardcrawl.vfx.combat.LightningOrbPassiveEffect;
 import effect.NoteAboveCreatureEffect;
+import power.StereoPlusPower;
+import power.StereoPower;
 
 public class DefendNote extends AbstractNote {
     public static final String ORB_ID = "MGR:Defend";
@@ -52,7 +55,9 @@ public class DefendNote extends AbstractNote {
         if(this.evokeAmount<=0) return;
         AbstractPlayer p=AbstractDungeon.player;
         AbstractDungeon.actionManager.addToTop(new GainBlockAction(p, p, this.evokeAmount,true));
-        AbstractDungeon.actionManager.addToTop(new VFXAction(new NoteAboveCreatureEffect(p.hb.cX - p.animX, p.hb.cY + p.hb.height / 2.0F - p.animY, this.img), Settings.ACTION_DUR_XFAST));
+        AbstractDungeon.actionManager.addToTop(new VFXAction(new NoteAboveCreatureEffect(p.hb.cX - p.animX, p.hb.cY + p.hb.height / 2.0F - p.animY, this.img), Settings.ACTION_DUR_XFAST/2.0f));
+        boolean hasStereo=AbstractDungeon.player.hasPower(StereoPower.POWER_ID)||AbstractDungeon.player.hasPower(StereoPlusPower.POWER_ID);
+        if(hasStereo) AbstractDungeon.actionManager.addToTop(new NoteDamageEnemyAction(this.evokeAmount,false,this.img));
     }
 
     public AbstractNote makeCopy() {

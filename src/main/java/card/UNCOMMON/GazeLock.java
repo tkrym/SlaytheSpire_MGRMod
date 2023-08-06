@@ -1,5 +1,6 @@
 package card.UNCOMMON;
 
+import action.ApplyGazeAction;
 import action.ChannelNoteAction;
 import action.GazeLockAction;
 import basemod.abstracts.CustomCard;
@@ -9,6 +10,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -18,6 +20,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.ConstrictedPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
@@ -32,10 +35,10 @@ public class GazeLock extends AbstractMGRCard {
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG = "img/card/"+ID.substring(4)+".png";
     private static final int COST = 1;
-    private static final int MAGIC = 1;
+    private static final int MAGIC = 2;
     private static final int PLUS_MAGIC = 1;
     public GazeLock() {
-        super(ID, cardStrings.NAME, IMG, COST, UPGRADE_DESCRIPTION, CardType.SKILL,
+        super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.SKILL,
                 AbstractCardEnum.MGR_COLOR, CardRarity.UNCOMMON, CardTarget.ENEMY);
         this.baseMagicNumber=MAGIC;
         this.magicNumber=this.baseMagicNumber;
@@ -45,9 +48,22 @@ public class GazeLock extends AbstractMGRCard {
 
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new WeakPower(m, this.magicNumber, false), this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new VulnerablePower(m, this.magicNumber, false), this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
-        AbstractDungeon.actionManager.addToBottom(new GazeLockAction(m));
+        addToBot(new AbstractGameAction() {
+            @Override
+            public void update()
+            {
+                for(AbstractPower power:m.powers)
+                    if(power.type.equals(AbstractPower.PowerType.DEBUFF))
+                    {
+                        addToTop(new DrawCardAction(1));
+                        addToTop(new ApplyGazeAction(m,GazeLock.this.magicNumber));
+                    }
+                this.isDone=true;
+            }
+        });
+        //AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new WeakPower(m, this.magicNumber, false), this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
+        //AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new VulnerablePower(m, this.magicNumber, false), this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
+        //AbstractDungeon.actionManager.addToBottom(new GazeLockAction(m));
         //this.UpdateExhaustiveDescription();
     }
 

@@ -1,4 +1,5 @@
 package relic;
+
 import action.ChannelNoteAction;
 import action.TemporaryDuplicationAction;
 import basemod.abstracts.CustomRelic;
@@ -16,36 +17,48 @@ import note.DefendNote;
 
 import java.util.ArrayList;
 
-public class FriendsSpirit extends CustomRelic{
+public class FriendsSpirit extends CustomRelic
+{
     public static final String ID = "MGR:FriendsSpirit";
-    private static final String IMG = "img/relic/"+ID.substring(4)+".png";
-    private static final String OUTLINE = "img/relic/outline/"+ID.substring(4)+".png";
+    private static final String IMG = "img/relic/" + ID.substring(4) + ".png";
+    private static final String OUTLINE = "img/relic/outline/" + ID.substring(4) + ".png";
 
-    public FriendsSpirit() {
+    public FriendsSpirit()
+    {
         super(ID, ImageMaster.loadImage(IMG), ImageMaster.loadImage(OUTLINE), RelicTier.RARE, LandingSound.MAGICAL);
     }
 
-    public String getUpdatedDescription() { return this.DESCRIPTIONS[0]; }
+    public String getUpdatedDescription() {return this.DESCRIPTIONS[0];}
 
     @Override
     public void onExhaust(AbstractCard card)
     {
-        if(!(card.type.equals(AbstractCard.CardType.CURSE)||card.type.equals(AbstractCard.CardType.STATUS))&&!this.grayscale)
+        if (!(card.type.equals(AbstractCard.CardType.CURSE) || card.type.equals(AbstractCard.CardType.STATUS)) && !this.grayscale)
         {
-            addToBot(new RelicAboveCreatureAction(AbstractDungeon.player,FriendsSpirit.this));
+            addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, FriendsSpirit.this));
             addToBot(new TemporaryDuplicationAction(card));
-            this.grayscale=true;
+            this.grayscale = true;
+            stopPulse();
         }
     }
 
     @Override
-    public void atBattleStart() {this.grayscale=false;}
+    public void atBattleStart()
+    {
+        this.grayscale = false;
+        beginLongPulse();
+    }
 
     @Override
-    public void onVictory() {this.grayscale = false;}
+    public void onVictory()
+    {
+        this.grayscale = false;
+        stopPulse();
+    }
 
     @Override
-    public AbstractRelic makeCopy() {
+    public AbstractRelic makeCopy()
+    {
         return new FriendsSpirit();
     }
 

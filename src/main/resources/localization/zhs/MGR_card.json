@@ -56,8 +56,8 @@
   },
     "MGR:GazeOfOthers":{
     "NAME":"他人的视线",
-    "DESCRIPTION": "获得 !B! 点格挡。额外获得等同于目标 mgr:注视 层数一半的格挡。",
-    "UPGRADE_DESCRIPTION": "获得 !B! 点格挡。额外获得等同于目标 mgr:注视 层数的格挡。",
+    "DESCRIPTION": "获得 !B! 点格挡。额外获得等同于目标 mgr:注视 层数的格挡。",
+    "UPGRADE_DESCRIPTION": "获得 !B! 点格挡。额外获得等同于所有敌人 mgr:注视 层数总和的格挡。",
     "EXTENDED_DESCRIPTION": [
       " NL （额外获得 ",
        " 点格挡）"
@@ -65,7 +65,7 @@
   },
     "MGR:GazeLock":{
     "NAME":"视线之锁",
-    "DESCRIPTION": "给予!M! 层虚弱与易伤，再施加等于其 *负面 状态（不包括注视）层数总和的 mgr:注视 。 消耗性 2",
+    "DESCRIPTION": "给予 !M! 层 mgr:注视 并抽1张牌。 NL 目标每有一种 *负面 状态，重复一次。",
     "UPGRADE_DESCRIPTION": "给予!M! 层虚弱与易伤，再施加等于其 *负面 状态（不包括注视）层数总和的 mgr:注视 。"
   },
     "MGR:LAB01":{
@@ -79,12 +79,13 @@
   },
     "MGR:Stereophonic":{
     "NAME":"立体声",
-    "DESCRIPTION": "将你生成的 mgr:防御音符 替换为 mgr:攻击音符 ，它们会额外给予你伤害值一半的格挡。",
-    "UPGRADE_DESCRIPTION": "将你生成的 mgr:防御音符 替换为 mgr:攻击音符 ，它们会额外给予你伤害值一半的格挡，且该伤害受 易伤 加成。"
+    "DESCRIPTION": "mgr:攻击音符 会给予你伤害一半的格挡。 NL mgr:防御音符 对随机敌人造成等量的伤害。",
+    "UPGRADE_DESCRIPTION": "mgr:攻击音符 会给予你伤害一半的格挡。 NL mgr:防御音符 对随机敌人造成等量的伤害。 NL mgr:抽牌音符 两倍地给予格挡与伤害所有敌人。"
   },
     "MGR:AdjustTempo":{
     "NAME":"节奏调节",
-    "DESCRIPTION": "生成 !M! 个 mgr:抽牌音符 。 NL 下次 mgr:和弦 后，再次生成被消耗的音符 。"
+    "DESCRIPTION": "生成 !M! 个 mgr:抽牌音符 。 NL 下次 mgr:和弦 后，再次生成被消耗的音符 。 消耗性 2",
+    "UPGRADE_DESCRIPTION": "生成 !M! 个 mgr:抽牌音符 。 NL 下次 mgr:和弦 后，再次生成被消耗的音符 。"
   },
     "MGR:StageWarmUp":{
     "NAME":"舞台预热",
@@ -110,7 +111,7 @@
     "UPGRADE_DESCRIPTION":" 生成 !M! 个 mgr:幽灵音符 。 NL  mgr:开眼 ：再生成 !M! 个。 NL 消耗 。"
   },
     "MGR:AlternateSinging": {
-    "NAME": "交替演唱",
+    "NAME": "(Deprecated)交替演唱",
     "DESCRIPTION": "每有一个 mgr:音符 ，抽 !M! 张牌。 NL 每有一个 *空 mgr:音符槽 ，获得 !B! 点格挡。",
     "UPGRADE_DESCRIPTION": "每有一个 *空 mgr:音符槽 ，抽 !M! 张牌。 NL 每有一个 mgr:音符 ，获得 !B! 点格挡。"
   },
@@ -129,7 +130,7 @@
     "UPGRADE_DESCRIPTION": "mgr:起音 ：最右边的 mgr:音符 效果翻倍。 NL mgr:尾音 ：最左边的 mgr:音符 效果翻倍。 NL 保留 。"
   },
     "MGR:Unison":{
-    "NAME":"齐唱",
+    "NAME":"齐谐",
     "DESCRIPTION": "你每打出一张牌， mgr:即兴 !M! 。",
     "UPGRADE_DESCRIPTION": " 固有 。 NL 你每打出一张牌， mgr:即兴 !M! 。"
   },
@@ -202,12 +203,12 @@
     "DESCRIPTION": "获得 !B! 点格挡。 NL 在接下来的 !M! 个回合结束时，使所有敌人失去1点力量。 NL 消耗 。"
   },
     "MGR:Chorus":{
-    "NAME":"合唱队",
-    "DESCRIPTION": "mgr:即兴 !M! 。 NL mgr:起音 ：再 mgr:即兴 1 。",
-    "UPGRADE_DESCRIPTION": "mgr:即兴 !M! 。 NL mgr:起音 ：再 mgr:即兴 2 。"
+    "NAME":"合唱",
+    "DESCRIPTION": "mgr:即兴 !M! 。",
+    "UPGRADE_DESCRIPTION": "mgr:即兴 !M! 。 NL mgr:起音 ： mgr:即兴 2 。"
   },
-    "MGR:StarryDrift":{
-    "NAME":"星空飘浮",
+    "MGR:(Deprecated)StarryDrift":{
+    "NAME":"(Deprecated)星空飘浮",
     "DESCRIPTION": " 不能被打出 。 mgr:星空 。 NL 被消耗或丢弃时，生成 mgr:能量音符 。",
     "UPGRADE_DESCRIPTION": " 不能被打出 。 mgr:星空 。 NL 被消耗或丢弃时以及抽到时，生成 mgr:能量音符 。"
   },
@@ -216,14 +217,14 @@
     "DESCRIPTION": " mgr:星空 。 NL 丢弃1张牌，对所有敌人造成 !D! 点伤害。"
   },
     "MGR:Kimitomitahosizora":{
-    "NAME":"曾与你见过的星空",
-    "DESCRIPTION": " mgr:星空 。 NL 预见 !M! ，该预见的丢弃视为从手牌中丢弃。 NL 如果丢弃了至少3张牌，生成1个 mgr:能量音符 。",
-    "UPGRADE_DESCRIPTION": " mgr:星空 。 NL 预见 !M! ，该预见的丢弃视为从手牌中丢弃。 NL 如果丢弃了至少4张牌，生成1个 mgr:能量音符 。"
+    "NAME":"细数繁星",
+    "DESCRIPTION": " mgr:星空 。 NL 预见 !M! ，视为从手牌中丢弃。 NL 如果丢弃了至少3张牌，生成1个 mgr:能量 *音符 。 消耗 。",
+    "UPGRADE_DESCRIPTION": " mgr:星空 。 NL 预见 !M! ，视为从手牌中丢弃。 NL 如果丢弃了至少4张牌，生成1个 mgr:能量 *音符 。 消耗 。"
   },
     "MGR:Futariboshi":{
     "NAME":"两个人的星☆",
-    "DESCRIPTION": " mgr:星空 。 NL 清空你的 mgr:计数器 ，生成等量的 mgr:能量音符 。 消耗 。",
-    "UPGRADE_DESCRIPTION": "mgr:星空 。 NL 清空你的 mgr:计数器 ，生成等量的 mgr:能量音符 。"
+    "DESCRIPTION": " mgr:星空 。 NL 丢弃至多 !M! 张牌，生成等量的 mgr:能量 *音符 。",
+    "UPGRADE_DESCRIPTION": " mgr:星空 。 NL 丢弃至多 !M! 张牌，生成等量的 mgr:能量 *音符 。"
   },
     "MGR:DizzyAndGiddy":{
     "NAME":"头晕目眩",
@@ -239,10 +240,10 @@
   },
     "MGR:Nocturnal":{
     "NAME":"夜行",
-    "DESCRIPTION": "将一张随机 *诅咒 加入抽牌堆。 NL 你的抽牌堆、弃牌堆、消耗堆与手牌中每有一张 *诅咒 ，对所有敌人造成一次 !D! 点伤害。"
+    "DESCRIPTION": "将一张随机 *诅咒 加入抽牌堆。 NL 你的抽牌、弃牌、消耗堆与手牌中每有一张 *诅咒 ，对随机敌人造成一次 !D! 点伤害。"
   },
     "MGR:TheCursed":{
-    "NAME":"诅咒随身",
+    "NAME":"诅咒之身",
     "DESCRIPTION": "将一张随机 *诅咒 加入抽牌堆。 NL 抽到 *诅咒 时抽 !M! 张牌并生成一个 mgr:人工音符 。",
     "UPGRADE_DESCRIPTION": " 固有 。将一张随机 *诅咒 加入抽牌堆。 NL 抽到 *诅咒 时抽 !M! 张牌并生成一个 mgr:人工音符 。"
   },
@@ -279,19 +280,19 @@
   },
     "MGR:Strafe":{
     "NAME":"扫射",
-    "DESCRIPTION": "造成1点固定伤害 !M! 次，生成等量的 mgr:攻击音符 。"
+    "DESCRIPTION": "造成 !D! 点伤害，生成等量的 mgr:攻击音符 。"
   },
     "MGR:NowhereToHide":{
     "NAME":"无处可逃",
-    "DESCRIPTION": "对所有敌人造成 !D! 点伤害并给予 !M! 层 mgr:注视 。 NL mgr:开眼 ：立即触发 *注视 2次。"
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害并给予 !M! 层 mgr:注视 。 NL mgr:开眼 ：立即触发 *注视 !B! 次。"
   },
     "MGR:Drown":{
     "NAME":"溺水",
     "DESCRIPTION": "造成 !D! 点伤害。 NL 给予 !M! 层 *缠绕 。"
   },
     "MGR:ReconvertingCharm":{
-    "NAME":"回溯魔法",
-    "DESCRIPTION": "造成 !D! 点伤害。将你打出的上 !M! 张未消耗的牌移回手牌。 NL mgr:开眼 ：获得这些牌的 mgr:临时复制 。"
+    "NAME":"回溯",
+    "DESCRIPTION": "造成 !D! 点伤害。将你打出的上 !M! 张未消耗的牌移回手牌。 NL mgr:开眼 ：获得它的 mgr:临时复制 。"
   },
     "MGR:DragonClaw":{
     "NAME":"龙爪",
@@ -300,7 +301,7 @@
   },
     "MGR:FrenziedDragonBite":{
     "NAME":"龙咬",
-    "DESCRIPTION": "使目标的所有 *负面 状态层数翻倍。 NL 然后，造成层数总和 !M! 倍的伤害。 NL 消耗 。"
+    "DESCRIPTION": "造成目标 *负面 状态层数总和 !M! 倍的伤害。 NL 翻倍目标的 *负面 状态。 NL 消耗 。"
   },
     "MGR:QuickShooting":{
     "NAME":"(Deprecated)快速射击",
@@ -308,7 +309,7 @@
   },
     "MGR:AccurateShooting":{
     "NAME":"精确射击",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 至少有两张牌时，消耗两张牌，将伤害翻倍。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL mgr:尾音 ：伤害翻倍。"
   },
     "MGR:Siren":{
     "NAME":"塞壬☆",
@@ -316,26 +317,26 @@
   },
     "MGR:VocalPreparation":{
     "NAME":"演唱准备",
-    "DESCRIPTION": "生成 !M! 个 mgr:防御音符 。将一张 *高潮！ 加入弃牌堆。 NL mgr:开眼 ：改为抽牌堆。消耗 。",
-    "UPGRADE_DESCRIPTION": "生成 !M! 个 mgr:防御音符 。将一张 *高潮！ *+ 加入弃牌堆。 NL mgr:开眼 ：改为抽牌堆。 保留 。 消耗 。"
+    "DESCRIPTION": "生成 !M! 个 mgr:防御音符 。将一张 *高潮 加入弃牌堆。 NL mgr:开眼 ：改为抽牌堆。 消耗 。",
+    "UPGRADE_DESCRIPTION": "生成 !M! 个 mgr:防御音符 。将一张 *高潮 *+ 加入弃牌堆。 NL mgr:开眼 ：改为抽牌堆。 保留 。 消耗 。"
   },
     "MGR:Climax":{
-    "NAME":"高潮！",
-    "DESCRIPTION": "获得 !M! 层 *临时 mgr:强音 。 NL 本回合所有 mgr:音符 的生成数量翻倍。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "获得 !M! 层 *临时 mgr:强音 。 NL 本回合所有 mgr:音符 的生成数量翻倍。 NL 保留 。 消耗 。 "
+    "NAME":"高潮",
+    "DESCRIPTION": "获得 !M! 层 mgr:强音 。 NL 本回合所有 mgr:音符 的生成数量翻倍。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "获得 !M! 层 mgr:强音 。 NL 本回合所有 mgr:音符 的生成数量翻倍。 NL 保留 。 消耗 。 "
   },
     "MGR:EndOfSanity":{
-    "NAME":"理智尽头",
+    "NAME":"(Deprecated)理智尽头",
     "DESCRIPTION": "本场战斗中，将当前手牌的耗能变为0。 NL 每减费一张牌，向弃牌堆中加入一张 *晕眩 。 NL 消耗 。"
   },
     "MGR:MyReflection":{
-    "NAME":"镜中身",
+    "NAME":"镜像",
     "DESCRIPTION": "随机消耗一张费用最低的手牌，使随机一张费用最高的手牌本回合费用减少 [E] [E] 。",
     "UPGRADE_DESCRIPTION": "随机消耗一张费用最低的手牌，使随机一张费用最高的手牌本回合费用减少 [E] [E] [E] 。"
   },
     "MGR:FolkRhymes":{
     "NAME":"民谣",
-    "DESCRIPTION": "打出能力牌时不再产生 mgr:抽牌音符 ，改为获得 !M! 点格挡。",
+    "DESCRIPTION": "每当你触发 mgr:和弦 ，获得 !M! 点格挡。",
     "UPGRADE_DESCRIPTION": " 固有 。 NL 打出能力牌时不再产生 mgr:抽牌音符 ，改为获得 !M! 点格挡。"
   },
     "MGR:Dexterous":{
@@ -345,10 +346,10 @@
   },
     "MGR:Salivate":{
     "NAME":"垂涎",
-    "DESCRIPTION": "每当你通过 mgr:注视 杀死一名 *非爪牙 的敌人，获得 !M! 点最大生命。"
+    "DESCRIPTION": "mgr:注视 的伤害受 易伤 加成。 NL 每当你通过 mgr:注视 杀死一名 *非爪牙 的敌人，获得 !M! 点最大生命。"
   },
     "MGR:SummoningCharm":{
-    "NAME":"还原魔法",
+    "NAME":"还原",
     "DESCRIPTION": "移除你的所有音符，将每个音符对应的一张随机卡加入手牌。 消耗 。",
     "UPGRADE_DESCRIPTION": "移除你的所有音符，将每个音符对应的一张 *升级过 的随机卡加入手牌。 消耗 。"
   },
@@ -358,11 +359,13 @@
   },
     "MGR:FourEyes":{
     "NAME":"四目",
-    "DESCRIPTION": "每当你使敌人增加 *负面 状态（不包括注视）时，额外给予增加层数 !M! 倍的 mgr:注视 。"
+    "DESCRIPTION": "每当你给予敌人 *负面 状态（不包括注视）时，额外给予层数 !M! 倍的 mgr:注视 。",
+    "UPGRADE_DESCRIPTION": " 固有 。 NL 每当你给予敌人 *负面 状态（不包括注视）时，额外给予层数 !M! 倍的 mgr:注视 。"
   },
     "MGR:Frighten":{
     "NAME":"吓唬",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 如果目标有 mgr:注视 ，给予2层 易伤 。 NL 如果目标有 易伤 ，给予 !M! 层 mgr:注视 。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 如果目标有 mgr:注视 ，给予2层 易伤 。 NL 如果目标有 易伤 ，给予 !M! 层 mgr:注视 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 如果目标有 mgr:注视 ，给予3层 易伤 。 NL 如果目标有 易伤 ，给予 !M! 层 mgr:注视 。"
   },
     "MGR:RiverOfNotes":{
     "NAME":"音符之河",
@@ -388,15 +391,16 @@
   },
     "MGR:TheEyeBehind":{
     "NAME":"后背之眼",
-    "DESCRIPTION": "使目标的所有 *负面 状态增加1层。对于 mgr:注视 ，改为增加 !M! 层。 NL mgr:开眼 ：再增加1层。 消耗 。",
-    "UPGRADE_DESCRIPTION": "使目标的所有 *负面 状态增加1层。对于 mgr:注视 ，改为增加 !M! 层。 NL mgr:开眼 ：再增加1层。 消耗 。"
+    "DESCRIPTION": "若目标没有 *虚弱 ，给予1层，否则给予2层。对 *易伤 、 mgr:注视 同理。 消耗 。",
+    "UPGRADE_DESCRIPTION": "若目标没有 *虚弱 ，给予1层，否则给予2层。对 *易伤 、 mgr:注视 、 *缠绕 同理。 消耗 。"
   },
-    "MGR:StarrySkyObservation":{
-    "NAME":"星空观察",
-    "DESCRIPTION": " mgr:星空 。 NL 预见 !M! 。 NL 丢弃所有手牌，抽 !M! 张牌。"
+    "MGR:StarryDrift":{
+    "NAME":"星空飘浮",
+    "DESCRIPTION": " mgr:星空 。 NL 丢弃所有手牌，抽 !M! 张牌。",
+    "UPGRADE_DESCRIPTION": " mgr:星空 。 NL 预见 !M! 。 NL 丢弃所有手牌，抽 !M! 张牌。"
   },
     "MGR:HakkeroCharge":{
-    "NAME":"八卦炉充能",
+    "NAME":"充能",
     "DESCRIPTION": "下回合中，每打出一张牌生成 !M! 个 mgr:攻击音符 。 NL mgr:开眼 ：并获得一层 *临时 mgr:强音 。 消耗 。",
     "UPGRADE_DESCRIPTION": "下回合中，每打出一张牌生成 !M! 个 mgr:攻击音符 。 NL mgr:开眼 ：并获得一层 *临时 mgr:强音 。 保留 。 消耗 。"
     },
@@ -415,10 +419,27 @@
   },
     "MGR:TheBurningSun":{
     "NAME":"烈日",
-    "DESCRIPTION": "消耗至多 !M! 张手牌，抽等量的牌。 NL mgr:开眼 ：再获得被消耗的牌的 mgr:临时复制 。"
+    "DESCRIPTION": "消耗至多 !M! 张手牌，下回合抽等量的牌。 NL mgr:开眼 ：获得被消耗的牌的 mgr:临时复制 。"
   },
   "MGR:FullScaleOffensive":{
-    "NAME":"总攻",
+    "NAME":"落幕",
     "DESCRIPTION": "丢弃所有 *非攻击 牌，每张生成 !M! 个 mgr:攻击音符 。"
+  },
+  "MGR:Sinister":{
+    "NAME":"(Deprecated)险恶",
+    "DESCRIPTION": "敌人的 mgr:注视 减少时，给予等量的 中毒 。"
+  },
+  "MGR:Masterful":{
+    "NAME":"全能",
+    "DESCRIPTION": "再次生成本回合生成过的每一种 mgr:音符 。 消耗 。",
+    "UPGRADE_DESCRIPTION": "再次生成本回合生成过的每一种 mgr:音符 。"
+  },
+  "MGR:Hush":{
+    "NAME":"静默",
+    "DESCRIPTION": "获得 !B! 点格挡。 NL 消耗目标的 !M! 层 mgr:注视 ，再获得一次。"
+  },
+  "MGR:TechniqueOfRelief":{
+    "NAME":"救济的技法☆",
+    "DESCRIPTION": "不能被打出 。 NL 抽到时， mgr:即兴 !D! 。 NL 被丢弃或消耗时， mgr:即兴 !M! 。"
   }
 }

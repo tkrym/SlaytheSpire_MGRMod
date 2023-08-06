@@ -19,8 +19,8 @@ public class Chorus extends AbstractMGRCard {
     private static final int COST = 1;
     private static final int MAGIC = 5;
     private static final int PLUS_MAGIC = 1;
-    private static final int EXNOTE = 1;
-    private static final int UPGRADED_EXNOTE = 1;
+    private static final int EXNOTE = 0;
+    private static final int UPGRADED_EXNOTE = 2;
     public Chorus() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.SKILL,
                 AbstractCardEnum.MGR_COLOR, CardRarity.COMMON, CardTarget.SELF);
@@ -37,7 +37,7 @@ public class Chorus extends AbstractMGRCard {
     }
 
     @Override
-    public void triggerOnGlowCheck(){ triggerOnGlowCheck_Starting();}
+    public void triggerOnGlowCheck(){ if(this.upgraded) triggerOnGlowCheck_Starting();}
 
     public AbstractCard makeCopy() { return new Chorus(); }
 

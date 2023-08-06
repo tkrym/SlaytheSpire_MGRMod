@@ -27,8 +27,8 @@ public class FrenziedDragonBite extends AbstractMGRCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DoubleDebuffAction(m));
         addToBot(new DamageByDebuffAction(this.magicNumber,m,this.damageTypeForTurn));
+        addToBot(new DoubleDebuffAction(m));
     }
 
     public AbstractCard makeCopy() { return new FrenziedDragonBite(); }

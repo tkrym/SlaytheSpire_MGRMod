@@ -11,6 +11,8 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import power.HarmonyFormPower;
+import power.StereoPlusPower;
+import power.StereoPower;
 
 public class NoteAboveCreatureEffect extends AbstractGameEffect {
     private float effectDuration;
@@ -29,7 +31,8 @@ public class NoteAboveCreatureEffect extends AbstractGameEffect {
     {
         this.img=img;
         this.effectDuration=0.3F;
-        if(AbstractDungeon.player.hasPower(HarmonyFormPower.POWER_ID)) this.effectDuration=0.2f;
+        if(AbstractDungeon.player.hasPower(HarmonyFormPower.POWER_ID)) this.effectDuration=0.21f;
+        if(AbstractDungeon.player.hasPower(StereoPower.POWER_ID)||AbstractDungeon.player.hasPower(StereoPlusPower.POWER_ID)) this.effectDuration*=0.75f;
         this.duration=this.effectDuration;
         this.x=x;
         this.y=y;

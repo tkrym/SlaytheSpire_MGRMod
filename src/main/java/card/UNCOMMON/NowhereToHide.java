@@ -26,9 +26,11 @@ public class NowhereToHide extends AbstractMGRCard {
     public static final String IMG = "img/card/"+ID.substring(4)+".png";
     private static final int COST = 2;
     private static final int DMG = 8;
-    private static final int PLUS_DMG = 2;
+    private static final int PLUS_DMG = 3;
     private static final int MAGIC = 8;
-    private static final int PLUS_MAGIC = 2;
+    private static final int PLUS_MAGIC = 3;
+    private static final int BLOCK = 2;
+    private static final int PLUS_BLOCK = 1;
     public NowhereToHide() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.ATTACK,
                 AbstractCardEnum.MGR_COLOR, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY);
@@ -36,6 +38,7 @@ public class NowhereToHide extends AbstractMGRCard {
         this.isMultiDamage = true;
         this.baseMagicNumber=MAGIC;
         this.magicNumber=this.baseMagicNumber;
+        this.baseBlock=BLOCK;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m)
@@ -53,15 +56,25 @@ public class NowhereToHide extends AbstractMGRCard {
                     for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
                         if (!mo.isDeadOrEscaped())
                         {
-                            addToTop(new GazeLoseHpAction(mo));
-                            addToTop(new WaitAction(0.1f));
-                            addToTop(new GazeLoseHpAction(mo));
+                            for(int i=1;i<=NowhereToHide.this.block;i++)
+                            {
+                                addToTop(new WaitAction(0.1f));
+                                addToTop(new GazeLoseHpAction(mo));
+                            }
                         }
                     }
                     this.isDone=true;
                 }
             });
     }
+
+    @Override
+    protected void applyPowersToBlock()
+    {
+        this.block=this.baseBlock;
+        this.isBlockModified=false;
+    }
+
 
     @Override
     public void triggerOnGlowCheck(){triggerOnGlowCheck_BigBrother();}
@@ -73,6 +86,7 @@ public class NowhereToHide extends AbstractMGRCard {
             this.upgradeName();
             this.upgradeDamage(PLUS_DMG);
             this.upgradeMagicNumber(PLUS_MAGIC);
+            this.upgradeBlock(PLUS_BLOCK);
         }
     }
 }

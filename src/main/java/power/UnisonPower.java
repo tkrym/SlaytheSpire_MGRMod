@@ -33,15 +33,7 @@ public class UnisonPower extends AbstractPower
     @Override
     public void onUseCard(AbstractCard c, UseCardAction action)
     {
-        for(int i=1;i<=this.amount;i++)
-            addToBot(new AbstractGameAction() {
-                @Override
-                public void update()
-                {
-                    AbstractNote.GenerateRandomBasicNoteBottom();
-                    this.isDone=true;
-                }
-            });
+        for(int i=1;i<=this.amount;i++) AbstractNote.GenerateRandomBasicNoteBottom();
     }
 
     @Override

@@ -20,7 +20,7 @@ public class AccurateShooting extends AbstractMGRCard {
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String IMG = "img/card/"+ID.substring(4)+".png";
     private static final int COST = 2;
-    private static final int DMG = 12;
+    private static final int DMG = 10;
     private static final int PLUS_DMG = 4;
     public AccurateShooting() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.ATTACK,
@@ -29,9 +29,9 @@ public class AccurateShooting extends AbstractMGRCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if(p.hand.size()>=2)
+        if(MGR_character.EndingCheck())
         {
-            addToBot(new ExhaustAction(2,false));
+            //addToBot(new ExhaustAction(2,false));
             addToBot(new DamageAction(m, new DamageInfo(p, this.damage*2, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
         }
         else addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
@@ -40,9 +40,7 @@ public class AccurateShooting extends AbstractMGRCard {
     @Override
     public void triggerOnGlowCheck()
     {
-        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-        if(AbstractDungeon.player.hand.size()>=3)
-            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+        triggerOnGlowCheck_Ending();
     }
 
 

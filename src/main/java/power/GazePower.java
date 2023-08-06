@@ -10,11 +10,13 @@ import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.unique.PoisonLoseHpAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import hook.OnChordHook;
 import note.AbstractNote;
@@ -76,10 +78,28 @@ public class GazePower extends AbstractPower implements OnChordHook, HealthBarRe
         }
     }
 
+    public static int applyVulnerable(AbstractCreature m, int amt)
+    {
+        int retVal = amt;
+        if (m.hasPower(VulnerablePower.POWER_ID) && AbstractDungeon.player.hasPower(SalivatePower.POWER_ID))
+        {
+            retVal = (int) (m.getPower(VulnerablePower.POWER_ID).atDamageReceive((float) amt,
+                    DamageInfo.DamageType.NORMAL));
+        }
+        if(m.hasPower("Intangible")) retVal=1;
+        return retVal;
+    }
+
+    @Override
+    public void onRemove()
+    {
+
+    }
+
     @Override
     public int getHealthBarAmount()
     {
-        return this.amount;
+        return applyVulnerable(this.owner,this.amount);
     }
 
     @Override

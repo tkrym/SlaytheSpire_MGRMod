@@ -76,7 +76,7 @@ public class MGR_character extends CustomPlayer
     public int counter;
     public int counter_min;
     public int counter_max;
-    public static final int counter_max_master = 4;
+    public static final int counter_max_master = 5;
     public static CounterPanel myCounterPanel = new CounterPanel();
     private static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString("MGR:character");
     private float VictoryEffectTimer = 0.0f;
@@ -180,8 +180,6 @@ public class MGR_character extends CustomPlayer
             AbstractDungeon.effectList.add(new ThoughtBubble(this.dialogX, this.dialogY, 3.0F, MSG[4], true));
         else
         {
-            if ((this.hasPower(StereoPower.POWER_ID) || this.hasPower(StereoPlusPower.POWER_ID)) && orbToSet instanceof DefendNote)
-                orbToSet = new AttackNote();
             int index = -1;
             for (int i = 0; i < this.orbs.size(); ++i)
                 if (this.orbs.get(i) instanceof EmptyNoteSlot)
@@ -224,22 +222,9 @@ public class MGR_character extends CustomPlayer
     @Override
     public void useCard(AbstractCard c, AbstractMonster m, int e)
     {
-        boolean dt = c.dontTriggerOnUseCard;
+        //boolean dt = c.dontTriggerOnUseCard;
         super.useCard(c, m, e);
-        AbstractDungeon.actionManager.addToBottom(new AbstractGameAction()
-        {
-            @Override
-            public void update()
-            {
-                if (!dt)
-                {
-                    if (c.type.equals(AbstractCard.CardType.POWER) && AbstractDungeon.player.hasPower(FolkRhymesPower.POWER_ID))
-                        ((FolkRhymesPower) AbstractDungeon.player.getPower(FolkRhymesPower.POWER_ID)).Trigger();
-                    else AbstractNote.GenerateNoteBottom(c);
-                }
-                this.isDone = true;
-            }
-        });
+        if(!c.dontTriggerOnUseCard) AbstractNote.GenerateNoteBottom(c);
     }
 
 

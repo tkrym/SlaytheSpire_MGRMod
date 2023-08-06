@@ -14,7 +14,7 @@ public class Sunglasses extends CustomRelic{
     public static final int SunglassesNumber=15;
 
     public Sunglasses() {
-        super(ID, ImageMaster.loadImage(IMG), ImageMaster.loadImage(OUTLINE), RelicTier.COMMON, LandingSound.CLINK);
+        super(ID, ImageMaster.loadImage(IMG), ImageMaster.loadImage(OUTLINE), RelicTier.UNCOMMON, LandingSound.CLINK);
     }
 
     public String getUpdatedDescription() { return this.DESCRIPTIONS[0]+SunglassesNumber+this.DESCRIPTIONS[1]; }

@@ -58,7 +58,7 @@ public class DebuffNote extends AbstractNote {
             if(mo.isDeadOrEscaped()) continue;
             AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(mo, p, new VulnerablePower(mo, this.evokeAmount, false), this.evokeAmount, true, AbstractGameAction.AttackEffect.NONE));
             AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(mo, p, new WeakPower(mo, this.evokeAmount, false), this.evokeAmount, true, AbstractGameAction.AttackEffect.NONE));
-            AbstractDungeon.actionManager.addToTop(new VFXAction(new NoteAboveCreatureEffect(mo.hb.cX - mo.animX, mo.hb.cY + mo.hb.height / 2.0F - mo.animY, this.img, 20.0f*Settings.scale,80.0f*Settings.scale, 0.5f), Settings.ACTION_DUR_XFAST / 2.0f));
+            AbstractDungeon.actionManager.addToTop(new VFXAction(new NoteAboveCreatureEffect(mo.hb.cX - mo.animX, mo.hb.cY + mo.hb.height / 2.0F - mo.animY, this.img, 20.0f*Settings.scale,80.0f*Settings.scale, 0.5f), Settings.ACTION_DUR_XFAST / 3.0f));
         }
     }
 

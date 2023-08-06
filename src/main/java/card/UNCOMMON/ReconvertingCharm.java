@@ -21,9 +21,9 @@ public class ReconvertingCharm extends AbstractMGRCard
     public static final String IMG = "img/card/" + ID.substring(4) + ".png";
     private static final int COST = 1;
     private static final int DMG = 6;
-    private static final int PLUS_DMG = 2;
+    private static final int PLUS_DMG = 3;
     private static final int MAGIC = 1;
-    private static final int PLUS_MAGIC = 1;
+    private static final int PLUS_MAGIC = 0;
 
     public ReconvertingCharm()
     {
@@ -51,8 +51,8 @@ public class ReconvertingCharm extends AbstractMGRCard
         if (!this.upgraded)
         {
             this.upgradeName();
-            //this.upgradeDamage(PLUS_DMG);
-            this.upgradeMagicNumber(PLUS_MAGIC);
+            this.upgradeDamage(PLUS_DMG);
+            //this.upgradeMagicNumber(PLUS_MAGIC);
         }
     }
 }

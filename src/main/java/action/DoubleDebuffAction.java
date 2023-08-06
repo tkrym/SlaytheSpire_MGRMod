@@ -29,9 +29,9 @@ public class DoubleDebuffAction extends AbstractGameAction
             for (AbstractPower power : this.target.powers)
                 if (power.type == AbstractPower.PowerType.DEBUFF)
                 {
-                    if (!(power instanceof GazePower))
-                        FourEyesPower.Trigger(this.target, Math.abs(power.amount));
-                    else IndifferentLookPower.Trigger(power.amount);
+                    /*if (!(power instanceof GazePower))
+                        FourEyesPower.Trigger(this.target, Math.abs(power.amount));*/
+                    //else IndifferentLookPower.Trigger(power.amount);
                     power.stackPower(power.amount);
                     power.flashWithoutSound();
                     power.updateDescription();

@@ -19,13 +19,13 @@ public class Nocturnal extends AbstractMGRCard {
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG = "img/card/"+ID.substring(4)+".png";
     private static final int COST = 1;
-    private static final int DMG = 7;
-    private static final int PLUS_DMG = 2;
+    private static final int DMG = 8;
+    private static final int PLUS_DMG = 3;
     public Nocturnal() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.ATTACK,
                 AbstractCardEnum.MGR_COLOR, CardRarity.COMMON, CardTarget.ALL_ENEMY);
         this.baseDamage=DMG;
-        this.isMultiDamage=true;
+        //this.isMultiDamage=true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -39,7 +39,8 @@ public class Nocturnal extends AbstractMGRCard {
                 cnt+=AbstractDungeon.player.discardPile.group.stream().filter(c->c.type.equals(CardType.CURSE)).count();
                 cnt+=AbstractDungeon.player.exhaustPile.group.stream().filter(c->c.type.equals(CardType.CURSE)).count();
                 for(int i=1;i<=cnt;i++)
-                    addToTop(new DamageAllEnemiesAction(p, Nocturnal.this.multiDamage, Nocturnal.this.damageTypeForTurn, AttackEffect.FIRE));
+                    //addToTop(new DamageAllEnemiesAction(p, Nocturnal.this.multiDamage, Nocturnal.this.damageTypeForTurn, AttackEffect.FIRE));
+                    addToTop(new DamageRandomEnemyAction(new DamageInfo(p,Nocturnal.this.damage,Nocturnal.this.damageTypeForTurn),AttackEffect.FIRE));
                 this.isDone=true;
             }
         });

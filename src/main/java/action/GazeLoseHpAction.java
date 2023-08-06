@@ -48,6 +48,7 @@ public class GazeLoseHpAction extends AbstractGameAction
             {
                 p.flash();
                 p.playApplyPowerSfx();
+                this.amount=GazePower.applyVulnerable(this.target,this.amount);
                 this.target.damage(new DamageInfo(this.source, this.amount, DamageType.HP_LOSS));
                 if (AbstractDungeon.player.hasPower(SalivatePower.POWER_ID) && (this.target.isDying || this.target.currentHealth <= 0) && !this.target.halfDead && !this.target.hasPower(MinionPower.POWER_ID))
                 {

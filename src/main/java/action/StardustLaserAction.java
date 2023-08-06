@@ -47,7 +47,7 @@ public class StardustLaserAction extends AbstractGameAction {
                 c.triggerOnManualDiscard();
                 GameActionManager.incrementDiscard(false);
             }
-            int size=AbstractDungeon.handCardSelectScreen.selectedCards.group.size();
+            //int size=AbstractDungeon.handCardSelectScreen.selectedCards.group.size();
             AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
         }
         this.tickDuration();

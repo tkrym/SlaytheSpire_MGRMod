@@ -25,7 +25,7 @@ public class UnknownCreature extends CustomRelic{
     public static final String ID = "MGR:UnknownCreature";
     private static final String IMG = "img/relic/"+ID.substring(4)+".png";
     private static final String OUTLINE = "img/relic/outline/"+ID.substring(4)+".png";
-    public static final int EatNumber=2;
+    public static final int EatNumber=1;
     private boolean HaveAte=true;
     private boolean ShowReward=false;
 
@@ -47,11 +47,19 @@ public class UnknownCreature extends CustomRelic{
             this.ShowReward=true;
             AbstractDungeon.combatRewardScreen.open();
             AbstractDungeon.combatRewardScreen.rewards.clear();
-            ArrayList<AbstractRelic> relics = new ArrayList<>(AbstractDungeon.player.relics);
+            ArrayList<AbstractRelic> relics = new ArrayList<>();
+            for(AbstractRelic relic:AbstractDungeon.player.relics)
+                if(!relic.tier.equals(RelicTier.BOSS)) relics.add(relic);
             Collections.shuffle(relics, new Random(AbstractDungeon.miscRng.randomLong()));
-            List<AbstractRelic> food=relics.stream().filter(r->r.tier!=RelicTier.BOSS).collect(Collectors.toList());
-            for(int i=1;i<=EatNumber;i++) if(food.size()>=i)
-                AbstractDungeon.combatRewardScreen.rewards.add(new LoseRelicReward(food.get(i-1)));
+            relics.sort(Comparator.comparingInt(r -> {
+                if(r.tier.equals(RelicTier.RARE)) return -5;
+                if(r.tier.equals(RelicTier.UNCOMMON)) return -4;
+                if(r.tier.equals(RelicTier.COMMON)) return -3;
+                if(r.tier.equals(RelicTier.STARTER)) return -2;
+                return -1;
+            }));
+            for(int i=1;i<=EatNumber;i++) if(relics.size()>=i)
+                AbstractDungeon.combatRewardScreen.rewards.add(new LoseRelicReward(relics.get(i-1)));
             AbstractDungeon.combatRewardScreen.positionRewards();
             AbstractDungeon.dynamicBanner.appear(this.DESCRIPTIONS[1]);
             AbstractDungeon.overlayMenu.proceedButton.hide();

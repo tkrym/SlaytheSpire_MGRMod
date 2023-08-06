@@ -2,31 +2,23 @@ package action;
 
 import card.COMMON.Marionette;
 import card.COMMON.StardustLaser;
-import card.COMMON.StarrySkyObservation;
+import card.COMMON.StarryDrift;
 import card.RARE.Obakenoukenerai;
 import card.SPECIAL.Confused;
 import card.UNCOMMON.Futariboshi;
 import card.UNCOMMON.Kimitomitahosizora;
-import card.UNCOMMON.StarryDrift;
 import character.MGR_character;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.blue.Fusion;
 import com.megacrit.cardcrawl.cards.status.*;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
-import com.megacrit.cardcrawl.powers.watcher.MasterRealityPower;
-import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect;
 import note.*;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Random;
 
 public class SummoningCharmActionNew extends AbstractGameAction
 {
@@ -86,8 +78,8 @@ public class SummoningCharmActionNew extends AbstractGameAction
     {
         ArrayList<AbstractCard> cards = new ArrayList<>();
         cards.add(new StardustLaser());
-        cards.add(new StarrySkyObservation());
         cards.add(new StarryDrift());
+        //cards.add(new StarryDrift());
         cards.add(new Kimitomitahosizora());
         cards.add(new Futariboshi());
         return cards.get(AbstractDungeon.cardRandomRng.random(cards.size() - 1));

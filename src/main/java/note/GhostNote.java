@@ -54,7 +54,7 @@ public class GhostNote extends AbstractNote {
         if(this.evokeAmount<=0) return;
         AbstractCreature p=AbstractDungeon.player;
         AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(p, p, new IntangiblePlayerPower(p, this.evokeAmount), this.evokeAmount,true));
-        AbstractDungeon.actionManager.addToTop(new VFXAction(new NoteAboveCreatureEffect(p.hb.cX - p.animX, p.hb.cY + p.hb.height / 2.0F - p.animY, this.img), Settings.ACTION_DUR_XFAST));
+        AbstractDungeon.actionManager.addToTop(new VFXAction(new NoteAboveCreatureEffect(p.hb.cX - p.animX, p.hb.cY + p.hb.height / 2.0F - p.animY, this.img), Settings.ACTION_DUR_XFAST*2));
     }
 
     public AbstractNote makeCopy() {

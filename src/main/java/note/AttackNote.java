@@ -57,8 +57,9 @@ public class AttackNote extends AbstractNote {
 
     public void myEvoke()
     {
-        //boolean hasStereo=AbstractDungeon.player.hasPower(StereoPower.POWER_ID)||AbstractDungeon.player.hasPower(StereoPlusPower.POWER_ID);
-        AbstractDungeon.actionManager.addToTop(new NoteDamageEnemyAction(this.evokeAmount,AbstractDungeon.player.hasPower(BurnsRedPower.POWER_ID)));
+        boolean hasStereo=AbstractDungeon.player.hasPower(StereoPower.POWER_ID)||AbstractDungeon.player.hasPower(StereoPlusPower.POWER_ID);
+        AbstractDungeon.actionManager.addToTop(new NoteDamageEnemyAction(this.evokeAmount,AbstractDungeon.player.hasPower(BurnsRedPower.POWER_ID),this.img));
+        if(hasStereo) AbstractDungeon.actionManager.addToTop(new GainBlockAction(AbstractDungeon.player,this.evokeAmount>>1));
         //if(AbstractDungeon.player.hasPower(BurnsRedPower.POWER_ID)) AbstractDungeon.actionManager.addToTop(new GainBlockAction(AbstractDungeon.player,this.evokeAmount>>1));
     }
 

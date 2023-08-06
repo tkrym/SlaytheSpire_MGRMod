@@ -22,7 +22,7 @@ public class Drown extends AbstractMGRCard
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String IMG = "img/card/" + ID.substring(4) + ".png";
     private static final int COST = 1;
-    private static final int DMG = 5;
+    private static final int DMG = 4;
     private static final int PLUS_DMG = 1;
     private static final int MAGIC = 3;
     private static final int PLUS_MAGIC = 2;
@@ -53,7 +53,7 @@ public class Drown extends AbstractMGRCard
         {
             this.upgradeName();
             this.upgradeMagicNumber(PLUS_MAGIC);
-            this.upgradeDamage(PLUS_DMG);
+            //this.upgradeDamage(PLUS_DMG);
         }
     }
 }
