@@ -38,7 +38,7 @@ public class MetalGear extends AbstractMGRCard {
         addToBot(new ApplyPowerAction(p,p,new DexterityPower(p,DecDexterity),DecDexterity));
         addToBot(new ApplyPowerAction(p,p,new MetallicizePower(p,this.magicNumber),this.magicNumber));
         addToBot(new ApplyPowerAction(p,p,new PlatedArmorPower(p,this.magicNumber),this.magicNumber));
-        if(MGR_character.BigBrotherStanceCheck())
+        if(MGR_character.AwakenedStanceCheck())
         {
             addToBot(new ApplyPowerAction(p,p,new MetallicizePower(p,PlusNumber),PlusNumber));
             addToBot(new ApplyPowerAction(p,p,new PlatedArmorPower(p,PlusNumber),PlusNumber));
@@ -48,7 +48,7 @@ public class MetalGear extends AbstractMGRCard {
     public AbstractCard makeCopy() { return new MetalGear(); }
 
     @Override
-    public void triggerOnGlowCheck(){triggerOnGlowCheck_BigBrother();}
+    public void triggerOnGlowCheck(){triggerOnGlowCheck_Awakened();}
 
     public void upgrade() {
         if(!this.upgraded)

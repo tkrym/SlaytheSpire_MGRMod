@@ -11,11 +11,11 @@ import java.util.ListIterator;
 
 public class ReconvertingCharmAction extends AbstractGameAction
 {
-    private boolean IsBigBrother;
-    public ReconvertingCharmAction(int amount,boolean IsBigBrother)
+    private boolean IsAwakened;
+    public ReconvertingCharmAction(int amount,boolean IsAwakened)
     {
         this.amount = amount;
-        this.IsBigBrother=IsBigBrother;
+        this.IsAwakened=IsAwakened;
         this.actionType = ActionType.CARD_MANIPULATION;
     }
 
@@ -59,7 +59,7 @@ public class ReconvertingCharmAction extends AbstractGameAction
 
     private void AddToHand(AbstractCard c)
     {
-        if(this.IsBigBrother) addToBot(new TemporaryDuplicationAction(c));
+        if(this.IsAwakened) addToBot(new TemporaryDuplicationAction(c));
         if (AbstractDungeon.player.hand.size() <= 9)
         {
             AbstractDungeon.player.hand.addToHand(c);

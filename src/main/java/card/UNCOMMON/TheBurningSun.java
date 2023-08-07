@@ -33,13 +33,13 @@ public class TheBurningSun extends AbstractMGRCard
     public void use(AbstractPlayer p, AbstractMonster m)
     {
         //addToBot(new DrawCardAction(1));
-        addToBot(new TheBurningSunAction(this.magicNumber, MGR_character.BigBrotherStanceCheck()));
+        addToBot(new TheBurningSunAction(this.magicNumber, MGR_character.AwakenedStanceCheck()));
     }
 
     public AbstractCard makeCopy() {return new TheBurningSun();}
 
     @Override
-    public void triggerOnGlowCheck(){triggerOnGlowCheck_BigBrother();}
+    public void triggerOnGlowCheck(){triggerOnGlowCheck_Awakened();}
 
     public void upgrade()
     {

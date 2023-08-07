@@ -32,14 +32,14 @@ public class Obakenoukenerai extends AbstractMGRCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ChannelNoteAction(new GhostNote()));
-        if(this.upgraded&&MGR_character.BigBrotherStanceCheck())
+        if(this.upgraded&&MGR_character.AwakenedStanceCheck())
             addToBot(new ChannelNoteAction(new GhostNote()));
     }
 
     public AbstractCard makeCopy() { return new Obakenoukenerai(); }
 
     @Override
-    public void triggerOnGlowCheck() {if(this.upgraded) triggerOnGlowCheck_BigBrother();}
+    public void triggerOnGlowCheck() {if(this.upgraded) triggerOnGlowCheck_Awakened();}
 
     public void upgrade() {
         if (!this.upgraded) {

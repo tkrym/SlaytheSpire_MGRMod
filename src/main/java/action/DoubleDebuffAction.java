@@ -33,7 +33,7 @@ public class DoubleDebuffAction extends AbstractGameAction
                         FourEyesPower.Trigger(this.target, Math.abs(power.amount));*/
                     //else IndifferentLookPower.Trigger(power.amount);
                     power.stackPower(power.amount);
-                    power.flashWithoutSound();
+                    //power.flashWithoutSound();
                     power.updateDescription();
                 }
         }

@@ -43,7 +43,7 @@ public class DrawNote extends AbstractNote {
         this.baseEvokeAmount = 1;
         this.evokeAmount = this.baseEvokeAmount;
         this.channelAnimTimer = 0.5f;
-        this.forterate=3;
+        this.forterate=4;
         this.angle = MathUtils.random(360.0f);
         myColor= CardHelper.getColor(0,178,249);
         updateDescription();

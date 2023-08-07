@@ -53,7 +53,7 @@ public class TheBurningSunAction extends AbstractGameAction
                 p.hand.moveToExhaustPile(c);
                 if (this.B) addToTop(new TemporaryDuplicationAction(c));
             }
-            addToTop(new ApplyPowerAction(p,p,new DrawCardNextTurnPower(p,AbstractDungeon.handCardSelectScreen.selectedCards.size())));
+            if(!this.B) addToTop(new ApplyPowerAction(p,p,new DrawCardNextTurnPower(p,AbstractDungeon.handCardSelectScreen.selectedCards.size())));
             //addToTop(new DrawCardAction(AbstractDungeon.handCardSelectScreen.selectedCards.size()));
             CardCrawlGame.dungeon.checkForPactAchievement();
             AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;

@@ -39,7 +39,7 @@ public class StardustLaser extends AbstractMGRCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new SFXAction("ATTACK_DEFECT_BEAM"));
-        addToBot(new DiscardAction(p,p,1,false));
+        //addToBot(new DiscardAction(p,p,1,false));
         addToBot(new VFXAction(p, new SweepingBeamEffect(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY, AbstractDungeon.player.flipHorizontal), 0.2f));
         addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.FIRE));
         //addToBot(new StardustLaserAction(this.magicNumber));

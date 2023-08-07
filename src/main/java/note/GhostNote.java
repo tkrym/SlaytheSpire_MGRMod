@@ -40,7 +40,7 @@ public class GhostNote extends AbstractNote {
         this.evokeAmount = this.baseEvokeAmount;
         this.angle = MathUtils.random(360.0f);
         this.channelAnimTimer = 0.5f;
-        this.forterate=5;
+        this.forterate=6;
         myColor= CardHelper.getColor(154,237,237);
         updateDescription();
     }

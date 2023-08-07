@@ -23,7 +23,7 @@ public class ReconvertingCharm extends AbstractMGRCard
     private static final int DMG = 6;
     private static final int PLUS_DMG = 3;
     private static final int MAGIC = 1;
-    private static final int PLUS_MAGIC = 0;
+    private static final int PLUS_MAGIC = 1;
 
     public ReconvertingCharm()
     {
@@ -38,11 +38,11 @@ public class ReconvertingCharm extends AbstractMGRCard
     {
         addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn),
                 AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-        addToBot(new ReconvertingCharmAction(this.magicNumber, MGR_character.BigBrotherStanceCheck()));
+        addToBot(new ReconvertingCharmAction(this.magicNumber, MGR_character.AwakenedStanceCheck()));
     }
 
     @Override
-    public void triggerOnGlowCheck(){triggerOnGlowCheck_BigBrother();}
+    public void triggerOnGlowCheck(){triggerOnGlowCheck_Awakened();}
 
     public AbstractCard makeCopy() {return new ReconvertingCharm();}
 

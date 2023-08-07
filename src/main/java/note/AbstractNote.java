@@ -134,22 +134,22 @@ public abstract class AbstractNote extends AbstractOrb
     public static AbstractNote GetRandomBasicNote()
     {
         int seed = AbstractDungeon.cardRandomRng.random(99);
-        if (!AbstractDungeon.player.hasPower(RiverOfNotesPower.POWER_ID))
+        if (!AbstractDungeon.player.hasPower(BrilliantPower.POWER_ID))
         {
-            if (seed < 40) return new AttackNote();//40%
-            else if (seed < 75) return new DefendNote();//35%
-            else if (seed < 83) return new DebuffNote();//8%
+            if (seed < 35) return new AttackNote();//35%
+            else if (seed < 70) return new DefendNote();//35%
+            else if (seed < 83) return new DebuffNote();//13%
             else if (seed < 95) return new DrawNote();//14%
             else return new ArtifactNote();//5%
         }
         else
         {
-            if (seed < 30) return new AttackNote();//30%
-            else if (seed < 60) return new DefendNote();//30%
-            else if (seed < 67) return new StarryNote();//7%
-            else if (seed < 82) return new DrawNote();//15%
-            else if (seed < 92) return new DebuffNote();//10%
-            else return new ArtifactNote();//8%
+            if (seed < 27) return new AttackNote();//27%
+            else if (seed < 55) return new DefendNote();//28%
+            else if (seed < 63) return new StarryNote();//7%
+            else if (seed < 78) return new DrawNote();//15%
+            else if (seed < 93) return new DebuffNote();//15%
+            else return new ArtifactNote();//7%
         }
     }
 

@@ -97,6 +97,7 @@ public class GazeOfOthers extends AbstractMGRCard
         if (!this.upgraded)
         {
             this.upgradeName();
+            this.target=CardTarget.ALL_ENEMY;
             this.upgradeBlock(PLUS_BLOCK);
             DESC = UPGRADE_DESCRIPTION;
             this.rawDescription = DESC;

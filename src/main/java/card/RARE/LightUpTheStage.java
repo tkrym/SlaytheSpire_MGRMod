@@ -3,6 +3,7 @@ package card.RARE;
 import action.ChannelNoteAction;
 import card.AbstractMGRCard;
 import card.SPECIAL.FrenziedDragonBite;
+import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.*;
@@ -45,13 +46,17 @@ public class LightUpTheStage extends AbstractMGRCard
 
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        addToBot(new VFXAction(new SpotlightEffect(), (Settings.FAST_MODE?0.2f:0.5f)));
+        addToBot(new VFXAction(new SpotlightEffect(), (Settings.FAST_MODE?0.3f:0.5f)));
         this.magicNumber=this.baseMagicNumber;
         for(int i=1;i<=this.magicNumber;i++)
         {
+            AbstractGameAction.AttackEffect myeffect;
+            int rnd= MathUtils.random(2);
+            if(rnd==0) myeffect= AbstractGameAction.AttackEffect.SLASH_DIAGONAL;
+            else if(rnd==1) myeffect= AbstractGameAction.AttackEffect.SLASH_HORIZONTAL;
+            else myeffect= AbstractGameAction.AttackEffect.SLASH_VERTICAL;
             addToBot(new DamageRandomEnemyAction(new DamageInfo(p, this.damage, this.damageTypeForTurn),
-                    AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-            //addToBot(new ChannelNoteAction(new AttackNote()));
+                    myeffect));
         }
         this.baseDamage+=this.upgraded?UPGRADE_INC_DMG:INC_DMG;
     }
@@ -69,7 +74,6 @@ public class LightUpTheStage extends AbstractMGRCard
         if (!this.upgraded)
         {
             this.upgradeName();
-            //this.upgradeDamage(PLUS_DMG);
             this.upgradeMagicNumber(PLUS_MAGIC);
             this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();

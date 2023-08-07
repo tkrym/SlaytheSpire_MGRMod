@@ -31,9 +31,9 @@ public abstract class AbstractMGRCard extends CustomCard {
         initializeDescription();
     }
 
-    protected void triggerOnGlowCheck_BigBrother() {
+    protected void triggerOnGlowCheck_Awakened() {
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-        if(MGR_character.InBigBrotherStance())
+        if(MGR_character.InAwakenedStance())
             this.glowColor = new Color(1.0F,0.4F,1.0F,1.0F);
     }
 

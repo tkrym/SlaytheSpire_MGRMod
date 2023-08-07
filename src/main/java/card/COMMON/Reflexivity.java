@@ -1,6 +1,6 @@
 package card.COMMON;
 
-import action.RoundRobinAction;
+import action.ReflexivityAction;
 import card.AbstractMGRCard;
 import character.MGR_character;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -11,9 +11,9 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import path.AbstractCardEnum;
 
-public class RoundRobin extends AbstractMGRCard
+public class Reflexivity extends AbstractMGRCard
 {
-    public static final String ID = "MGR:RoundRobin";
+    public static final String ID = "MGR:Reflexivity";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
@@ -24,7 +24,7 @@ public class RoundRobin extends AbstractMGRCard
     private static final int BLOCK = 7;
     private static final int PLUS_BLOCK = 1;
 
-    public RoundRobin()
+    public Reflexivity()
     {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.SKILL,
                 AbstractCardEnum.MGR_COLOR, CardRarity.COMMON, CardTarget.SELF);
@@ -36,16 +36,16 @@ public class RoundRobin extends AbstractMGRCard
     public void use(AbstractPlayer p, AbstractMonster m)
     {
         addToBot(new GainBlockAction(p,p,this.block));
-        addToBot(new RoundRobinAction(this.magicNumber,MGR_character.BigBrotherStanceCheck()));
+        addToBot(new ReflexivityAction(this.magicNumber,MGR_character.AwakenedStanceCheck()));
     }
 
     @Override
     public void triggerOnGlowCheck()
     {
-        triggerOnGlowCheck_BigBrother();
+        triggerOnGlowCheck_Awakened();
     }
 
-    public AbstractCard makeCopy() {return new RoundRobin();}
+    public AbstractCard makeCopy() {return new Reflexivity();}
 
     public void upgrade()
     {

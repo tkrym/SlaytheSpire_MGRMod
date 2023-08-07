@@ -38,7 +38,7 @@
       "张牌，将其复制放入抽牌堆顶。"
     ]
   },
-  "RoundRobinAction": {
+  "ReflexivityAction": {
     "TEXT": [
       "选择",
       "张牌置于抽牌堆底部。",

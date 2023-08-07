@@ -14,7 +14,7 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import power.HarmonyFormPower;
 
-public class BigBrotherStanceParticleEffect extends AbstractGameEffect
+public class AwakenedStanceParticleEffect extends AbstractGameEffect
 {
     private float x;
     private float y;
@@ -23,7 +23,7 @@ public class BigBrotherStanceParticleEffect extends AbstractGameEffect
     private AbstractCreature target;
     private TextureAtlas.AtlasRegion img;
 
-    public BigBrotherStanceParticleEffect(int index)
+    public AwakenedStanceParticleEffect(int index)
     {
         this.img = ImageMaster.EYE_ANIM_0;
         this.scale = 1.0F;
@@ -52,7 +52,7 @@ public class BigBrotherStanceParticleEffect extends AbstractGameEffect
         }
     }
 
-    public BigBrotherStanceParticleEffect(AbstractCreature target)
+    public AwakenedStanceParticleEffect(AbstractCreature target)
     {
         this.img = ImageMaster.EYE_ANIM_0;
         this.scale = MathUtils.random(1.0F, 1.5F);

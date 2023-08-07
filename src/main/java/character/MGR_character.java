@@ -50,7 +50,7 @@ import power.StereoPlusPower;
 import power.StereoPower;
 import power.TinyOrchestraPower;
 import relic.YourExclusiveStage;
-import stance.BigBrotherStance;
+import stance.AwakenedStance;
 import ui.CounterPanel;
 
 public class MGR_character extends CustomPlayer
@@ -291,7 +291,7 @@ public class MGR_character extends CustomPlayer
     public void inccounter(int amount)
     {
         int changed_number = this.counter + amount;
-        if (InBigBrotherStance() && changed_number > this.counter_max - 1) changed_number = this.counter_max - 1;
+        if (InAwakenedStance() && changed_number > this.counter_max - 1) changed_number = this.counter_max - 1;
         if (changed_number < this.counter_min) changed_number = this.counter_min;
         if (changed_number != this.counter) myCounterPanel.EnlargeFontScale();
         this.counter = changed_number;
@@ -304,7 +304,7 @@ public class MGR_character extends CustomPlayer
         {
             this.counter = this.counter_min;
             myCounterPanel.EnlargeFontScale();
-            AbstractDungeon.actionManager.addToTop(new ChangeStanceAction(new BigBrotherStance()));
+            AbstractDungeon.actionManager.addToTop(new ChangeStanceAction(new AwakenedStance()));
         }
     }
 
@@ -316,9 +316,9 @@ public class MGR_character extends CustomPlayer
 
     public void renderCounterPanel(SpriteBatch sb) {myCounterPanel.render(sb);}
 
-    public static boolean BigBrotherStanceCheck()
+    public static boolean AwakenedStanceCheck()
     {
-        if (AbstractDungeon.player.stance.ID.equals(BigBrotherStance.STANCE_ID))
+        if (AbstractDungeon.player.stance.ID.equals(AwakenedStance.STANCE_ID))
         {
             AbstractDungeon.actionManager.addToTop(new ChangeStanceAction(NeutralStance.STANCE_ID));
             return true;
@@ -326,7 +326,7 @@ public class MGR_character extends CustomPlayer
         else return false;
     }
 
-    public static boolean InBigBrotherStance() {return AbstractDungeon.player.stance.ID.equals(BigBrotherStance.STANCE_ID);}
+    public static boolean InAwakenedStance() {return AbstractDungeon.player.stance.ID.equals(AwakenedStance.STANCE_ID);}
 
     public static int GetChordCount()
     {

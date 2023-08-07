@@ -33,7 +33,7 @@ public class Hallucination extends AbstractMGRCard {
 
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        if(MGR_character.BigBrotherStanceCheck())
+        if(MGR_character.AwakenedStanceCheck())
         {
             for(AbstractPower power:AbstractDungeon.player.powers)
                 if(power.type== AbstractPower.PowerType.DEBUFF)
@@ -59,7 +59,7 @@ public class Hallucination extends AbstractMGRCard {
     public AbstractCard makeCopy() { return new Hallucination(); }
 
     @Override
-    public void triggerOnGlowCheck(){triggerOnGlowCheck_BigBrother();}
+    public void triggerOnGlowCheck(){triggerOnGlowCheck_Awakened();}
 
     public void upgrade() {
         if (!this.upgraded) {

@@ -12,14 +12,14 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 
-public class BigBrotherStanceAuraEffect extends AbstractGameEffect {
+public class AwakenedStanceAuraEffect extends AbstractGameEffect {
     private float x;
     private float y;
     private float vY;
     private TextureAtlas.AtlasRegion img;
     public static boolean switcher = true;
 
-    public BigBrotherStanceAuraEffect() {
+    public AwakenedStanceAuraEffect() {
         this.img = ImageMaster.EXHAUST_L;
         this.duration = 2.0F;
         this.scale = MathUtils.random(2.7F, 2.5F) * Settings.scale;

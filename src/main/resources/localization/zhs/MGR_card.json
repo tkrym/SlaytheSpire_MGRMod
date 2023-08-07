@@ -32,8 +32,8 @@
     "NAME":"测试能力",
     "DESCRIPTION": " 测试 结束"
   },
-    "MGR:CoinflipStrike":{
-    "NAME":"掷币攻击",
+    "MGR:(Deprecated)CoinflipStrike":{
+    "NAME":"(Deprecated)掷币攻击",
     "DESCRIPTION": "造成 !D! 点伤害。 NL 有一半概率打出一张基础伤害翻倍的复制。"
   },
     "MGR:AttackTied":{
@@ -54,8 +54,8 @@
     "NAME":"时间线之东☆",
     "DESCRIPTION": "生成 !M! 个 mgr:攻击音符 。 NL 如果这是你在战斗中打出的第一张或最后一张牌，将数值永久增加 1 。 NL 消耗性 2"
   },
-    "MGR:GazeOfOthers":{
-    "NAME":"他人的视线",
+    "MGR:(Deprecated)GazeOfOthers":{
+    "NAME":"(Deprecated)他人的视线",
     "DESCRIPTION": "获得 !B! 点格挡。额外获得等同于目标 mgr:注视 层数的格挡。",
     "UPGRADE_DESCRIPTION": "获得 !B! 点格挡。额外获得等同于所有敌人 mgr:注视 层数总和的格挡。",
     "EXTENDED_DESCRIPTION": [
@@ -182,8 +182,8 @@
   },
     "MGR:Yazyuutokasu":{
     "NAME":"野兽化",
-    "DESCRIPTION": "回合抽牌后，随机丢弃一张费用最低的手牌，将1张 *困惑 置入手牌。",
-    "UPGRADE_DESCRIPTION": "回合抽牌后，随机丢弃一张费用最低的手牌，将1张 *困惑+ 置入手牌。"
+    "DESCRIPTION": "回合开始时，随机丢弃一张费用最低的手牌，将1张 *困惑 置入手牌。",
+    "UPGRADE_DESCRIPTION": "回合开始时，丢弃一张牌，将1张 *困惑 置入手牌。"
   },
     "MGR:TheForsaken":{
     "NAME":"(Deprecated)被遗忘者",
@@ -214,12 +214,12 @@
   },
     "MGR:StardustLaser":{
     "NAME":"星屑镭射",
-    "DESCRIPTION": " mgr:星空 。 NL 丢弃1张牌，对所有敌人造成 !D! 点伤害。"
+    "DESCRIPTION": " mgr:星空 。 NL 对所有敌人造成 !D! 点伤害。"
   },
     "MGR:Kimitomitahosizora":{
     "NAME":"细数繁星",
-    "DESCRIPTION": " mgr:星空 。 NL 预见 !M! ，视为从手牌中丢弃。 NL 如果丢弃了至少3张牌，生成1个 mgr:能量 *音符 。 消耗 。",
-    "UPGRADE_DESCRIPTION": " mgr:星空 。 NL 预见 !M! ，视为从手牌中丢弃。 NL 如果丢弃了至少4张牌，生成1个 mgr:能量 *音符 。 消耗 。"
+    "DESCRIPTION": " mgr:星空 。 NL 预见 !M! ，视为从手牌中丢弃。",
+    "UPGRADE_DESCRIPTION": " mgr:星空 。 NL 预见 !M! ，视为从手牌中丢弃。"
   },
     "MGR:Futariboshi":{
     "NAME":"两个人的星☆",
@@ -284,7 +284,7 @@
   },
     "MGR:NowhereToHide":{
     "NAME":"无处可逃",
-    "DESCRIPTION": "对所有敌人造成 !D! 点伤害并给予 !M! 层 mgr:注视 。 NL mgr:开眼 ：立即触发 *注视 !B! 次。"
+    "DESCRIPTION": "给予所有敌人 !M! 层 mgr:注视 并触发 *注视 。 NL 如果杀死了任何敌人，打出一张复制。"
   },
     "MGR:Drown":{
     "NAME":"溺水",
@@ -292,7 +292,7 @@
   },
     "MGR:ReconvertingCharm":{
     "NAME":"回溯",
-    "DESCRIPTION": "造成 !D! 点伤害。将你打出的上 !M! 张未消耗的牌移回手牌。 NL mgr:开眼 ：获得它的 mgr:临时复制 。"
+    "DESCRIPTION": "造成 !D! 点伤害。将你打出的上 !M! 张未消耗的牌移回手牌。 NL mgr:开眼 ：获得其 mgr:临时复制 。"
   },
     "MGR:DragonClaw":{
     "NAME":"龙爪",
@@ -367,9 +367,9 @@
     "DESCRIPTION": "造成 !D! 点伤害。 NL 如果目标有 mgr:注视 ，给予2层 易伤 。 NL 如果目标有 易伤 ，给予 !M! 层 mgr:注视 。",
     "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 如果目标有 mgr:注视 ，给予3层 易伤 。 NL 如果目标有 易伤 ，给予 !M! 层 mgr:注视 。"
   },
-    "MGR:RiverOfNotes":{
-    "NAME":"音符之河",
-    "DESCRIPTION": " mgr:即兴 的 mgr:基本音符 略微变好，且可能获得 mgr:能量音符 。 NL 回合开始时， *即兴 !M! 。"
+    "MGR:Brilliant":{
+    "NAME":"辉煌",
+    "DESCRIPTION": " mgr:即兴 的 mgr:基本音符 变得更好，且可能获得 mgr:能量音符 。 NL 回合开始时， *即兴 !M! 。"
   },
     "MGR:LightUpTheStage":{
     "NAME":"点亮舞台",
@@ -385,22 +385,22 @@
     "NAME":"音色交织",
     "DESCRIPTION": "mgr:即兴 !M! 。 NL 本回合每生成过一种音符，获得 !B! 点格挡。"
   },
-    "MGR:RoundRobin":{
+    "MGR:Reflexivity":{
     "NAME":"反身",
     "DESCRIPTION": "获得 !B! 点格挡。 NL 将弃牌堆中的 !M! 张牌置于抽牌堆底。 NL mgr:开眼 ：改为置于抽牌堆顶。"
   },
     "MGR:TheEyeBehind":{
-    "NAME":"后背之眼",
+    "NAME":"背后的眼睛",
     "DESCRIPTION": "若目标没有 *虚弱 ，给予1层，否则给予2层。对 *易伤 、 mgr:注视 同理。 消耗 。",
-    "UPGRADE_DESCRIPTION": "若目标没有 *虚弱 ，给予1层，否则给予2层。对 *易伤 、 mgr:注视 、 *缠绕 同理。 消耗 。"
+    "UPGRADE_DESCRIPTION": "若目标没有 *虚弱 ，给予2层，否则给予3层。对 *易伤 、 mgr:注视 。 消耗 。"
   },
     "MGR:StarryDrift":{
     "NAME":"星空飘浮",
-    "DESCRIPTION": " mgr:星空 。 NL 丢弃所有手牌，抽 !M! 张牌。",
-    "UPGRADE_DESCRIPTION": " mgr:星空 。 NL 预见 !M! 。 NL 丢弃所有手牌，抽 !M! 张牌。"
+    "DESCRIPTION": " mgr:星空 。 NL 抽 !M! 张牌。 NL 丢弃1张牌。",
+    "UPGRADE_DESCRIPTION": " mgr:星空 。 NL 抽 !M! 张牌。 NL 丢弃2张牌。"
   },
     "MGR:HakkeroCharge":{
-    "NAME":"充能",
+    "NAME":"八卦炉充能",
     "DESCRIPTION": "下回合中，每打出一张牌生成 !M! 个 mgr:攻击音符 。 NL mgr:开眼 ：并获得一层 *临时 mgr:强音 。 消耗 。",
     "UPGRADE_DESCRIPTION": "下回合中，每打出一张牌生成 !M! 个 mgr:攻击音符 。 NL mgr:开眼 ：并获得一层 *临时 mgr:强音 。 保留 。 消耗 。"
     },
@@ -419,10 +419,10 @@
   },
     "MGR:TheBurningSun":{
     "NAME":"烈日",
-    "DESCRIPTION": "消耗至多 !M! 张手牌，下回合抽等量的牌。 NL mgr:开眼 ：获得被消耗的牌的 mgr:临时复制 。"
+    "DESCRIPTION": "消耗至多 !M! 张手牌，下回合抽等量的牌。 NL mgr:开眼 ：改为获得这些牌的 mgr:临时复制 。"
   },
-  "MGR:FullScaleOffensive":{
-    "NAME":"落幕",
+  "MGR:Finale":{
+    "NAME":"终曲",
     "DESCRIPTION": "丢弃所有 *非攻击 牌，每张生成 !M! 个 mgr:攻击音符 。"
   },
   "MGR:Sinister":{
@@ -431,15 +431,19 @@
   },
   "MGR:Masterful":{
     "NAME":"全能",
-    "DESCRIPTION": "再次生成本回合生成过的每一种 mgr:音符 。 消耗 。",
-    "UPGRADE_DESCRIPTION": "再次生成本回合生成过的每一种 mgr:音符 。"
+    "DESCRIPTION": "从抽牌堆中将每种音符对应的一张随机卡加入手牌，它们本回合耗能减少 [E] 。 消耗 。",
+    "UPGRADE_DESCRIPTION": "固有 。从抽牌堆中将每种音符对应的一张随机卡加入手牌，它们本回合耗能减少 [E] 。 消耗 。"
   },
-  "MGR:Hush":{
-    "NAME":"静默",
+  "MGR:GazeOfOthers":{
+    "NAME":"他人的视线",
     "DESCRIPTION": "获得 !B! 点格挡。 NL 消耗目标的 !M! 层 mgr:注视 ，再获得一次。"
   },
   "MGR:TechniqueOfRelief":{
     "NAME":"救济的技法☆",
     "DESCRIPTION": "不能被打出 。 NL 抽到时， mgr:即兴 !D! 。 NL 被丢弃或消耗时， mgr:即兴 !M! 。"
+  },
+  "MGR:IveSeenEverything":{
+    "NAME":"既见万象",
+    "DESCRIPTION": "进入 mgr:开眼 。 NL 消耗 。"
   }
 }

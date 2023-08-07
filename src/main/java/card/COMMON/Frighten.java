@@ -25,7 +25,7 @@ public class Frighten extends AbstractMGRCard
     private static final int COST = 1;
     private static final int DMG = 4;
     private static final int PLUS_DMG = 1;
-    private static final int MAGIC = 4;
+    private static final int MAGIC = 6;
     private static final int PLUS_MAGIC = 1;
 
     public Frighten()

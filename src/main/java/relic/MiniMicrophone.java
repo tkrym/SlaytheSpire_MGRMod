@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import note.*;
-import stance.BigBrotherStance;
+import stance.AwakenedStance;
 
 import java.util.ArrayList;
 

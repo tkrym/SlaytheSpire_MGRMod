@@ -50,7 +50,7 @@
   },
   "MGR:Fumo": {
     "NAME": "MGRFumo",
-    "FLAVOR": "迄今为止还不存在于这个世界上的东西。",
+    "FLAVOR": "好想要啊。",
     "DESCRIPTIONS": [
       "每场战斗开始时，获得 #b",
       " 层 #ymgr:强音 。"
@@ -75,7 +75,7 @@
     "NAME": "只属于你的舞台",
     "FLAVOR": "于此刻响彻世界。",
     "DESCRIPTIONS": [
-      "替换 #b迷你麦克风 。 NL 你的 #ymgr:计数器 不会低于 #b1 。 NL 回合开始时， #ymgr:即兴 #b3 。"
+      "替换 #b迷你麦克风 。 NL 你的 #ymgr:计数器 不会低于 #b1 。 NL 回合开始时， #ymgr:即兴 #b2 。"
     ]
   },
   "MGR:WitchHat": {

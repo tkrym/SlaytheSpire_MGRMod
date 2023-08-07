@@ -30,7 +30,7 @@ public class Peek extends AbstractMGRCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ApplyGazeAction(m,this.magicNumber));
         //addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, 1, false), 1));
-        if(MGR_character.BigBrotherStanceCheck())
+        if(MGR_character.AwakenedStanceCheck())
         {
             addToBot(new ApplyGazeAction(m,this.magicNumber));
             //addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, 1, false), 1));
@@ -40,7 +40,7 @@ public class Peek extends AbstractMGRCard {
     public AbstractCard makeCopy() { return new Peek(); }
 
     @Override
-    public void triggerOnGlowCheck() {triggerOnGlowCheck_BigBrother();}
+    public void triggerOnGlowCheck() {triggerOnGlowCheck_Awakened();}
 
     public void upgrade() {
         if (!this.upgraded) {

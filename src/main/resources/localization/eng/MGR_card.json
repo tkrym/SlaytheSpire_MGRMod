@@ -363,7 +363,7 @@
     "NAME":"吓唬",
     "DESCRIPTION": "造成 !D! 点伤害。 NL 如果目标有 mgr:注视 ，给予2层 易伤 。 NL 如果目标有 易伤 ，给予 !M! 层 mgr:注视 。"
   },
-    "MGR:RiverOfNotes":{
+    "MGR:Brilliant":{
     "NAME":"音符之河",
     "DESCRIPTION": " mgr:即兴 的 mgr:基本音符 略微变好，且可能获得 mgr:能量音符 。 NL 回合开始时， *即兴 !M! 。"
   },
@@ -381,7 +381,7 @@
     "NAME":"音色交织",
     "DESCRIPTION": "mgr:即兴 !M! 。 NL 本回合每生成过一种音符，获得 !B! 点格挡。"
   },
-    "MGR:RoundRobin":{
+    "MGR:Reflexivity":{
     "NAME":"反身",
     "DESCRIPTION": "获得 !B! 点格挡。 NL 将弃牌堆中的 !M! 张牌置于抽牌堆底。 NL mgr:开眼 ：改为置于抽牌堆顶。"
   },
@@ -415,7 +415,7 @@
     "NAME":"烈日",
     "DESCRIPTION": "抽1张牌。 NL 消耗至多 !M! 张手牌，抽等量的牌。 NL mgr:开眼 ：再获得被消耗的牌的 mgr:临时复制 。"
   },
-  "MGR:FullScaleOffensive":{
+  "MGR:Finale":{
     "NAME":"总攻",
     "DESCRIPTION": "丢弃所有 *非攻击 牌，每张生成 !M! 个 mgr:攻击音符 。"
   }

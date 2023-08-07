@@ -1,11 +1,14 @@
 package action;
 
+import card.UNCOMMON.NowhereToHide;
 import character.MGR_character;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -27,14 +30,18 @@ import relic.Sunglasses;
 public class GazeLoseHpAction extends AbstractGameAction
 {
     private static final float DURATION = 0.05F;
+    AbstractCard myCard;
 
-    public GazeLoseHpAction(AbstractCreature target)
+    public GazeLoseHpAction(AbstractCreature target, AbstractCard myCard)
     {
         this.target = target;
+        this.myCard = myCard;
         this.source = AbstractDungeon.player;
         this.actionType = ActionType.DAMAGE;
         this.duration = Settings.ACTION_DUR_XFAST;
     }
+
+    public GazeLoseHpAction(AbstractCreature target) {this(target, null);}
 
     public void update()
     {
@@ -48,13 +55,24 @@ public class GazeLoseHpAction extends AbstractGameAction
             {
                 p.flash();
                 p.playApplyPowerSfx();
-                this.amount=GazePower.applyVulnerable(this.target,this.amount);
+                this.amount = GazePower.applyVulnerable(this.target, this.amount);
                 this.target.damage(new DamageInfo(this.source, this.amount, DamageType.HP_LOSS));
                 if (AbstractDungeon.player.hasPower(SalivatePower.POWER_ID) && (this.target.isDying || this.target.currentHealth <= 0) && !this.target.halfDead && !this.target.hasPower(MinionPower.POWER_ID))
                 {
                     addToTop(new WaitAction(0.1f));
                     addToTop(new VFXAction(AbstractDungeon.player, new BiteEffect(this.target.hb.cX, this.target.hb.cY - (40.0f * Settings.scale), Color.SCARLET.cpy()), 0.1f, true));
                     AbstractDungeon.player.increaseMaxHp(AbstractDungeon.player.getPower(SalivatePower.POWER_ID).amount, false);
+                }
+                if((this.target.isDying || this.target.currentHealth <= 0) && !this.target.halfDead&&this.myCard!=null)
+                {
+                    AbstractCard tmp = this.myCard.makeSameInstanceOf();
+                    AbstractDungeon.player.limbo.addToBottom(tmp);
+                    tmp.current_x = this.myCard.current_x;
+                    tmp.current_y = this.myCard.current_y;
+                    tmp.target_x = (((float) Settings.WIDTH) / 2.0f) - (300.0f * Settings.scale);
+                    tmp.target_y = ((float) Settings.HEIGHT) / 2.0f;
+                    tmp.purgeOnUse = true;
+                    AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(tmp, null,this.myCard.energyOnUse,true,true), true);
                 }
             }
             float dec = ((float) GazePower.DecreaseAmount) / 100.0f;

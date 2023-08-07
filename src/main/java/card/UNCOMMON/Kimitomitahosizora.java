@@ -17,7 +17,7 @@ public class Kimitomitahosizora extends AbstractMGRCard
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG = "img/card/" + ID.substring(4) + ".png";
     private static final int COST = 1;
-    public static final int MAGIC = 5;
+    public static final int MAGIC = 4;
     public static final int PLUS_MAGIC = 2;
 
     public Kimitomitahosizora()
@@ -31,7 +31,7 @@ public class Kimitomitahosizora extends AbstractMGRCard
 
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        addToBot(new KimitomitahosizoraAction(this.magicNumber, this.upgraded?4:3));
+        addToBot(new KimitomitahosizoraAction(this.magicNumber));
     }
 
     public AbstractCard makeCopy() {return new Kimitomitahosizora();}
@@ -42,8 +42,8 @@ public class Kimitomitahosizora extends AbstractMGRCard
         {
             this.upgradeName();
             this.upgradeMagicNumber(PLUS_MAGIC);
-            this.rawDescription=UPGRADE_DESCRIPTION;
-            initializeDescription();
+            /*this.rawDescription=UPGRADE_DESCRIPTION;
+            initializeDescription();*/
         }
     }
 }

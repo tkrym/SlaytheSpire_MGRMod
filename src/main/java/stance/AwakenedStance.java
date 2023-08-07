@@ -20,13 +20,12 @@ import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
 import com.megacrit.cardcrawl.vfx.stance.DivinityParticleEffect;
 import com.megacrit.cardcrawl.vfx.stance.StanceAuraEffect;
 import com.megacrit.cardcrawl.vfx.stance.StanceChangeParticleGenerator;
-import effect.BigBrotherStanceAuraEffect;
-import effect.BigBrotherStanceParticleEffect;
-import effect.EnterBigBrotherStanceEffect;
+import effect.AwakenedStanceAuraEffect;
+import effect.AwakenedStanceParticleEffect;
+import effect.EnterAwakenedStanceEffect;
 
-/* loaded from: DivinityStance.class */
-public class BigBrotherStance extends AbstractStance {
-    public static final String STANCE_ID = "MGR:BigBrotherStance";
+public class AwakenedStance extends AbstractStance {
+    public static final String STANCE_ID = "MGR:AwakenedStance";
     private static final StanceStrings stanceString = CardCrawlGame.languagePack.getStanceString(STANCE_ID);
     private static long sfxId = -1;
     private static boolean EnteredThisTurn=false;
@@ -36,7 +35,7 @@ public class BigBrotherStance extends AbstractStance {
     private float particleTimerIndex3= MathUtils.random(0.8f, 2.0f);
     private float particleTimerIndex4= MathUtils.random(0.8f, 2.0f);
 
-    public BigBrotherStance() {
+    public AwakenedStance() {
         this.ID = STANCE_ID;
         this.name = stanceString.NAME;
         updateDescription();
@@ -47,33 +46,33 @@ public class BigBrotherStance extends AbstractStance {
         this.particleTimerIndex1 -= Gdx.graphics.getDeltaTime();
         if (this.particleTimerIndex1 < 0.0f) {
             this.particleTimerIndex1 = MathUtils.random(0.8f, 2.0f);
-            AbstractDungeon.effectsQueue.add(new BigBrotherStanceParticleEffect(1));
+            AbstractDungeon.effectsQueue.add(new AwakenedStanceParticleEffect(1));
         }
         this.particleTimerIndex2 -= Gdx.graphics.getDeltaTime();
         if (this.particleTimerIndex2 < 0.0f) {
             this.particleTimerIndex2 = MathUtils.random(0.8f, 2.0f);
-            AbstractDungeon.effectsQueue.add(new BigBrotherStanceParticleEffect(2));
+            AbstractDungeon.effectsQueue.add(new AwakenedStanceParticleEffect(2));
         }
         this.particleTimerIndex3 -= Gdx.graphics.getDeltaTime();
         if (this.particleTimerIndex3 < 0.0f) {
             this.particleTimerIndex3 = MathUtils.random(0.8f, 2.0f);
-            AbstractDungeon.effectsQueue.add(new BigBrotherStanceParticleEffect(3));
+            AbstractDungeon.effectsQueue.add(new AwakenedStanceParticleEffect(3));
         }
         this.particleTimerIndex4 -= Gdx.graphics.getDeltaTime();
         if (this.particleTimerIndex4 < 0.0f) {
             this.particleTimerIndex4 = MathUtils.random(0.8f, 2.0f);
-            AbstractDungeon.effectsQueue.add(new BigBrotherStanceParticleEffect(4));
+            AbstractDungeon.effectsQueue.add(new AwakenedStanceParticleEffect(4));
         }
         this.particleTimer2 -= Gdx.graphics.getDeltaTime();
         if (this.particleTimer2 < 0.0f) {
             this.particleTimer2 = MathUtils.random(0.45f, 0.55f);
-            AbstractDungeon.effectsQueue.add(new BigBrotherStanceAuraEffect());
+            AbstractDungeon.effectsQueue.add(new AwakenedStanceAuraEffect());
         }
         this.particleTimer3 -=Gdx.graphics.getDeltaTime();
         if (this.particleTimer3 < 0.0f) {
             this.particleTimer3 = MathUtils.random(0.1f, 0.15f);
             AbstractMonster m=AbstractDungeon.getCurrRoom().monsters.getRandomMonster(true);
-            AbstractDungeon.effectsQueue.add(new BigBrotherStanceParticleEffect(m));
+            AbstractDungeon.effectsQueue.add(new AwakenedStanceParticleEffect(m));
         }
     }
 
@@ -96,7 +95,7 @@ public class BigBrotherStance extends AbstractStance {
         CardCrawlGame.sound.play("STANCE_ENTER_DIVINITY");
         sfxId = CardCrawlGame.sound.playAndLoop("STANCE_LOOP_DIVINITY");
         AbstractDungeon.effectsQueue.add(new BorderFlashEffect(CardHelper.getColor(0,230,245), true));
-        AbstractDungeon.effectsQueue.add(new EnterBigBrotherStanceEffect());
+        AbstractDungeon.effectsQueue.add(new EnterAwakenedStanceEffect());
         if(true)
         {
             AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(1));

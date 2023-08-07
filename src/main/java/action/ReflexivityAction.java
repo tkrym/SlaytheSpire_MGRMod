@@ -9,12 +9,12 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect;
 
-public class RoundRobinAction extends AbstractGameAction
+public class ReflexivityAction extends AbstractGameAction
 {
-    public static String[] TEXT = CardCrawlGame.languagePack.getUIString("RoundRobinAction").TEXT;
+    public static String[] TEXT = CardCrawlGame.languagePack.getUIString("ReflexivityAction").TEXT;
     private boolean B;
 
-    public RoundRobinAction(int amount,boolean B)
+    public ReflexivityAction(int amount,boolean B)
     {
         this.amount = amount;
         this.B=B;

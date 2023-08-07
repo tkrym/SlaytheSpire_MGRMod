@@ -23,7 +23,7 @@ public class TechniqueOfRelief extends AbstractMGRCard
     private static final int DMG = 3;
     private static final int PLUS_DMG = 1;
     private static final int MAGIC = 4;
-    private static final int PLUS_MAGIC = 1;
+    private static final int PLUS_MAGIC = 2;
 
     public TechniqueOfRelief()
     {

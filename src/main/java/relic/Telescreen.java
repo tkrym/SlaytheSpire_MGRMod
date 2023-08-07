@@ -5,7 +5,7 @@ import com.megacrit.cardcrawl.actions.watcher.ChangeStanceAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
-import stance.BigBrotherStance;
+import stance.AwakenedStance;
 
 public class Telescreen extends CustomRelic{
     public static final String ID = "MGR:Telescreen";
@@ -21,7 +21,7 @@ public class Telescreen extends CustomRelic{
     {
         flash();
         AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
-        AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(new BigBrotherStance()));
+        AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(new AwakenedStance()));
     }
 
     public String getUpdatedDescription() { return this.DESCRIPTIONS[0]; }

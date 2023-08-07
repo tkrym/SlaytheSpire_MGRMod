@@ -13,11 +13,11 @@ import patch.ManualDiscardPatch;
 
 public class KimitomitahosizoraAction extends AbstractGameAction {
     public static String[] TEXT=CardCrawlGame.languagePack.getUIString("KimitomitahosizoraAction").TEXT;
-    private int threshold;
-    public KimitomitahosizoraAction(int amount,int threshold)
+    //private int threshold;
+    public KimitomitahosizoraAction(int amount)
     {
         this.amount = amount;
-        this.threshold=threshold;
+        //this.threshold=threshold;
         if (AbstractDungeon.player.hasRelic("GoldenEye")) {
             AbstractDungeon.player.getRelic("GoldenEye").flash();
             this.amount += 2;
@@ -34,12 +34,12 @@ public class KimitomitahosizoraAction extends AbstractGameAction {
             CardGroup tmpGroup = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
             for(int i = 0; i < Math.min(this.amount, AbstractDungeon.player.drawPile.size()); ++i)
                 tmpGroup.addToTop(AbstractDungeon.player.drawPile.group.get(AbstractDungeon.player.drawPile.size() - i - 1));
-            AbstractDungeon.gridSelectScreen.open(tmpGroup, this.amount, true, TEXT[0]+ this.threshold+TEXT[1]);
+            AbstractDungeon.gridSelectScreen.open(tmpGroup, this.amount, true, TEXT[0]);
         }
         else if (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty())
         {
-            if(AbstractDungeon.gridSelectScreen.selectedCards.size()>=this.threshold)
-                addToTop(new ChannelNoteAction(new StarryNote()));
+            /*if(AbstractDungeon.gridSelectScreen.selectedCards.size()>=this.threshold)
+                addToTop(new ChannelNoteAction(new StarryNote()));*/
             for (AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards)
             {
                 //AbstractNote.GenerateNoteTop(c);

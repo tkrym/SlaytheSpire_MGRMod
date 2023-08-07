@@ -30,7 +30,7 @@ public class StageWarmUp extends AbstractMGRCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ApplyForteAction(this.magicNumber));
-        if(this.upgraded&&MGR_character.BigBrotherStanceCheck())
+        if(this.upgraded&&MGR_character.AwakenedStanceCheck())
             addToBot(new MakeTempCardInHandAction(new StageWarmUp(),1));
     }
 
@@ -47,6 +47,6 @@ public class StageWarmUp extends AbstractMGRCard {
 
     @Override
     public void triggerOnGlowCheck() {
-        if(this.upgraded) triggerOnGlowCheck_BigBrother();
+        if(this.upgraded) triggerOnGlowCheck_Awakened();
     }
 }

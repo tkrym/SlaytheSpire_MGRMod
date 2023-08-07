@@ -18,7 +18,8 @@ public class FolkRhymes extends AbstractMGRCard {
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG = "img/card/"+ID.substring(4)+".png";
     private static final int COST = 1;
-    private static final int MAGIC = 5;
+    private static final int MAGIC = 2;
+    private static final int PLUS_MAGIC = 1;
     public FolkRhymes() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.POWER,
                 AbstractCardEnum.MGR_COLOR, CardRarity.UNCOMMON, CardTarget.SELF);
@@ -33,9 +34,10 @@ public class FolkRhymes extends AbstractMGRCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.isInnate=true;
+            this.upgradeMagicNumber(PLUS_MAGIC);
+            /*this.isInnate=true;
             this.rawDescription=UPGRADE_DESCRIPTION;
-            initializeDescription();
+            initializeDescription();*/
         }
     }
 }

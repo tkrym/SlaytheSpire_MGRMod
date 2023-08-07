@@ -10,15 +10,15 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import note.AbstractNote;
 
-public class RiverOfNotesPower extends AbstractPower
+public class BrilliantPower extends AbstractPower
 {
-    public static final String POWER_ID = "MGR:RiverOfNotesPower";
+    public static final String POWER_ID = "MGR:BrilliantPower";
     private static final String IMG = "img/power/"+POWER_ID.substring(4)+".png";
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    public RiverOfNotesPower(int amount)
+    public BrilliantPower(int amount)
     {
         this.name = NAME;
         this.ID = POWER_ID;

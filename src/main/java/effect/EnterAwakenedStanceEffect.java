@@ -14,7 +14,7 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import com.megacrit.cardcrawl.vfx.stance.DivinityStanceChangeParticle;
 
-public class EnterBigBrotherStanceEffect extends AbstractGameEffect
+public class EnterAwakenedStanceEffect extends AbstractGameEffect
 {
     private float x;
     private float y;
@@ -23,7 +23,7 @@ public class EnterBigBrotherStanceEffect extends AbstractGameEffect
     private TextureAtlas.AtlasRegion img;
     private boolean LineEffectAdded;
 
-    public EnterBigBrotherStanceEffect()
+    public EnterAwakenedStanceEffect()
     {
         this.img = ImageMaster.EYE_ANIM_0;
         this.scale = 5.0F;
@@ -55,7 +55,7 @@ public class EnterBigBrotherStanceEffect extends AbstractGameEffect
             {
                 this.LineEffectAdded = true;
                 for (int i = 1; i <= 20; ++i)
-                    AbstractDungeon.effectsQueue.add(new EnterBigBrotherStanceLineEffect());
+                    AbstractDungeon.effectsQueue.add(new EnterAwakenedStanceLineEffect());
             }*/
             this.img = ImageMaster.EYE_ANIM_5;
         }

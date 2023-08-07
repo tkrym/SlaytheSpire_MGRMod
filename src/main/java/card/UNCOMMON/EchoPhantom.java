@@ -36,14 +36,14 @@ public class EchoPhantom extends AbstractMGRCard
     public void use(AbstractPlayer p, AbstractMonster m)
     {
         addToBot(new DiscardAction(p,p,this.magicNumber,false));
-        addToBot(new EchoPhantomAction(EchoPhantom.this.magicNumber,MGR_character.BigBrotherStanceCheck()));
+        addToBot(new EchoPhantomAction(EchoPhantom.this.magicNumber,MGR_character.AwakenedStanceCheck()));
         if(this.upgraded) UpdateExhaustiveDescription();
     }
 
     public AbstractCard makeCopy() {return new EchoPhantom();}
 
     @Override
-    public void triggerOnGlowCheck(){triggerOnGlowCheck_BigBrother();}
+    public void triggerOnGlowCheck(){triggerOnGlowCheck_Awakened();}
 
     public void upgrade()
     {

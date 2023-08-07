@@ -21,7 +21,7 @@ public class StarryDrift extends AbstractMGRCard {
     public static final int MAGIC = 2;
     public static final int PLUS_MAGIC = 1;
     public StarryDrift() {
-        super(ID, cardStrings.NAME, IMG, COST, UPGRADE_DESCRIPTION, CardType.SKILL,
+        super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.SKILL,
                 AbstractCardEnum.MGR_COLOR, CardRarity.COMMON, CardTarget.SELF);
         this.baseMagicNumber = MAGIC;
         this.magicNumber=this.baseMagicNumber;
@@ -29,9 +29,9 @@ public class StarryDrift extends AbstractMGRCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ScryAction(this.magicNumber));
-        addToBot(new DiscardAction(p,p,p.hand.size(),true));
+        //addToBot(new ScryAction(this.magicNumber));
         addToBot(new DrawCardAction(this.magicNumber));
+        addToBot(new DiscardAction(p,p,this.upgraded?2:1,false));
     }
 
     public AbstractCard makeCopy() { return new StarryDrift(); }

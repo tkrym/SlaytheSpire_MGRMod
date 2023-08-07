@@ -37,7 +37,7 @@ public class VocalPreparation extends AbstractMGRCard
     {
         for(int i=1;i<=this.magicNumber;i++)
             addToBot(new ChannelNoteAction(new DefendNote()));
-        if(MGR_character.BigBrotherStanceCheck())
+        if(MGR_character.AwakenedStanceCheck())
             addToBot(new MakeTempCardInDrawPileAction(GetMyCard(this.upgraded),1,true,true));
         else
             addToBot(new MakeTempCardInDiscardAction(GetMyCard(this.upgraded),1));

@@ -38,7 +38,7 @@ public class TheEyeBehind extends AbstractMGRCard
     public AbstractCard makeCopy() {return new TheEyeBehind();}
 
    /* @Override
-    public void triggerOnGlowCheck(){triggerOnGlowCheck_BigBrother();}*/
+    public void triggerOnGlowCheck(){triggerOnGlowCheck_Awakened();}*/
 
     public void upgrade()
     {

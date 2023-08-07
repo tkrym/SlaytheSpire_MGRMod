@@ -26,20 +26,16 @@ public class YazyuutokasuPlusPower extends AbstractPower {
         this.amount = amount;
         updateDescription();
         this.img = new Texture(IMG);
+        this.priority=10;
     }
 
     @Override
     public void atStartOfTurnPostDraw()
     {
         flashWithoutSound();
-        AbstractCard newCard=new Confused();
-        newCard.upgrade();
-        addToBot(new WaitAction(0.1f));
-        addToBot(new WaitAction(0.1f));
-        addToBot(new WaitAction(0.1f));
-        addToBot(new DiscardLeastCostAction(this.amount));
+        addToBot(new DiscardAction(AbstractDungeon.player,AbstractDungeon.player,this.amount,false));
         //addToBot(new DiscardAction(this.owner, this.owner, this.amount, false));
-        addToBot(new MakeTempCardInHandAction(newCard,this.amount));
+        addToBot(new MakeTempCardInHandAction(new Confused(),this.amount));
     }
 
     @Override

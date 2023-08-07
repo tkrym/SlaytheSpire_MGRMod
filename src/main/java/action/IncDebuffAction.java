@@ -30,17 +30,19 @@ public class IncDebuffAction extends AbstractGameAction
     {
         if (this.duration == this.startDuration && this.target != null)
         {
-            if(this.upgraded)
+            int amt1=this.upgraded?1:2;
+            int amt2=this.upgraded?2:3;
+            /*if(this.upgraded)
             {
                 if(this.target.hasPower(ConstrictedPower.POWER_ID)) addToTop(new ApplyPowerAction(this.target, this.source, new ConstrictedPower(this.target, this.source, 2), 2, true, AbstractGameAction.AttackEffect.NONE));
                 else addToTop(new ApplyPowerAction(this.target, this.source, new ConstrictedPower(this.target, this.source, 1), 1, true, AbstractGameAction.AttackEffect.NONE));
-            }
-            if(this.target.hasPower(GazePower.POWER_ID)) addToTop(new ApplyPowerAction(this.target, this.source, new GazePower(this.target, 2), 2, true, AbstractGameAction.AttackEffect.NONE));
-            else addToTop(new ApplyPowerAction(this.target, this.source, new GazePower(this.target, 1), 1, true, AbstractGameAction.AttackEffect.NONE));
-            if(this.target.hasPower(VulnerablePower.POWER_ID)) addToTop(new ApplyPowerAction(this.target, this.source, new VulnerablePower(this.target, 2, false), 2, true, AbstractGameAction.AttackEffect.NONE));
-            else addToTop(new ApplyPowerAction(this.target, this.source, new VulnerablePower(this.target, 1, false), 1, true, AbstractGameAction.AttackEffect.NONE));
-            if(this.target.hasPower(WeakPower.POWER_ID)) addToTop(new ApplyPowerAction(this.target, this.source, new WeakPower(this.target, 2, false), 2, true, AbstractGameAction.AttackEffect.NONE));
-            else addToTop(new ApplyPowerAction(this.target, this.source, new WeakPower(this.target, 1, false), 1, true, AbstractGameAction.AttackEffect.NONE));
+            }*/
+            if(this.target.hasPower(GazePower.POWER_ID)) addToTop(new ApplyPowerAction(this.target, this.source, new GazePower(this.target, amt2), amt2, true, AbstractGameAction.AttackEffect.NONE));
+            else addToTop(new ApplyPowerAction(this.target, this.source, new GazePower(this.target, amt1), amt1, true, AbstractGameAction.AttackEffect.NONE));
+            if(this.target.hasPower(VulnerablePower.POWER_ID)) addToTop(new ApplyPowerAction(this.target, this.source, new VulnerablePower(this.target, amt2, false), amt2, true, AbstractGameAction.AttackEffect.NONE));
+            else addToTop(new ApplyPowerAction(this.target, this.source, new VulnerablePower(this.target, amt1, false), amt1, true, AbstractGameAction.AttackEffect.NONE));
+            if(this.target.hasPower(WeakPower.POWER_ID)) addToTop(new ApplyPowerAction(this.target, this.source, new WeakPower(this.target, amt2, false), amt2, true, AbstractGameAction.AttackEffect.NONE));
+            else addToTop(new ApplyPowerAction(this.target, this.source, new WeakPower(this.target, amt1, false), amt1, true, AbstractGameAction.AttackEffect.NONE));
         }
         this.tickDuration();
     }

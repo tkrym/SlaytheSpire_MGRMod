@@ -35,13 +35,13 @@ public class HakkeroCharge extends AbstractMGRCard
 
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        if(MGR_character.BigBrotherStanceCheck())
+        if(MGR_character.AwakenedStanceCheck())
             addToBot(new ApplyPowerAction(p,p,new HakkeroChargePlusPower(this.magicNumber>>1),this.magicNumber>>1));
         else addToBot(new ApplyPowerAction(p,p,new HakkeroChargePower(this.magicNumber),this.magicNumber));
     }
 
     @Override
-    public void triggerOnGlowCheck(){triggerOnGlowCheck_BigBrother();}
+    public void triggerOnGlowCheck(){triggerOnGlowCheck_Awakened();}
 
     public void upgrade()
     {

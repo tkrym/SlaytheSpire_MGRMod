@@ -42,14 +42,14 @@ public class DragonClaw extends AbstractMGRCard
                 AbstractGameAction.AttackEffect.POISON));
         addToBot(new ApplyPowerAction(m, p, new PoisonPower(m, p, this.damage), this.damage));
         DecMagicNumber();
-        if(this.exhaust) addToBot(new MakeTempCardInDiscardAction(GetMyCard(this.upgraded),1));
+        if(this.baseMagicNumber<=0&&this.exhaust) addToBot(new MakeTempCardInDiscardAction(GetMyCard(this.upgraded),1));
     }
 
     @Override
     public void triggerOnManualDiscard()
     {
         DecMagicNumber();
-        if(this.exhaust)
+        if(this.baseMagicNumber<=0&&this.exhaust)
         {
             addToTop(new ExhaustSpecificCardAction(this,AbstractDungeon.player.discardPile));
             //AbstractDungeon.player.discardPile.moveToExhaustPile(this);
@@ -64,12 +64,22 @@ public class DragonClaw extends AbstractMGRCard
         return newCard;
     }
 
+    public AbstractCard makeCopy()
+    {
+        AbstractCard newCard=new DragonClaw();
+        newCard.magicNumber=this.magicNumber;
+        newCard.baseMagicNumber=this.baseMagicNumber;
+        newCard.applyPowers();
+        return newCard;
+    }
+
     private void DecMagicNumber()
     {
         if(this.baseMagicNumber>=1) this.baseMagicNumber--;
         if(this.baseMagicNumber<=0) this.exhaust=true;
         this.magicNumber=this.baseMagicNumber;
         if(this.magicNumber<0) this.magicNumber=1;
+        this.isMagicNumberModified=false;
         initializeDescription();
     }
 

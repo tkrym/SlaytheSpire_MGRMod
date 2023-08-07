@@ -5,7 +5,7 @@ import com.megacrit.cardcrawl.actions.watcher.ChangeStanceAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
-import stance.BigBrotherStance;
+import stance.AwakenedStance;
 
 public class Sunglasses extends CustomRelic{
     public static final String ID = "MGR:Sunglasses";

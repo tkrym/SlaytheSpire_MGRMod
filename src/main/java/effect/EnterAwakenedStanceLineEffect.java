@@ -13,7 +13,7 @@ import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 
-public class EnterBigBrotherStanceLineEffect extends AbstractGameEffect
+public class EnterAwakenedStanceLineEffect extends AbstractGameEffect
 {
     private TextureAtlas.AtlasRegion img;
     private float oX;
@@ -23,7 +23,7 @@ public class EnterBigBrotherStanceLineEffect extends AbstractGameEffect
     private float distOffset;
     private float scaleOffset;
 
-    public EnterBigBrotherStanceLineEffect()
+    public EnterAwakenedStanceLineEffect()
     {
         this.img = ImageMaster.STRIKE_LINE;
         this.startingDuration = 0.5F;

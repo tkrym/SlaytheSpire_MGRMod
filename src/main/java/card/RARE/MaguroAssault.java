@@ -39,16 +39,16 @@ public class MaguroAssault extends AbstractMGRCard {
     {
         int finaldamage=this.damage;
         boolean NoteCheck=MGR_character.EndingCheck();
-        boolean BigBrotherCheck=MGR_character.InBigBrotherStance();
-        if(BigBrotherCheck&&NoteCheck)
+        boolean AwakenedCheck=MGR_character.InAwakenedStance();
+        if(AwakenedCheck&&NoteCheck)
         {
             addToBot(new VFXAction(new ViolentAttackEffect(m.hb.cX, m.hb.cY, myColorRed)));
             for(int i=0;i<10;i++) addToBot(new VFXAction(new StarBounceEffect(m.hb.cX, m.hb.cY)));
             addToBot(new DamageAction(m, new DamageInfo(p, finaldamage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
-        }else if(BigBrotherCheck) addToBot(new DamageAction(m, new DamageInfo(p, finaldamage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+        }else if(AwakenedCheck) addToBot(new DamageAction(m, new DamageInfo(p, finaldamage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
         else if(NoteCheck) addToBot(new DamageAction(m, new DamageInfo(p, finaldamage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
         else addToBot(new DamageAction(m, new DamageInfo(p, finaldamage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-        MGR_character.BigBrotherStanceCheck();
+        MGR_character.AwakenedStanceCheck();
     }
 
     public AbstractCard makeCopy() { return new MaguroAssault(); }
@@ -58,9 +58,9 @@ public class MaguroAssault extends AbstractMGRCard {
         this.baseDamage += this.magicNumber*MGR_character.GetChordCount();
         super.calculateCardDamage(m);
         boolean NoteCheck=MGR_character.EndingCheck();
-        boolean BigBrotherCheck=MGR_character.InBigBrotherStance();
+        boolean AwakenedCheck=MGR_character.InAwakenedStance();
         if(NoteCheck) this.damage*=2;
-        if(BigBrotherCheck) this.damage*=2;
+        if(AwakenedCheck) this.damage*=2;
         this.baseDamage = realBaseDamage;
         this.isDamageModified = this.damage != this.baseDamage;
     }
@@ -70,9 +70,9 @@ public class MaguroAssault extends AbstractMGRCard {
         this.baseDamage += this.magicNumber*MGR_character.GetChordCount();
         super.applyPowers();
         boolean NoteCheck=MGR_character.EndingCheck();
-        boolean BigBrotherCheck=MGR_character.InBigBrotherStance();
+        boolean AwakenedCheck=MGR_character.InAwakenedStance();
         if(NoteCheck) this.damage*=2;
-        if(BigBrotherCheck) this.damage*=2;
+        if(AwakenedCheck) this.damage*=2;
         this.baseDamage = realBaseDamage;
         this.isDamageModified = this.damage != this.baseDamage;
     }
@@ -81,10 +81,10 @@ public class MaguroAssault extends AbstractMGRCard {
     public void triggerOnGlowCheck()
     {
         boolean NoteCheck=MGR_character.EndingCheck();
-        boolean BigBrotherCheck=MGR_character.InBigBrotherStance();
-        if(NoteCheck&&BigBrotherCheck) this.glowColor=myColorRed.cpy();
+        boolean AwakenedCheck=MGR_character.InAwakenedStance();
+        if(NoteCheck&&AwakenedCheck) this.glowColor=myColorRed.cpy();
         else if(NoteCheck) this.glowColor=AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
-        else if(BigBrotherCheck) this.glowColor=new Color(1.0F,0.4F,1.0F,1.0F);
+        else if(AwakenedCheck) this.glowColor=new Color(1.0F,0.4F,1.0F,1.0F);
         else this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
     }
 

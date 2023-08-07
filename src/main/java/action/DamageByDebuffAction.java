@@ -5,6 +5,7 @@ import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
@@ -34,9 +35,10 @@ public class DamageByDebuffAction extends AbstractGameAction
         for(AbstractPower power:this.target.powers)
             if(power.type== AbstractPower.PowerType.DEBUFF)
                 sum+= Math.abs(power.amount);
-        addToTop(new VFXAction(new BiteEffect(this.target.hb.cX, this.target.hb.cY - (40.0f * Settings.scale), Color.PURPLE.cpy()), Settings.FAST_MODE?0.2F:0.5F));
         addToTop(new DamageAction(this.target, new DamageInfo(AbstractDungeon.player, this.amount*sum, this.DamageType),
                 AttackEffect.BLUNT_HEAVY));
+        addToTop(new WaitAction(0.1f));
+        addToTop(new VFXAction(new BiteEffect(this.target.hb.cX, this.target.hb.cY - (40.0f * Settings.scale), Color.PURPLE.cpy()), Settings.FAST_MODE?0.4F:0.6F));
         this.isDone=true;
     }
 }

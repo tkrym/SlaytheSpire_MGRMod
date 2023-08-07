@@ -8,17 +8,17 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import path.AbstractCardEnum;
-import power.RiverOfNotesPower;
+import power.BrilliantPower;
 
-public class RiverOfNotes extends AbstractMGRCard {
-    public static final String ID = "MGR:RiverOfNotes";
+public class Brilliant extends AbstractMGRCard {
+    public static final String ID = "MGR:Brilliant";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String IMG = "img/card/"+ID.substring(4)+".png";
     private static final int COST = 1;
     private static final int MAGIC = 2;
     private static final int PLUS_MAGIC = 1;
-    public RiverOfNotes() {
+    public Brilliant() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.POWER,
                 AbstractCardEnum.MGR_COLOR, CardRarity.UNCOMMON, CardTarget.SELF);
         this.baseMagicNumber=MAGIC;
@@ -26,10 +26,10 @@ public class RiverOfNotes extends AbstractMGRCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p,p,new RiverOfNotesPower(this.magicNumber)));
+        addToBot(new ApplyPowerAction(p,p,new BrilliantPower(this.magicNumber)));
     }
 
-    public AbstractCard makeCopy() { return new RiverOfNotes(); }
+    public AbstractCard makeCopy() { return new Brilliant(); }
 
     public void upgrade() {
         if(!this.upgraded)
