@@ -3,6 +3,7 @@ package character;
 
 import action.*;
 import card.BASIC.Lullaby;
+import card.BASIC.Peek;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -139,7 +140,7 @@ public class MGR_character extends CustomPlayer
 
     public Color getCardRenderColor() {return MyColor;}
 
-    public AbstractCard getStartCardForEvent() {return new Lullaby();}
+    public AbstractCard getStartCardForEvent() {return new Peek();}
 
     public Color getCardTrailColor() {return MyColor;}
 
@@ -215,7 +216,12 @@ public class MGR_character extends CustomPlayer
     {
         super.preBattlePrep();
         this.counter_max = counter_max_master;
-        this.counter_min = AbstractDungeon.player.hasRelic(YourExclusiveStage.ID) ? 1 : 0;
+        if(AbstractDungeon.player.hasRelic(YourExclusiveStage.ID))
+        {
+            this.counter_min=1;
+            AbstractDungeon.player.getRelic(YourExclusiveStage.ID).flash();
+        }
+        else this.counter_min=0;
         this.counter = this.counter_min;
     }
 
@@ -303,6 +309,7 @@ public class MGR_character extends CustomPlayer
         if (this.counter >= this.counter_max)
         {
             this.counter = this.counter_min;
+            if(AbstractDungeon.player.hasRelic(YourExclusiveStage.ID)) AbstractDungeon.player.getRelic(YourExclusiveStage.ID).flash();
             myCounterPanel.EnlargeFontScale();
             AbstractDungeon.actionManager.addToTop(new ChangeStanceAction(new AwakenedStance()));
         }

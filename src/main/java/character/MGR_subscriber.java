@@ -389,7 +389,7 @@ public class MGR_subscriber implements EditCharactersSubscriber, EditRelicsSubsc
         this.cardsToAdd.add(new RapidClaw());
         this.cardsToAdd.add(new BurnsRed());
         this.cardsToAdd.add(new TheBurningSun());
-        this.cardsToAdd.add(new TechniqueOfRelief());
+        this.cardsToAdd.add(new Dandanhayakunaru());
     }
 
     @Override

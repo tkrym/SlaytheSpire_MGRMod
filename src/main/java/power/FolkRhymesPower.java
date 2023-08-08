@@ -39,6 +39,7 @@ public class FolkRhymesPower extends AbstractPower implements OnChordHook
     @Override
     public void OnChord(ArrayList<AbstractNote> notes)
     {
+        flashWithoutSound();
         addToTop(new GainBlockAction(AbstractDungeon.player,this.amount));
     }
 }

@@ -41,6 +41,7 @@ public class Yazyuutokasu extends AbstractMGRCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.rawDescription=UPGRADE_DESCRIPTION;
+            this.cardsToPreview.upgrade();
             initializeDescription();
         }
     }

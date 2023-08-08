@@ -29,7 +29,6 @@ public class YazyuutokasuPower extends AbstractPower {
         this.amount = amount;
         updateDescription();
         this.img = new Texture(IMG);
-        this.priority=20;
     }
 
     @Override

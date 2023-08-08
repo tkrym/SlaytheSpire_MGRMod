@@ -69,7 +69,7 @@ public class DragonClaw extends AbstractMGRCard
         AbstractCard newCard=new DragonClaw();
         newCard.magicNumber=this.magicNumber;
         newCard.baseMagicNumber=this.baseMagicNumber;
-        newCard.applyPowers();
+        //newCard.applyPowers();
         return newCard;
     }
 

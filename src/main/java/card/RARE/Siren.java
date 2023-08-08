@@ -17,7 +17,7 @@ public class Siren extends AbstractMGRCard {
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String IMG = "img/card/"+ID.substring(4)+".png";
-    private static final int COST = 2;
+    private static final int COST = 3;
     private static final int MAGIC = 2;
     private static final int PLUS_MAGIC = 1;
     public Siren() {
@@ -36,8 +36,9 @@ public class Siren extends AbstractMGRCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeMagicNumber(PLUS_MAGIC);
-            initializeDescription();
+            this.upgradeBaseCost(2);
+            //this.upgradeMagicNumber(PLUS_MAGIC);
+            //initializeDescription();
         }
     }
 }

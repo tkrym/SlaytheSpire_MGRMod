@@ -20,7 +20,7 @@ public class SongOfSubmersion extends AbstractMGRCard {
     private static final int MAGIC = 3;
     private static final int PLUS_MAGIC = 1;
     private static final int BLOCK = 10;
-    private static final int PLUS_BLOCK = 2;
+    private static final int PLUS_BLOCK = 3;
     public SongOfSubmersion() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.SKILL,
                 AbstractCardEnum.MGR_COLOR, CardRarity.UNCOMMON, CardTarget.SELF);

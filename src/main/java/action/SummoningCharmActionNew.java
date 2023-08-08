@@ -79,7 +79,6 @@ public class SummoningCharmActionNew extends AbstractGameAction
         ArrayList<AbstractCard> cards = new ArrayList<>();
         cards.add(new StardustLaser());
         cards.add(new StarryDrift());
-        //cards.add(new StarryDrift());
         cards.add(new Kimitomitahosizora());
         cards.add(new Futariboshi());
         return cards.get(AbstractDungeon.cardRandomRng.random(cards.size() - 1));

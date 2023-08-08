@@ -39,6 +39,7 @@ public class Finale extends AbstractMGRCard
                 AbstractCardEnum.MGR_COLOR, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY);
         this.baseMagicNumber = MAGIC;
         this.magicNumber = this.baseMagicNumber;
+        this.isEthereal=true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m)
