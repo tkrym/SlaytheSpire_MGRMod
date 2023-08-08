@@ -39,7 +39,8 @@ public class GazeOfOthers extends AbstractMGRCard
     {
         addToBot(new GainBlockAction(p,this.block));
         if(m.hasPower(GazePower.POWER_ID)&&m.getPower(GazePower.POWER_ID).amount>=this.magicNumber)
-            addToBot(new AbstractGameAction() {
+            addToBot(new GainBlockAction(p,this.block));
+            /*addToBot(new AbstractGameAction() {
                 @Override
                 public void update()
                 {
@@ -51,7 +52,7 @@ public class GazeOfOthers extends AbstractMGRCard
                     addToTop(new GainBlockAction(p, GazeOfOthers.this.block));
                     this.isDone=true;
                 }
-            });
+            });*/
     }
 
     @Override

@@ -50,13 +50,13 @@ public class SirenPower extends AbstractPower
                         Msum += Math.abs(power.amount);
                         BlockSum++;
                     }
-                if (Msum > 0) addToBot(new DamageAction(m, new DamageInfo(p, Msum, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.NONE));
+                if (Msum > 0) m.damage(new DamageInfo(AbstractDungeon.player, Msum, DamageInfo.DamageType.HP_LOSS));
             }
         for (AbstractPower power : p.powers)
             if (power.type.equals(PowerType.DEBUFF))
                 BlockSum++;
         this.flashWithoutSound();
-        addToBot(new GainBlockAction(p, BlockSum * this.amount));
+        if(BlockSum>0) addToBot(new GainBlockAction(p, BlockSum * this.amount));
     }
 
     @Override

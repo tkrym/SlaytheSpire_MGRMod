@@ -313,7 +313,7 @@
   },
     "MGR:Siren":{
     "NAME":"塞壬",
-    "DESCRIPTION": "回合结束时，所有敌人的受到其 *负面 状态层数总和的伤害，且场上每有一种 *负面 状态就获得 !M! 点格挡。"
+    "DESCRIPTION": "回合结束时，所有敌人的失去其 *负面 状态层数总和的生命，且场上每有一种 *负面 状态就获得 !M! 点格挡。"
   },
     "MGR:VocalPreparation":{
     "NAME":"演唱准备",
@@ -436,7 +436,7 @@
   },
   "MGR:GazeOfOthers":{
     "NAME":"他人的视线",
-    "DESCRIPTION": "获得 !B! 点格挡。 NL 消耗目标的 !M! 层 mgr:注视 ，再获得一次。"
+    "DESCRIPTION": "获得 !B! 点格挡。 NL 若目标有至少 !M! 层 mgr:注视 ，再获得一次。"
   },
   "MGR:Dandanhayakunaru":{
     "NAME":"逐渐加快",

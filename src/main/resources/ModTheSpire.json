@@ -4,7 +4,7 @@
   "author_list": [
     "MGRSK"
   ],
-  "description": "Adds MGR(Hirasawa meguru) from Cookie☆ as a new character. \nContact me if there is any problem via: \nDiscord@mgrsk \nTwitter@mgrsk1960385817",
+  "description": "Adds MGR(Hirasawa meguru) from Cookie☆ as a new character. \nContact me via Discord@mgrsk if there is any problem.",
   "dependencies": ["basemod", "stslib"],
   "version": "1.0.0",
   "sts_version": "12-18-2022",
