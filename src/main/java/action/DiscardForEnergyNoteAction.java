@@ -13,9 +13,9 @@ import note.AbstractNote;
 import note.StarryNote;
 import patch.ManualDiscardPatch;
 
-public class StardustLaserAction extends AbstractGameAction {
-    public static String[] TEXT=CardCrawlGame.languagePack.getUIString("StardustLaserAction").TEXT;
-    public StardustLaserAction(int amount)
+public class DiscardForEnergyNoteAction extends AbstractGameAction {
+    public static String[] TEXT=CardCrawlGame.languagePack.getUIString("DiscardForEnergyNoteAction").TEXT;
+    public DiscardForEnergyNoteAction(int amount)
     {
         this.amount = amount;
         this.actionType = ActionType.DISCARD;

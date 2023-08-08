@@ -3,129 +3,148 @@
     "NAMES": [
       "counter"
     ],
+    "PROPER_NAME": "Counter",
     "DESCRIPTION": "Upon reaching its maximum count, enter #yAwaken and reset it."
   },
   {
     "NAMES": [
       "awaken"
     ],
-    "DESCRIPTION": "Upon entering this #yStance, gain [E] and draw 1 card. Exit this #yStance at the end of your turn."
+    "PROPER_NAME": "Awaken",
+    "DESCRIPTION": "Upon entering this #yStance, gain [E] and draw #b1 card. At the end of your turn or after #yextra #yeffects of cards are triggered, exit this #yStance."
   },
   {
     "NAMES": [
       "forte"
     ],
-    "DESCRIPTION": "Enhances the effects of #yNotes."
+    "PROPER_NAME": "Forte",
+    "DESCRIPTION": "Enhance the effects of notes."
   },
   {
     "NAMES": [
       "chord"
     ],
-    "DESCRIPTION": "Triggered whenever #yNote #ySlots are full. Use the effects of all #yNotes and increase the #ycounter by 1."
+    "PROPER_NAME": "Chord",
+    "DESCRIPTION": "Performed whenever note slots are full. Use the effects of all notes and increase the #ycounter by 1."
   },
   {
     "NAMES": [
-      "note",
-      "notes"
+      "note"
     ],
+    "PROPER_NAME": "Note",
     "DESCRIPTION": "Resources with various effects."
   },
   {
     "NAMES": [
-      "basic notes"
+      "basic_notes"
     ],
+    "PROPER_NAME": "Basic Notes",
     "DESCRIPTION": "Including five types: #yAttack, #yDefend, #yDraw, #yDebuff and #yArtifact. Corresponding to #yAttack, #ySkill, #yPower, #yStatus and #yCurse card."
   },
   {
     "NAMES": [
       "ending"
     ],
-    "DESCRIPTION": "Triggered when you have only 1 empty #yNote #ySlot."
+    "PROPER_NAME": "Ending",
+    "DESCRIPTION": "Triggered when you have only #b1 empty note slot."
   },
   {
     "NAMES": [
       "gaze"
     ],
-    "DESCRIPTION": "After #yChord is triggered, lose HP and reduce the amount."
+    "PROPER_NAME": "Gaze",
+    "DESCRIPTION": "Triggered after #yChord is performed. Lose HP and reduce the amount by a specific proportion."
   },
   {
     "NAMES": [
-      "note slot",
-      "empty note slot"
+      "note_slot",
+      "empty_note_slot"
     ],
+    "PROPER_NAME": "Note Slot",
     "DESCRIPTION": "You can generate #Notes here."
   },
   {
     "NAMES": [
-      "attack note"
+      "attacknote"
     ],
+    "PROPER_NAME": "AttackNote",
     "DESCRIPTION": "Deal damage to a random enemy."
   },
   {
     "NAMES": [
-      "defend note"
+      "defendnote"
     ],
+    "PROPER_NAME": "DefendNote",
     "DESCRIPTION": "Gain block."
   },
   {
     "NAMES": [
-      "draw Note"
+      "drawnote"
     ],
+    "PROPER_NAME": "DrawNote",
     "DESCRIPTION": "Draw cards."
   },
   {
     "NAMES": [
-      "debuff Note"
+      "debuffnote"
     ],
+    "PROPER_NAME": "DebuffNote",
     "DESCRIPTION": "Apply #yWeak and #yVulnerable to ALL enemies."
   },
   {
     "NAMES": [
-      "artifact"
+      "artifactnote"
     ],
+    "PROPER_NAME": "ArtifactNote",
     "DESCRIPTION": "Gain #yArtifact."
   },
   {
     "NAMES": [
-      "ghost note"
+      "ghostnote"
     ],
+    "PROPER_NAME": "GhostNote",
     "DESCRIPTION": "Gain #yIntangible."
   },
   {
     "NAMES": [
-      "energy note",
-      "energy"
+      "energynote"
     ],
-    "DESCRIPTION": "Gain #yEnergy. Unaffected by #yForte."
+    "PROPER_NAME": "EnergyNote",
+    "DESCRIPTION": "Gain [E] . Unaffected by #yForte."
   },
   {
     "NAMES": [
       "starry"
     ],
-    "DESCRIPTION": "Correspond to #yEnergy #Note."
+    "PROPER_NAME": "Starry",
+    "DESCRIPTION": "Correspond to #yEnergyNote. #yEnergyNote gives you [E] ."
   },
   {
     "NAMES": [
-      "conceived as status"
+      "conceivedasstatus"
     ],
-    "DESCRIPTION": "Correspond to #yDebuff #Note. Appears in some #Status card pools."
+    "PROPER_NAME": "ConceivedAsStatus",
+    "DESCRIPTION": "Correspond to #yDebuffNote. Appears in some #Status card pools."
   },
   {
     "NAMES": [
       "starting"
     ],
-    "DESCRIPTION": "Triggered when you have no #Notes."
+    "PROPER_NAME": "Starting",
+    "DESCRIPTION": "Triggered when you have no notes."
   },
   {
     "NAMES": [
-      "tempClone"
+      "tempclone"
     ],
-    "DESCRIPTION": "Cost #b0 this turn and is #yExhaust and #yEthereal."
+    "PROPER_NAME": "TempClone",
+    "DESCRIPTION": "Cost #b0 for this turn and is #yExhaust and #yEthereal."
   },
   {
     "NAMES": [
       "improvise"
     ],
-    "DESCRIPTION": "Generate #b1 random #yBasic #yNote out of 5 types with a specific probability."
+    "PROPER_NAME": "Improvise",
+    "DESCRIPTION": "Generate #b1 random #yBasic #yNote out of #b5 types with a specific probability."
   }
 ]

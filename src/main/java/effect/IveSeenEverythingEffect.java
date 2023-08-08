@@ -47,7 +47,7 @@ public class IveSeenEverythingEffect extends AbstractGameEffect
             return;
         }
         this.color = this.getColorFromAngle(this.angle);
-        this.color.a=this.duration / this.startingDuration*0.8f;
+        this.color.a=this.duration / this.startingDuration*0.7f;
     }
 
     public void render(SpriteBatch sb)

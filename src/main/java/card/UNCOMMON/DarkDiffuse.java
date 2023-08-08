@@ -26,7 +26,6 @@ public class DarkDiffuse extends AbstractMGRCard
     public static final String ID = "MGR:DarkDiffuse";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG = "img/card/" + ID.substring(4) + ".png";
     private static final int COST = 1;
     private static final int DMG = 6;

@@ -14,7 +14,6 @@ public class Kimitomitahosizora extends AbstractMGRCard
     public static final String ID = "MGR:Kimitomitahosizora";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG = "img/card/" + ID.substring(4) + ".png";
     private static final int COST = 1;
     public static final int MAGIC = 4;
@@ -42,8 +41,6 @@ public class Kimitomitahosizora extends AbstractMGRCard
         {
             this.upgradeName();
             this.upgradeMagicNumber(PLUS_MAGIC);
-            /*this.rawDescription=UPGRADE_DESCRIPTION;
-            initializeDescription();*/
         }
     }
 }

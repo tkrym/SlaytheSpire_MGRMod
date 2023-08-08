@@ -1,6 +1,6 @@
 package card.COMMON;
 
-import action.StardustLaserAction;
+import action.DiscardForEnergyNoteAction;
 import card.AbstractMGRCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
@@ -42,7 +42,7 @@ public class StardustLaser extends AbstractMGRCard {
         //addToBot(new DiscardAction(p,p,1,false));
         addToBot(new VFXAction(p, new SweepingBeamEffect(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY, AbstractDungeon.player.flipHorizontal), 0.2f));
         addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.FIRE));
-        //addToBot(new StardustLaserAction(this.magicNumber));
+        //addToBot(new DiscardForEnergyNoteAction(this.magicNumber));
     }
 
     public AbstractCard makeCopy() { return new StardustLaser(); }

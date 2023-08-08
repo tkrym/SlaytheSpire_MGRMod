@@ -32,7 +32,6 @@ public class GazeLock extends AbstractMGRCard {
     public static final String ID = "MGR:GazeLock";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG = "img/card/"+ID.substring(4)+".png";
     private static final int COST = 1;
     private static final int MAGIC = 2;
@@ -42,8 +41,6 @@ public class GazeLock extends AbstractMGRCard {
                 AbstractCardEnum.MGR_COLOR, CardRarity.UNCOMMON, CardTarget.ENEMY);
         this.baseMagicNumber=MAGIC;
         this.magicNumber=this.baseMagicNumber;
-        //ExhaustiveField.ExhaustiveFields.baseExhaustive.set(this, 2);
-        //ExhaustiveField.ExhaustiveFields.exhaustive.set(this, 2);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m)
@@ -61,10 +58,6 @@ public class GazeLock extends AbstractMGRCard {
                 this.isDone=true;
             }
         });
-        //AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new WeakPower(m, this.magicNumber, false), this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
-        //AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new VulnerablePower(m, this.magicNumber, false), this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
-        //AbstractDungeon.actionManager.addToBottom(new GazeLockAction(m));
-        //this.UpdateExhaustiveDescription();
     }
 
     public AbstractCard makeCopy() { return new GazeLock(); }

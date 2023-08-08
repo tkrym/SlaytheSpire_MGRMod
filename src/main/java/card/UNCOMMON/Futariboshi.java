@@ -1,7 +1,7 @@
 package card.UNCOMMON;
 
 import action.ChannelNoteAction;
-import action.StardustLaserAction;
+import action.DiscardForEnergyNoteAction;
 import card.AbstractMGRCard;
 import character.MGR_character;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -19,7 +19,6 @@ public class Futariboshi extends AbstractMGRCard {
     public static final String ID = "MGR:Futariboshi";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-    public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG = "img/card/"+ID.substring(4)+".png";
     private static final int COST = 1;
     public static final int MAGIC = 1;
@@ -30,27 +29,10 @@ public class Futariboshi extends AbstractMGRCard {
         this.baseMagicNumber = MAGIC;
         this.magicNumber=this.baseMagicNumber;
         this.IsStarryCard=true;
-        //this.exhaust=true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new StardustLaserAction(this.magicNumber));
-        /*addToBot(new AbstractGameAction() {
-            @Override
-            public void update() {
-                if(AbstractDungeon.player instanceof MGR_character)
-                {
-                    MGR_character mp=(MGR_character)AbstractDungeon.player;
-                    int myCounter=mp.counter;
-                    //if(Futariboshi.this.upgraded) myCounter+=Futariboshi.MAGIC;
-                    mp.inccounter(-myCounter);
-                    addToTop(new GainEnergyAction());
-                    for(int i=1;i<=myCounter;i++)
-                        addToTop(new ChannelNoteAction(new StarryNote()));
-                }
-                this.isDone=true;
-            }
-        });*/
+        addToBot(new DiscardForEnergyNoteAction(this.magicNumber));
     }
 
     public AbstractCard makeCopy() { return new Futariboshi(); }
@@ -59,8 +41,6 @@ public class Futariboshi extends AbstractMGRCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeMagicNumber(PLUS_MAGIC);
-            /*this.rawDescription=UPGRADE_DESCRIPTION;
-            initializeDescription();*/
         }
     }
 }

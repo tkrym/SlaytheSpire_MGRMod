@@ -30,7 +30,7 @@ public class ScaryGlare extends AbstractMGRCard
     private static final int COST = 1;
     private static final int DMG = 6;
     private static final int PLUS_DMG = 1;
-    private static final int MAGIC = 4;
+    private static final int MAGIC = 3;
     private static final int PLUS_MAGIC = 2;
     private static final int GazeRatio = 2;
     private static final int UPGRADE_GazeRatio = 2;
@@ -77,8 +77,6 @@ public class ScaryGlare extends AbstractMGRCard
             this.upgradeName();
             this.upgradeDamage(PLUS_DMG);
             this.upgradeMagicNumber(PLUS_MAGIC);
-            this.rawDescription= cardStrings.UPGRADE_DESCRIPTION;
-            initializeDescription();
         }
     }
 }
