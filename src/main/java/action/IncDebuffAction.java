@@ -30,8 +30,8 @@ public class IncDebuffAction extends AbstractGameAction
     {
         if (this.duration == this.startDuration && this.target != null)
         {
-            int amt1=this.upgraded?1:2;
-            int amt2=this.upgraded?2:3;
+            int amt1=this.upgraded?2:2;
+            int amt2=this.upgraded?3:1;
             /*if(this.upgraded)
             {
                 if(this.target.hasPower(ConstrictedPower.POWER_ID)) addToTop(new ApplyPowerAction(this.target, this.source, new ConstrictedPower(this.target, this.source, 2), 2, true, AbstractGameAction.AttackEffect.NONE));

@@ -359,8 +359,8 @@
   },
     "MGR:FourEyes":{
     "NAME":"四目",
-    "DESCRIPTION": "每当你给予敌人 *负面 状态（不包括注视）时，额外给予层数 !M! 倍的 mgr:注视 。",
-    "UPGRADE_DESCRIPTION": " 固有 。 NL 每当你给予敌人 *负面 状态（不包括注视）时，额外给予层数 !M! 倍的 mgr:注视 。"
+    "DESCRIPTION": "每当你给予敌人 *负面 状态（不包括注视）时，额外给予等量的 mgr:注视 。",
+    "UPGRADE_DESCRIPTION": " 固有 。 NL 每当你给予敌人 *负面 状态（不包括注视）时，额外给予等量的 mgr:注视 。"
   },
     "MGR:Frighten":{
     "NAME":"吓唬",
@@ -391,7 +391,7 @@
   },
     "MGR:TheEyeBehind":{
     "NAME":"背后的眼睛",
-    "DESCRIPTION": "若目标没有 *虚弱 ，给予1层，否则给予2层。对 *易伤 、 mgr:注视 同理。 消耗 。",
+    "DESCRIPTION": "若目标没有 *虚弱 ，给予2层，否则给予1层。对 *易伤 、 mgr:注视 同理。 消耗 。",
     "UPGRADE_DESCRIPTION": "若目标没有 *虚弱 ，给予2层，否则给予3层。对 *易伤 、 mgr:注视 。 消耗 。"
   },
     "MGR:StarryDrift":{

@@ -2,6 +2,7 @@ package card.UNCOMMON;
 
 import action.ChristmasGiftAction;
 import card.AbstractMGRCard;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.watcher.ChangeStanceAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -9,6 +10,8 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import effect.AwakenedStanceParticleEffect;
+import effect.IveSeenEverythingEffect;
 import path.AbstractCardEnum;
 import stance.AwakenedStance;
 
@@ -27,6 +30,7 @@ public class IveSeenEverything extends AbstractMGRCard {
 
     public void use(AbstractPlayer p, AbstractMonster m)
     {
+        addToBot(new VFXAction(AbstractDungeon.player,new IveSeenEverythingEffect(),1.0f,true));
         addToBot(new ChangeStanceAction(new AwakenedStance()));
     }
 

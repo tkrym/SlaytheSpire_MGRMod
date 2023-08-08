@@ -53,7 +53,7 @@ public class Drown extends AbstractMGRCard
         {
             this.upgradeName();
             this.upgradeMagicNumber(PLUS_MAGIC);
-            //this.upgradeDamage(PLUS_DMG);
+            this.upgradeDamage(PLUS_DMG);
         }
     }
 }

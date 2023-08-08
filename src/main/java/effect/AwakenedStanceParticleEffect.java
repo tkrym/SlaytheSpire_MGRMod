@@ -29,7 +29,6 @@ public class AwakenedStanceParticleEffect extends AbstractGameEffect
         this.scale = 1.0F;
         this.startingDuration = MathUtils.random(1.0F, 1.5F);
         this.duration = this.startingDuration;
-        this.scale *= Settings.scale;
         this.dur_div2 = this.duration / 2.0F;
         this.target = AbstractDungeon.player;
         this.color = new Color(MathUtils.random(0.0F, 0.2F), MathUtils.random(0.75F, 0.95F), MathUtils.random(0.9F, 1.0F), 0.0F);
@@ -58,7 +57,6 @@ public class AwakenedStanceParticleEffect extends AbstractGameEffect
         this.scale = MathUtils.random(1.0F, 1.5F);
         this.startingDuration = this.scale + 0.8F;
         this.duration = this.startingDuration;
-        this.scale *= Settings.scale;
         this.dur_div2 = this.duration / 2.0F;
         this.target = target;
         this.color = new Color(MathUtils.random(0.0F, 0.2F), MathUtils.random(0.75F, 0.95F), MathUtils.random(0.9F, 1.0F), 0.0F);
@@ -159,7 +157,7 @@ public class AwakenedStanceParticleEffect extends AbstractGameEffect
     {
         sb.setColor(this.color);
         sb.setBlendFunction(770, 1);
-        sb.draw(this.img, this.x, this.y + this.vY, (float) this.img.packedWidth / 2.0F, (float) this.img.packedHeight / 2.0F, (float) this.img.packedWidth, (float) this.img.packedHeight, this.scale, this.scale, this.rotation);
+        sb.draw(this.img, this.x, this.y + this.vY*this.scale, (float) this.img.packedWidth / 2.0F, (float) this.img.packedHeight / 2.0F, (float) this.img.packedWidth, (float) this.img.packedHeight, this.scale*Settings.scale, this.scale*Settings.scale, this.rotation);
         sb.setBlendFunction(770, 771);
     }
 

@@ -2,8 +2,8 @@
   "MGR:BottledNotes": {
     "NAME": "瓶装音符",
     "DESCRIPTIONS": [
-      "随机生成 #b",
-      " 个 #y基本音符 。"
+      " #y即兴 #b",
+      " （随机生成 #y基本音符 ）。"
     ]
   },
   "MGR:PortableAnvil": {

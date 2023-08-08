@@ -59,10 +59,10 @@ public class PortableAnvil extends AbstractPotion{
                 }
             }
             ArrayList<AbstractCard> upgradableCards=new ArrayList<>();
-            for(AbstractCard c:upgradableCards_RARE) for(int j=1;j<=4;j++) upgradableCards.add(c);
-            for(AbstractCard c:upgradableCards_UNCOMMON) for(int j=1;j<=2;j++) upgradableCards.add(c);
-            for(AbstractCard c:upgradableCards_SPECIAL) for(int j=1;j<=2;j++) upgradableCards.add(c);
-            for(AbstractCard c:upgradableCards_COMMON) for(int j=1;j<=1;j++) upgradableCards.add(c);
+            for(AbstractCard c:upgradableCards_RARE) for(int j=1;j<=8;j++) upgradableCards.add(c);
+            for(AbstractCard c:upgradableCards_UNCOMMON) for(int j=1;j<=4;j++) upgradableCards.add(c);
+            for(AbstractCard c:upgradableCards_SPECIAL) for(int j=1;j<=4;j++) upgradableCards.add(c);
+            for(AbstractCard c:upgradableCards_COMMON) for(int j=1;j<=2;j++) upgradableCards.add(c);
             for(AbstractCard c:upgradableCards_BASIC) for(int j=1;j<=1;j++) upgradableCards.add(c);
             /*if(!upgradableCards_RARE.isEmpty()) upgradableCards=upgradableCards_RARE;
             else if(!upgradableCards_UNCOMMON.isEmpty()) upgradableCards=upgradableCards_UNCOMMON;

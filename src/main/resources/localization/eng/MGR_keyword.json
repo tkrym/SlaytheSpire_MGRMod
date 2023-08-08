@@ -1,130 +1,131 @@
 [
   {
     "NAMES": [
-      "计数器"
+      "counter"
     ],
-    "DESCRIPTION": "达到一定数量后，进入 #y开眼 。"
+    "DESCRIPTION": "Upon reaching its maximum count, enter #yAwaken and reset it."
   },
   {
     "NAMES": [
-      "开眼"
+      "awaken"
     ],
-    "DESCRIPTION": "进入这一 #y姿态 时，获得 [E] 并抽 #b1 张牌 。部分卡牌能触发特殊效果 。在你的回合结束时自动离开这一姿态 。"
+    "DESCRIPTION": "Upon entering this #yStance, gain [E] and draw 1 card. Exit this #yStance at the end of your turn."
   },
   {
     "NAMES": [
-      "强音"
+      "forte"
     ],
-    "DESCRIPTION": " 增强音符的效果。"
+    "DESCRIPTION": "Enhances the effects of #yNotes."
   },
   {
     "NAMES": [
-      "和弦"
+      "chord"
     ],
-    "DESCRIPTION": "音符数量达到上限时触发一次和弦，使用所有音符的效果并增加计数器 #b1 点。"
+    "DESCRIPTION": "Triggered whenever #yNote #ySlots are full. Use the effects of all #yNotes and increase the #ycounter by 1."
   },
   {
     "NAMES": [
-      "音符"
+      "note",
+      "notes"
     ],
-    "DESCRIPTION": "在音符数量达到上限时，触发 #y和弦 ，使用它们的效果。"
+    "DESCRIPTION": "Resources with various effects."
   },
   {
     "NAMES": [
-      "基本音符"
+      "basic notes"
     ],
-    "DESCRIPTION": "包括 #y攻击 、 #y防御 、 #y抽牌 、 #y负面 、 #y人工 五种，对应 #y攻击 、 #y技能 、 #y能力 、 #y状态 与 #y诅咒 牌。"
+    "DESCRIPTION": "Including five types: #yAttack, #yDefend, #yDraw, #yDebuff and #yArtifact. Corresponding to #yAttack, #ySkill, #yPower, #yStatus and #yCurse card."
   },
   {
     "NAMES": [
-      "尾音"
+      "ending"
     ],
-    "DESCRIPTION": "恰有 1 个空音符槽时触发。"
+    "DESCRIPTION": "Triggered when you have only 1 empty #yNote #ySlot."
   },
   {
     "NAMES": [
-      "注视"
+      "gaze"
     ],
-    "DESCRIPTION": "在你触发 #y和弦 后失去等同于层数的生命，并失去一定层数。"
+    "DESCRIPTION": "After #yChord is triggered, lose HP and reduce the amount."
   },
   {
     "NAMES": [
-      "音符槽",
-      "空音符槽"
+      "note slot",
+      "empty note slot"
     ],
-    "DESCRIPTION": "用于存放音符。"
+    "DESCRIPTION": "You can generate #Notes here."
   },
   {
     "NAMES": [
-      "攻击音符"
+      "attack note"
     ],
-    "DESCRIPTION": "对随机敌人造成伤害。"
+    "DESCRIPTION": "Deal damage to a random enemy."
   },
   {
     "NAMES": [
-      "防御音符"
+      "defend note"
     ],
-    "DESCRIPTION": "获得格挡。"
+    "DESCRIPTION": "Gain block."
   },
   {
     "NAMES": [
-      "抽牌音符"
+      "draw Note"
     ],
-    "DESCRIPTION": "抽牌。"
+    "DESCRIPTION": "Draw cards."
   },
   {
     "NAMES": [
-      "负面音符"
+      "debuff Note"
     ],
-    "DESCRIPTION": "给予所有敌人 #y虚弱 与 #y易伤 。"
+    "DESCRIPTION": "Apply #yWeak and #yVulnerable to ALL enemies."
   },
   {
     "NAMES": [
-      "人工音符"
+      "artifact"
     ],
-    "DESCRIPTION": "获得 #y人工制品 。"
+    "DESCRIPTION": "Gain #yArtifact."
   },
   {
     "NAMES": [
-      "幽灵音符"
+      "ghost note"
     ],
-    "DESCRIPTION": "获得 #y无实体 。"
+    "DESCRIPTION": "Gain #yIntangible."
   },
   {
     "NAMES": [
-      "能量音符"
+      "energy note",
+      "energy"
     ],
-    "DESCRIPTION": "获得能量。不受 #y强音 影响。"
+    "DESCRIPTION": "Gain #yEnergy. Unaffected by #yForte."
   },
   {
     "NAMES": [
-      "星空"
+      "starry"
     ],
-    "DESCRIPTION": "本牌对应的音符为 #y能量音符 。"
+    "DESCRIPTION": "Correspond to #yEnergy #Note."
   },
   {
     "NAMES": [
-      "视作状态"
+      "conceived as status"
     ],
-    "DESCRIPTION": "本牌对应的音符为 #y负面音符 。"
+    "DESCRIPTION": "Correspond to #yDebuff #Note. Appears in some #Status card pools."
   },
   {
     "NAMES": [
-      "起音"
+      "starting"
     ],
-    "DESCRIPTION": "没有音符时触发。"
+    "DESCRIPTION": "Triggered when you have no #Notes."
   },
   {
     "NAMES": [
-      "临时复制"
+      "tempClone"
     ],
-    "DESCRIPTION": "本回合费用为 #b0 且具有 #y消耗 和 #y虚无 。"
+    "DESCRIPTION": "Cost #b0 this turn and is #yExhaust and #yEthereal."
   },
   {
     "NAMES": [
-      "即兴",
       "improvise"
     ],
-    "DESCRIPTION": "以一定概率生成五种 #y基本音符 中的一个。"
+    "DESCRIPTION": "Generate #b1 random #yBasic #yNote out of 5 types with a specific probability."
   }
 ]
