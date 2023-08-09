@@ -38,7 +38,7 @@
     "MGR:Stereophonic":{
     "NAME":"Stereophonic",
     "DESCRIPTION": "mgr:AttackNote gains half block. NL mgr:DefendNote deals damage to a random enemy.",
-    "UPGRADE_DESCRIPTION": "mgr:AttackNote gains half block. NL mgr:DefendNote deals damage to a random enemy. NL mgr:DrawNote gains double block and deal double damage to all enemies. "
+    "UPGRADE_DESCRIPTION": "mgr:AttackNote gains half block. NL mgr:DefendNote deals damage to a random enemy. NL mgr:DrawNote gains double block and deal double damage to all enemies."
   },
     "MGR:AdjustTempo":{
     "NAME":"Adjust Tempo",
@@ -114,11 +114,11 @@
   },
     "MGR:Romp":{
     "NAME":"Romp",
-    "DESCRIPTION": "Add !M! *Confused into hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Add !M! *Confused+ into hand. NL Retain. Exhaust."
+    "DESCRIPTION": "Add !M! *Confused into your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Add !M! *Confused+ into your hand. NL Retain. Exhaust."
   },
     "MGR:Yazyuutokasu":{
-    "NAME":"Feral Transform",
+    "NAME":"Feral",
     "DESCRIPTION": "At the start of your turn, discard a random card with the *lowest cost and add a *Confused into hand.",
     "UPGRADE_DESCRIPTION": "At the start of your turn, discard a random card with the *lowest cost and add a *Confused into hand."
   },
@@ -170,7 +170,7 @@
   },
     "MGR:TinyOrchestra":{
     "NAME":"Tiny Orchestra",
-    "DESCRIPTION": "At the end of your turn, deal !M! damage to all enemies for each *type of note generated this turn"
+    "DESCRIPTION": "At the end of your turn, deal !M! damage to all enemies for each *type of note generated this turn."
   },
     "MGR:MetalGear":{
     "NAME":"Metal Gear",
@@ -205,7 +205,7 @@
   },
     "MGR:NowhereToHide":{
     "NAME":"Nowhere to Hide",
-    "DESCRIPTION": "Apply !M! mgr:Gaze to all enemies and trigger mgr:Gaze. NL If killed any, Repeat this."
+    "DESCRIPTION": "Apply !M! mgr:Gaze to all enemies and trigger mgr:Gaze once. NL If killed any, Repeat this."
   },
     "MGR:Drown":{
     "NAME":"Drown",
@@ -244,7 +244,7 @@
     "UPGRADE_DESCRIPTION": "Gain !M! mgr:Forte and generate double notes this turn. NL Retain. Exhaust."
   },
     "MGR:MyReflection":{
-    "NAME":"Reflection",
+    "NAME":"In the Mirror",
     "DESCRIPTION": "Exhaust a random card with the *lowest cost. NL A random card with the *highest cost reduces its cost by [E] [E] this turn.",
     "UPGRADE_DESCRIPTION": "Exhaust a random card with the *lowest cost. NL A random card with the *highest cost reduces its cost by [E] [E] [E] this turn."
   },
@@ -260,7 +260,7 @@
   },
     "MGR:Salivate":{
     "NAME":"Salivate",
-    "DESCRIPTION": "Damage from mgr:Gaze is affected by Vulnerable. NL Whenever a *non-minion enemy is killed by mgr:Gaze, raise your Max HP by !M! ."
+    "DESCRIPTION": "Damage from mgr:Gaze is affected by Vulnerable. NL Whenever a *non-Minion enemy is killed by mgr:Gaze, raise your Max HP by !M! ."
   },
     "MGR:SummoningCharm":{
     "NAME":"Restore",
@@ -269,7 +269,7 @@
   },
     "MGR:SunDescending":{
     "NAME":"Sun Dial",
-    "DESCRIPTION": "Unplayable. NL When discarded or exhausted, deal !D! to all enemies and reset. NL Raise the damage by !M! whenever you discard or exhaust a card."
+    "DESCRIPTION": "Unplayable. NL When discarded or exhausted, deal !D! damage to all enemies and reset. NL Raise the damage by !M! whenever you discard or exhaust a card."
   },
     "MGR:FourEyes":{
     "NAME":"Four Eyes",
@@ -296,11 +296,11 @@
   },
     "MGR:IntertwinedTimbres":{
     "NAME":"Intertwined Timbres",
-    "DESCRIPTION": "mgr:Improvise !M! . NL Gain !B! block for each *type of note generated this turn"
+    "DESCRIPTION": "mgr:Improvise !M! . NL Gain !B! block for each *type of note generated this turn."
   },
     "MGR:Reflexivity":{
     "NAME":"Reflexivity",
-    "DESCRIPTION": "Gain !B! block. NL Move !M! cards from your discard pile to the bottom of draw pile. NL mgr:Awaken: To the top of draw pile instead."
+    "DESCRIPTION": "Gain !B! block. NL Move !M! cards from your discard pile to the *bottom of draw pile. NL mgr:Awaken: To the *top of draw pile instead."
   },
     "MGR:TheEyeBehind":{
     "NAME":"The Eye Behind",
@@ -328,11 +328,11 @@
   },
     "MGR:TheBurningSun":{
     "NAME":"The Burning Sun",
-    "DESCRIPTION": "Exhaust up to !M! cards. Draw that number next turn. NL mgr:Awaken: Gain their mgr:TempCopy instead."
+    "DESCRIPTION": "Exhaust up to !M! cards. Draw that many cards next turn. NL mgr:Awaken: Gain their mgr:TempCopy instead."
   },
   "MGR:Finale":{
     "NAME":"Finale",
-    "DESCRIPTION": "Discard all *non-Attack cards in hand. Generate !M! mgr:AttackNote for each."
+    "DESCRIPTION": "Discard all *non-Attack cards in hand. Generate !M! mgr:AttackNote for each. NL Ethereal."
   },
   "MGR:Masterful":{
     "NAME":"Masterful",
@@ -345,7 +345,7 @@
   },
   "MGR:Casually":{
     "NAME":"Casually",
-    "DESCRIPTION": "Unplayable. NL Drawn: mgr:Improvise !D! . NL Discarded or exhausted: mgr:Improvise !M! "
+    "DESCRIPTION": "Unplayable. NL Drawn: mgr:Improvise !D!  NL Discarded or exhausted: mgr:Improvise !M! "
   },
   "MGR:IveSeenEverything":{
     "NAME":"I've Seen Everything",

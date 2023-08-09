@@ -3,6 +3,7 @@ package potion;
 import action.ChannelNoteAction;
 import action.TemporaryDuplicationAction;
 import character.MGR_character;
+import character.MGR_subscriber;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -31,7 +32,7 @@ public class Doping extends AbstractPotion
     public Doping()
     {
         super(potionStrings.NAME, POTION_ID, PotionRarity.UNCOMMON, PotionSize.BOLT, PotionColor.WHITE);
-        //this.labOutlineColor = MGR_character.MyColor;
+        if(!MGR_subscriber.AddCustomObjects) this.labOutlineColor = MGR_character.MyColor;
         this.isThrown = false;
     }
 

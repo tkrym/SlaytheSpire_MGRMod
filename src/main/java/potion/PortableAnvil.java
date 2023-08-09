@@ -1,6 +1,7 @@
 package potion;
 
 import character.MGR_character;
+import character.MGR_subscriber;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -25,6 +26,7 @@ public class PortableAnvil extends AbstractPotion{
 
     public PortableAnvil() {
         super(potionStrings.NAME, POTION_ID, PotionRarity.RARE, PotionSize.ANVIL, AbstractPotion.PotionEffect.RAINBOW, Color.WHITE, null, null);
+        if(!MGR_subscriber.AddCustomObjects) this.labOutlineColor = MGR_character.MyColor;
         this.isThrown = false;
     }
 

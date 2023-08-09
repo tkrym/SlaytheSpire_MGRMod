@@ -11,18 +11,20 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import hook.OnManualDiscardHook;
 
-public class ResonanceFormPower extends AbstractPower implements OnManualDiscardHook {
+public class ResonanceFormPower extends AbstractPower implements OnManualDiscardHook
+{
     public static final String POWER_ID = "MGR:ResonanceFormPower";
-    private static final String IMG = "img/power/"+POWER_ID.substring(4)+".png";
+    private static final String IMG = "img/power/" + POWER_ID.substring(4) + ".png";
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    public ResonanceFormPower(AbstractCreature owner) {
+    public ResonanceFormPower(AbstractCreature owner)
+    {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
-        this.amount=ResonanceForm.MAGIC;
+        this.amount = ResonanceForm.MAGIC;
         updateDescription();
         this.img = new Texture(IMG);
     }
@@ -31,7 +33,7 @@ public class ResonanceFormPower extends AbstractPower implements OnManualDiscard
     public void stackPower(int stackAmount) {}
 
     @Override
-    public void updateDescription() {this.description = DESCRIPTIONS[0]+ ResonanceForm.MAGIC+DESCRIPTIONS[1]+this.amount+DESCRIPTIONS[2];}
+    public void updateDescription() {this.description = DESCRIPTIONS[0] + ResonanceForm.MAGIC + DESCRIPTIONS[1] + this.amount + DESCRIPTIONS[2];}
 
     @Override
     public void OnManualDiscard(AbstractCard c) {UpdateAmount(c);}
@@ -40,7 +42,7 @@ public class ResonanceFormPower extends AbstractPower implements OnManualDiscard
     public void onCardDraw(AbstractCard c) {UpdateAmount(c);}
 
     @Override
-    public void onExhaust(AbstractCard c) { UpdateAmount(c);}
+    public void onExhaust(AbstractCard c) {UpdateAmount(c);}
 
     @Override
     public void onUseCard(AbstractCard c, UseCardAction action) {UpdateAmount(c);}
@@ -48,12 +50,13 @@ public class ResonanceFormPower extends AbstractPower implements OnManualDiscard
     private void UpdateAmount(AbstractCard c)
     {
         this.amount--;
-        if(this.amount<=0)
+        if (this.amount <= 0)
         {
-            this.amount=ResonanceForm.MAGIC;
+            this.amount = ResonanceForm.MAGIC;
             this.flashWithoutSound();
             addToTop(new TemporaryDuplicationAction(c));
         }
+        else if (this.amount == 1) this.flashWithoutSound();
         updateDescription();
     }
 }

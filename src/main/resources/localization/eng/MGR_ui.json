@@ -1,54 +1,53 @@
 {
   "MGR:CounterPanel": {
     "TEXT": [
-      "计数器",
-      "达到 #b",
-      " 点时，失去所有计数并进入 #y开眼 。 NL 当你处于该姿态时，计数器不能超过 #b",
-      " 点。"
+      "Counter",
+      "When reaches #b",
+      " , loses all the count and enter #yAwaken . NL While in #yAwaken , Counter can't be higher than #b",
+      " ."
     ]
   },
   "KimitomitahosizoraAction": {
     "TEXT": [
-      "选择任意张牌丢弃，视为从手牌中丢弃。",
-      "张，生成一个能量音符。"
+      "Choose Cards to Discard. They are Conceived as Discarded from Hand."
     ]
   },
   "DizzyAndGiddyAction": {
     "TEXT": [
-      "丢弃，至多",
-      "张。如果至少选择了",
-      "张，抽",
-      "张牌。"
+      "Discard, at Most ",
+      " Cards. If at Least ",
+      " Cards are Discarded, Draw ",
+      " Cards."
     ]
   },
   "LoseRelicReward": {
     "TEXT": [
-      "失去 "
+      "Lose "
     ]
   },
   "DiscardForEnergyNoteAction": {
     "TEXT": [
-      "丢弃，至多",
-      "张。生成等量的能量音符。"
+      "Discard, up to ",
+      " Cards. Generate Equivalent EnergyNotes."
     ]
   },
   "EchoPhantomAction": {
     "TEXT": [
-      "选择",
-      "张牌，将其复制放入抽牌堆顶。"
+      "Choose ",
+      " Card, Put Its Copy on Top of Draw Pile. "
     ]
   },
   "ReflexivityAction": {
     "TEXT": [
-      "选择",
-      "张牌置于抽牌堆底部。",
-      "张牌置于抽牌堆顶部。"
+      "Choose ",
+      " Cards to Put at the Bottom of Your Draw Pile.",
+      " Cards to Put on the Top of your Draw Pile."
     ]
   },
   "TheBurningSunAction": {
     "TEXT": [
-      "消耗，下回合抽等量的牌。",
-      "消耗，获得被消耗的牌的临时复制。"
+      "Exhaust, Draw That Many Cards Next Turn.",
+      "Exhaust, Gain Their TempClone."
     ]
   }
 }

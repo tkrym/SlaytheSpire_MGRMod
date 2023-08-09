@@ -105,8 +105,6 @@ public class MGR_subscriber implements EditCharactersSubscriber, EditRelicsSubsc
     public static final String EnableTutorialString = "EnableTutorial";
     public static boolean UnlockA20 = false;
     public static final String UnlockA20String = "UnlockA20";
-    public static boolean BanRelics = false;
-    public static final String BanRelicsString = "BanRelics";
 
     public MGR_subscriber()
     {
@@ -120,14 +118,12 @@ public class MGR_subscriber implements EditCharactersSubscriber, EditRelicsSubsc
         CustomSettings.setProperty(AddCustomObjectsString, "FALSE");
         CustomSettings.setProperty(EnableTutorialString, "TRUE");
         CustomSettings.setProperty(UnlockA20String, "FALSE");
-        CustomSettings.setProperty(BanRelicsString, "FALSE");
         try
         {
             SpireConfig config = new SpireConfig("MGRMod", "CustomSettings", CustomSettings);
             config.load();
             UnlockA20 = config.getBool(UnlockA20String);
             AddCustomObjects = config.getBool(AddCustomObjectsString);
-            BanRelics = config.getBool(BanRelicsString);
             EnableTutorial = config.getBool(EnableTutorialString);
         } catch (Exception ignored) {}
     }
@@ -188,17 +184,7 @@ public class MGR_subscriber implements EditCharactersSubscriber, EditRelicsSubsc
                 config.save();
             } catch (Exception ignored) {}
         });
-        ModLabeledToggleButton BanRelicsButton = new ModLabeledToggleButton(CustomSettingsStrings.TEXT[2], 400.0f, 650.0f, Settings.CREAM_COLOR, FontHelper.charDescFont, BanRelics, settingsPanel, modLabel -> {}, button ->
-        {
-            BanRelics = button.enabled;
-            try
-            {
-                SpireConfig config = new SpireConfig("MGRMod", "CustomSettings", CustomSettings);
-                config.setBool(BanRelicsString, BanRelics);
-                config.save();
-            } catch (Exception ignored) {}
-        });
-        ModLabeledToggleButton EnableTutorialButton = new ModLabeledToggleButton(CustomSettingsStrings.TEXT[4], 400.0F, 550.0F, Settings.CREAM_COLOR, FontHelper.charDescFont, EnableTutorial, settingsPanel, (label) -> {}, button ->
+        ModLabeledToggleButton EnableTutorialButton = new ModLabeledToggleButton(CustomSettingsStrings.TEXT[2], 400.0F, 650.0F, Settings.CREAM_COLOR, FontHelper.charDescFont, EnableTutorial, settingsPanel, (label) -> {}, button ->
         {
             EnableTutorial = button.enabled;
             try
@@ -210,7 +196,6 @@ public class MGR_subscriber implements EditCharactersSubscriber, EditRelicsSubsc
         });
         settingsPanel.addUIElement(UnlockA20Button);
         settingsPanel.addUIElement(AddCustomObjectsButton);
-        settingsPanel.addUIElement(BanRelicsButton);
         settingsPanel.addUIElement(EnableTutorialButton);
         return settingsPanel;
     }
@@ -222,7 +207,7 @@ public class MGR_subscriber implements EditCharactersSubscriber, EditRelicsSubsc
         Color mybluecolor = MGR_character.myBuleColor;
         BaseMod.addPotion(FortePotion.class, mybluecolor.cpy(), mybluecolor.cpy(), mybluecolor.cpy(), FortePotion.POTION_ID, ModClassEnum.MGR);
         BaseMod.addPotion(BottledNotes.class, mybluecolor.cpy(), mybluecolor.cpy(), new Color(1.0F, 0.72F, 0.19F, 1.0F), BottledNotes.POTION_ID, ModClassEnum.MGR);
-        BaseMod.addPotion(ShiningEssence.class, CardHelper.getColor(28, 206, 227), CardHelper.getColor(53, 150, 159), null, ShiningEssence.POTION_ID, ModClassEnum.MGR);
+        BaseMod.addPotion(RadianceInThePupil.class, CardHelper.getColor(28, 206, 227), CardHelper.getColor(53, 150, 159), null, RadianceInThePupil.POTION_ID, ModClassEnum.MGR);
         if (!AddCustomObjects)
         {
             BaseMod.addPotion(Doping.class, Color.WHITE.cpy(), Color.WHITE.cpy(), Color.WHITE.cpy(), Doping.POTION_ID, ModClassEnum.MGR);
@@ -461,12 +446,6 @@ public class MGR_subscriber implements EditCharactersSubscriber, EditRelicsSubsc
         if (AbstractDungeon.player instanceof MGR_character)
         {
             AbstractDungeon.bossRelicPool.remove(SneckoEye.ID);
-            //AbstractDungeon.shopRelicPool.remove(PrismaticShard.ID);
-            if (BanRelics)
-            {
-                AbstractDungeon.shopRelicPool.remove(MedicalKit.ID);
-                AbstractDungeon.uncommonRelicPool.remove(BlueCandle.ID);
-            }
         }
     }
 }

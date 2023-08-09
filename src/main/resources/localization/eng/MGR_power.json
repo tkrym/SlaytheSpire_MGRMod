@@ -1,221 +1,189 @@
 {
-	"MGR:Forte": {
-    "NAME": "强音",
+  "MGR:Forte": {
+    "NAME": "Forte",
     "DESCRIPTIONS": [
-      "增强音符的效果。",
-      "削弱音符的效果。"
+      "Enhance the effects of notes.",
+      "Weaken the effects of notes."
     ]
   },
-  	"MGR:Gaze": {
-    "NAME": "注视",
+  "MGR:Gaze": {
+    "NAME": "Gaze",
     "DESCRIPTIONS": [
-      "每当你触发 #y和弦 时，失去 #b",
-      " 点生命并减少 #b",
-      " %的层数。"
+      "Whenever #yChord is performed, lose #b",
+      " HP and reduce the amount by #b",
+      " % ."
     ]
   },
-  	"MGR:Stereo": {
-    "NAME": "立体声",
+  "MGR:Stereo": {
+    "NAME": "Stereophonic",
     "DESCRIPTIONS": [
-      "将你生成的 #y防御音符 替换为 #y攻击音符 ，它们会额外给予你伤害值一半的格挡"
+      "#yAttackNote gains half block. NL #yDefendNote deals damage to a random enemy."
     ]
   },
-  	"MGR:StereoPlus": {
-    "NAME": "立体声+",
+  "MGR:StereoPlus": {
+    "NAME": "Stereophonic+",
     "DESCRIPTIONS": [
-      "将你生成的 #y防御音符 替换为 #y攻击音符 ，它们会额外给予你伤害值一半的格挡，且该伤害受 #y易伤 加成。"
+      "#yAttackNote gains half block. NL #yDefendNote deals damage to a random enemy. NL #yDrawNote gains double block and deal double damage to all enemies."
     ]
   },
-  	"MGR:IndifferentLook": {
-    "NAME": "冷眼旁观",
+  "MGR:IndifferentLook": {
+    "NAME": "Indifferent",
     "DESCRIPTIONS": [
-      "每当你给予或触发 #y注视 时，获得 #b",
-      " 点格挡。"
+      "Whenever you apply or trigger #yGaze, gain #b",
+      " block."
     ]
   },
-    "MGR:AdjustTempo": {
-    "NAME": "节奏调节",
+  "MGR:AdjustTempo": {
+    "NAME": "Adjust Tempo",
     "DESCRIPTIONS": [
-      "下次 #y和弦 后，再次生成这些 #y音符 。",
-      "下 #b",
-	  " 次 #y和弦 后，再次生成这些 #y音符 。"
+      "After the next #yChord, generate the triggered notes again.",
+      "After the next #b",
+      " #yChords, generate the triggered notes again."
     ]
   },
-    "MGR:HarmonyForm": {
-    "NAME": "和声形态",
+  "MGR:HarmonyForm": {
+    "NAME": "Harmony Form",
     "DESCRIPTIONS": [
-      "最左边与最右边的 #y音符 额外触发 #b",
-      " 次。"
-    ]
-  }, 
-    "MGR:UnisonLeft": {
-    "NAME": "齐唱（左）",
-    "DESCRIPTIONS": [
-      "你最左侧的 #y音符 的效果翻倍。",
-      "你最左侧的 #y音符 的效果增加 #b",
-      " 倍。"
+      "The #yleftmost and #yrightmost notes trigger an additional #b",
+      " time."
     ]
   },
-    "MGR:UnisonRight": {
-    "NAME": "齐唱（右）",
+  "MGR:GazeFromTheShadowPower": {
+    "NAME": "In My Sights",
     "DESCRIPTIONS": [
-      "你最右侧的 #y音符 的效果翻倍。",
-      "你最右侧的 #y音符 的效果增加 #b",
-      " 倍。"
+      "At the start of turn, gain #b",
+      " #yGaze ."
     ]
   },
-    "MGR:GazeFromTheShadowPower": {
-    "NAME": "你被盯上了...",
+  "MGR:YazyuutokasuPower": {
+    "NAME": "Feral",
     "DESCRIPTIONS": [
-      "在回合开始时，获得 #b",
-      " 层 #y注视 。"
-    ]
-  }, 
-    "MGR:YazyuutokasuPower": {
-    "NAME": "野兽化",
-    "DESCRIPTIONS": [
-      "回合抽牌后，随机丢弃 #b",
-      " 张费用最低的手牌，然后将 #b",
-      " 张 #y困惑 置入手牌。"
+      "At the start of your turn, discard #b",
+      " random card with the #ylowest cost, and add #b",
+      " #yConfused into your hand."
     ]
   },
-    "MGR:YazyuutokasuPlusPower": {
+  "MGR:YazyuutokasuPlusPower": {
     "NAME": "野兽化+",
     "DESCRIPTIONS": [
-      "回合抽牌后，随机丢弃 #b",
-      " 张费用最低的手牌，然后将 #b",
-      " 张 #y困惑+ 置入手牌。"
+      "At the start of your turn, discard #b",
+      " random card with the #ylowest cost, and add #b",
+      " #yConfused+ into your hand."
     ]
   },
-    "MGR:ResonanceFormPower": {
-    "NAME": "共鸣形态",
+  "MGR:ResonanceFormPower": {
+    "NAME": "Resonance Form",
     "DESCRIPTIONS": [
-      "每当你抽到、打出或丢弃第 #b",
-      " 张牌，将它的一张本回合费用为0的消耗、虚无的复制置入手牌。不可叠加。 NL 还需 #b",
-      " 张。"
-    ]
-  },  
-    "MGR:TheForsakenPower": {
-    "NAME": "被遗忘者",
-    "DESCRIPTIONS": [
-      "每当你累计消耗或丢弃 #b",
-      " 张牌，获得",
-      " NL 还需 #b",
-      " 张。"
-    ]
-  },  
-    "MGR:SongOfSubmersionPower": {
-    "NAME": "沉没吧！",
-    "DESCRIPTIONS": [
-      "在接下来的 #b",
-      " 个回合结束时，所有敌人失去 #b1 点力量。"
-    ]
-  },  
-    "MGR:TheCursedPower": {
-    "NAME": "被诅咒？",
-    "DESCRIPTIONS": [
-      "抽到 #y诅咒 时，抽 #b",
-      " 张牌并生成 #b",
-      " 个 #y人工音符 。"
-    ]
-  }, 
-    "MGR:TinyOrchestraPower": {
-    "NAME": "微型乐团",
-    "DESCRIPTIONS": [
-      "回合结束时，你在本回合每生成过一种类型的 #y音符 ，对所有敌人造成 #b",
-      " 点伤害。 NL 本回合已生成 #b",
-      " 种。"
-    ]
-  },  
-    "MGR:NextTurnStarryNotePower": {
-    "NAME": "下回合能量音符",
-    "DESCRIPTIONS": [
-      "在下回合开始时，生成 #b",
-      " 个 #y能量音符 。"
-    ]
-  },  
-    "MGR:SirenPower": {
-    "NAME": "塞壬",
-    "DESCRIPTIONS": [
-      "回合结束时，所有敌人失去其负面状态层数总和的生命，且场上每有一种负面状态就获得 #b",
-      " 点格挡。"
-    ]
-  },  
-    "MGR:ClimaxPower": {
-    "NAME": "高潮！",
-    "DESCRIPTIONS": [
-      "本回合生成 #y音符 时，额外生成 #b",
-      " 个。"
-    ]
-  },  
-    "MGR:FolkRhymesPower": {
-    "NAME": "民谣",
-    "DESCRIPTIONS": [
-      "触发 #y和弦 时获得 #b",
-      " 点格挡。"
+      "Whenever you draw, play, discard or exhaust the #b",
+      "th card, gain its #yTempCopy . #yNonStackable. NL Still need #b",
+      " cards."
     ]
   },
-    "MGR:LoseFortePower": {
-    "NAME": "失去强音",
+  "MGR:SongOfSubmersionPower": {
+    "NAME": "Song of Submersion",
     "DESCRIPTIONS": [
-      "回合结束时，失去 #b",
-      " 层 #y强音 。"
-    ]
-  },  
-    "MGR:SalivatePower": {
-    "NAME": "垂涎",
-    "DESCRIPTIONS": [
-      "#y注视 的伤害受 #y易伤 加成。每当你通过 #y注视 杀死一名 #y非爪牙 的敌人，获得 #b",
-      " 点最大生命。"
-    ]
-  },   
-    "MGR:FourEyesPower": {
-    "NAME": "四目",
-    "DESCRIPTIONS": [
-      "每当你给予负面状态（不包括注视）时，额外给予 #b",
-      " 倍的注视 。"
-    ]
-  }, 
-    "MGR:BrilliantPower": {
-    "NAME": "辉煌",
-    "DESCRIPTIONS": [
-      " #y即兴 的 #y基本音符 变得更好，且可能获得能量音符。回合开始时， #y即兴 #b",
-      " 。"
-    ]
-  },  
-    "MGR:HakkeroChargedPower": {
-    "NAME": "八卦炉充能完毕",
-    "DESCRIPTIONS": [
-      "每打出一张牌，生成 #b",
-      " 个 #y攻击音符 。"
-    ]
-  },  
-    "MGR:HakkeroChargePower": {
-    "NAME": "八卦炉充能中...",
-    "DESCRIPTIONS": [
-      "下回合开始时获得 #b",
-      " 层 #y八卦炉充能完毕 。"
+      "At the end of next #b",
+      " turns, all enemies lose #b1 Strength."
     ]
   },
-    "MGR:HakkeroChargePlusPower": {
-    "NAME": "八卦炉充能中...",
+  "MGR:TheCursedPower": {
+    "NAME": "Cursed?",
     "DESCRIPTIONS": [
-      "下回合开始时获得 #b",
-      " 层 #y临时强音 与 #b",
-      " 层 #y八卦炉充能完毕 。"
+      "Whenever you draw a #yCurse card, draw #b",
+      " card and generate #b",
+      " #yArtifactNote ."
+    ]
+  },
+  "MGR:TinyOrchestraPower": {
+    "NAME": "Tiny Orchestra",
+    "DESCRIPTIONS": [
+      "At the end of your turn, deal #b",
+      " damage to all enemies for each #ytype of note generated this turn. NL #b",
+      " types have been generated."
+    ]
+  },
+  "MGR:SirenPower": {
+    "NAME": "Siren",
+    "DESCRIPTIONS": [
+      "At the end of your turn: Every enemy loses HP equals to its total #yDebuff amount; Gain #b",
+      " block for each #yDebuff that exists."
+    ]
+  },
+  "MGR:ClimaxPower": {
+    "NAME": "Climax!",
+    "DESCRIPTIONS": [
+      "Whenever you generate note, generate an additional #b",
+      " note."
+    ]
+  },
+  "MGR:FolkRhymesPower": {
+    "NAME": "Folk Rhymes",
+    "DESCRIPTIONS": [
+      "Whenever #yChord is performed, gain #b",
+      " block."
+    ]
+  },
+  "MGR:LoseFortePower": {
+    "NAME": "Lose Forte",
+    "DESCRIPTIONS": [
+      "At the end of your turn, lose #b",
+      " #yForte."
+    ]
+  },
+  "MGR:SalivatePower": {
+    "NAME": "Salivate",
+    "DESCRIPTIONS": [
+      "Damage from #yGaze is affected by Vulnerable. NL Whenever a *non-Minion enemy is killed by #yGaze , raise your Max HP by #b",
+      " ."
+    ]
+  },
+  "MGR:FourEyesPower": {
+    "NAME": "Four Eyes",
+    "DESCRIPTIONS": [
+      "Whenever you apply #yDebuff (Excluding #yGaze ) to an enemy, apply #yGaze #b",
+      " times that amount."
+    ]
+  },
+  "MGR:BrilliantPower": {
+    "NAME": "Brilliant",
+    "DESCRIPTIONS": [
+      "Notes generated by #yImprovise become slightly better and include #yEnergyNote . NL At the start of your turn, #yImprovise #b",
+      " ."
+    ]
+  },
+  "MGR:HakkeroChargedPower": {
+    "NAME": "Hakkero Charged",
+    "DESCRIPTIONS": [
+      "Whenever you play a card, generate #b",
+      " #yAttackNote ."
+    ]
+  },
+  "MGR:HakkeroChargePower": {
+    "NAME": "Charging...",
+    "DESCRIPTIONS": [
+      "At the start of your next turn, gain #b",
+      " #yHakkeroCharged ."
+    ]
+  },
+  "MGR:HakkeroChargePlusPower": {
+    "NAME": "Charging...+",
+    "DESCRIPTIONS": [
+      "At the start of your next turn, gain #b",
+      " #yForte that turn and #b",
+      " #yHakkeroCharged ."
     ]
   },
   "MGR:BurnsRedPower": {
-    "NAME": "赤灼",
+    "NAME": "Burns Red",
     "DESCRIPTIONS": [
-      "#y攻击音符 能伤害所有敌人。"
+      "#yAttackNote damages all enemies."
     ]
-  },     
-    "MGR:UnisonPower": {
-    "NAME": "齐唱",
+  },
+  "MGR:UnisonPower": {
+    "NAME": "Unison",
     "DESCRIPTIONS": [
-      "每当你打出一张牌， #y即兴 #b",
-      " 。"
+      "Whenever you play a card, #yImprovise #b",
+      " ."
     ]
   }
 }

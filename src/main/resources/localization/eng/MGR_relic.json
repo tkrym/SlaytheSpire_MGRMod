@@ -1,102 +1,102 @@
 {
   "MGR:OldBow": {
-    "NAME": "旧蝴蝶结",
-    "FLAVOR": "物品只是被丢弃。物品永不死亡。",
+    "NAME": "Old Bow",
+    "FLAVOR": "Items are merely discarded. Items never die.",
     "DESCRIPTIONS": [
-      "每当你累计丢弃或消耗 #b",
-      " 张牌，抽一张牌。"
+      "Whenever you discard or exhaust #b",
+      " cards, draw #b1 card."
     ]
   },
   "MGR:BloodshotEyeball": {
-    "NAME": "充血的眼球",
-    "FLAVOR": "未曾被人注视之人才会迫切地注视他人。",
+    "NAME": "Bloodshot Eyeball",
+    "FLAVOR": "Only those who have not been gazed upon will gaze upon others urgently.",
     "DESCRIPTIONS": [
-      "战斗开始时，给予所有敌人 #b",
-      " 层 #ymgr:注视 。 NL 敌人身上的 #y注视 层数不会小于 #b1 。"
+      "At the start of each combat, apply #b",
+      " #ymgr:Gaze to all enemies. NL #ymgr:Gaze amount will not be less than #b1 ."
     ]
   },
   "MGR:Sunglasses": {
-    "NAME": "墨镜",
-    "FLAVOR": "可是，高塔中真的有需要戴墨镜的时候么？",
+    "NAME": "Sunglasses",
+    "FLAVOR": "However, is there really a need for sunglasses in the Spire?",
     "DESCRIPTIONS": [
-      " #ymgr:注视 触发时仅减少 #b",
-      " %。"
+      "#ymgr:Gaze only reduces by #b",
+      " % when triggered."
     ]
   },
   "MGR:UnknownCreature": {
-    "NAME": "油库里",
-    "FLAVOR": "你不知道它为什么跟着你，正如它不知道你为何攀登。",
+    "NAME": "Yukkuri",
+    "FLAVOR": "You don't know why it follows you, just as it doesn't know why you proceeds.",
     "DESCRIPTIONS": [
-      "每回合开始获得 [E] 。拾起时，随机 #r吃掉 你的一件非BOSS遗物，高稀有度优先。",
-      "和你的遗物说再见吧！",
-      "前进"
+      "Gain [E] at the start of your turn. Upon pickup, randomly #rEAT one of your #ynon-Boss relics, preferring high rarity.",
+      "Say goodbye to your little friend!",
+      "Proceed"
     ]
   },
   "MGR:Telescreen": {
-    "NAME": "电幕",
-    "FLAVOR": "老大哥在看着你。",
+    "NAME": "Telescreen",
+    "FLAVOR": "BIG BROTHER IS WATCHING YOU.",
     "DESCRIPTIONS": [
-      "战斗开始时，进入 #ymgr:开眼 。"
+      "At the start of each combat, enter #ymgr:Awaken ."
     ]
   },
   "MGR:LittleAngel": {
-    "NAME": "小天使",
-    "FLAVOR": "愿你不再受制于厄运。",
+    "NAME": "Little Angel",
+    "FLAVOR": "May you be freed from the shackles of misfortune.",
     "DESCRIPTIONS": [
-      "若你在回合开始的抽牌中抽到的 #y技能牌 小于 #b",
-      " 张，每少一张就再抽 #b",
-      " 张牌。"
+      "If the number of #ySkill cards drawn at the start of your turn is less than #b",
+      " , draw an additional #b",
+      " cards for #beach card less."
     ]
   },
   "MGR:Fumo": {
-    "NAME": "MGRFumo",
-    "FLAVOR": "好想要啊。",
+    "NAME": "Fumo",
+    "FLAVOR": "I WANT IT. I NEED IT.",
     "DESCRIPTIONS": [
-      "每场战斗开始时，获得 #b",
-      " 层 #ymgr:强音 。"
+      "At the start of each combat, gain #b",
+      " #ymgr:Forte ."
     ]
   },
   "MGR:Maguroyaki": {
-    "NAME": "鮪鱼烧",
-    "FLAVOR": "被做成金枪鱼形状的点心。是什么馅的呢？",
+    "NAME": "Maguro yaki",
+    "FLAVOR": "A snack shaped like a Maguro. What could be the filling?",
     "DESCRIPTIONS": [
-      "每当你 #y锻造 ，回复最大生命值的 #b",
-      " % 。"
+      "When you #ySmith at Rest Sites, heal #b",
+      " % of your MAX HP ."
     ]
   },
   "MGR:MiniMicrophone": {
-    "NAME": "迷你麦克风",
-    "FLAVOR": "准备好向高塔展示你的歌喉了么？",
+    "NAME": "Mini Microphone",
+    "FLAVOR": "Let the singing voice resonate throughout the Spire.",
     "DESCRIPTIONS": [
-      "每场战斗开始时，生成 #y攻击  、 #y防御 、 #y抽牌  #ymgr:音符 各一个。"
+      "At the start of each combat, generate 1 #ymgr:AttackNote, #ymgr:DefendNote and #ymgr:DrawNote ."
     ]
   },
   "MGR:YourExclusiveStage": {
-    "NAME": "只属于你的舞台",
-    "FLAVOR": "于此刻响彻世界。",
+    "NAME": "Your Exclusive Stage",
+    "FLAVOR": "The reverberations of the voice traverse the entirety of the world.",
     "DESCRIPTIONS": [
-      "替换 #b迷你麦克风 。 NL 你的 #ymgr:计数器 不会低于 #b1 。 NL 回合开始时， #ymgr:即兴 #b3 。"
+      "Replaces #bMini #bMicrophone . NL The #ymgr:Counter will not be less than #b1 . NL At the start of your turn, #ymgr:Improvise #b3 ."
     ]
   },
   "MGR:WitchHat": {
-    "NAME": "魔女帽",
-    "FLAVOR": "轻巧，但也能在关键时候派上用处。",
+    "NAME": "Witch Hat",
+    "FLAVOR": "Lightweight, yet also useful in critical moments.",
     "DESCRIPTIONS": [
-      "回合开始时，获得 #b2 点格挡。 NL 若你的生命值不大于 #b50 %，再获得 #b2 点。"
+      "At the end of your turn, gain #b2 block. NL If your HP is at or below #b50% , gain an additional #b2 block."
     ]
   },
   "MGR:FriendsSpirit": {
-    "NAME": "友人之魂",
-    "FLAVOR": "身距千里，心若咫尺。",
+    "NAME": "Echo of Friend",
+    "FLAVOR": "Though a thousand miles apart in body, yet our hearts remain as close as a hand's span.",
     "DESCRIPTIONS": [
-      "每场战斗，在你消耗第一张非 #y状态 、 #y诅咒 的牌后，将它的 #ymgr:临时复制 置入手牌。"
+      "Each combat, after you #yExhaust the first #rnon-Status, #rnon-Curse card, gain its #yTempClone."
     ]
   },
   "MGR:Voracious": {
-    "NAME": "饕餮",
-    "FLAVOR": "世也浑浑，食也盛盛。",
+    "NAME": "Voracious",
+    "FLAVOR": "The world is in constant flux, and abundance fills our plates.",
     "DESCRIPTIONS": [
-      "你可以打出 #y状态 与 #y诅咒 牌并将其 #y消耗 。 NL 战斗开始时，将随机的 #y状态 与 #y诅咒 牌各一张加入手牌。"
+      "#yStatus and #yCurse cards can now be played and exhausted. NL At the start of each combat, add #b1 random #yStatus and #yCurse card into your hand."
     ]
   }
 }

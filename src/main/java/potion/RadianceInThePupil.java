@@ -18,11 +18,11 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import relic.LittleAngel;
 
-public class ShiningEssence extends AbstractPotion{
-    public static final String POTION_ID = "MGR:ShiningEssence";
+public class RadianceInThePupil extends AbstractPotion{
+    public static final String POTION_ID = "MGR:RadianceInThePupil";
     private static final PotionStrings potionStrings = CardCrawlGame.languagePack.getPotionString(POTION_ID);
 
-    public ShiningEssence() {
+    public RadianceInThePupil() {
         super(potionStrings.NAME, POTION_ID, PotionRarity.RARE, PotionSize.EYE, PotionColor.ANCIENT);
         this.labOutlineColor = MGR_character.MyColor;
         this.isThrown = false;
@@ -45,7 +45,7 @@ public class ShiningEssence extends AbstractPotion{
                     if(AbstractDungeon.player instanceof MGR_character)
                     {
                         MGR_character p=(MGR_character)AbstractDungeon.player;
-                        p.counter_max-=ShiningEssence.this.potency;
+                        p.counter_max-=RadianceInThePupil.this.potency;
                         if(p.counter_max<=p.counter_min+1) p.counter_max=p.counter_min+1;
                         MGR_character.IncCounter(p.counter_max);
                     }
@@ -62,6 +62,6 @@ public class ShiningEssence extends AbstractPotion{
 
     @Override
     public AbstractPotion makeCopy() {
-        return new ShiningEssence();
+        return new RadianceInThePupil();
     }
 }

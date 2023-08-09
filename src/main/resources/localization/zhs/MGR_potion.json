@@ -2,8 +2,8 @@
   "MGR:BottledNotes": {
     "NAME": "瓶装音符",
     "DESCRIPTIONS": [
-      " #y即兴 #b",
-      " （随机生成 #y基本音符 ）。"
+      "以一定概率从五种 #y基本音符 中生成 #b",
+      " 个音符。"
     ]
   },
   "MGR:PortableAnvil": {
@@ -20,7 +20,7 @@
       " 点 #y强音。"
     ]
   },
-  "MGR:ShiningEssence": {
+  "MGR:RadianceInThePupil": {
     "NAME": "瞳中辉",
     "DESCRIPTIONS": [
       "本场战斗中，将你的 #y计数器 上限减少 #b",

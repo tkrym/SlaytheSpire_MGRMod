@@ -2,7 +2,7 @@
   "MGR:AwakenedStance": {
     "NAME": "Awaken",
     "DESCRIPTION": [
-      "Upon entering this #yStance, gain [E] and draw #b1 card. At the end of your turn or after #yextra #yeffects of cards are triggered, exit this #yStance."
+      "Upon entering this #yStance, gain [E] and draw #b1 card. At the end of your turn or after #yextra #yeffect of a card is triggered, exit this Stance."
     ]
   }
 }

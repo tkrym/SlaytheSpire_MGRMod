@@ -49,7 +49,7 @@
     ]
   },
   "MGR:Fumo": {
-    "NAME": "MGRFumo",
+    "NAME": "Fumo",
     "FLAVOR": "好想要啊。",
     "DESCRIPTIONS": [
       "每场战斗开始时，获得 #b",
@@ -82,7 +82,7 @@
     "NAME": "魔女帽",
     "FLAVOR": "轻巧，但也能在关键时候派上用处。",
     "DESCRIPTIONS": [
-      "回合开始时，获得 #b2 点格挡。 NL 若你的生命值不大于 #b50 %，再获得 #b2 点。"
+      "回合结束时，获得 #b2 点格挡。 NL 若你的生命值不大于 #b50 %，再获得 #b2 点。"
     ]
   },
   "MGR:FriendsSpirit": {

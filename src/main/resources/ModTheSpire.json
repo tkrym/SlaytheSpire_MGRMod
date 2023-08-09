@@ -4,9 +4,9 @@
   "author_list": [
     "MGRSK"
   ],
-  "description": "Adds MGR(Meguru Aneki) from Cookie☆ as a new character. \nContact me via Discord@mgrsk if there is any problem.",
+  "description": "Adds MGR(Meguru Aneki) from Cookie(Touhou) as a new character. \nContact me via Discord@mgrsk if there is any problem.",
   "dependencies": ["basemod", "stslib"],
   "version": "1.0.0",
   "sts_version": "12-18-2022",
-  "credits": "Lovely MGR and all those who created for her."
+  "credits": "Lovely MGR and all those who have created for her."
 }

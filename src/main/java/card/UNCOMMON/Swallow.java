@@ -69,6 +69,7 @@ public class Swallow extends AbstractMGRCard {
 
     @Override
     public void calculateCardDamage(AbstractMonster m) {
+        super.calculateCardDamage(m);
         if(m.hasPower(MinionPower.POWER_ID)) this.rawDescription = EXTENDED_DESCRIPTION;
         else this.rawDescription=DESCRIPTION;
         initializeDescription();

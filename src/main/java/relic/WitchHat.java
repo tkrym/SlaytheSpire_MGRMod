@@ -28,7 +28,7 @@ public class WitchHat extends CustomRelic
 
     public String getUpdatedDescription() {return this.DESCRIPTIONS[0];}
 
-    public void atTurnStart()
+    public void onPlayerEndTurn()
     {
         addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, WitchHat.this));
         addToBot(new GainBlockAction(AbstractDungeon.player,2));

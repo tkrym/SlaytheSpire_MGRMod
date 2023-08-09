@@ -11,7 +11,7 @@
       "awaken"
     ],
     "PROPER_NAME": "Awaken",
-    "DESCRIPTION": "Upon entering this #yStance, gain [E] and draw #b1 card. At the end of your turn or after #yextra #yeffects of cards are triggered, exit this #yStance."
+    "DESCRIPTION": "Upon entering this #yStance, gain [E] and draw #b1 card. At the end of your turn or after #yextra #yeffect of a card is triggered, exit this Stance."
   },
   {
     "NAMES": [
@@ -68,7 +68,7 @@
       "attacknote"
     ],
     "PROPER_NAME": "AttackNote",
-    "DESCRIPTION": "Deal damage to a random enemy."
+    "DESCRIPTION": "Deal damage."
   },
   {
     "NAMES": [

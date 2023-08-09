@@ -1,63 +1,63 @@
 {
   "MGR:Draw": {
     "DESCRIPTION": [
-      "#y触发 ：抽 #b",
-      " 张牌。 NL 每 #b",
-      " 层 #y强音 增强 #b1 点效果。"
+      "#yTrigger : Draw #b",
+      " card. NL Each #b",
+      " #yForte increase the number by #b1 ."
     ],
-    "NAME": "抽牌"
+    "NAME": "DrawNote"
   },
   "MGR:Debuff": {
     "DESCRIPTION": [
-      "#y触发 ：给予所有敌人 #b",
-      " 层 虚弱 与 易伤 。 NL 每 #b",
-      " 层 #y强音 增强 #b1 点效果。"
+      "#yTrigger : Apply #b",
+      " #yWeak and #yVulnerable to all enemies. NL Each #b",
+      " #yForte increase the number by #b1 ."
     ],
-    "NAME": "debuff"
+    "NAME": "DebuffNote"
   },
   "MGR:Empty": {
     "DESCRIPTION": [
-      "你可以在这些位置生成音符。"
+      "You can generate notes here."
     ],
-    "NAME": "音符槽"
+    "NAME": "NoteSlot"
   },
   "MGR:Defend": {
     "DESCRIPTION": [
-      "#y触发 ：获得 #b",
-      " 点格挡。 NL 每 #b",
-      " 层 #y强音 增强 #b1 点效果。"
+      "#yTrigger : Gain #b",
+      " block. NL Each #b",
+      " #yForte increase the number by #b1 ."
     ],
-    "NAME": "防御"
+    "NAME": "DefendNote"
   },
   "MGR:Attack": {
     "DESCRIPTION": [
-      "#y触发 ：对随机敌人造成 #b",
-      " 点伤害。 NL 每层 #y强音 增强 #b",
-      " 点效果。"
+      "#yTrigger : Deal #b",
+      " damage to a random enemy. NL Each #yForte increase the number by #b",
+      " ."
     ],
-    "NAME": "攻击"
+    "NAME": "AttackNote"
   },
   "MGR:Artifact": {
     "DESCRIPTION": [
-      "#y触发 ：获得 #b",
-      " 层人工制品。 NL 每 #b",
-      " 层 #y强音 增强 #b1 点效果。"
+      "#yTrigger : Gain #b",
+      " #yArtifact . NL Each #b",
+      " #yForte increase the number by #b1 ."
     ],
-    "NAME": "人工"
+    "NAME": "ArtifactNote"
   },
   "MGR:Ghost": {
     "DESCRIPTION": [
-      "#y触发 ：获得 #b",
-      " 层 无实体 。 NL 每 #b",
-      " 层 #y强音 增强 #b1 点效果。"
+      "#yTrigger : Gain #b",
+      " #yIntangible . NL Each #b",
+      " #yForte increase the number by #b1 ."
     ],
-    "NAME": "幽灵"
+    "NAME": "GhostNote"
   },
   "MGR:Starry": {
     "DESCRIPTION": [
-      "#y触发 ：获得 #b",
-      " 点能量。 NL 不受 #y强音 影响。"
+      "#yTrigger : Gain #b",
+      " Energy. NL Unaffected by #yForte ."
     ],
-    "NAME": "能量"
+    "NAME": "EnergyNote"
   }
 }

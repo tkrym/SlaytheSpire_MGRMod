@@ -1,38 +1,38 @@
 {
   "MGR:BottledNotes": {
-    "NAME": "瓶装音符",
+    "NAME": "Bottled Notes",
     "DESCRIPTIONS": [
-      " #y即兴 #b",
-      " （随机生成 #y基本音符 ）。"
+      "Generate #b",
+      " random #yBasic #yNotes out of #b5 types with a specific probability."
     ]
   },
   "MGR:PortableAnvil": {
-    "NAME": "便携熔炉",
+    "NAME": "Portable Anvil",
     "DESCRIPTIONS": [
-      "随机升级卡组中的 #b",
-      " 张牌，高稀有度的卡牌有更大概率被升级。"
+      "Randomly #Upgrade #b",
+      " card in your deck. Cards of higher rarity have a higher chance of being upgraded."
     ]
   },
   "MGR:FortePotion": {
-    "NAME": "强音药水",
+    "NAME": "Forte Potion",
     "DESCRIPTIONS": [
-      "获得 #b",
-      " 点 #y强音。"
+      "Gain #b",
+      " #yForte ."
     ]
   },
-  "MGR:ShiningEssence": {
-    "NAME": "瞳中辉",
+  "MGR:RadianceInThePupil": {
+    "NAME": "Radiance in the Pupil",
     "DESCRIPTIONS": [
-      "本场战斗中，将你的 #y计数器 上限减少 #b",
-      " （不会低于下限加一），并立即填满它。"
+      "During this combat, reduce the maximum of the #yCounter by #b",
+      " (Not less than the minimum plus #b1 ), and fill the #yCounter instantly."
     ]
   },
     "MGR:Doping": {
-    "NAME": "兴奋剂",
+    "NAME": "Doping",
     "DESCRIPTIONS": [
-      "将 #b",
-      " 张随机 #y能力牌 从抽牌堆加入手牌。获得 #b",
-      " 点能量。"
+      "Draw #b",
+      " random #yPower cards. Gain #b",
+      " Energy."
     ]
   }
 }
