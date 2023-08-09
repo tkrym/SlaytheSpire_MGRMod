@@ -251,8 +251,8 @@
   },
     "MGR:MetalGear":{
     "NAME":"合金装备",
-    "DESCRIPTION": "失去3点敏捷，获得 !M! 层 *金属化 与 *多层护甲 。 NL mgr:开眼 ：额外获得2层。 消耗 。",
-    "UPGRADE_DESCRIPTION": "失去3点敏捷，获得 !M! 层 *金属化 与 *多层护甲 。 NL mgr:开眼 ：额外获得3层。 消耗 。"
+    "DESCRIPTION": "失去2点敏捷，获得 !M! 层 *金属化 。 NL mgr:开眼 ：额外获得3层。 消耗 。",
+    "UPGRADE_DESCRIPTION": "失去2点敏捷，获得 !M! 层 *金属化 。 NL mgr:开眼 ：额外获得4层。 消耗 。"
     },
     "MGR:Marionette":{
     "NAME":"提线木偶",
@@ -390,7 +390,7 @@
     "MGR:TheEyeBehind":{
     "NAME":"背后的眼睛",
     "DESCRIPTION": "若目标没有 *虚弱 ，给予2层，否则给予1层。对 *易伤 、 mgr:注视 同理。 消耗 。",
-    "UPGRADE_DESCRIPTION": "若目标没有 *虚弱 ，给予2层，否则给予3层。对 *易伤 、 mgr:注视 。 消耗 。"
+    "UPGRADE_DESCRIPTION": "若目标没有 *虚弱 ，给予2层，否则给予3层。对 *易伤 、 mgr:注视 同理。 消耗 。"
   },
     "MGR:StarryDrift":{
     "NAME":"星空飘浮",
@@ -436,8 +436,8 @@
     "NAME":"他人的视线",
     "DESCRIPTION": "获得 !B! 点格挡。 NL 若目标有至少 !M! 层 mgr:注视 ，再获得一次。"
   },
-  "MGR:Dandanhayakunaru":{
-    "NAME":"逐渐加快",
+  "MGR:Casually":{
+    "NAME":"随性",
     "DESCRIPTION": "不能被打出 。 NL 抽到时， mgr:即兴 !D! 。 NL 被丢弃或消耗时， mgr:即兴 !M! 。"
   },
   "MGR:IveSeenEverything":{

@@ -22,8 +22,8 @@ public class MetalGear extends AbstractMGRCard {
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG = "img/card/"+ID.substring(4)+".png";
     private static final int COST = 2;
-    private static final int MAGIC = 3;
-    private static final int PLUS_MAGIC = 1;
+    private static final int MAGIC = 6;
+    private static final int PLUS_MAGIC = 2;
     public MetalGear() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.SKILL,
                 AbstractCardEnum.MGR_COLOR, CardRarity.UNCOMMON, CardTarget.SELF);
@@ -33,15 +33,13 @@ public class MetalGear extends AbstractMGRCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int DecDexterity=this.upgraded?-3:-3;
-        int PlusNumber=this.upgraded?3:2;
+        int DecDexterity=-2;
+        int PlusNumber=this.upgraded?4:3;
         addToBot(new ApplyPowerAction(p,p,new DexterityPower(p,DecDexterity),DecDexterity));
         addToBot(new ApplyPowerAction(p,p,new MetallicizePower(p,this.magicNumber),this.magicNumber));
-        addToBot(new ApplyPowerAction(p,p,new PlatedArmorPower(p,this.magicNumber),this.magicNumber));
         if(MGR_character.AwakenedStanceCheck())
         {
             addToBot(new ApplyPowerAction(p,p,new MetallicizePower(p,PlusNumber),PlusNumber));
-            addToBot(new ApplyPowerAction(p,p,new PlatedArmorPower(p,PlusNumber),PlusNumber));
         }
     }
 

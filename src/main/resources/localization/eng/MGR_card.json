@@ -42,13 +42,13 @@
   },
     "MGR:AdjustTempo":{
     "NAME":"Adjust Tempo",
-    "DESCRIPTION": "Generate !M! mgr:DrawNote. NL After the next mgr:Chord, generate the triggered notes again. Exhaustive 2",
+    "DESCRIPTION": "Generate !M! mgr:DrawNote. NL After the next mgr:Chord, generate the triggered notes again. NL Exhaustive 2",
     "UPGRADE_DESCRIPTION": "Generate !M! mgr:DrawNote. NL After the next mgr:Chord, generate the triggered notes again."
   },
     "MGR:StageWarmUp":{
     "NAME":"Stage Warm Up",
     "DESCRIPTION": "Gain !M! mgr:Forte.",
-    "UPGRADE_DESCRIPTION": "Gain !M! mgr:Forte. NL mgr:Awaken: add another *StageWarmUp into your hand."
+    "UPGRADE_DESCRIPTION": "Gain !M! mgr:Forte. NL mgr:Awaken: add another *StageWarmUp into hand."
   },
 	"MGR:ScaryGlare": {
 	"NAME":"Scary Glare",
@@ -69,7 +69,7 @@
   },
     "MGR:MaguroBash": {
     "NAME": "Maguro Bash",
-    "DESCRIPTION": "Deal !D! damage. NL For each mgr:Chord performed this turn, increase the damage by !M! ."
+    "DESCRIPTION": "Deal !D! damage. NL Increase the damage by !M! for each mgr:Chord performed this turn."
   },
     "MGR:Unison":{
     "NAME":"Unison",
@@ -78,12 +78,12 @@
   },
     "MGR:MaguroAssault":{
     "NAME":"Maguro Assault",
-    "DESCRIPTION": "Deal !D! damage. For each mgr:Chord performed this turn, increase the damage by !M! . NL mgr:Ending: Double the damage NL mgr:Awaken: Double the damage"
+    "DESCRIPTION": "Deal !D! damage. Increase the damage by !M! for each mgr:Chord performed this turn. NL mgr:Ending: Double the damage NL mgr:Awaken: Double the damage"
   },
     "MGR:Rehearsal":{
     "NAME":"Rehearsal",
-    "DESCRIPTION": "Draw !M! cards. NL For each drawn card, generate the corresponding note. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL For each drawn card, generate the corresponding note."
+    "DESCRIPTION": "Draw !M! cards. NL For each card drawn, generate the *corresponding note. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL For each card drawn, generate the *corresponding note."
   },
     "MGR:DarkDiffuse":{
     "NAME":"Dark Diffuse",
@@ -96,7 +96,7 @@
   },
     "MGR:Peek":{
     "NAME":"Peek",
-    "DESCRIPTION": "Apply !M! mgr:Gaze. NL mgr:Awaken: Repeat once again."
+    "DESCRIPTION": "Apply !M! mgr:Gaze. NL mgr:Awaken: Apply once again."
   },
     "MGR:GazeFromTheShadow":{
     "NAME":"From the Shadow",
@@ -104,8 +104,8 @@
   },
     "MGR:ResonanceForm":{
     "NAME":"Resonance Form",
-    "DESCRIPTION": "Ethereal. NL Whenever you draw, play, discard or exhaust the !M!th card, add a mgr:TempClone of it into your hand. *NonStackable.",
-    "UPGRADE_DESCRIPTION": "Whenever you draw, play, discard or exhaust the !M!th card, add a mgr:TempClone of it into your hand. *NonStackable."
+    "DESCRIPTION": "Ethereal. NL Whenever you draw, play, discard or exhaust the !M!th card, gain its mgr:TempCopy. *NonStackable.",
+    "UPGRADE_DESCRIPTION": "Whenever you draw, play, discard or exhaust the !M!th card, gain its mgr:TempCopy. *NonStackable."
   },
     "MGR:Confused":{
     "NAME":"Confused",
@@ -114,17 +114,17 @@
   },
     "MGR:Romp":{
     "NAME":"Romp",
-    "DESCRIPTION": "Add !M! *Confused into your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Add !M! *Confused+ into your hand. NL Retain. Exhaust."
+    "DESCRIPTION": "Add !M! *Confused into hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Add !M! *Confused+ into hand. NL Retain. Exhaust."
   },
     "MGR:Yazyuutokasu":{
     "NAME":"Feral Transform",
-    "DESCRIPTION": "At the start of your turn, discard a random card with the *lowest cost and add a *Confused into your hand.",
-    "UPGRADE_DESCRIPTION": "At the start of your turn, discard a random card with the *lowest cost and add a *Confused into your hand."
+    "DESCRIPTION": "At the start of your turn, discard a random card with the *lowest cost and add a *Confused into hand.",
+    "UPGRADE_DESCRIPTION": "At the start of your turn, discard a random card with the *lowest cost and add a *Confused into hand."
   },
     "MGR:MaguroCleave":{
     "NAME":"Maguro Cleave",
-    "DESCRIPTION": "Deal !D! damage to all enemies.  NL For each mgr:Chord performed this turn, increase the damage by !M! ."
+    "DESCRIPTION": "Deal !D! damage to all enemies.  NL Increase the damage by !M! for each mgr:Chord performed this turn."
   },
     "MGR:SongOfSubmersion":{
     "NAME":"Song of Submersion",
@@ -149,222 +149,206 @@
   },
     "MGR:DizzyAndGiddy":{
     "NAME":"Dizzy and Giddy",
-    "DESCRIPTION": "Discard up to !M! cards to generate the corresponding notes. NL If at least 2 cards are discarded, draw 1 card.",
-    "UPGRADE_DESCRIPTION": "Discard up to !M! cards to generate the corresponding notes. NL If at least 3 cards are discarded, draw 2 card."
+    "DESCRIPTION": "Discard up to !M! cards to generate the *corresponding notes. NL If at least 2 cards are discarded, draw 1 card.",
+    "UPGRADE_DESCRIPTION": "Discard up to !M! cards to generate the *corresponding notes. NL If at least 3 cards are discarded, draw 2 cards."
   },
     "MGR:Swallow":{
     "NAME":"Swallow",
-    "DESCRIPTION": "造成 !D! 点伤害，恢复 !M! 点生命。 NL 如果目标为 *爪牙 ，改为直接杀死它并恢复三倍生命。",
+    "DESCRIPTION": "Deal !D! damage. NL Heal !M! HP. NL If the target is *Minion, kill it and heal triple instead.",
     "EXTENDED_DESCRIPTION": [
-        "吃掉它！"
+        "Eat it!"
     ]
   },
     "MGR:Nocturnal":{
-    "NAME":"夜行",
-    "DESCRIPTION": "将一张随机 *诅咒 加入抽牌堆。 NL 你的抽牌、弃牌、消耗堆与手牌中每有一张 *诅咒 ，对随机敌人造成一次 !D! 点伤害。"
+    "NAME":"Nocturnal",
+    "DESCRIPTION": "Add a random *Curse into your draw pile. NL For each *Curse in draw, discard, exhaust pile and hand, deal !D! damage to a random enemy."
   },
     "MGR:TheCursed":{
-    "NAME":"诅咒之身",
-    "DESCRIPTION": "将一张随机 *诅咒 加入抽牌堆。 NL 抽到 *诅咒 时抽 !M! 张牌并生成一个 mgr:人工音符 。",
-    "UPGRADE_DESCRIPTION": " 固有 。将一张随机 *诅咒 加入抽牌堆。 NL 抽到 *诅咒 时抽 !M! 张牌并生成一个 mgr:人工音符 。"
+    "NAME":"The Cursed",
+    "DESCRIPTION": "Add a random *Curse into draw pile. NL Whenever you draw a *Curse, draw 1 card and generate 1 mgr:ArtifactNote.",
+    "UPGRADE_DESCRIPTION": "Innate. Add a random *Curse into draw pile. NL Whenever you draw a *Curse, draw 1 card and generate 1 mgr:ArtifactNote."
   },
     "MGR:TinyOrchestra":{
-    "NAME":"微型乐团",
-    "DESCRIPTION": "回合结束时，本回合每生成过一种类型的 *音符 ，对所有敌人造成 !M! 点伤害。"
+    "NAME":"Tiny Orchestra",
+    "DESCRIPTION": "At the end of your turn, deal !M! damage to all enemies for each *type of note generated this turn"
   },
     "MGR:MetalGear":{
-    "NAME":"合金装备",
-    "DESCRIPTION": "失去3点敏捷，获得 !M! 层 *金属化 与 *多层护甲 。 NL mgr:开眼 ：额外获得2层。 消耗 。",
-    "UPGRADE_DESCRIPTION": "失去3点敏捷，获得 !M! 层 *金属化 与 *多层护甲 。 NL mgr:开眼 ：额外获得3层。 消耗 。"
+    "NAME":"Metal Gear",
+    "DESCRIPTION": "Lose 2 Dexterity, Gain !M! *Metallicize. NL mgr:Awaken: Gain additional 3 . Exhaust.",
+    "UPGRADE_DESCRIPTION": "Lose 2 Dexterity, Gain !M! *Metallicize. NL mgr:Awaken: Gain additional 4 . Exhaust."
     },
     "MGR:Marionette":{
-    "NAME":"提线木偶",
-    "DESCRIPTION": "mgr:视作状态 。所有敌人失去 !M! 点力量一回合。 NL 被丢弃时也能触发该效果。 NL 消耗 。"
+    "NAME":"Marionette",
+    "DESCRIPTION": "mgr:ConceivedAsStatus. NL All enemies lose !M! Strength this turn. NL Also do effect when discarded. Exhaust."
   },
     "MGR:FieryPerformance":{
-    "NAME":"激奏",
-    "DESCRIPTION": "抽牌直到手牌有 !M! 张。随机丢弃一张费用最低的手牌。"
+    "NAME":"Fiery",
+    "DESCRIPTION": "Draw cards until you have !M! in your hand. NL Discard a random card with the *lowest cost."
   },
     "MGR:ChristmasGift":{
-    "NAME":"圣诞礼物",
-    "DESCRIPTION": "以一定概率获得一项：战斗奖励增加一瓶药水；获得 !M! 金币；随机升级卡组中的一张牌。 消耗 。",
-    "UPGRADE_DESCRIPTION": "以更好的概率获得一项：战斗奖励增加一瓶药水；获得 !M! 金币；随机升级卡组中的一张牌。 消耗 。"
+    "NAME":"Christmas Gift",
+    "DESCRIPTION": "Gain one with a specific probability: Add a random *Potion to the reward; Gain !M! *Gold; *Upgrade a random card in deck. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain one with a *better probability: Add a random *Potion to the reward; Gain !M! *Gold; *Upgrade a random card in deck. Exhaust."
   },
     "MGR:BroomStrike":{
-    "NAME":"扫把打击",
-    "DESCRIPTION": "造成 !D! 点伤害并生成1个 mgr:攻击音符 。 NL 若本回合触发过 mgr:和弦 ，再获得 !B! 点格挡并生成1个 mgr:防御音符 。"
+    "NAME":"Broom Strike",
+    "DESCRIPTION": "Deal !D! damage and generate 1 mgr:AttackNote. NL If mgr:Chord is performed this turn, gain !B! block and generate 1 mgr:DefendNote."
   },
     "MGR:Shatter":{
-    "NAME":"破碎",
-    "DESCRIPTION": "消耗所有手牌，每张获得 !B! 点格挡。 NL 如果消耗了至少 !M! 张，获得1点 mgr:强音 。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "消耗所有手牌，每张获得 !B! 点格挡。 NL 如果消耗了至少 !M! 张，获得1点 mgr:强音 。 NL 消耗性 2"
+    "NAME":"Shatter",
+    "DESCRIPTION": "Exhaust your hand. NL For each card exhausted, gain !B! block. NL If exhausted at least !M! cards, gain 1 mgr:Forte. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Exhaust your hand. NL For each card exhausted, gain !B! block. NL If exhausted at least !M! cards, gain 1 mgr:Forte. NL Exhaustive 2"
   },
     "MGR:Strafe":{
-    "NAME":"扫射",
-    "DESCRIPTION": "造成 !D! 点伤害，生成等量的 mgr:攻击音符 。"
+    "NAME":"Strafe",
+    "DESCRIPTION": "Deal !D! damage. NL Generate equivalent mgr:AttackNote."
   },
     "MGR:NowhereToHide":{
-    "NAME":"无处可逃",
-    "DESCRIPTION": "给予所有敌人 !M! 层 mgr:注视 并触发 *注视 。 NL 如果杀死了任何敌人，打出一张复制。"
+    "NAME":"Nowhere to Hide",
+    "DESCRIPTION": "Apply !M! mgr:Gaze to all enemies and trigger mgr:Gaze. NL If killed any, Repeat this."
   },
     "MGR:Drown":{
-    "NAME":"溺水",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 给予 !M! 层 *缠绕 。"
+    "NAME":"Drown",
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! *Constricted."
   },
     "MGR:ReconvertingCharm":{
-    "NAME":"回溯",
-    "DESCRIPTION": "造成 !D! 点伤害。将你打出的上 !M! 张未消耗的牌移回手牌。 NL mgr:开眼 ：获得其 mgr:临时复制 。"
+    "NAME":"Reconvert",
+    "DESCRIPTION": "Deal !D! damage. NL Return the last *non-exhaust card you played to hand. NL mgr:Awaken: Gain its mgr:TempCopy."
   },
     "MGR:DragonClaw":{
-    "NAME":"龙爪",
-    "DESCRIPTION": "造成 !D! 点伤害并给予等量 中毒 。 NL 打出或被丢弃 !M! 次后， 消耗 并将 *龙咬 加入弃牌堆。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害并给予等量 中毒 。 NL 打出或被丢弃 !M! 次后， 消耗 并将 *龙咬+ 加入弃牌堆。"
+    "NAME":"Dragon Claw",
+    "DESCRIPTION": "Deal !D! damage and apply equivalent Poison. NL After played or discarded !M! times, exhaust and add *DragonBite into discard pile.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage and apply equivalent Poison. NL After played or discarded !M! times, exhaust and add *DragonBite+ into discard pile."
   },
     "MGR:FrenziedDragonBite":{
-    "NAME":"龙咬",
-    "DESCRIPTION": "造成目标 *负面 状态层数总和 !M! 倍的伤害。 NL 翻倍目标的 *负面 状态。 NL 消耗 。"
+    "NAME":"DragonBite",
+    "DESCRIPTION": "Deal damage equals to !M! times the target's total *Debuff amount. NL Double its *Debuff. NL Exhaust."
   },
-    "MGR:QuickShooting":{
-    "NAME":"(Deprecated)快速射击",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 丢弃至多 !M! 张牌，打出等量复制。"
-  },
+
     "MGR:AccurateShooting":{
-    "NAME":"精确射击",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL mgr:尾音 ：伤害翻倍。"
+    "NAME":"Accurate Shooting",
+    "DESCRIPTION": "Deal !D! damage. NL mgr:Ending: Double the damage"
   },
     "MGR:Siren":{
-    "NAME":"塞壬",
-    "DESCRIPTION": "回合结束时，所有敌人的失去其 *负面 状态层数总和的生命，且场上每有一种 *负面 状态就获得 !M! 点格挡。"
+    "NAME":"Siren",
+    "DESCRIPTION": "At the end of your turn: Every enemy loses HP equals to its total *Debuff amount; Gain !M! block for each *Debuff that exists."
   },
     "MGR:VocalPreparation":{
-    "NAME":"演唱准备",
-    "DESCRIPTION": "生成 !M! 个 mgr:防御音符 。将一张 *高潮 加入弃牌堆。 NL mgr:开眼 ：改为抽牌堆。 消耗 。",
-    "UPGRADE_DESCRIPTION": "生成 !M! 个 mgr:防御音符 。将一张 *高潮 *+ 加入弃牌堆。 NL mgr:开眼 ：改为抽牌堆。 保留 。 消耗 。"
+    "NAME":"Vocal Preparation",
+    "DESCRIPTION": "Generate !M! mgr:DefendNote. NL Add a *Climax! into your discard pile. NL mgr:Awaken:Into draw pile instead. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Generate !M! mgr:DefendNote. NL Add a *Climax!+ into your discard pile. NL mgr:Awaken:Into draw pile instead. NL Retain. Exhaust."
   },
     "MGR:Climax":{
-    "NAME":"高潮",
-    "DESCRIPTION": "获得 !M! 层 *临时 mgr:强音 。 NL 本回合所有 mgr:音符 的生成数量翻倍。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "获得 !M! 层 *临时 mgr:强音 。 NL 本回合所有 mgr:音符 的生成数量翻倍。 NL 保留 。 消耗 。 "
-  },
-    "MGR:EndOfSanity":{
-    "NAME":"(Deprecated)理智尽头",
-    "DESCRIPTION": "本场战斗中，将当前手牌的耗能变为0。 NL 每减费一张牌，向弃牌堆中加入一张 *晕眩 。 NL 消耗 。"
+    "NAME":"Climax!",
+    "DESCRIPTION": "Gain !M! mgr:Forte and generate double notes this turn. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain !M! mgr:Forte and generate double notes this turn. NL Retain. Exhaust."
   },
     "MGR:MyReflection":{
-    "NAME":"镜像",
-    "DESCRIPTION": "随机消耗一张费用最低的手牌，使随机一张费用最高的手牌本回合费用减少 [E] [E] 。",
-    "UPGRADE_DESCRIPTION": "随机消耗一张费用最低的手牌，使随机一张费用最高的手牌本回合费用减少 [E] [E] [E] 。"
+    "NAME":"Reflection",
+    "DESCRIPTION": "Exhaust a random card with the *lowest cost. NL A random card with the *highest cost reduces its cost by [E] [E] this turn.",
+    "UPGRADE_DESCRIPTION": "Exhaust a random card with the *lowest cost. NL A random card with the *highest cost reduces its cost by [E] [E] [E] this turn."
   },
     "MGR:FolkRhymes":{
-    "NAME":"民谣",
-    "DESCRIPTION": "每当你触发 mgr:和弦 ，获得 !M! 点格挡。",
-    "UPGRADE_DESCRIPTION": " 固有 。 NL 打出能力牌时不再产生 mgr:抽牌音符 ，改为获得 !M! 点格挡。"
+    "NAME":"Folk Rhymes",
+    "DESCRIPTION": "Whenever mgr:Chord is performed, gain !M! block.",
+    "UPGRADE_DESCRIPTION": "Innate. Whenever mgr:Chord is performed, gain !M! block."
   },
     "MGR:Dexterous":{
-    "NAME":"灵巧",
-    "DESCRIPTION": "获得 !B! 点格挡。 NL mgr:尾音 ：抽 !M! 张牌。 NL mgr:起音 ：下回合获得 [E] 。",
-    "UPGRADE_DESCRIPTION": "获得 !B! 点格挡。 NL mgr:尾音 ：抽 !M! 张牌。 NL mgr:起音 ：下回合获得 [E] [E] 。"
+    "NAME":"Dexterous",
+    "DESCRIPTION": "Gain !B! block. NL mgr:Ending: Draw !M! card. NL mgr:Starting: Gain [E] next turn.",
+    "UPGRADE_DESCRIPTION": "Gain !B! block. NL mgr:Ending: Draw !M! cards. NL mgr:Starting: Gain [E] [E] next turn."
   },
     "MGR:Salivate":{
-    "NAME":"垂涎",
-    "DESCRIPTION": "mgr:注视 的伤害受 易伤 加成。 NL 每当你通过 mgr:注视 杀死一名 *非爪牙 的敌人，获得 !M! 点最大生命。"
+    "NAME":"Salivate",
+    "DESCRIPTION": "Damage from mgr:Gaze is affected by Vulnerable. NL Whenever a *non-minion enemy is killed by mgr:Gaze, raise your Max HP by !M! ."
   },
     "MGR:SummoningCharm":{
-    "NAME":"还原",
-    "DESCRIPTION": "移除你的所有音符，将每个音符对应的一张随机卡加入手牌。 消耗 。",
-    "UPGRADE_DESCRIPTION": "移除你的所有音符，将每个音符对应的一张 *升级过 的随机卡加入手牌。 消耗 。"
+    "NAME":"Restore",
+    "DESCRIPTION": "Remove all your notes. For each note removed, gain a random card that *corresponds to it. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Remove all your notes. For each note removed, gain a random *Upgraded card that *corresponds to it. Exhaust."
   },
     "MGR:SunDescending":{
-    "NAME":"日时计",
-    "DESCRIPTION": " 不能被打出 。 NL 被消耗或丢弃时，对所有敌人造成 !D! 点伤害并重置。每消耗或丢弃一张其他牌，伤害增加 !M! 。"
+    "NAME":"Sun Dial",
+    "DESCRIPTION": "Unplayable. NL When discarded or exhausted, deal !D! to all enemies and reset. NL Raise the damage by !M! whenever you discard or exhaust a card."
   },
     "MGR:FourEyes":{
-    "NAME":"四目",
-    "DESCRIPTION": "每当你给予敌人 *负面 状态（不包括注视）时，额外给予等量的 mgr:注视 。",
-    "UPGRADE_DESCRIPTION": " 固有 。 NL 每当你给予敌人 *负面 状态（不包括注视）时，额外给予等量的 mgr:注视 。"
+    "NAME":"Four Eyes",
+    "DESCRIPTION": "Whenever you apply *Debuff (Excluding mgr:Gaze) to an enemy, apply equivalent mgr:Gaze.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you apply *Debuff (Excluding mgr:Gaze) to an enemy, apply equivalent mgr:Gaze."
   },
     "MGR:Frighten":{
-    "NAME":"吓唬",
-    "DESCRIPTION": "造成 !D! 点伤害，给予 !M! 层注视。 NL 如果目标有 mgr:注视 ，给予2层 易伤 。 NL 如果目标有 易伤 ，再给予 !M! 层 mgr:注视 。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，给予 !M! 层注视。 NL 如果目标有 mgr:注视 ，给予3层 易伤 。 NL 如果目标有 易伤 ，再给予 !M! 层 mgr:注视 。"
+    "NAME":"Frighten",
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! mgr:Gaze. NL If target has mgr:Gaze, apply 2 Vulnerable. If target has Vulnerable, apply additional !M! mgr:Gaze.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Apply !M! mgr:Gaze. NL If target has mgr:Gaze, apply 3 Vulnerable. If target has Vulnerable, apply additional !M! mgr:Gaze."
   },
     "MGR:Brilliant":{
-    "NAME":"辉煌",
-    "DESCRIPTION": " mgr:即兴 的 mgr:基本音符 变得更好，且可能获得 mgr:能量音符 。 NL 回合开始时， *即兴 !M! 。"
+    "NAME":"Brilliant",
+    "DESCRIPTION": "Notes generated by mgr:Improvise become slightly better and include mgr:EnergyNote. NL At the start of your turn, mgr:Improvise !M!."
   },
     "MGR:LightUpTheStage":{
-    "NAME":"点亮舞台",
-    "DESCRIPTION": "对随机敌人造成 !D! 点伤害 !M! 次。 NL 每当被打出，增加伤害3点；每当被丢弃，增加次数2次。",
-    "UPGRADE_DESCRIPTION": "对随机敌人造成 !D! 点伤害 !M! 次。 NL 每当被打出，增加伤害3点；每当被丢弃，增加次数2次。"
+    "NAME":"Light Up",
+    "DESCRIPTION": "Deal !D! damage to a random enemy !M! times. NL When played, raise the damage by 3. When discarded, raise the count by 2."
   },
     "MGR:EchoPhantom":{
-    "NAME":"回声幻影",
-    "DESCRIPTION": "丢弃 !M! 张牌，将弃牌堆中 !M! 张牌的复制放在抽牌堆顶。 NL mgr:开眼 ：再将 !M! 张复制置入手牌。 消耗 。",
-	"UPGRADE_DESCRIPTION": "丢弃 !M! 张牌，将弃牌堆中 !M! 张牌的复制放在抽牌堆顶。 NL mgr:开眼 ：再将 !M! 张复制置入手牌。 消耗性 2"
+    "NAME":"Echo Phantom",
+    "DESCRIPTION": "Discard !M! card. Choose !M! card in discard pile, put its copy on top of draw pile. NL mgr:Awaken: Add an extra copy into hand. Exhaust.",
+	"UPGRADE_DESCRIPTION": "Discard !M! card. Choose !M! card in discard pile, put its copy on top of draw pile. NL mgr:Awaken: Add an extra copy into hand. Exhaustive 2"
   },
     "MGR:IntertwinedTimbres":{
-    "NAME":"音色交织",
-    "DESCRIPTION": "mgr:即兴 !M! 。 NL 本回合每生成过一种音符，获得 !B! 点格挡。"
+    "NAME":"Intertwined Timbres",
+    "DESCRIPTION": "mgr:Improvise !M! . NL Gain !B! block for each *type of note generated this turn"
   },
     "MGR:Reflexivity":{
-    "NAME":"反身",
-    "DESCRIPTION": "获得 !B! 点格挡。 NL 将弃牌堆中的 !M! 张牌置于抽牌堆底。 NL mgr:开眼 ：改为置于抽牌堆顶。"
+    "NAME":"Reflexivity",
+    "DESCRIPTION": "Gain !B! block. NL Move !M! cards from your discard pile to the bottom of draw pile. NL mgr:Awaken: To the top of draw pile instead."
   },
     "MGR:TheEyeBehind":{
-    "NAME":"背后的眼睛",
-    "DESCRIPTION": "若目标没有 *虚弱 ，给予1层，否则给予2层。对 *易伤 、 mgr:注视 同理。 消耗 。",
-    "UPGRADE_DESCRIPTION": "若目标没有 *虚弱 ，给予2层，否则给予3层。对 *易伤 、 mgr:注视 。 消耗 。"
+    "NAME":"The Eye Behind",
+    "DESCRIPTION": "If the target doesn't have *Weak, apply 2, otherwise apply 1. NL Also do this for *Vulnerable and mgr:Gaze. Exhaust.",
+    "UPGRADE_DESCRIPTION": "If the target doesn't have *Weak, apply 2, otherwise apply 3. NL Also do this for *Vulnerable and mgr:Gaze. Exhaust."
   },
     "MGR:StarryDrift":{
-    "NAME":"星空飘浮",
-    "DESCRIPTION": " mgr:星空 。 NL 抽 !M! 张牌。 NL 丢弃1张牌。",
-    "UPGRADE_DESCRIPTION": " mgr:星空 。 NL 抽 !M! 张牌。 NL 丢弃2张牌。"
+    "NAME":"Starry Drift",
+    "DESCRIPTION": "mgr:Starry. NL Draw !M! card. NL Discard 1 card.",
+    "UPGRADE_DESCRIPTION": "mgr:Starry. NL Draw !M! card. NL Discard 2 cards."
   },
     "MGR:HakkeroCharge":{
-    "NAME":"八卦炉充能",
-    "DESCRIPTION": "下回合中，每打出一张牌生成 !M! 个 mgr:攻击音符 。 NL mgr:开眼 ：并获得一层 *临时 mgr:强音 。 消耗 。",
-    "UPGRADE_DESCRIPTION": "下回合中，每打出一张牌生成 !M! 个 mgr:攻击音符 。 NL mgr:开眼 ：并获得一层 *临时 mgr:强音 。 保留 。 消耗 。"
+    "NAME":"Hakkero Charge",
+    "DESCRIPTION": "Next turn, generate !M! mgr:AttackNote whenever you play a card. NL mgr:Awaken: Gain 1 mgr:Forte next turn. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Next turn, generate !M! mgr:AttackNote whenever you play a card. NL mgr:Awaken: Gain 1 mgr:Forte next turn. NL Retain. Exhaust."
     },
     "MGR:RapidClaw":{
-    "NAME":"急速爪击",
-    "DESCRIPTION": "造成 !D! 点伤害并生成1个 mgr:攻击音符 。 NL mgr:起音 或 mgr:尾音 ：若基础伤害不小于 !M! ，将一张基础伤害减少 !M! 的复制加入手牌。 消耗 。"
+    "NAME":"Rapid Claw",
+    "DESCRIPTION": "Deal !D! damage and generate 1 mgr:AttackNote. NL mgr:Starting or mgr:Ending: If the base damage is not 0, gain a copy with it reduced by !M!."
   },
     "MGR:BurnsRed":{
-    "NAME":"赤灼",
-    "DESCRIPTION": "mgr:攻击音符 能伤害所有敌人。",
-    "UPGRADE_DESCRIPTION": "mgr:攻击音符 能伤害所有敌人。 NL 生成 !M! 个 *攻击音符 。"
-  },
-    "MGR:FinisherShooting":{
-    "NAME":"(Deprecated)终结枪击",
-    "DESCRIPTION": "造成 !D! 点伤害，本回合生成的每个 mgr:音符 使伤害提高 !M! 点。结束你的回合。 NL mgr:开眼 ：费用为0。"
+    "NAME":"Burns Red",
+    "DESCRIPTION": "mgr:AttackNote damages all enemies.",
+    "UPGRADE_DESCRIPTION": "mgr:AttackNote damages all enemies. NL Generate !M! mgr:AttackNote."
   },
     "MGR:TheBurningSun":{
-    "NAME":"烈日",
-    "DESCRIPTION": "消耗至多 !M! 张手牌，下回合抽等量的牌。 NL mgr:开眼 ：改为获得这些牌的 mgr:临时复制 。"
+    "NAME":"The Burning Sun",
+    "DESCRIPTION": "Exhaust up to !M! cards. Draw that number next turn. NL mgr:Awaken: Gain their mgr:TempCopy instead."
   },
   "MGR:Finale":{
-    "NAME":"终曲",
-    "DESCRIPTION": "丢弃所有 *非攻击 牌，每张生成 !M! 个 mgr:攻击音符 。 NL 虚无 。"
-  },
-  "MGR:Sinister":{
-    "NAME":"(Deprecated)险恶",
-    "DESCRIPTION": "敌人的 mgr:注视 减少时，给予等量的 中毒 。"
+    "NAME":"Finale",
+    "DESCRIPTION": "Discard all *non-Attack cards in hand. Generate !M! mgr:AttackNote for each."
   },
   "MGR:Masterful":{
-    "NAME":"全能",
-    "DESCRIPTION": "从抽牌堆中将每种音符对应的一张随机卡加入手牌，它们本回合耗能减少 [E] 。 消耗 。",
-    "UPGRADE_DESCRIPTION": "固有 。从抽牌堆中将每种音符对应的一张随机卡加入手牌，它们本回合耗能减少 [E] 。 消耗 。"
+    "NAME":"Masterful",
+    "DESCRIPTION": "For *every *type of note, randomly draw a card that *corresponds to it. Reduce their cost by [E] this turn. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Innate. NL For *every *type of note, randomly draw a card that *corresponds to it. Reduce their cost by [E] this turn. Exhaust."
   },
   "MGR:GazeOfOthers":{
-    "NAME":"他人的视线",
-    "DESCRIPTION": "获得 !B! 点格挡。 NL 若目标有至少 !M! 层 mgr:注视 ，再获得一次。"
+    "NAME":"Gaze of Others",
+    "DESCRIPTION": "Gain !B! block. NL If the target has at least !M! mgr:Gaze, gain once more."
   },
-  "MGR:Dandanhayakunaru":{
-    "NAME":"逐渐加快",
-    "DESCRIPTION": "不能被打出 。 NL 抽到时， mgr:即兴 !D! 。 NL 被丢弃或消耗时， mgr:即兴 !M! 。"
+  "MGR:Casually":{
+    "NAME":"Casually",
+    "DESCRIPTION": "Unplayable. NL Drawn: mgr:Improvise !D! . NL Discarded or exhausted: mgr:Improvise !M! "
   },
   "MGR:IveSeenEverything":{
-    "NAME":"既见万象",
-    "DESCRIPTION": "进入 mgr:开眼 。 NL 消耗 。"
+    "NAME":"I've Seen Everything",
+    "DESCRIPTION": "Enter mgr:Awaken. NL Exhaust."
   }
 }

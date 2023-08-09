@@ -12,9 +12,9 @@ import note.AbstractNote;
 import note.StarryNote;
 import path.AbstractCardEnum;
 
-public class Dandanhayakunaru extends AbstractMGRCard
+public class Casually extends AbstractMGRCard
 {
-    public static final String ID = "MGR:Dandanhayakunaru";
+    public static final String ID = "MGR:Casually";
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
@@ -25,7 +25,7 @@ public class Dandanhayakunaru extends AbstractMGRCard
     private static final int MAGIC = 4;
     private static final int PLUS_MAGIC = 2;
 
-    public Dandanhayakunaru()
+    public Casually()
     {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.SKILL,
                 AbstractCardEnum.MGR_COLOR, CardRarity.UNCOMMON, CardTarget.SELF);
@@ -74,7 +74,7 @@ public class Dandanhayakunaru extends AbstractMGRCard
     @Override
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {return false;}
 
-    public AbstractCard makeCopy() {return new Dandanhayakunaru();}
+    public AbstractCard makeCopy() {return new Casually();}
 
     public void upgrade()
     {

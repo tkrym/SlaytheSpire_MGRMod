@@ -60,7 +60,7 @@ public class MGRTutorial extends FtueTip
         if (this.CurrentPage >= this.MaxPages)
             AbstractDungeon.overlayMenu.proceedButton.setLabel(LABEL[1]);
         if (this.screen.a != 0.8F)
-            this.screen.a=Math.max(this.screen.a+Gdx.graphics.getDeltaTime(),0.8f);
+            this.screen.a = Math.max(this.screen.a + Gdx.graphics.getDeltaTime(), 0.8f);
         if (AbstractDungeon.overlayMenu.proceedButton.isHovered && InputHelper.justClickedLeft || CInputActionSet.proceed.isJustPressed())
         {
             CInputActionSet.proceed.unpress();
@@ -73,13 +73,13 @@ public class MGRTutorial extends FtueTip
             }
             ++this.CurrentPage;
             this.startX = this.x;
-            this.targetX = (float) ((1-this.CurrentPage) * Settings.WIDTH);
+            this.targetX = (float) ((1 - this.CurrentPage) * Settings.WIDTH);
             this.scrollTimer = 0.4F;
             if (this.CurrentPage >= this.MaxPages)
                 AbstractDungeon.overlayMenu.proceedButton.setLabel(LABEL[1]);
         }
 
-        if (this.scrollTimer >= 0.0F) this.scrollTimer=Math.max(this.scrollTimer-Gdx.graphics.getDeltaTime(),0.0f);
+        if (this.scrollTimer >= 0.0F) this.scrollTimer = Math.max(this.scrollTimer - Gdx.graphics.getDeltaTime(), 0.0f);
 
         this.x = Interpolation.fade.apply(this.targetX, this.startX, this.scrollTimer / 0.3F);
     }
@@ -89,9 +89,15 @@ public class MGRTutorial extends FtueTip
         sb.setColor(this.screen);
         sb.draw(ImageMaster.WHITE_SQUARE_IMG, 0.0F, 0.0F, (float) Settings.WIDTH, (float) Settings.HEIGHT);
         sb.setColor(Color.WHITE);
-        sb.draw(this.img2, this.x + this.x1 - (float) (this.img2.getWidth() / 2), (float) Settings.HEIGHT / 2.0F - (float) (this.img2.getHeight() / 2), (float) (this.img2.getWidth() / 2), (float) (this.img2.getHeight() / 2), (float) this.img2.getWidth(), (float) this.img2.getHeight(), Settings.xScale*1.3f, Settings.yScale*1.3f, 0.0F, 0, 0, this.img2.getWidth(), this.img2.getHeight(), false, false);
-        sb.draw(this.img3, this.x + this.x1 - (float) (this.img3.getWidth() / 2)+Settings.xScale*400.0f, (float) Settings.HEIGHT / 3.0F - (float) (this.img3.getHeight() / 2)-Settings.yScale*20.0f, (float) (this.img3.getWidth() / 2), (float) (this.img3.getHeight() / 2), (float) this.img3.getWidth(), (float) this.img3.getHeight(), Settings.xScale*1.2f, Settings.yScale*1.2f, 0.0F, 0, 0, this.img3.getWidth(), this.img3.getHeight(), false, false);
-        sb.draw(this.img1, this.x + this.x2 - (float) (this.img1.getWidth() / 2f), (float) Settings.HEIGHT / 2.0F - (float) (this.img1.getHeight() / 2), (float) (this.img1.getWidth() / 2), (float) (this.img1.getHeight() / 2), (float) this.img1.getWidth(), (float) this.img1.getHeight(), Settings.xScale*1.2f, Settings.yScale*1.2f, 0.0F, 0, 0, this.img1.getWidth(), this.img1.getHeight(), false, false);
+        sb.draw(this.img2, this.x + this.x1 - (float) (this.img2.getWidth() / 2), (float) Settings.HEIGHT / 2.0F - (float) (this.img2.getHeight() / 2),
+                (float) (this.img2.getWidth() / 2), (float) (this.img2.getHeight() / 2),
+                (float) this.img2.getWidth(), (float) this.img2.getHeight(),
+                Settings.xScale * 1.3f, Settings.yScale * 1.3f,
+                0.0F, 0, 0,
+                this.img2.getWidth(), this.img2.getHeight(),
+                false, false);
+        sb.draw(this.img3, this.x + this.x1 - (float) (this.img3.getWidth() / 2) + Settings.xScale * 400.0f, (float) Settings.HEIGHT / 3.0F - (float) (this.img3.getHeight() / 2) - Settings.yScale * 20.0f, (float) (this.img3.getWidth() / 2), (float) (this.img3.getHeight() / 2), (float) this.img3.getWidth(), (float) this.img3.getHeight(), Settings.xScale * 1.2f, Settings.yScale * 1.2f, 0.0F, 0, 0, this.img3.getWidth(), this.img3.getHeight(), false, false);
+        sb.draw(this.img1, this.x + this.x2 - (float) (this.img1.getWidth() / 2f), (float) Settings.HEIGHT / 2.0F - (float) (this.img1.getHeight() / 2), (float) (this.img1.getWidth() / 2), (float) (this.img1.getHeight() / 2), (float) this.img1.getWidth(), (float) this.img1.getHeight(), Settings.xScale * 1.2f, Settings.yScale * 1.2f, 0.0F, 0, 0, this.img1.getWidth(), this.img1.getHeight(), false, false);
         FontHelper.renderSmartText(sb, FontHelper.panelNameFont, TEXT[0], this.x + this.x1 + (float) (this.img1.getWidth() / 2 + 50) * Settings.xScale, (float) Settings.HEIGHT / 2.0F - FontHelper.getSmartHeight(FontHelper.panelNameFont, TEXT[0], 700.0F * Settings.xScale, 40.0F * Settings.yScale) / 2.0F, 700.0F * Settings.xScale, 40.0F * Settings.yScale, Settings.CREAM_COLOR);
         FontHelper.renderSmartText(sb, FontHelper.panelNameFont, TEXT[1], this.x + this.x2 + (float) (this.img2.getWidth() / 2 + 400) * Settings.xScale, (float) Settings.HEIGHT / 2.0F - FontHelper.getSmartHeight(FontHelper.panelNameFont, TEXT[1], 700.0F * Settings.xScale, 40.0F * Settings.yScale) / 2.0F, 700.0F * Settings.xScale, 40.0F * Settings.yScale, Settings.CREAM_COLOR);
         FontHelper.renderFontCenteredWidth(sb, FontHelper.panelNameFont, LABEL[2], (float) Settings.WIDTH / 2.0F, (float) Settings.HEIGHT / 2.0F - 360.0F * Settings.scale, Settings.GOLD_COLOR);

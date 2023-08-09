@@ -2,15 +2,20 @@ package card.RARE;
 
 import card.AbstractMGRCard;
 import character.MGR_character;
+import com.badlogic.gdx.graphics.Color;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
+import effect.IveSeenEverythingEffect;
 import path.AbstractCardEnum;
 
 import java.util.ArrayList;
@@ -33,6 +38,7 @@ public class Hallucination extends AbstractMGRCard {
 
     public void use(AbstractPlayer p, AbstractMonster m)
     {
+        addToBot(new VFXAction(AbstractDungeon.player,new BorderFlashEffect(CardHelper.getColor(250,90,150)),1.0f,true));
         if(MGR_character.AwakenedStanceCheck())
         {
             for(AbstractPower power:AbstractDungeon.player.powers)

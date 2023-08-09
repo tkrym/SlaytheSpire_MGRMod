@@ -124,7 +124,7 @@
       "conceivedasstatus"
     ],
     "PROPER_NAME": "ConceivedAsStatus",
-    "DESCRIPTION": "Correspond to #yDebuffNote. Appears in some #Status card pools."
+    "DESCRIPTION": "Correspond to #yDebuffNote. Appears in some Status card pools."
   },
   {
     "NAMES": [
@@ -135,9 +135,9 @@
   },
   {
     "NAMES": [
-      "tempclone"
+      "tempcopy"
     ],
-    "PROPER_NAME": "TempClone",
+    "PROPER_NAME": "TempCopy",
     "DESCRIPTION": "Cost #b0 for this turn and is #yExhaust and #yEthereal."
   },
   {

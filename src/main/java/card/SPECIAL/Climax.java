@@ -4,6 +4,7 @@ import action.ApplyForteAction;
 import card.AbstractMGRCard;
 import card.SPECIAL.FrenziedDragonBite;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
@@ -16,6 +17,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.PoisonPower;
+import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
+import effect.ClimaxEffect;
 import path.AbstractCardEnum;
 import power.ClimaxPower;
 import power.LoseFortePower;
@@ -36,14 +39,26 @@ public class Climax extends AbstractMGRCard
                 AbstractCardEnum.MGR_COLOR, CardRarity.RARE, CardTarget.SELF);
         this.baseMagicNumber = MAGIC;
         this.magicNumber = this.baseMagicNumber;
-        this.exhaust=true;
+        this.exhaust = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m)
     {
         addToBot(new ApplyForteAction(this.magicNumber));
-        addToBot(new ApplyPowerAction(p,p,new LoseFortePower(this.magicNumber),this.magicNumber));
-        addToBot(new ApplyPowerAction(p,p,new ClimaxPower(1),1));
+        addToBot(new ApplyPowerAction(p, p, new LoseFortePower(this.magicNumber), this.magicNumber));
+        addToBot(new ApplyPowerAction(p, p, new ClimaxPower(1), 1));
+        addToBot(new AbstractGameAction()
+        {
+            @Override
+            public void update()
+            {
+                this.isDone = true;
+                for (AbstractGameEffect effect : AbstractDungeon.effectList)
+                    if (effect instanceof ClimaxEffect)
+                        return;
+                AbstractDungeon.actionManager.addToTop(new VFXAction(new ClimaxEffect(),0.1f));
+            }
+        });
     }
 
     public void upgrade()
@@ -51,7 +66,7 @@ public class Climax extends AbstractMGRCard
         if (!this.upgraded)
         {
             this.upgradeName();
-            this.selfRetain=true;
+            this.selfRetain = true;
             this.rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }

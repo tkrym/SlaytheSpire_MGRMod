@@ -13,6 +13,7 @@ import card.RARE.Hallucination;
 import card.BASIC.Peek;
 import card.COMMON.Frighten;
 import card.COMMON.RapidClaw;
+import card.SPECIAL.Climax;
 import card.UNCOMMON.HakkeroCharge;
 import card.COMMON.Reflexivity;
 import card.COMMON.StarryDrift;
@@ -389,7 +390,7 @@ public class MGR_subscriber implements EditCharactersSubscriber, EditRelicsSubsc
         this.cardsToAdd.add(new RapidClaw());
         this.cardsToAdd.add(new BurnsRed());
         this.cardsToAdd.add(new TheBurningSun());
-        this.cardsToAdd.add(new Dandanhayakunaru());
+        this.cardsToAdd.add(new Casually());
     }
 
     @Override

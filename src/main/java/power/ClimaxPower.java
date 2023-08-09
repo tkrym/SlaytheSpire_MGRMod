@@ -29,7 +29,7 @@ public class ClimaxPower extends AbstractPower
     }
 
     @Override
-    public void atStartOfTurn()
+    public void atEndOfTurn(boolean isPlayer)
     {
         addToBot(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, this.ID));
     }
