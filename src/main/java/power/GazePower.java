@@ -68,7 +68,7 @@ public class GazePower extends AbstractPower implements OnChordHook, HealthBarRe
     @Override
     public void updateDescription() {
         int DecAmount=AbstractDungeon.player.hasRelic(Sunglasses.ID)?Sunglasses.SunglassesNumber:DecreaseAmount;
-        this.description=DESCRIPTIONS[0]+this.amount+DESCRIPTIONS[1]+DecAmount+DESCRIPTIONS[2];
+        this.description=DESCRIPTIONS[0]+applyVulnerable(this.owner,this.amount)+DESCRIPTIONS[1]+DecAmount+DESCRIPTIONS[2];
     }
 
     @Override
