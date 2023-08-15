@@ -21,7 +21,7 @@ public class Defend_MGR extends AbstractMGRCard {
     public static final String IMG = "img/card/"+ID.substring(4)+".png";
     private static final int COST = 1;
     private static final int BLOCK = 4;
-    private static final int PLUS_BLOCK = 1;
+    private static final int PLUS_BLOCK = 2;
     public Defend_MGR() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.SKILL,
                 AbstractCardEnum.MGR_COLOR, CardRarity.BASIC, CardTarget.SELF);

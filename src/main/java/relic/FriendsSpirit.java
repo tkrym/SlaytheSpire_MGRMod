@@ -3,6 +3,7 @@ package relic;
 import action.ChannelNoteAction;
 import action.TemporaryDuplicationAction;
 import basemod.abstracts.CustomRelic;
+import card.COMMON.Marionette;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
@@ -33,7 +34,7 @@ public class FriendsSpirit extends CustomRelic
     @Override
     public void onExhaust(AbstractCard card)
     {
-        if (!(card.type.equals(AbstractCard.CardType.CURSE) || card.type.equals(AbstractCard.CardType.STATUS)) && !this.grayscale)
+        if (!(card.type.equals(AbstractCard.CardType.CURSE) || card.type.equals(AbstractCard.CardType.STATUS) || card instanceof Marionette) && !this.grayscale)
         {
             addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, FriendsSpirit.this));
             addToBot(new TemporaryDuplicationAction(card));

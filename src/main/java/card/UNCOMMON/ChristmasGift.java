@@ -19,9 +19,9 @@ public class ChristmasGift extends AbstractMGRCard {
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG = "img/card/"+ID.substring(4)+".png";
-    private static final int COST = 3;
-    private static final int MAGIC = 30;
-    private static final int PLUS_MAGIC = 10;
+    private static final int COST = 2;
+    private static final int MAGIC = 20;
+    private static final int PLUS_MAGIC = 5;
     public static final int PRO_POTION=45;
     public static final int PRO_GOLD=40;
     public static final int PRO_CARD=15;

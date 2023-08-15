@@ -187,8 +187,8 @@
   },
     "MGR:ChristmasGift":{
     "NAME":"Christmas Gift",
-    "DESCRIPTION": "Gain one with a specific probability: Add a random *Potion to the reward; Gain !M! *Gold; *Upgrade a random card in deck. Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain one with a *better probability: Add a random *Potion to the reward; Gain !M! *Gold; *Upgrade a random card in deck. Exhaust."
+    "DESCRIPTION": "Gain one with a mgr:Specific probability: Add a random *Potion to the reward; Gain !M! *Gold; *Upgrade a random card in deck. Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain one with a mgr:Better probability: Add a random *Potion to the reward; Gain !M! *Gold; *Upgrade a random card in deck. Exhaust."
   },
     "MGR:BroomStrike":{
     "NAME":"Broom Strike",
@@ -213,7 +213,7 @@
   },
     "MGR:ReconvertingCharm":{
     "NAME":"Reconvert",
-    "DESCRIPTION": "Deal !D! damage. NL Return the last *non-exhaust card you played to hand. NL mgr:Awaken: Gain its mgr:TempCopy."
+    "DESCRIPTION": "Deal !D! damage. NL Return the last !M! *non-exhaust card you played back to your hand. NL mgr:Awaken: Gain its mgr:TempCopy."
   },
     "MGR:DragonClaw":{
     "NAME":"Dragon Claw",

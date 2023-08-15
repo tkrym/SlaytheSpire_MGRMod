@@ -146,5 +146,19 @@
     ],
     "PROPER_NAME": "Improvise",
     "DESCRIPTION": "Generate #b1 random #yBasic #yNote out of #b5 types with a specific probability."
+  },
+  {
+    "NAMES": [
+      "specific"
+    ],
+    "PROPER_NAME": "Specific",
+    "DESCRIPTION": "#b45 % Add a potion to the reward; #b40 % Gain gold; #b15 % Upgrade a random card in deck."
+  },
+  {
+    "NAMES": [
+      "better"
+    ],
+    "PROPER_NAME": "Better",
+    "DESCRIPTION": "#b30 % Add a potion to the reward; #b45 % Gain gold; #b25 % Upgrade a random card in deck."
   }
 ]
