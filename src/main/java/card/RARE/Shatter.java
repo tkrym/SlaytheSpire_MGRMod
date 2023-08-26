@@ -23,7 +23,7 @@ public class Shatter extends AbstractMGRCard {
     public static final String IMG = "img/card/"+ID.substring(4)+".png";
     private static final int COST = 2;
     private static final int BLOCK = 4;
-    //private static final int PLUS_BLOCK = 1;
+    private static final int PLUS_BLOCK = 1;
     private static final int MAGIC = 4;
     public Shatter() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.SKILL,
@@ -58,7 +58,7 @@ public class Shatter extends AbstractMGRCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            //this.upgradeBlock(PLUS_BLOCK);
+            this.upgradeBlock(PLUS_BLOCK);
             this.exhaust=false;
             ExhaustiveField.ExhaustiveFields.baseExhaustive.set(this, 2);
             ExhaustiveField.ExhaustiveFields.exhaustive.set(this, 2);

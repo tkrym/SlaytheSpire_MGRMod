@@ -446,6 +446,7 @@ public class MGR_subscriber implements EditCharactersSubscriber, EditRelicsSubsc
         if (AbstractDungeon.player instanceof MGR_character)
         {
             AbstractDungeon.bossRelicPool.remove(SneckoEye.ID);
+            AbstractDungeon.commonRelicPool.remove(Orichalcum.ID);
         }
     }
 }

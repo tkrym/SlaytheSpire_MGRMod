@@ -394,8 +394,8 @@
   },
     "MGR:StarryDrift":{
     "NAME":"星空飘浮",
-    "DESCRIPTION": " mgr:星空 。 NL 抽 !M! 张牌。 NL 丢弃1张牌。",
-    "UPGRADE_DESCRIPTION": " mgr:星空 。 NL 抽 !M! 张牌。 NL 丢弃2张牌。"
+    "DESCRIPTION": " mgr:星空 。 NL 抽 !M! 张牌。 NL 丢弃 !M! 张牌。",
+    "UPGRADE_DESCRIPTION": " mgr:星空 。 NL 抽 !M! 张牌。 NL 丢弃 !M! 张牌。"
   },
     "MGR:HakkeroCharge":{
     "NAME":"八卦炉充能",

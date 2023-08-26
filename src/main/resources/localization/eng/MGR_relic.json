@@ -75,7 +75,7 @@
     "NAME": "Your Exclusive Stage",
     "FLAVOR": "The reverberations of the voice traverse the entirety of the world.",
     "DESCRIPTIONS": [
-      "Replaces #bMini #bMicrophone . NL The #ymgr:Counter will not be less than #b1 . NL At the start of your turn, #ymgr:Improvise #b3 ."
+      "Replaces #bMini #bMicrophone . NL Reduce the maximum of the #ymgr:Counter by #b1 . NL At the start of your turn, #ymgr:Improvise #b3 ."
     ]
   },
   "MGR:WitchHat": {

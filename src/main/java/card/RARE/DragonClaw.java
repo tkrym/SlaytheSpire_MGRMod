@@ -2,7 +2,9 @@ package card.RARE;
 
 import card.AbstractMGRCard;
 import card.SPECIAL.FrenziedDragonBite;
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -12,6 +14,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.PoisonPower;
+import com.megacrit.cardcrawl.vfx.combat.ClawEffect;
 import path.AbstractCardEnum;
 
 public class DragonClaw extends AbstractMGRCard
@@ -38,6 +41,9 @@ public class DragonClaw extends AbstractMGRCard
 
     public void use(AbstractPlayer p, AbstractMonster m)
     {
+        if (m != null) {
+            addToBot(new VFXAction(new ClawEffect(m.hb.cX, m.hb.cY, Color.GREEN, Color.PURPLE), 0.1f));
+        }
         addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn),
                 AbstractGameAction.AttackEffect.POISON));
         addToBot(new ApplyPowerAction(m, p, new PoisonPower(m, p, this.damage), this.damage));

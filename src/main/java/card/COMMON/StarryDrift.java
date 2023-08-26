@@ -31,7 +31,7 @@ public class StarryDrift extends AbstractMGRCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         //addToBot(new ScryAction(this.magicNumber));
         addToBot(new DrawCardAction(this.magicNumber));
-        addToBot(new DiscardAction(p,p,this.upgraded?2:1,false));
+        addToBot(new DiscardAction(p,p,this.magicNumber,false));
     }
 
     public AbstractCard makeCopy() { return new StarryDrift(); }

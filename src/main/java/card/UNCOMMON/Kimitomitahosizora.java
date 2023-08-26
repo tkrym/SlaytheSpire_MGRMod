@@ -16,7 +16,7 @@ public class Kimitomitahosizora extends AbstractMGRCard
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String IMG = "img/card/" + ID.substring(4) + ".png";
     private static final int COST = 1;
-    public static final int MAGIC = 5;
+    public static final int MAGIC = 4;
     public static final int PLUS_MAGIC = 2;
 
     public Kimitomitahosizora()

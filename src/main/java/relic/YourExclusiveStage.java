@@ -1,5 +1,7 @@
 package relic;
+
 import basemod.abstracts.CustomRelic;
+import character.MGR_character;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -15,24 +17,32 @@ import java.util.Collections;
 import java.util.Optional;
 import java.util.Random;
 
-public class YourExclusiveStage extends CustomRelic{
+public class YourExclusiveStage extends CustomRelic
+{
     public static final String ID = "MGR:YourExclusiveStage";
-    private static final String IMG = "img/relic/"+ID.substring(4)+".png";
-    private static final String OUTLINE = "img/relic/outline/"+ID.substring(4)+".png";
+    private static final String IMG = "img/relic/" + ID.substring(4) + ".png";
+    private static final String OUTLINE = "img/relic/outline/" + ID.substring(4) + ".png";
 
-    public YourExclusiveStage() {
+    public YourExclusiveStage()
+    {
         super(ID, ImageMaster.loadImage(IMG), ImageMaster.loadImage(OUTLINE), RelicTier.BOSS, LandingSound.MAGICAL);
     }
 
-    public void obtain() {
-        if (AbstractDungeon.player.hasRelic(MiniMicrophone.ID)) {
-            for(int i = 0; i < AbstractDungeon.player.relics.size(); ++i) {
-                if ((AbstractDungeon.player.relics.get(i)).relicId.equals(MiniMicrophone.ID)) {
+    public void obtain()
+    {
+        if (AbstractDungeon.player.hasRelic(MiniMicrophone.ID))
+        {
+            for (int i = 0; i < AbstractDungeon.player.relics.size(); ++i)
+            {
+                if ((AbstractDungeon.player.relics.get(i)).relicId.equals(MiniMicrophone.ID))
+                {
                     this.instantObtain(AbstractDungeon.player, i, true);
                     break;
                 }
             }
-        } else {
+        }
+        else
+        {
             super.obtain();
         }
     }
@@ -47,10 +57,11 @@ public class YourExclusiveStage extends CustomRelic{
         AbstractNote.GenerateRandomBasicNoteBottom();
     }
 
-    public String getUpdatedDescription() { return this.DESCRIPTIONS[0]; }
+    public String getUpdatedDescription() {return this.DESCRIPTIONS[0];}
 
     @Override
-    public AbstractRelic makeCopy() {
+    public AbstractRelic makeCopy()
+    {
         return new YourExclusiveStage();
     }
 

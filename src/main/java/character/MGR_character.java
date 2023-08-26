@@ -75,7 +75,6 @@ public class MGR_character extends CustomPlayer
     //    public static final Color YUHColor = CardHelper.getColor(255, 200, 80);
     public int ChordTriggeredThisTurn;
     public int counter;
-    public int counter_min;
     public int counter_max;
     public static final int counter_max_master = 5;
     public static CounterPanel myCounterPanel = new CounterPanel();
@@ -218,17 +217,15 @@ public class MGR_character extends CustomPlayer
         this.counter_max = counter_max_master;
         if(AbstractDungeon.player.hasRelic(YourExclusiveStage.ID))
         {
-            this.counter_min=1;
+            this.counter_max--;
             AbstractDungeon.player.getRelic(YourExclusiveStage.ID).flash();
         }
-        else this.counter_min=0;
-        this.counter = this.counter_min;
+        this.counter = 0;
     }
 
     @Override
     public void useCard(AbstractCard c, AbstractMonster m, int e)
     {
-        //boolean dt = c.dontTriggerOnUseCard;
         super.useCard(c, m, e);
         if(!c.dontTriggerOnUseCard) AbstractNote.GenerateNoteBottom(c);
     }
@@ -298,7 +295,7 @@ public class MGR_character extends CustomPlayer
     {
         int changed_number = this.counter + amount;
         if (InAwakenedStance() && changed_number > this.counter_max - 1) changed_number = this.counter_max - 1;
-        if (changed_number < this.counter_min) changed_number = this.counter_min;
+        if (changed_number < 0) changed_number = 0;
         if (changed_number != this.counter) myCounterPanel.EnlargeFontScale();
         this.counter = changed_number;
         checkCounter();
@@ -308,8 +305,7 @@ public class MGR_character extends CustomPlayer
     {
         if (this.counter >= this.counter_max)
         {
-            this.counter = this.counter_min;
-            if(AbstractDungeon.player.hasRelic(YourExclusiveStage.ID)) AbstractDungeon.player.getRelic(YourExclusiveStage.ID).flash();
+            this.counter = 0;
             myCounterPanel.EnlargeFontScale();
             AbstractDungeon.actionManager.addToTop(new ChangeStanceAction(new AwakenedStance()));
         }

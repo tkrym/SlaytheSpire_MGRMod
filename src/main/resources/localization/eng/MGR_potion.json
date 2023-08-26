@@ -9,7 +9,7 @@
   "MGR:PortableAnvil": {
     "NAME": "Portable Anvil",
     "DESCRIPTIONS": [
-      "Randomly #Upgrade #b",
+      "Randomly #yUpgrade #b",
       " card in your deck. Cards of higher rarity have a higher chance of being upgraded."
     ]
   },
@@ -24,7 +24,7 @@
     "NAME": "Radiance in the Pupil",
     "DESCRIPTIONS": [
       "During this combat, reduce the maximum of the #yCounter by #b",
-      " (Not less than the minimum plus #b1 ), and fill the #yCounter instantly."
+      " (Not less than #b1 ), and fill it instantly."
     ]
   },
     "MGR:Doping": {

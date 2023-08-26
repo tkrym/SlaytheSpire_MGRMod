@@ -9,7 +9,7 @@
   "MGR:PortableAnvil": {
     "NAME": "便携熔炉",
     "DESCRIPTIONS": [
-      "随机升级卡组中的 #b",
+      "随机 #y升级 卡组中的 #b",
       " 张牌，高稀有度的卡牌有更大概率被升级。"
     ]
   },
@@ -17,14 +17,14 @@
     "NAME": "强音药水",
     "DESCRIPTIONS": [
       "获得 #b",
-      " 点 #y强音。"
+      " 点 #y强音 。"
     ]
   },
   "MGR:RadianceInThePupil": {
     "NAME": "瞳中辉",
     "DESCRIPTIONS": [
       "本场战斗中，将你的 #y计数器 上限减少 #b",
-      " （不会低于下限加一），并立即填满它。"
+      " （不会低于 #b1 ），并立即填满它。"
     ]
   },
     "MGR:Doping": {

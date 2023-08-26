@@ -46,6 +46,7 @@ public class Obakenoukenerai extends AbstractMGRCard {
             this.upgradeName();
             this.rawDescription=UPGRADE_DESCRIPTION;
             this.textureImg=UPGRADED_IMG;
+            this.loadCardImage(UPGRADED_IMG);
             initializeDescription();
         }
     }

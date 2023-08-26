@@ -75,7 +75,7 @@
     "NAME": "只属于你的舞台",
     "FLAVOR": "于此刻响彻世界。",
     "DESCRIPTIONS": [
-      "替换 #b迷你麦克风 。 NL 你的 #ymgr:计数器 不会低于 #b1 。 NL 回合开始时， #ymgr:即兴 #b3 。"
+      "替换 #b迷你麦克风 。 NL #ymgr:计数器 上限降低 #b1 。 NL 回合开始时， #ymgr:即兴 #b3 。"
     ]
   },
   "MGR:WitchHat": {

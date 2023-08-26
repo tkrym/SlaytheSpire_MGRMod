@@ -46,7 +46,7 @@ public class RadianceInThePupil extends AbstractPotion{
                     {
                         MGR_character p=(MGR_character)AbstractDungeon.player;
                         p.counter_max-=RadianceInThePupil.this.potency;
-                        if(p.counter_max<=p.counter_min+1) p.counter_max=p.counter_min+1;
+                        if(p.counter_max<=1) p.counter_max=1;
                         MGR_character.IncCounter(p.counter_max);
                     }
                     this.isDone=true;

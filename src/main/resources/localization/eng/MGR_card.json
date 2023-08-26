@@ -149,8 +149,8 @@
   },
     "MGR:DizzyAndGiddy":{
     "NAME":"Dizzy and Giddy",
-    "DESCRIPTION": "Discard up to !M! cards to generate the *corresponding notes. NL If at least 2 cards are discarded, draw 1 card.",
-    "UPGRADE_DESCRIPTION": "Discard up to !M! cards to generate the *corresponding notes. NL If at least 3 cards are discarded, draw 2 cards."
+    "DESCRIPTION": "Discard up to !M! cards to generate the *corresponding notes. NL If at least 2 cards are discarded, draw 1 .",
+    "UPGRADE_DESCRIPTION": "Discard up to !M! cards to generate the *corresponding notes. NL If at least 3 cards are discarded, draw 2 ."
   },
     "MGR:Swallow":{
     "NAME":"Swallow",
@@ -213,7 +213,7 @@
   },
     "MGR:ReconvertingCharm":{
     "NAME":"Reconvert",
-    "DESCRIPTION": "Deal !D! damage. NL Return the last !M! *non-exhaust card you played back to your hand. NL mgr:Awaken: Gain its mgr:TempCopy."
+    "DESCRIPTION": "Deal !D! damage. NL Return the last *non-exhaust card you played back to hand. NL mgr:Awaken: Gain its mgr:TempCopy."
   },
     "MGR:DragonClaw":{
     "NAME":"Dragon Claw",
@@ -227,7 +227,7 @@
 
     "MGR:AccurateShooting":{
     "NAME":"Accurate Shooting",
-    "DESCRIPTION": "Deal !D! damage. NL mgr:Ending: Double the damage"
+    "DESCRIPTION": "Deal !D! damage. NL mgr:Ending: Double the damage."
   },
     "MGR:Siren":{
     "NAME":"Siren",
@@ -245,8 +245,8 @@
   },
     "MGR:MyReflection":{
     "NAME":"In the Mirror",
-    "DESCRIPTION": "Exhaust a random card with the *lowest cost. NL A random card with the *highest cost reduces its cost by [E] [E] this turn.",
-    "UPGRADE_DESCRIPTION": "Exhaust a random card with the *lowest cost. NL A random card with the *highest cost reduces its cost by [E] [E] [E] this turn."
+    "DESCRIPTION": "Exhaust a random card with the *lowest cost. NL Reduce the cost of a random card with the *highest cost by [E] [E] this turn.",
+    "UPGRADE_DESCRIPTION": "Exhaust a random card with the *lowest cost. NL Reduce the cost of a random card with the *highest cost by [E] [E] [E] this turn."
   },
     "MGR:FolkRhymes":{
     "NAME":"Folk Rhymes",
@@ -309,8 +309,8 @@
   },
     "MGR:StarryDrift":{
     "NAME":"Starry Drift",
-    "DESCRIPTION": "mgr:Starry. NL Draw !M! card. NL Discard 1 card.",
-    "UPGRADE_DESCRIPTION": "mgr:Starry. NL Draw !M! card. NL Discard 2 cards."
+    "DESCRIPTION": "mgr:Starry. NL Draw !M! cards. NL Discard !M! cards.",
+    "UPGRADE_DESCRIPTION": "mgr:Starry. NL Draw !M! cards. NL Discard !M! cards."
   },
     "MGR:HakkeroCharge":{
     "NAME":"Hakkero Charge",

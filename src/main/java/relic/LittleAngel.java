@@ -13,7 +13,7 @@ public class LittleAngel extends CustomRelic{
     public static final String ID = "MGR:LittleAngel";
     private static final String IMG = "img/relic/"+ID.substring(4)+".png";
     private static final String OUTLINE = "img/relic/outline/"+ID.substring(4)+".png";
-    public static final int MAGIC = 2;
+    public static final int MAGIC = 3;
     public static final int DrawThreshold = 2;
 
     public LittleAngel() {

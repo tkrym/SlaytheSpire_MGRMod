@@ -138,8 +138,8 @@ public abstract class AbstractNote extends AbstractOrb
         {
             if (seed < 35) return new AttackNote();//35%
             else if (seed < 70) return new DefendNote();//35%
-            else if (seed < 80) return new DebuffNote();//10%
-            else if (seed < 95) return new DrawNote();//15%
+            else if (seed < 78) return new DebuffNote();//8%
+            else if (seed < 95) return new DrawNote();//17%
             else return new ArtifactNote();//5%
         }
         else
@@ -147,8 +147,8 @@ public abstract class AbstractNote extends AbstractOrb
             if (seed < 27) return new AttackNote();//27%
             else if (seed < 57) return new DefendNote();//30%
             else if (seed < 64) return new StarryNote();//7%
-            else if (seed < 81) return new DrawNote();//17%
-            else if (seed < 93) return new DebuffNote();//12%
+            else if (seed < 83) return new DrawNote();//19%
+            else if (seed < 93) return new DebuffNote();//10%
             else return new ArtifactNote();//7%
         }
     }

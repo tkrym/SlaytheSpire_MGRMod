@@ -27,7 +27,7 @@ public class MaguroBash extends AbstractMGRCard {
     private static final int DMG = 10;
     private static final int PLUS_DMG = 2;
     private static final int MAGIC = 6;
-    private static final int PLUS_MAGIC = 1;
+    private static final int PLUS_MAGIC = 2;
     public MaguroBash() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.ATTACK,
                 AbstractCardEnum.MGR_COLOR, CardRarity.UNCOMMON, CardTarget.ENEMY);

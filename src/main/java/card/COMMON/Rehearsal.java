@@ -18,7 +18,7 @@ public class Rehearsal extends AbstractMGRCard {
     public static final String IMG = "img/card/"+ID.substring(4)+".png";
     private static final int COST = 1;
     private static final int MAGIC = 3;
-    private static final int PLUS_MAGIC = 0;
+    private static final int PLUS_MAGIC = 1;
     public Rehearsal() {
         super(ID, cardStrings.NAME, IMG, COST, DESCRIPTION, CardType.SKILL,
                 AbstractCardEnum.MGR_COLOR, CardRarity.COMMON, CardTarget.SELF);
@@ -36,10 +36,10 @@ public class Rehearsal extends AbstractMGRCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            //this.upgradeMagicNumber(PLUS_MAGIC);
-            this.exhaust=false;
-            this.rawDescription=UPGRADE_DESCRIPTION;
-            initializeDescription();
+            this.upgradeMagicNumber(PLUS_MAGIC);
+            //this.exhaust=false;
+            //this.rawDescription=UPGRADE_DESCRIPTION;
+            //initializeDescription();
         }
     }
 }
