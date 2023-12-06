@@ -253,6 +253,8 @@ public class MGR_subscriber implements EditCharactersSubscriber, EditRelicsSubsc
         {
             case ZHS:
                 StringPath = "localization/zhs/"; break;
+            case JPN:
+                StringPath = "localization/jpn/"; break;
             default:
                 StringPath = "localization/eng/";
         }

@@ -104,8 +104,8 @@
   },
     "MGR:ResonanceForm":{
     "NAME":"Resonance Form",
-    "DESCRIPTION": "Ethereal. NL Whenever you draw, play, discard or exhaust the !M!th card, gain its mgr:TempCopy. *NonStackable.",
-    "UPGRADE_DESCRIPTION": "Whenever you draw, play, discard or exhaust the !M!th card, gain its mgr:TempCopy. *NonStackable."
+    "DESCRIPTION": "Ethereal. NL Whenever you draw, play, discard or exhaust the !M!th card, gain its mgr:TempCopy.",
+    "UPGRADE_DESCRIPTION": "Whenever you draw, play, discard or exhaust the !M!th card, gain its mgr:TempCopy."
   },
     "MGR:Confused":{
     "NAME":"Confused",
@@ -120,7 +120,7 @@
     "MGR:Yazyuutokasu":{
     "NAME":"Feral",
     "DESCRIPTION": "At the start of your turn, discard a random card with the *lowest cost and add a *Confused into hand.",
-    "UPGRADE_DESCRIPTION": "At the start of your turn, discard a random card with the *lowest cost and add a *Confused into hand."
+    "UPGRADE_DESCRIPTION": "At the start of your turn, discard a random card with the *lowest cost and add a *Confused+ into hand."
   },
     "MGR:MaguroCleave":{
     "NAME":"Maguro Cleave",
@@ -175,7 +175,7 @@
     "MGR:MetalGear":{
     "NAME":"Metal Gear",
     "DESCRIPTION": "Lose 2 Dexterity, Gain !M! *Metallicize. NL mgr:Awaken: Gain additional 3 . Exhaust.",
-    "UPGRADE_DESCRIPTION": "Lose 2 Dexterity, Gain !M! *Metallicize. NL mgr:Awaken: Gain additional 4 . Exhaust."
+    "UPGRADE_DESCRIPTION": "Lose 3 Dexterity, Gain !M! *Metallicize. NL mgr:Awaken: Gain additional 4 . Exhaust."
     },
     "MGR:Marionette":{
     "NAME":"Marionette",
@@ -183,7 +183,7 @@
   },
     "MGR:FieryPerformance":{
     "NAME":"Fiery",
-    "DESCRIPTION": "Draw cards until you have !M! in your hand. NL Discard a random card with the *lowest cost."
+    "DESCRIPTION": "Draw cards until you have !M! in your hand. NL Discard 1 random card with the *lowest cost."
   },
     "MGR:ChristmasGift":{
     "NAME":"Christmas Gift",
@@ -319,7 +319,7 @@
     },
     "MGR:RapidClaw":{
     "NAME":"Rapid Claw",
-    "DESCRIPTION": "Deal !D! damage and generate 1 mgr:AttackNote. NL mgr:Starting or mgr:Ending: If the base damage is not 0, gain a copy with it reduced by !M!."
+    "DESCRIPTION": "Deal !D! damage and generate 1 mgr:AttackNote. NL mgr:Starting or mgr:Ending: If the base damage is not 0, gain a copy with it reduced by !M!. Exhaust."
   },
     "MGR:BurnsRed":{
     "NAME":"Burns Red",
@@ -349,6 +349,6 @@
   },
   "MGR:IveSeenEverything":{
     "NAME":"I've Seen Everything",
-    "DESCRIPTION": "Enter mgr:Awaken. NL Exhaust."
+    "DESCRIPTION": "mgr:Awaken :Generate all kinds of *BasicNotes and mgr:EnergyNote. NL Otherwise, enter mgr:Awaken. NL Exhaust."
   }
 }

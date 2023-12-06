@@ -33,8 +33,7 @@ public class ResonanceForm extends AbstractMGRCard
 
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        if (!p.hasPower(ResonanceFormPower.POWER_ID))
-            this.addToBot(new ApplyPowerAction(p, p, new ResonanceFormPower(p), 1));
+        addToBot(new ApplyPowerAction(p, p, new ResonanceFormPower(p), 1));
     }
 
     public AbstractCard makeCopy() {return new ResonanceForm();}

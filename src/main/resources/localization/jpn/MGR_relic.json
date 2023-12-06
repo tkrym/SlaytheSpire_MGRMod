@@ -1,0 +1,102 @@
+{
+  "MGR:OldBow": {
+    "NAME": "オールドボウタイ",
+    "FLAVOR": "モノはただ捨てられる。モノは決して死なない。",
+    "DESCRIPTIONS": [
+      "カードを #b",
+      " 枚捨てるか廃棄するたび、カードを #b1 枚引く。"
+    ]
+  },
+  "MGR:BloodshotEyeball": {
+    "NAME": "充血した眼球",
+    "FLAVOR": "見つめられていない者だけが、他者を切実に見つめる。",
+    "DESCRIPTIONS": [
+      "戦闘開始時、 敵全体に #ymgr:視線 #b",
+      " を与える。 NL #ymgr:視線 の量は #b1 を下回らない。"
+    ]
+  },
+  "MGR:Sunglasses": {
+    "NAME": "サングラス",
+    "FLAVOR": "しかし、本当に塔にサングラスが必要なのだろうか？",
+    "DESCRIPTIONS": [
+      "#ymgr:視線 は発動時のみ #b",
+      " %減少する。"
+    ]
+  },
+  "MGR:UnknownCreature": {
+    "NAME": "ゆっくり",
+    "FLAVOR": "なぜついてくるのかはわからない、あなたが前進する理由を知らないのと同じように。",
+    "DESCRIPTIONS": [
+      "ターン開始時、 [E] を得る。獲得時、ボス以外のレリックをランダムで1つ #r食べる 、レアリティの高いレリックを優先。",
+      "レリックに別れを告げよう！",
+      "前進"
+    ]
+  },
+  "MGR:Telescreen": {
+    "NAME": "テレスクリーン",
+    "FLAVOR": "偉大な兄弟があなたを見守っている。",
+    "DESCRIPTIONS": [
+      "戦闘開始時、 #ymgr:目覚 の スタンス に入る。"
+    ]
+  },
+  "MGR:LittleAngel": {
+    "NAME": "小さな天使",
+    "FLAVOR": "不幸の束縛から解放されますように。",
+    "DESCRIPTIONS": [
+      "ターン開始時、引いた #yスキル カードの枚数が #b",
+      " 枚に満たない場合、1枚少なくなるごとに追加で #b",
+      " 枚引く。"
+    ]
+  },
+  "MGR:Fumo": {
+    "NAME": "Fumo",
+    "FLAVOR": "欲しい。",
+    "DESCRIPTIONS": [
+      "戦闘開始時、 #ymgr:フォルテ #b",
+      " を得る。"
+    ]
+  },
+  "MGR:Maguroyaki": {
+    "NAME": "鮪焼",
+    "FLAVOR": "どんな風味？",
+    "DESCRIPTIONS": [
+      "休憩場所で #y鍛冶 を行うと、最大HPの #b",
+      " %を回復する。"
+    ]
+  },
+  "MGR:MiniMicrophone": {
+    "NAME": "ミニマイク",
+    "FLAVOR": "歌声を塔全体に響かせよう。",
+    "DESCRIPTIONS": [
+      "戦闘開始時、それぞれ #ymgr:攻撃音符 、 #ymgr:防御音符 、 #ymgr:補強音符 #b1 を生成する。"
+    ]
+  },
+  "MGR:YourExclusiveStage": {
+    "NAME": "君だけのステージ",
+    "FLAVOR": "声の残響は全世界を駆け巡る。",
+    "DESCRIPTIONS": [
+      " #bミニマイク と置き換える。 NL #ymgr:カウンター の最大値を #b1 減らす。 NL ターン開始時、 #ymgr:即興 #b3 ."
+    ]
+  },
+  "MGR:WitchHat": {
+    "NAME": "魔女帽",
+    "FLAVOR": "小型で軽量でありながら、ここぞというときに役立つ。",
+    "DESCRIPTIONS": [
+      "ターン終了時、 #b2 ブロックを得る。 NL HPが #b50 %以下になると、さらに #b2 を得る。"
+    ]
+  },
+  "MGR:FriendsSpirit": {
+    "NAME": "友の魂",
+    "FLAVOR": "体は離れていても、心は共にある。",
+    "DESCRIPTIONS": [
+      "各戦闘、1枚目の #r非状態異常 、 #r非呪い カードを廃棄した後、その #ymgr:臨時 を得る。"
+    ]
+  },
+  "MGR:Voracious": {
+    "NAME": "饕餮",
+    "FLAVOR": "貪欲さが私たちを前進させ続ける。",
+    "DESCRIPTIONS": [
+      "#r状態異常 と #r呪い カードはプレーし、廃棄することができる。 NL 戦闘開始時、ランダムな #r状態異常 と #r呪い カード #b1 枚を手札に加える。"
+    ]
+  }
+}

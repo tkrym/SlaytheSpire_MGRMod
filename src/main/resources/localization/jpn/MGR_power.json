@@ -1,0 +1,190 @@
+{
+  "MGR:Forte": {
+    "NAME": "フォルテ",
+    "DESCRIPTIONS": [
+      "音符の効果を強化する。",
+      "音符の効果を弱める。"
+    ]
+  },
+  "MGR:Gaze": {
+    "NAME": "視線",
+    "DESCRIPTIONS": [
+      "#yコード 発動後に発動。所有者は #b",
+      " HPを失い、レイヤーは #b",
+      " %で減少する。"
+    ]
+  },
+  "MGR:Stereo": {
+    "NAME": "ステレオ",
+    "DESCRIPTIONS": [
+      "#y攻撃音符 はダメージの半分ブロックを得る。 NL #y防御音符 はランダムな敵に等倍ダメージを与える。"
+    ]
+  },
+  "MGR:StereoPlus": {
+    "NAME": "ステレオ+",
+    "DESCRIPTIONS": [
+      "#y攻撃音符 はダメージの半分ブロックを得る。 NL #y防御音符 はランダムな敵に等倍ダメージを与える。 NL #y補強音符 は2倍ブロックを得て、敵全体に2倍ダメージを与える。"
+    ]
+  },
+  "MGR:IndifferentLook": {
+    "NAME": "無関心",
+    "DESCRIPTIONS": [
+      "#y視線 を与えるかトリガーするたび、 #b",
+      " ブロックを得る。"
+    ]
+  },
+  "MGR:AdjustTempo": {
+    "NAME": "ペース調整",
+    "DESCRIPTIONS": [
+      "次の #yコード の後、トリガーされた音符を再び生成する。",
+      "次の #b",
+      " #yコード の後、トリガーされた音符を再び生成する。"
+    ]
+  },
+  "MGR:HarmonyForm": {
+    "NAME": "調和化",
+    "DESCRIPTIONS": [
+      "一番左と一番右の #y音符 がもう #b",
+      " 度効果を発揮する。"
+    ]
+  },
+  "MGR:GazeFromTheShadowPower": {
+    "NAME": "影からの視線",
+    "DESCRIPTIONS": [
+      "ターン開始時、視線 #b",
+      " を得る。"
+    ]
+  },
+  "MGR:YazyuutokasuPower": {
+    "NAME": "野獣と化す",
+    "DESCRIPTIONS": [
+      "ターン開始時、コストが最も #y低い ランダムな #b",
+      " 枚を捨て、 #yそうラゼ を #b",
+      " 枚手札に加える。"
+    ]
+  },
+  "MGR:YazyuutokasuPlusPower": {
+    "NAME": "野兽化+",
+    "DESCRIPTIONS": [
+      "ターン開始時、コストが最も #y低い ランダムな #b",
+      " 枚を捨て、 #yそうラゼ+ を #b",
+      " 枚手札に加える。"
+    ]
+  },
+  "MGR:ResonanceFormPower": {
+    "NAME": "共鳴化",
+    "DESCRIPTIONS": [
+      "#b",
+      " 番目のカードを引くかプレイするか捨てるか廃棄するたび、その #y臨時 #b",
+      " を得る。 NL まだ #b",
+      " 枚必要。"
+    ]
+  },
+  "MGR:SongOfSubmersionPower": {
+    "NAME": "水没の歌",
+    "DESCRIPTIONS": [
+      "次の #b",
+      " ターンの終わりに、敵全体が #y筋力 #b1 を失う。"
+    ]
+  },
+  "MGR:TheCursedPower": {
+    "NAME": "呪われた？",
+    "DESCRIPTIONS": [
+      "#y呪い を引くたび、カードを #b",
+      " 枚引き、 #y加護音符 #b",
+      " を生成する。"
+    ]
+  },
+  "MGR:TinyOrchestraPower": {
+    "NAME": "小さな楽団",
+    "DESCRIPTIONS": [
+      "ターン終了時、このターンに生成された #y音符 1 種類につき、敵全体に #b",
+      " ダメージを与える。 NL #b",
+      " 種類が生成された。"
+    ]
+  },
+  "MGR:SirenPower": {
+    "NAME": "SIREN",
+    "DESCRIPTIONS": [
+      "ターン終了時： #yDebuff が1種類存在するごとに #b",
+      " ブロックを得て、それぞれの敵がその #yDebuff 総量のHPを失う。"
+    ]
+  },
+  "MGR:ClimaxPower": {
+    "NAME": "クライマックス！",
+    "DESCRIPTIONS": [
+      "ターン終了時まで： #y音符 を生成する際、 #b",
+      " つの音符を余分に生成する。"
+    ]
+  },
+  "MGR:FolkRhymesPower": {
+    "NAME": "民謡",
+    "DESCRIPTIONS": [
+      "#yコード がトリガーされるたびに、 #b",
+      " ブロックを得る。"
+    ]
+  },
+  "MGR:LoseFortePower": {
+    "NAME": "フォルテを失う",
+    "DESCRIPTIONS": [
+      "ターン終了時、 #yフォルテ #b",
+      " を失う。"
+    ]
+  },
+  "MGR:SalivatePower": {
+    "NAME": "食欲",
+    "DESCRIPTIONS": [
+      "#y視線 は #y弱体 の影響を受ける。 NL #y視線 #y致命 時、最大HP+ #b",
+      " 。"
+    ]
+  },
+  "MGR:FourEyesPower": {
+    "NAME": "四目",
+    "DESCRIPTIONS": [
+      "敵に #yDebuff （ #y視線 を除く）を与えるたび、その #b",
+      " 倍の #y視線 を与える。"
+    ]
+  },
+  "MGR:BrilliantPower": {
+    "NAME": "輝かしい",
+    "DESCRIPTIONS": [
+      "#y即興 によって生成される #y音符 は少し良くなり、 #y星空音符 を含む。 NL ターン開始時、 #y即興 #b",
+      " 。"
+    ]
+  },
+  "MGR:HakkeroChargedPower": {
+    "NAME": "八卦炉充電完了",
+    "DESCRIPTIONS": [
+      "カードをプレイするたび、 #y攻撃音符 #b",
+      " を生成する。"
+    ]
+  },
+  "MGR:HakkeroChargePower": {
+    "NAME": "充電中",
+    "DESCRIPTIONS": [
+      "次のターン、 #y八卦炉充電完了 #b",
+      " を得る。"
+    ]
+  },
+  "MGR:HakkeroChargePlusPower": {
+    "NAME": "充電中+",
+    "DESCRIPTIONS": [
+      "次のターン、 #yフォルテ #b",
+      " と #y八卦炉充電完了 #b",
+      " を得る。"
+    ]
+  },
+  "MGR:BurnsRedPower": {
+    "NAME": "火傷の赤",
+    "DESCRIPTIONS": [
+      "#y攻撃音符 敵全体にダメージを与える。"
+    ]
+  },
+  "MGR:UnisonPower": {
+    "NAME": "ユニゾン",
+    "DESCRIPTIONS": [
+      "カードをプレイするたび、 #y即興 #b",
+      " 。"
+    ]
+  }
+}

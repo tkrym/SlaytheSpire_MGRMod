@@ -18,6 +18,7 @@ public class ResonanceFormPower extends AbstractPower implements OnManualDiscard
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+    public int amount2;
 
     public ResonanceFormPower(AbstractCreature owner)
     {
@@ -27,13 +28,14 @@ public class ResonanceFormPower extends AbstractPower implements OnManualDiscard
         this.amount = ResonanceForm.MAGIC;
         updateDescription();
         this.img = new Texture(IMG);
+        this.amount2=1;
     }
 
     @Override
-    public void stackPower(int stackAmount) {}
+    public void stackPower(int stackAmount) { if(stackAmount>0) this.amount2++;}
 
     @Override
-    public void updateDescription() {this.description = DESCRIPTIONS[0] + ResonanceForm.MAGIC + DESCRIPTIONS[1] + this.amount + DESCRIPTIONS[2];}
+    public void updateDescription() {this.description = DESCRIPTIONS[0] + ResonanceForm.MAGIC + DESCRIPTIONS[1] +this.amount2+DESCRIPTIONS[2]+ this.amount + DESCRIPTIONS[3];}
 
     @Override
     public void OnManualDiscard(AbstractCard c) {UpdateAmount(c);}
@@ -54,7 +56,8 @@ public class ResonanceFormPower extends AbstractPower implements OnManualDiscard
         {
             this.amount = ResonanceForm.MAGIC;
             this.flashWithoutSound();
-            addToTop(new TemporaryDuplicationAction(c));
+            for(int i=0;i<this.amount2;i++)
+                addToTop(new TemporaryDuplicationAction(c));
         }
         else if (this.amount == 1) this.flashWithoutSound();
         updateDescription();

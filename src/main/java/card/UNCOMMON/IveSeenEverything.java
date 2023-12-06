@@ -1,7 +1,9 @@
 package card.UNCOMMON;
 
+import action.ChannelNoteAction;
 import action.ChristmasGiftAction;
 import card.AbstractMGRCard;
+import character.MGR_character;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.watcher.ChangeStanceAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -12,6 +14,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import effect.AwakenedStanceParticleEffect;
 import effect.IveSeenEverythingEffect;
+import note.*;
 import path.AbstractCardEnum;
 import stance.AwakenedStance;
 
@@ -31,10 +34,22 @@ public class IveSeenEverything extends AbstractMGRCard {
     public void use(AbstractPlayer p, AbstractMonster m)
     {
         addToBot(new VFXAction(AbstractDungeon.player,new IveSeenEverythingEffect(),1.0f,true));
-        addToBot(new ChangeStanceAction(new AwakenedStance()));
+        if(!MGR_character.AwakenedStanceCheck()) addToBot(new ChangeStanceAction(new AwakenedStance()));
+        else
+        {
+            addToBot(new ChannelNoteAction(new AttackNote()));
+            addToBot(new ChannelNoteAction(new DefendNote()));
+            addToBot(new ChannelNoteAction(new DrawNote()));
+            addToBot(new ChannelNoteAction(new DebuffNote()));
+            addToBot(new ChannelNoteAction(new ArtifactNote()));
+            addToBot(new ChannelNoteAction(new StarryNote()));
+        }
     }
 
     public AbstractCard makeCopy() { return new IveSeenEverything(); }
+
+    @Override
+    public void triggerOnGlowCheck(){triggerOnGlowCheck_Awakened();}
 
     public void upgrade() {
         if (!this.upgraded) {

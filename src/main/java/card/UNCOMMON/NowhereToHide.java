@@ -28,7 +28,7 @@ public class NowhereToHide extends AbstractMGRCard
     private static final int COST = 2;
     /*private static final int DMG = 8;
     private static final int PLUS_DMG = 3;*/
-    private static final int MAGIC = 10;
+    private static final int MAGIC = 9;
     private static final int PLUS_MAGIC = 3;
     /*private static final int BLOCK = 2;
     private static final int PLUS_BLOCK = 1;*/

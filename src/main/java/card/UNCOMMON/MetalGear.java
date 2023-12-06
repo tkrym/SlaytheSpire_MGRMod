@@ -33,7 +33,7 @@ public class MetalGear extends AbstractMGRCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int DecDexterity=-2;
+        int DecDexterity=this.upgraded?-3:-2;
         int PlusNumber=this.upgraded?4:3;
         addToBot(new ApplyPowerAction(p,p,new DexterityPower(p,DecDexterity),DecDexterity));
         addToBot(new ApplyPowerAction(p,p,new MetallicizePower(p,this.magicNumber),this.magicNumber));

@@ -165,8 +165,8 @@
   },
     "MGR:ResonanceForm":{
     "NAME":"共鸣形态",
-    "DESCRIPTION": "每当你抽到、打出、丢弃或消耗第 !M! 张牌，将它的 mgr:临时复制 置入手牌。 NL *不可叠加 。 虚无 。",
-    "UPGRADE_DESCRIPTION": "每当你抽到、打出、丢弃或消耗第 !M! 张牌，将它的 mgr:临时复制 置入手牌。 NL *不可叠加 。"
+    "DESCRIPTION": "每当你抽到、打出、丢弃或消耗第 !M! 张牌，将它的 mgr:临时复制 置入手牌。 NL 虚无 。",
+    "UPGRADE_DESCRIPTION": "每当你抽到、打出、丢弃或消耗第 !M! 张牌，将它的 mgr:临时复制 置入手牌。"
   },
     "MGR:Confused":{
     "NAME":"困惑",
@@ -252,7 +252,7 @@
     "MGR:MetalGear":{
     "NAME":"合金装备",
     "DESCRIPTION": "失去2点敏捷，获得 !M! 层 *金属化 。 NL mgr:开眼 ：额外获得3层。 消耗 。",
-    "UPGRADE_DESCRIPTION": "失去2点敏捷，获得 !M! 层 *金属化 。 NL mgr:开眼 ：额外获得4层。 消耗 。"
+    "UPGRADE_DESCRIPTION": "失去3点敏捷，获得 !M! 层 *金属化 。 NL mgr:开眼 ：额外获得4层。 消耗 。"
     },
     "MGR:Marionette":{
     "NAME":"提线木偶",
@@ -442,6 +442,6 @@
   },
   "MGR:IveSeenEverything":{
     "NAME":"既见万象",
-    "DESCRIPTION": "进入 mgr:开眼 。 NL 消耗 。"
+    "DESCRIPTION": "mgr:开眼 ：生成全部 mgr:基本音符 与 mgr:能量音符 。 NL 否则，进入 mgr:开眼 。 NL 消耗 。"
   }
 }

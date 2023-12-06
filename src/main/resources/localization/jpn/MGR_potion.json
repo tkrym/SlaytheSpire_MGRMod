@@ -1,0 +1,38 @@
+{
+  "MGR:BottledNotes": {
+    "NAME": "音符ボトル",
+    "DESCRIPTIONS": [
+      "#y基本音符 から、特定の確率で #b",
+      " をランダムに生成する。"
+    ]
+  },
+  "MGR:PortableAnvil": {
+    "NAME": "携帯用金床",
+    "DESCRIPTIONS": [
+      "デッキのカード #b",
+      " 枚をランダムに #yアップグレード する。レアリティの高いカードほどアップグレードされる確率が高い。"
+    ]
+  },
+  "MGR:FortePotion": {
+    "NAME": "フォルテポーション",
+    "DESCRIPTIONS": [
+      " #yフォルテ #b",
+      " を得る。"
+    ]
+  },
+  "MGR:RadianceInThePupil": {
+    "NAME": "瞳の輝き",
+    "DESCRIPTIONS": [
+      "この戦闘の間、 #yカウンター の最大値を #b",
+      " 減らし、すぐに満たす。"
+    ]
+  },
+    "MGR:Doping": {
+    "NAME": "ドーピング",
+    "DESCRIPTIONS": [
+      "ランダムな #yパワー カードを #b",
+      " 枚引く。エネルギー #b",
+      " を得る。"
+    ]
+  }
+}

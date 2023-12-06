@@ -1,0 +1,63 @@
+{
+  "MGR:Draw": {
+    "DESCRIPTION": [
+      "#yトリガー ：カードを #b",
+      " 引く。 NL #b",
+      " #yフォルテ ごとに効果を #b1 加算する。"
+    ],
+    "NAME": "補強"
+  },
+  "MGR:Debuff": {
+    "DESCRIPTION": [
+      "#yトリガー ：アーティファクトを #b",
+      " 得る。 NL #b",
+      " #yフォルテ ごとに効果を #b1 加算する。"
+    ],
+    "NAME": "弱化"
+  },
+  "MGR:Empty": {
+    "DESCRIPTION": [
+      "ここで #y音符 を作成できる。"
+    ],
+    "NAME": "音符スロット"
+  },
+  "MGR:Defend": {
+    "DESCRIPTION": [
+      "#yトリガー ：ブロックを #b",
+      " 得る。 NL #b",
+      " #yフォルテ ごとに効果を #b1 加算する。"
+    ],
+    "NAME": "防御"
+  },
+  "MGR:Attack": {
+    "DESCRIPTION": [
+      "#yトリガー ：ランダムな敵に #b",
+      " ダメージを与える。 NL #b1 #yフォルテ ごとに効果を #b",
+      " 加算する。"
+    ],
+    "NAME": "攻撃"
+  },
+  "MGR:Artifact": {
+    "DESCRIPTION": [
+      "#yトリガー ：アーティファクトを #b",
+      " 得る。 NL #b",
+      " #yフォルテ ごとに効果を #b1 加算する。"
+    ],
+    "NAME": "加護"
+  },
+  "MGR:Ghost": {
+    "DESCRIPTION": [
+      "#yトリガー ：無形を #b",
+      " 得る。 NL #b",
+      " #yフォルテ ごとに効果を #b1 加算する。"
+    ],
+    "NAME": "幽霊"
+  },
+  "MGR:Starry": {
+    "DESCRIPTION": [
+      "#yトリガー ：エナジーを #b",
+      " 得る。 NL #yフォルテ の影響なし。"
+    ],
+    "NAME": "星空"
+  }
+}

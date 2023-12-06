@@ -1,0 +1,354 @@
+{
+  "MGR:Strike_MGR": {
+  "NAME": "ストライク",
+  "DESCRIPTION": "!D! ダメージを与える。",
+  "UPGRADE_DESCRIPTION": "!D! ダメージを与える。 NL mgr:攻撃音符 1 を生成する。"
+},
+  "MGR:Defend_MGR": {
+  "NAME": "防御",
+  "DESCRIPTION": "!B! ブロックを得る。",
+  "UPGRADE_DESCRIPTION": "!B! ブロックを得る。 NL mgr:防御音符 1 を生成する。"
+},
+  "MGR:AttackTied":{
+  "NAME":"攻撃同点",
+  "DESCRIPTION": "!D! ダメージを与える。 NL mgr:攻撃音符 !M! を生成する。"
+},
+  "MGR:Lullaby":{
+  "NAME":"子守唄",
+  "DESCRIPTION": "!B! ブロックを得る。 NL mgr:終了 ：生物全体に脱力 !M! を与える。",
+  "UPGRADE_DESCRIPTION": "!B! ブロックを得る。 NL mgr:終了 ：敵全体に脱力 !M! を与える。"
+},
+  "MGR:EastOfTimeline":{
+  "NAME":"Timelineの東",
+  "DESCRIPTION": "mgr:攻撃音符 !M! を生成する。 NL 戦闘において最初か最後にプレイされた場合、数値を永続的に1増やす。 NL mgr:廃棄回数 2"
+},
+  "MGR:GazeLock":{
+  "NAME":"視線ロック",
+  "DESCRIPTION": "敵の mgr:debuff 1種類につき、カードを1枚引き、 mgr:視線 !M! を与える。"
+},
+  "MGR:LAB01":{
+  "NAME":"LAB=01",
+  "DESCRIPTION": "手札にあるとき、トリガーされた音符を記録し、捨て札に入ったらリセットする。これらの音符の効果を使用する。 NL !M! ターンで *保留 、 廃棄"
+},
+  "MGR:HarmonyForm":{
+  "NAME":"調和化",
+  "DESCRIPTION": "エセリアル NL 一番左と一番右の mgr:音符 がもう1度効果を発揮する。",
+  "UPGRADE_DESCRIPTION": "一番左と一番右の mgr:音符 がもう1度効果を発揮する。"
+},
+  "MGR:Stereophonic":{
+  "NAME":"ステレオ",
+  "DESCRIPTION": "mgr:攻撃音符 はダメージの半分ブロックを得る。 NL mgr:防御音符 はランダムな敵に等倍ダメージを与える。",
+  "UPGRADE_DESCRIPTION": "mgr:攻撃音符 はダメージの半分ブロックを得る。 NL mgr:防御音符 はランダムな敵に等倍ダメージを与える。 NL mgr:補強音符 は2倍ブロックを得て、敵全体に2倍ダメージを与える。"
+},
+  "MGR:AdjustTempo":{
+  "NAME":"ペース調整",
+  "DESCRIPTION": "mgr:補強音符 !M! を生成する。 NL 次の mgr:コード の後、トリガーされた音符を再び生成する。 NL mgr:廃棄回数 2",
+  "UPGRADE_DESCRIPTION": "mgr:補強音符 !M! を生成する。 NL 次の mgr:コード の後、トリガーされた音符を再び生成する。"
+},
+  "MGR:StageWarmUp":{
+  "NAME":"ウォームアップ",
+  "DESCRIPTION": "mgr:フォルテ !M! を得る。",
+  "UPGRADE_DESCRIPTION": "mgr:フォルテ !M! を得る。 NL mgr:目覚 ：さらに *ウォームアップ を手札に加える。"
+},
+  "MGR:ScaryGlare": {
+  "NAME":"怖い目つき",
+  "DESCRIPTION": "!D! ダメージを与える。 NL mgr:視線 !M! を与える。 NL 敵の視線が2つあるごとに、さらに1つ視線を与える。"
+},
+  "MGR:IndifferentLook": {
+  "NAME": "無関心な目",
+  "DESCRIPTION": "mgr:視線 を与えるかトリガーするたび、 !M! ブロックを得る。"
+},
+  "MGR:MasterSpark": {
+  "NAME": "マスタースパーク",
+  "DESCRIPTION": "敵全体に !D! ダメージを与える。 NL mgr:フォルテ !M! を失う。"
+},
+  "MGR:Obakenoukenerai": {
+  "NAME": "おばけのウケねらい",
+  "DESCRIPTION": "mgr:幽霊音符 !M! を生成する。 NL 廃棄",
+  "UPGRADE_DESCRIPTION":"mgr:幽霊音符 !M! を生成する。 NL mgr:目覚 ： もう1つ生成する。 廃棄"
+},
+  "MGR:MaguroBash": {
+  "NAME": "マグロ強打",
+  "DESCRIPTION": "!D! ダメージを与える。 NL このターンの mgr:コード 1つにつきダメージを !M! 増やす。"
+},
+  "MGR:Unison":{
+  "NAME":"ユニゾン",
+  "DESCRIPTION": "カードをプレイするたび、 mgr:即興 !M! 。",
+  "UPGRADE_DESCRIPTION": "天賦 NL カードをプレイするたび、 mgr:即興 !M! 。"
+},
+  "MGR:MaguroAssault":{
+  "NAME":"マグロ暴襲",
+  "DESCRIPTION": "!D! ダメージを与える。このターンの mgr:コード 1つにつきダメージを !M! 増やす。 NL mgr:終了 ：ダメージ倍増。 NL mgr:目覚 ：ダメージ倍増。"
+},
+  "MGR:Rehearsal":{
+  "NAME":"予行演習",
+  "DESCRIPTION": "カードを !M! 枚引く。 NL 引いたカードに対応する mgr:音符 を生成する。 NL 廃棄",
+  "UPGRADE_DESCRIPTION": "カードを !M! 枚引く。 NL 引いたカードに対応する mgr:音符 を生成する。"
+},
+  "MGR:DarkDiffuse":{
+  "NAME":"暗の拡散",
+  "DESCRIPTION": "敵全体に !D! ダメージを与える。 NL ターン終了時まで、それぞれの敵がその mgr:debuff 1種類につき 筋力 !M! を失う。"
+},
+  "MGR:Hallucination":{
+  "NAME":"幻覚",
+  "DESCRIPTION": "自分のランダムな mgr:debuff を敵に移す。 NL mgr:目覚 ：代わりに、すべての mgr:debuff 。 NL 廃棄",
+  "UPGRADE_DESCRIPTION": "自分のランダムな mgr:debuff を敵に移す。 NL mgr:目覚 ：代わりに、すべての mgr:debuff 。 NL 保留 、 廃棄"
+},
+  "MGR:Peek":{
+  "NAME":"窺う",
+  "DESCRIPTION": "mgr:視線 !M! を与える。 NL mgr:目覚 ：もう一度与える。"
+},
+  "MGR:GazeFromTheShadow":{
+  "NAME":"影からの視線",
+  "DESCRIPTION": "敵のターン開始時、 mgr:視線 !M! を与える。 NL 廃棄"
+},
+  "MGR:ResonanceForm":{
+  "NAME":"共鳴化",
+  "DESCRIPTION": "エセリアル NL !M! 番目のカードを引くかプレイするか捨てるか廃棄するたび、その mgr:臨時 を得る。",
+  "UPGRADE_DESCRIPTION": "!M! 番目のカードを引くかプレイするか捨てるか廃棄するたび、その mgr:臨時 を得る。"
+},
+  "MGR:Confused":{
+  "NAME":"そうラゼ",
+  "DESCRIPTION": "カードを !M! 枚引く。 NL 廃棄",
+  "UPGRADE_DESCRIPTION": "カードを !M! 枚引く。 NL 保留 、 廃棄"
+},
+  "MGR:Romp":{
+  "NAME":"獣歩",
+  "DESCRIPTION": "*そうラゼ を !M! 枚手札に加える。 NL 廃棄",
+  "UPGRADE_DESCRIPTION": "*そうラゼ を !M! 枚手札に加える。 NL 保留 、 廃棄"
+},
+  "MGR:Yazyuutokasu":{
+  "NAME":"野獣と化す",
+  "DESCRIPTION": "ターン開始時、コストが最も *低い ランダムな1枚を捨て、 *そうラゼ を1枚手札に加える。",
+  "UPGRADE_DESCRIPTION": "ターン開始時、コストが最も *低い ランダムな1枚を捨て、 *そうラゼ+ を1枚手札に加える。"
+},
+  "MGR:MaguroCleave":{
+  "NAME":"マグロ横薙",
+  "DESCRIPTION": "敵全体に !D! ダメージを与える。 NL このターンの mgr:コード 1つにつきダメージを !M! 増やす。"
+},
+  "MGR:SongOfSubmersion":{
+  "NAME":"水没の歌",
+  "DESCRIPTION": "!B! ブロックを得る。 NL 次の !M! ターンの終わりに、敵全体が 筋力 1を失う。"
+},
+  "MGR:Chorus":{
+  "NAME":"コーラス",
+  "DESCRIPTION": "mgr:即興 !M! 。",
+  "UPGRADE_DESCRIPTION": "mgr:即興 !M! 。 NL mgr:始動 ： mgr:即興 2。"
+},
+  "MGR:StardustLaser":{
+  "NAME":"星屑レーザー",
+  "DESCRIPTION": "mgr:星空 NL 敵全体に !D! ダメージを与える。"
+},
+  "MGR:Kimitomitahosizora":{
+  "NAME":"君と見た星空",
+  "DESCRIPTION": "mgr:星空 。 占術 !M! 。 NL 選ばれたカードは手札から捨てられたものとみなされる。"
+},
+  "MGR:Futariboshi":{
+  "NAME":"フタリボシ",
+  "DESCRIPTION": "mgr:星空 NL カードを !M! 枚まで捨て、同等の mgr:星空音符 を生成する。"
+},
+  "MGR:DizzyAndGiddy":{
+  "NAME":"目眩",
+  "DESCRIPTION": "カードを !M! 枚まで捨て、対応する mgr:音符 を生成する。 NL 2枚以上捨てられた場合、1枚引く。",
+  "UPGRADE_DESCRIPTION": "カードを !M! 枚まで捨て、対応する mgr:音符 を生成する。 NL 3枚以上捨てられた場合、2枚引く。"
+},
+  "MGR:Swallow":{
+  "NAME":"飲み込む",
+  "DESCRIPTION": "!D! ダメージを与える。 NL HPを !M! 回復する。 NL 敵がミニオンであれば、殺して3倍回復する。",
+  "EXTENDED_DESCRIPTION": [
+      "食べよう！"
+  ]
+},
+  "MGR:Nocturnal":{
+  "NAME":"夜行",
+  "DESCRIPTION": "山札にランダムな *呪い を1枚加える。 NL 山札、捨て札、手札、廃棄札の *呪い 1つにつき、ランダムな敵に !D! ダメージを与える。"
+},
+  "MGR:TheCursed":{
+  "NAME":"呪われた",
+  "DESCRIPTION": "山札にランダムな *呪い を1枚加える。 NL *呪い を引くたび、カードを1枚引き、 mgr:加護音符 1を生成する。",
+  "UPGRADE_DESCRIPTION": "天賦 NL 山札にランダムな *呪い を1枚加える。 NL *呪い を引くたび、カードを1枚引き、 mgr:加護音符 1を生成する。"
+},
+  "MGR:TinyOrchestra":{
+  "NAME":"小さな楽団",
+  "DESCRIPTION": "ターン終了時、このターンに生成された mgr:音符 1種類につき、敵全体に !M! ダメージを与える。"
+},
+  "MGR:MetalGear":{
+  "NAME":"メタルギア",
+  "DESCRIPTION": "敏捷性 2 を失う。 *金属化 !M! を得る。 NL mgr:目覚 ：さらに 3 を得る。 廃棄",
+  "UPGRADE_DESCRIPTION": "敏捷性 3 を失う。 *金属化 !M! を得る。 NL mgr:目覚 ：さらに 4 を得る。 廃棄"
+  },
+  "MGR:Marionette":{
+  "NAME":"操り人形",
+  "DESCRIPTION": "mgr:偽状態異常 NL ターン終了時まで、敵全体が 筋力 !M! を失う。 NL 捨てたときにも効果がある。 廃棄"
+},
+  "MGR:FieryPerformance":{
+  "NAME":"激奏",
+  "DESCRIPTION": "手札が !M! 枚になるまでカードを引く。 NL コストが最も *低い ランダムな1枚を捨てる。"
+},
+  "MGR:ChristmasGift":{
+  "NAME":"ギフト",
+  "DESCRIPTION": "mgr:特定 の確率で：報酬にランダムな *ポーション を加える、 !M! *ゴールド を得る、デッキのランダムなカードを アップグレード する。 廃棄",
+  "UPGRADE_DESCRIPTION": "mgr:ベター の確率で：報酬にランダムな *ポーション を加える、 !M! *ゴールド を得る、デッキのランダムなカードを アップグレード する。 廃棄"
+},
+  "MGR:BroomStrike":{
+  "NAME":"箒殴る",
+  "DESCRIPTION": "!D! ダメージを与え、 mgr:攻撃音符 1を生成する。 NL このターンに mgr:コード がある場合、 !B! ブロックを得て、 mgr:防御音符 1を生成する。"
+},
+  "MGR:Shatter":{
+  "NAME":"ゴーストルール",
+  "DESCRIPTION": "手札をすべて廃棄する。 NL 廃棄した枚数ｘ !B! ブロックを得る。 NL !M! 枚以上の場合、 mgr:フォルテ 1を得る。 NL 廃棄",
+  "UPGRADE_DESCRIPTION": "手札をすべて廃棄する。 NL 廃棄した枚数ｘ !B! ブロックを得る。 NL !M! 枚以上の場合、 mgr:フォルテ 1を得る。 NL mgr:廃棄回数 2"
+},
+  "MGR:Strafe":{
+  "NAME":"掃射",
+  "DESCRIPTION": "!D! ダメージを与え、同等の mgr:攻撃音符 を生成する。"
+},
+  "MGR:NowhereToHide":{
+  "NAME":"無限の怖視",
+  "DESCRIPTION": "敵全体に mgr:視線 !M! を与え、視線をトリガーする。 NL 敵を倒したら、これを繰り返す。"
+},
+  "MGR:Drown":{
+  "NAME":"溺死",
+  "DESCRIPTION": "!D! ダメージを与える。 NL *締め付け !M! を与える。"
+},
+  "MGR:ReconvertingCharm":{
+  "NAME":"逆流マジック",
+  "DESCRIPTION": "!D! ダメージを与える。 NL 最後にプレイした非廃棄カードを手札に戻す。 NL mgr:目覚 ：その mgr:臨時 を得る。"
+},
+  "MGR:DragonClaw":{
+  "NAME":"龍の爪",
+  "DESCRIPTION": "!D! ダメージと同等の毒を与える。 NL !M! 回プレイするか捨てる、これを廃棄し、 *龍の口 を捨て札に加える。",
+  "UPGRADE_DESCRIPTION": "!D! ダメージと同等の毒を与える。 NL !M! 回プレイするか捨てる、これを廃棄し、 *龍の口+ を捨て札に加える。"
+},
+  "MGR:FrenziedDragonBite":{
+  "NAME":"龍の口",
+  "DESCRIPTION": "敵の mgr:debuff 総量の !M! 倍に相当するダメージを与える。 NL その mgr:debuff を2倍にする。 NL 廃棄"
+},
+
+  "MGR:AccurateShooting":{
+  "NAME":"正確射撃",
+  "DESCRIPTION": "!D! ダメージを与える。 NL mgr:終了 ：ダメージ倍増。"
+},
+  "MGR:Siren":{
+  "NAME":"SIREN",
+  "DESCRIPTION": "ターン終了時： mgr:debuff が1種類存在するごとに !M! ブロックを得て、それぞれの敵がその mgr:debuff 総量のHPを失う。"
+},
+  "MGR:VocalPreparation":{
+  "NAME":"準備",
+  "DESCRIPTION": "mgr:防御音符 !M! を生成する。 NL *クライマックス *！を捨て札に加える。 NL mgr:目覚 ：代わりに山札に加える。 NL 廃棄",
+  "UPGRADE_DESCRIPTION": "mgr:防御音符 !M! を生成する。 NL *クライマックス *！ *+ を捨て札に加える。 NL mgr:目覚 ：代わりに山札に加える。 NL 保留 、 廃棄"
+},
+  "MGR:Climax":{
+  "NAME":"クライマックス！",
+  "DESCRIPTION": "ターン終了時まで： mgr:フォルテ !M! を得て、生成 mgr:音符 倍増。 NL 廃棄",
+  "UPGRADE_DESCRIPTION": "ターン終了時まで： mgr:フォルテ !M! を得て、生成 mgr:音符 倍増。 NL 保留 、 廃棄"
+},
+  "MGR:MyReflection":{
+  "NAME":"私の反射",
+  "DESCRIPTION": "コストが最も *低い ランダムな1枚を廃棄する。 NL このターン、コストが最も *高い ランダムな1枚を [E] [E] 減らす。",
+  "UPGRADE_DESCRIPTION": "コストが最も *低い ランダムな1枚を廃棄する。 NL このターン、コストが最も *高い ランダムな1枚を [E] [E] [E] 減らす。"
+},
+  "MGR:FolkRhymes":{
+  "NAME":"民謡",
+  "DESCRIPTION": "mgr:コード がトリガーされるたびに、 !M! ブロックを得る。",
+  "UPGRADE_DESCRIPTION": "天賦 NL mgr:コード がトリガーされるたびに、 !M! ブロックを得る。"
+},
+  "MGR:Dexterous":{
+  "NAME":"器用な歩",
+  "DESCRIPTION": "!B! ブロックを得る。 NL mgr:終了 ：カードを !M! 枚引く。 NL mgr:始動 ：次のターン、 [E] を得る。",
+  "UPGRADE_DESCRIPTION": "!B! ブロックを得る。 NL mgr:終了 ：カードを !M! 枚引く。 NL mgr:始動 ：次のターン、 [E] [E] を得る。"
+},
+  "MGR:Salivate":{
+  "NAME":"食欲",
+  "DESCRIPTION": "mgr:視線 は 弱体 の影響を受ける。 NL mgr:視線 致命 時、最大HP+ !M! 。"
+},
+  "MGR:SummoningCharm":{
+  "NAME":"復元マジック",
+  "DESCRIPTION": "mgr:音符 をすべて取り除き、その mgr:音符 に対応するランダムなカードを手札に加える。 廃棄",
+  "UPGRADE_DESCRIPTION": "mgr:音符 をすべて取り除き、その mgr:音符 に対応するランダムな アップグレード したカードを手札に加える。 廃棄"
+},
+  "MGR:SunDescending":{
+  "NAME":"日時計",
+  "DESCRIPTION": "使用不可 NL 捨てるか廃棄すると、敵全体に !D! ダメージを与え、リセットする。 NL カードを捨てるか廃棄するたびにダメージを !M! 上げる。"
+},
+  "MGR:FourEyes":{
+  "NAME":"四目",
+  "DESCRIPTION": "敵に mgr:debuff （ mgr:視線 を除く）を与えるたび、同等の mgr:視線 を与える。",
+  "UPGRADE_DESCRIPTION": "天賦 NL 敵に mgr:debuff （ mgr:視線 を除く）を与えるたび、同等の mgr:視線 を与える。"
+},
+  "MGR:Frighten":{
+  "NAME":"嚇し付ける",
+  "DESCRIPTION": "!D! ダメージを与える。 NL mgr:視線 !M! を与える。 NL 敵が mgr:視線 を持っている場合、 弱体 2を与える。敵が 弱体 を持っている場合、 mgr:視線 !M! を追加する。",
+  "UPGRADE_DESCRIPTION": "!D! ダメージを与える。 NL mgr:視線 !M! を与える。 NL 敵が mgr:視線 を持っている場合、 弱体 3を与える。敵が 弱体 を持っている場合、 mgr:視線 !M! を追加する。"
+},
+  "MGR:Brilliant":{
+  "NAME":"輝かしい",
+  "DESCRIPTION": "mgr:即興 によって生成される mgr:音符 は少し良くなり、 mgr:星空音符 を含む。 NL ターン開始時、 mgr:即興 !M! 。"
+},
+  "MGR:LightUpTheStage":{
+  "NAME":"光を放つ",
+  "DESCRIPTION": "ランダムな敵に !D! ダメージを !M! 回与える。 NL プレイ後、ダメージを3上げる。捨てる後、回数を2上げる。"
+},
+  "MGR:EchoPhantom":{
+  "NAME":"反響幻影",
+  "DESCRIPTION": "カードを !M! 枚捨てる。捨て札からカードを !M! 枚選び、そのコピーを山札の上に置く。 NL mgr:目覚 ：手札に1枚追加する。 廃棄",
+"UPGRADE_DESCRIPTION": "カードを !M! 枚捨てる。捨て札からカードを !M! 枚選び、そのコピーを山札の上に置く。 NL mgr:目覚 ：手札に1枚追加する。 mgr:廃棄回数 2"
+},
+  "MGR:IntertwinedTimbres":{
+  "NAME":"音色交錯",
+  "DESCRIPTION": "mgr:即興 !M! NL このターンに生成された mgr:音符 1種類につき、 !B! ブロックを得る。"
+},
+  "MGR:Reflexivity":{
+  "NAME":"再帰性",
+  "DESCRIPTION": "!B! ブロックを得る。 NL 捨て札からカード2枚を山札の底に戻す。 NL mgr:目覚 ：代わりに、山札の上へ。"
+},
+  "MGR:TheEyeBehind":{
+  "NAME":"背後の目",
+  "DESCRIPTION": "敵が 脱力 を受けてない場合は2を、なければ1を与える。 NL 弱体 と mgr:視線 にもこれをする。 廃棄",
+  "UPGRADE_DESCRIPTION": "敵が 脱力 を受けてない場合は2を、なければ3を与える。 NL 弱体 と mgr:視線 にもこれをする。 廃棄"
+},
+  "MGR:StarryDrift":{
+  "NAME":"星空漂流",
+  "DESCRIPTION": "mgr:星空 NL カードを !M! 枚引く。 NL カードを !M! 枚捨てる。",
+  "UPGRADE_DESCRIPTION": "mgr:星空 NL カードを !M! 枚引く。 NL カードを !M! 枚捨てる。"
+},
+  "MGR:HakkeroCharge":{
+  "NAME":"八卦炉充電",
+  "DESCRIPTION": "次のターン、カードをプレイするたび、 mgr:攻撃音符 !M! を生成する。 NL mgr:目覚 ：そのターンに、 mgr:フォルテ 1を得る。 NL 廃棄",
+  "UPGRADE_DESCRIPTION": "次のターン、カードをプレイするたび、 mgr:攻撃音符 !M! を生成する。 NL mgr:目覚 ：そのターンに、 mgr:フォルテ 1を得る。 NL 保留 、 廃棄"
+  },
+  "MGR:RapidClaw":{
+  "NAME":"急爪",
+  "DESCRIPTION": "!D! ダメージを与え、 mgr:攻撃音符 1を生成する。 NL mgr:始動 か mgr:終了 ：基本ダメージが0でない場合、それを !M! 減らすコピーを手札に加える。 廃棄"
+},
+  "MGR:BurnsRed":{
+  "NAME":"火傷の赤",
+  "DESCRIPTION": "mgr:攻撃音符 敵全体にダメージを与える。",
+  "UPGRADE_DESCRIPTION": "mgr:攻撃音符 敵全体にダメージを与える。 NL mgr:攻撃音符 !M! を生成する。"
+},
+  "MGR:TheBurningSun":{
+  "NAME":"焼き尽す",
+  "DESCRIPTION": "カードを !M! 枚まで廃棄する。 NL 次のターンにその枚数を引く。 NL mgr:目覚 ：代わりに、その mgr:臨時 を得る。"
+},
+"MGR:Finale":{
+  "NAME":"終曲",
+  "DESCRIPTION": "手札のアタック以外のカードをすべて捨てる。捨てられた1枚につき mgr:攻撃音符 !M! を生成する。 NL エセリアル"
+},
+"MGR:Masterful":{
+  "NAME":"オールマイティー",
+  "DESCRIPTION": "すべての種類の mgr:音符 について、それに対応するカードをランダムに1枚引く。このターン、それらのコストを [E] 減らす。 廃棄",
+  "UPGRADE_DESCRIPTION": "天賦 NL すべての種類の mgr:音符 について、それに対応するカードをランダムに1枚引く。このターン、それらのコストを [E] 減らす。 廃棄"
+},
+"MGR:GazeOfOthers":{
+  "NAME":"他人の視線",
+  "DESCRIPTION": "!B! ブロックを得る。 NL 敵の mgr:視線 が !M! 以上の場合、もう1回得る。"
+},
+"MGR:Casually":{
+  "NAME":"何気ない",
+  "DESCRIPTION": "使用不可 NL 引かれたとき： mgr:即興 !D! 。 NL 廃棄されたか捨てたとき： mgr:即興 !M! 。"
+},
+"MGR:IveSeenEverything":{
+  "NAME":"見尽くす",
+  "DESCRIPTION": "mgr:目覚 ：すべての mgr:基本音符 と mgr:星空音符 を生成する。 NL そうでない： mgr:目覚 に入る。 NL 廃棄"
+}
+}

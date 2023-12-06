@@ -75,7 +75,8 @@
     "NAME": "Resonance Form",
     "DESCRIPTIONS": [
       "Whenever you draw, play, discard or exhaust the #b",
-      "th card, gain its #yTempCopy . #yNonStackable. NL Still need #b",
+      "th card, gain its #b",
+      " #yTempCopy . NL Still need #b",
       " cards."
     ]
   },

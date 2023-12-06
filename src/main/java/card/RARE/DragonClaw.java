@@ -25,8 +25,8 @@ public class DragonClaw extends AbstractMGRCard
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG = "img/card/" + ID.substring(4) + ".png";
     private static final int COST = 1;
-    private static final int DMG = 4;
-    private static final int PLUS_DMG = 2;
+    private static final int DMG = 5;
+    private static final int PLUS_DMG = 3;
     private static final int MAGIC = 2;
 
     public DragonClaw()
