@@ -68,6 +68,7 @@ public class Climax extends AbstractMGRCard
             this.upgradeName();
             this.selfRetain = true;
             this.rawDescription = UPGRADE_DESCRIPTION;
+            this.upgradeMagicNumber(1);
             initializeDescription();
         }
     }

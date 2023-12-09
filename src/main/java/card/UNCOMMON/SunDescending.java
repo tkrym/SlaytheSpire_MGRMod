@@ -27,8 +27,8 @@ public class SunDescending extends AbstractMGRCard implements OnExhaustCardHook,
     private static final int COST = -2;
     private static final int MAGIC = 2;
     private static final int PLUS_MAGIC = 1;
-    private static final int DMG = 4;
-    private static final int PLUS_DMG = 1;
+    private static final int DMG = 3;
+    private static final int PLUS_DMG = 2;
 
     public SunDescending()
     {
@@ -97,7 +97,7 @@ public class SunDescending extends AbstractMGRCard implements OnExhaustCardHook,
         if (!this.upgraded)
         {
             this.upgradeName();
-            //this.upgradeDamage(PLUS_DMG);
+            this.upgradeDamage(PLUS_DMG);
             this.upgradeMagicNumber(PLUS_MAGIC);
         }
     }

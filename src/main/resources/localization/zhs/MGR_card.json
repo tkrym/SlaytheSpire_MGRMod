@@ -290,7 +290,7 @@
   },
     "MGR:ReconvertingCharm":{
     "NAME":"回溯",
-    "DESCRIPTION": "造成 !D! 点伤害。将你打出的上 !M! 张未消耗的牌移回手牌。 NL mgr:开眼 ：获得其 mgr:临时复制 。"
+    "DESCRIPTION": "造成 !D! 点伤害。将你打出的上 !M! 张未消耗的牌移回手牌。 NL mgr:开眼 ：改为获得其 mgr:临时复制 。"
   },
     "MGR:DragonClaw":{
     "NAME":"龙爪",
@@ -394,8 +394,8 @@
   },
     "MGR:StarryDrift":{
     "NAME":"星空飘浮",
-    "DESCRIPTION": " mgr:星空 。 NL 抽 !M! 张牌。 NL 丢弃 !M! 张牌。",
-    "UPGRADE_DESCRIPTION": " mgr:星空 。 NL 抽 !M! 张牌。 NL 丢弃 !M! 张牌。"
+    "DESCRIPTION": " mgr:星空 。 NL 抽 !M! 张牌。 NL 丢弃 3 张牌。",
+    "UPGRADE_DESCRIPTION": " mgr:星空 。 NL 抽 !M! 张牌。 NL 丢弃 3 张牌。"
   },
     "MGR:HakkeroCharge":{
     "NAME":"八卦炉充能",

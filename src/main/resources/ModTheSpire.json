@@ -6,7 +6,7 @@
   ],
   "description": "Adds MGR(Meguru Aneki) from Cookie(Touhou) as a new character. \nContact me via Discord@mgrsk if there is any problem.",
   "dependencies": ["basemod", "stslib"],
-  "version": "1.1.4",
+  "version": "1.1.6",
   "sts_version": "12-18-2022",
   "credits": "Lovely MGR and all those who have created for her."
 }

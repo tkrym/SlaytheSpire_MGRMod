@@ -213,7 +213,7 @@
 },
   "MGR:ReconvertingCharm":{
   "NAME":"逆流マジック",
-  "DESCRIPTION": "!D! ダメージを与える。 NL 最後にプレイした非廃棄カードを手札に戻す。 NL mgr:目覚 ：その mgr:臨時 を得る。"
+  "DESCRIPTION": "!D! ダメージを与える。 NL 最後にプレイした非廃棄カードを手札に戻す。 NL mgr:目覚 ：代わりに、その mgr:臨時 を得る。"
 },
   "MGR:DragonClaw":{
   "NAME":"龍の爪",
@@ -309,8 +309,8 @@
 },
   "MGR:StarryDrift":{
   "NAME":"星空漂流",
-  "DESCRIPTION": "mgr:星空 NL カードを !M! 枚引く。 NL カードを !M! 枚捨てる。",
-  "UPGRADE_DESCRIPTION": "mgr:星空 NL カードを !M! 枚引く。 NL カードを !M! 枚捨てる。"
+  "DESCRIPTION": "mgr:星空 NL カードを !M! 枚引く。 NL カードを 3 枚捨てる。",
+  "UPGRADE_DESCRIPTION": "mgr:星空 NL カードを !M! 枚引く。 NL カードを 3 枚捨てる。"
 },
   "MGR:HakkeroCharge":{
   "NAME":"八卦炉充電",

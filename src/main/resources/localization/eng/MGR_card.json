@@ -213,7 +213,7 @@
   },
     "MGR:ReconvertingCharm":{
     "NAME":"Reconvert",
-    "DESCRIPTION": "Deal !D! damage. NL Return the last *non-exhaust card you played back to hand. NL mgr:Awaken: Gain its mgr:TempCopy."
+    "DESCRIPTION": "Deal !D! damage. NL Return the last *non-exhaust card you played back to hand. NL mgr:Awaken: Gain its mgr:TempCopy instead."
   },
     "MGR:DragonClaw":{
     "NAME":"Dragon Claw",
@@ -309,8 +309,8 @@
   },
     "MGR:StarryDrift":{
     "NAME":"Starry Drift",
-    "DESCRIPTION": "mgr:Starry. NL Draw !M! cards. NL Discard !M! cards.",
-    "UPGRADE_DESCRIPTION": "mgr:Starry. NL Draw !M! cards. NL Discard !M! cards."
+    "DESCRIPTION": "mgr:Starry. NL Draw !M! cards. NL Discard 3 cards.",
+    "UPGRADE_DESCRIPTION": "mgr:Starry. NL Draw !M! cards. NL Discard 3 cards."
   },
     "MGR:HakkeroCharge":{
     "NAME":"Hakkero Charge",
